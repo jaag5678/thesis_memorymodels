@@ -1,0 +1,24 @@
+\section{Discussion} 
+
+    %One of the key problems to tackle in relaxed memory consistency is to contain the sheer complexity of possible behaviors of a program by giving a concise set of semantics to while also keeping it as intuitive as possible. It also becomes important to abstract away unnecessary complexity specific to the standard / implementations which may not be necessary to understand the semantics for a specific purpose. Lastly, it is important to frame the semantics in a way appropriate to address specific concern which for our purpose was optimizations. This is exactly what we intended while describing the ECMAScript memory model. 
+    
+%    Our formal description of the model attempts to abstract away the complexities that may not be required, thus creating a clear separation of concerns while addressing these transformations related to only shared memory events.
+    %The consistency rules were framed restricting possible reads-from/read-bytes-from relations, contrast to it being restricting possible happens-before relations in the standard. This made it easier to intuitively think of how the rules affect possible observable behaviors when we attempt reordering two events. 
+ 
+    %While performing optimizations (in our case reordering), the complexity of possible executions may seem overwhelming to take into account in order to ensure that it does not introduce unwanted behaviors. 
+    Theorem 1 and its corollary together give us a set of conditions that just need to be checked in addition while performing reordering of relaxed memory events. Having these set of conditions helps us avoid addressing the data-flow complexity due to different executions of the program using such accesses.    
+%    We also have counter examples for each case that we consider performing such reordering in general is not safe, thus ensuring that we are not disallowing reordering that must be valid for any program (given our conditions of course).
+    
+    It is important to note that our approach is conservative, and one might be able to do reordering without causing new observable behaviors to occur even in cases that do not not satisfy our conditions. 
+    This is possible because certain happens-before relations may not be essential and hence discarding them will not result in any invalid observable behavior.
+    Getting such information would require an analysis that takes into account relations that we cannot obtain using just intra-thread information, which in practice might be infeasible as the number of threads and events increase. (One such well studied analysis is May-Happen-In-Parallel, whose origins come from the work done by Naumovich et al.~\cite{NaumovichA}).
+    
+    It is also important to note that we focus on Candidates rather than the Program.  We do not in this
+    work consider the specifics of identifying all possible candidates of a given program, and we we assume that whatever candidate considered is a possible one for the original program. 
+    This translation from program to a set of candidates is something that would be needed in order to practically incorporate our set of conditions in practice while doing transformations.
+    
+%    Lastly, we would like to mention that we have also looked at redundant read elimination among two reads and redundant write elimination among two writes, by answering the same four basic questions that we addressed in our proof above. 
+%    We are still writing it more formally in latex format, but the idea for the proof is done. 
+    
+    %We do not address the role of synchronize events or host-specific synchronization events in our approach. One would need to account for their role too. 
+    

@@ -1,0 +1,100 @@
+%Valid Execution Rules---------------------------------------------------------------------------------------------------------------------------------
+        
+    \section{Valid Execution Rules (the Axioms)}
+        We use the above concepts in reasoning about executions of a given concurrent program. Each execution is called as a candidate.  Each candidate execution must satisfy the rules that we will specify below to be declared a \textit{valid} execution. 
+         
+        %Coherent Reads   
+        \paragraph{Coherent Reads} 
+        
+            There are certain restrictions of what a read event can see at different points of execution based on $\stck{_{hb}}$ relation with write events. 
+        
+            \begin{itemize}
+                %Rule #1
+                \item A read$(R)$ cannot read a value from a write$(R)$ that has happened after it ! 
+                    \[ R \stck{_{hb}} W \Rightarrow{} \neg \ R \stck{_{rf}} W \]
+                
+                %Rule #2    
+                \item A read($R$) cannot read a specific byte address value from write($W$) if:
+                    \begin{itemize}
+                        \item $W$ is bound to have happened before $R$
+                        \item There is a write($V$) that happens between them which modifies the exact byte that $R$ reads from $W$.
+                    \end{itemize} 
+                    Note that this rule would be on the $rbf$ relation among two events. 
+                
+                    \[
+                        W \stck{_{hb}} R
+                        \ \wedge \ 
+                        W \stck{_{hb}} V \ \wedge \ V \stck{_{hb}} R
+                        \ \Rightarrow{} \
+                        \forall x \in (\Re(W) \cap \Re(V) \cap \Re(R)), \ \neg \ (R \stck{_{rbf}} (W, x))
+                    \]
+                    
+            \end{itemize}
+         
+            \critic{blue}{The reason why we focus on the negation is because defining what could be seen by a read event is a non-trivial task to define compared to what cannot be seen. The negation helps better understand what not to assume about your program when you want to reason about it's possible execution outcomes.}      
+            
+        \paragraph{Tear-Free Reads} 
+               If two tear free writes $V$ and $W$ and a tear free read $R$ all with equal ranges exist, then $R$ can read only from one of them\footnotemark
+                
+                    \[ \et{W}{tf}\ \wedge\ \et{V}{tf}\ \wedge\ \et{R}{tf}\
+                        \wedge \ (\Re(W) \!=\! \Re(V) \!=\! \Re(R)) 
+                         \Rightarrow{} (R \!\stck{_{rf}}\! W \wedge \neg (R \!\stck{_{rf}}\! V)) 
+                         \ \vee \  
+                         (R \!\stck{_{rf}}\! V \wedge \neg (R \!\stck{_{rf}}\! W))
+                    \]
+                    
+            \critic{blue}{To recap a tear-free event cannot be separated into multiple small events that do the same operation. However, considering different hardware architectures, the notion of tear-free need not necessarily mean this. (eg: A 64bit tear-free write to be done in a 32bit system). In a more abstract sense, we need an event to appear 'tear-free'.}    
+            
+        \paragraph{Sequentially Consistent Atomics} 
+             To specifically define how events that are sequentially consistent affects what values a read cannot see\footnotemark{},  we assume the following memory order among writes $W$ and $V$ and a read $R$ to be the premise for all the rules: 
+            
+                \[W \stck{_{mo}} V \stck{_{mo}} R\]
+            \begin{itemize}
+                \item If all three events are of type $sc$ with equal ranges, then $R$ cannot read from $W$
+                    
+                    \[\et{W}{sc} \wedge \et{R}{sc} \wedge \et{R}{sc} 
+                        \wedge \Re(W) \!=\! \Re(V) \!=\! \Re(R)
+                        \ \Rightarrow{} \ 
+                        \neg R \stck{_{rf}} W
+                    \]
+                    
+                \item If both writes are of type $sc$ having equal ranges and the read is bound to happen after them, then $R$ cannot read from $W$ 
+                
+                    \[
+                        \et{W}{sc} \ \wedge \ \et{V}{sc}  
+                        \ \wedge \ \Re(W) \!=\! \Re(V) 
+                        \ \wedge \ W \stck{_{hb}} R 
+                        \ \wedge \ V \stck{_{hb}} R
+                        \Rightarrow{} \neg R \stck{_{rf}} W
+                    \]
+                
+                \item If $V$ and $R$ are sequentially consistent, having equal ranges, and $W$ is bound to happen before them, then $R$ cannot read from $W$
+                
+                    \[
+                        \et{V}{sc} \ \wedge \ \et{R}{sc}  
+                        \ \wedge \ \Re(V) \!= \!\Re(R) 
+                        \ \wedge \ W \stck{_{hb}} V 
+                        \ \wedge \ W \stck{_{hb}} R
+                        \ \Rightarrow \ 
+                        \neg R \stck{_{rf}} W
+                    \]
+            \end{itemize}
+            
+            \critic{red}{The standard specification talks of this in terms of what sequentially consistent write $V$ should not be there when an $\stck{_{rf}}$ relation exists among two events. We however, describe it in terms of disallowed $\stck{_{rf}}$ relation to keep the rules consistent} 
+        
+            \critic{red}{We think we do not necessarily need all ranges to be equal, this can be weakened by actually stating that the intersection of ranges is equal followed by refining the rule for $\stck{_{rbf}}$ relation}
+            
+            
+            \critic{blue}{Write events that are sequentially consistent are observed to happen in the same memory order by every agent. This is without any specific $\stck{_{hb}}$ relation among such events. Additionally, $\stck{_{hb}}$ relation is consistent with the memory order} 
+        
+        \paragraph{Liveliness of Sequentially Consistent Writes}
+        
+        The standard also enforces that every sequentially consistent write is eventually read. In that sense, we have:
+        
+        \[ 
+            \et{d}{sc} \ \wedge \ 
+            \event{d}{W} 
+            \ \Rightarrow \ 
+            \exists d. \ d \stck{_{rf}} W
+        \]
+       

@@ -1,0 +1,11 @@
+\section{Introduction}
+
+Performance in languages that incorporate shared memory concurrency can be improved by use of a relaxed or weak memory model, allowing writes in one thread to have delayed or reordered visibility in other threads.  Such reorderings can occur during hardware execution, but also as a consequence of common compiler optimizations that rearrange the instruction stream.  In general, weak models enable greater performance, while stronger, more constrained models simplify reasoning about program behaviour, and models need to balance limitations on compiler and hardware optimization with programmability.
+
+The ECMAScript specification, a common standard for all web-scripting languages such as JavaScript, has been recently (2018) created to address memory consistency concerns brought in by the use of shared memory buffers in WebAssembly.  Like Java and C++, the model guarantees a simple model (Sequential Consistency) for data-race free programs (the SC-DRF guarantee), but it also claims general constraints on program behaviour outside this context.  The specification remains in draft, however, and a large and incomplete specification text makes it difficult to determine which compiler optimizations may be allowed in practice.
+
+Our focus in this work is to offer a clarified, more concise rendition of the core ECMAScript memory model that allows for better abstract reasoning over allowed and disallowed behaviours.  We use our model to provide a straightforward, conservative proof of when reordering instructions is permitted, addressing optimization in terms of its impact on observable program behaviours.  Our approach can be extended to address additional optimization effects, such as redundancy removal.  Specific contributions of our work include the following:
+\begin{itemize}
+\item We provide a concise model of the core ECMAScript memory consistency semantics.  This clarifies the existing draft presentation in a manner useful for validating optimization behaviour.
+\item Using our model we show when basic reordering of independent instructions is allowed.  Although conservative, this represents a formal proof that this fundamental optimization is permitted.  Similar proof designs can be used to validate other basic optimization behaviours, such as removing redundant reads or writes.
+\end{itemize}

@@ -1,0 +1,24 @@
+
+    \subsection{Some Preliminary Definitions}
+        
+        Before we go into the consistency rules. we define certain preliminary definitions that create a separation based on a program, the axiomatic events and the various ordering relations defined above. This will help us understand where the consistency rules actually apply. 
+        
+        \begin{definition}{Program.} 
+            A \emph{program} is the source code without abstraction to a set of events and ordering relations. In our context, it is the original ECMAScript program. 
+        \end{definition}
+        
+        %What is one run of a program to us?
+        \begin{definition}{Candidate.}
+            This is a collection of abstracted sest of shared memory events of a program involved in one possible execution, with the added $\stck{_\textit{ao}}$ relations. We can think of this as each thread having a set of shared memory events to run in a given intra-thread ordering.
+        \end{definition}
+        
+        \begin{definition}{Candidate Execution.}
+            A Candidate with the addition of $\stck{_\textit{sw}}$, $\stck{_\textit{hb}}$ and $\stck{_\textit{mo}}$ relations. This can be viewed as the witness/justification of an actual execution of a Program. Note that there can be many Candidate Executions for a given Candidate.
+        \end{definition}
+        
+        %What values are read when the program is run
+        \begin{definition}{Observable Behavior.}
+        The set of pairwise $\stck{_\textit{rf}}$ and $\stck{_\textit{rbf}}$ relations that result in one execution of the program. Think of this as our outcome of a program execution.
+        \end{definition}
+    %-----------------------------------------------------------------------------------------------------------------------------------------
+        %\emph{The memory consistency rules restrict the possible Observable Behaviors by specifying constraints on $\stck{_{rf}}$ relations based on a  Candidate Execution. For our purpose and flow in which we successively add relations to set of events, this would also include the implication on $\stck{_{rf}}$ relation while having a $\stck{_{sw}}$ relation among two events.}     

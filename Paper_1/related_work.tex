@@ -1,0 +1,17 @@
+\section{Related Work}
+   Sequential Consistency, which was first formulated by Lamport et al.~\cite{Lamport79}, gives programmers a very intuitive way to reason about their programs running in a multiprocessor environment.
+   However, in the practical sense, Sequential Consistency is too ``strict,'' in the sense that it may impede possible performance benefits of using low
+   level optimization features, such as instruction reordering, or read/write buffers provided by the hardware.
+   A tutorial by Adve et al.~\cite{AdveG}, summarizes the most common hardware features for relaxed memory that are now available in most hardware. What this tutorial also exposed is the difficulty in formalizing such features in a way that we can reason about our programs sanely without getting caught up in the complexity of multiple executions of our programs. 
+   Unsurprisingly, relaxed memory model specifications for different hardware / high level programming languages are still sometimes written in informal prose format, which lead to a number of problems in implementation~\cite{Sewell}. 
+   
+   Sarkar et al.~\cite{SarkarS} showed that the original x86-CC memory model was fairly informal, which they then formalized in their work. This also exposed inconsistencies between the specification and the implementation in hardware. This was shown in their subsequent work done by Owens et al.~\cite{OwensS}, wherein they proposed a new memory model x86-TSO as a remedy. 
+   Manson et al.~\cite{JeremyM}, showed that the initial specifications of the Java memory model were quite informal and ill defined, and offered a more precise formalization. Recent works such as that done by Bender et al.~\cite{BenderJ}, also shows us that the recent updates to the java Memory model is still relatively unclear, which they again formalize. Similarly, 
+   Batty et al.~\cite{BattyM}, clarified the specification of the C11 memory model. 
+   
+   Apart from the problems of ill defined / informal specifications, these models also have an impact on the safety of program transformations which were considered safe to do in a sequential program. \u{S}ev\u{c}\'{i}k et al.~\cite{SevcikJ} showed that standard compiler optimizations were rendered invalid under the respective memory model of Java. Vafeiadis et al.~\cite{VafeiadisV} showed that common compiler optimizations under C11 memory model are also invalid, followed by proposing some changes to allow them. 
+   
+   With respect to instruction reordering in shared memory programs, \u{S}ev\u{c}\'{i}k et al.~\cite{Sevcik2} recently gave a proof design on how to show such optimizations are valid. However, this approach relies on the idea of reconstructing the original execution of a program given the optimized one, while also showing the well known SC-DRF guarantee holds---programs that are \textit{data race free} (DRF) must exhibit SC semantics. Our approach is in fact the other way round; we show that the optimized program does not introduce new behaviours, by explicitly using the consistency rules to show that relevant ordering relations are preserved.
+   
+   ECMAScript has also had some attention in this respect. Watt et al~\cite{WattC} uncovered and fixed a deficiency in the previous version of the model, repairing the model to guarantee SC-DRF. 
+   Our analysis is based on this corrected model which is incorporated in the ECMAScript draft specification. As far as our knowledge goes, no analysis has been done on this model to identify its implications on standard compiler optimizations. 

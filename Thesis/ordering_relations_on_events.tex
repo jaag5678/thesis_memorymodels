@@ -1,0 +1,66 @@
+%Ordering Relation among Events----------------------------------------------------------------------------------------------------------------------       
+        \section{Ordering Relations among Events}
+        
+        %Agent Order
+        \paragraph{Agent Order ($\stck{_{ao}}$)}
+            An relation on all events. It respects the order in which the events are evaluated by a particular agent. 
+            \[\forall{i, j > 0},\ e^i_j \stck{_{ao}} e^i_{j+1} \]
+        
+            \begin{enumerate}
+                \item Agent order also respects transitivity. 
+            
+                    \[ (e \stck{_{ao}} d) \wedge (d \stck{_{ao}} g) \Rightarrow{} (e \stck{_{ao}} g)\]
+            
+            \end{enumerate}
+            
+            \critic{blue}{Note that the relations are only with respect to events belonging to the same agent. A collection of such relations together form the agent order. This is analogous and meant to be equivalent to what we call as intra-thread sequential order. It is the same as what \textbf{sequenced-before} is defined to be in C++}
+        
+        %Synchronize With Order
+        \paragraph{Synchronize-With Order ($\stck{_{sw}} $)}
+            An ordering relation that represents the synchronizations among different agents.
+            \begin{enumerate}
+                \item All pairs belonging to $ASW$ of every agent belongs to this ordering relation. 
+            
+                        \[\forall{i, j > 0}, \ \langle e_i, e_j \rangle \in ASW \Rightarrow{} e_i \stck{_{sw}} e_j \]
+            
+                \item Specific reads-from pairs also belong to this ordering relation. 
+            
+                        \[(r \stck{_{rf}} w) \ \wedge \ \et{r}{sc} \ \wedge \ \et{w}{sc} \ \wedge \ (\Re(r)\!=\!\Re(w)) \ \Rightarrow{} \ (w \stck{_{sw}} r)\]
+            
+            \end{enumerate}
+            
+            \critic{blue} {Note that for the second condition, both ranges of events have to be equal. However, there is no restriction that the read event cannot read-from other write events.}
+            
+        %Happens Before order 
+        \paragraph{Happens Before Order ($\stck{_{hb}}$)}
+             A \textit{partial order} on events which are composed of the following:
+            
+            \begin{enumerate}
+                \item Every agent-ordered relation is also a happens-before relation 
+              
+                    \[(e \stck{_{ao}} d) \ \Rightarrow{} \ (e \stck{_{hb}} d)\]
+              
+                \item Every synchronize-with relation is also a happens-before relation 
+              
+                    \[(e \stck{_{sw}} d) \ \Rightarrow{} \ (e \stck{_{hb}} d)\]
+                     
+                \item Initialize type of events happen before all shared memory events that have overlapping ranges with them. 
+                
+                    \[
+                        \forall e,d \in SM \ \wedge \ 
+                        \et{e}{init} \ \wedge \ 
+                        (\Re(e) \cap \Re(d) \neq \phi)
+                        \ \Rightarrow{} \ 
+                        e \stck{_{hb}} d
+                    \]
+            \end{enumerate}
+        
+        \critic{red}{It is also important to note that those $\stck{_{hb}}$ relations that are formed due to Sequentially Consistent events (read-write), imply a more stronger visibility guarantee, in that all the threads observe the same global total order of such events. This however, is not expressed using this relation. Perhaps a better way to represent it may be required.}
+        
+        %Memory Order
+        \paragraph{Memory Order ($\stck{_{mo}}$)}
+            This order is a \textit{total order} on all events that are evaluated in an agent cluster. 
+            \begin{enumerate}
+                \item Happens before order is a part of memory order
+                    \[(e \stck{_{hb}} d) \Rightarrow{} (e \stck{_{mo}} d)\]
+            \end{enumerate}

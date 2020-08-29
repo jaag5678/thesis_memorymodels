@@ -1,0 +1,612 @@
+%LEMMA 2 Proof 
+
+
+ \begin{proof}
+       
+        %This proof is based on just simple induction on happens-before relation. However, it will be backed by some definitions already mentioned in the memory model. 
+        We have the following
+        \[
+            \reln{e}{ao}{d} \ \wedge \ \cons{e}{d} 
+            \tag{0}
+            \label{l2_zero}
+        \]
+       
+       
+        Let us first analyze if $k$ can have a \textit{direct happens-before} relation with $e$. In the case that $e$ is an \textit{unordered} event, only $d$ can satisfy the above. 
+            \[
+                \reldet{e}{1}{hb}{d} \qquad 
+                from \  
+                (\ref{l2_zero})
+                \tag{1}
+                \label{l2_one}
+            \]
+        
+        While in the case when $e$ is a \textit{sequentially consistent read}, there could be some $k$ from another \textit{agent} having direct relation, but not the one we desire. This is because of the definition of synchronize-with relations given for the memory model, using which we can conclude that.. 
+        
+        \[
+            \et{e}{sc} \ \wedge \ d \!\in \! R \Rightarrow 
+            \nexists \ k \ \textit{s.t. }
+            \reln{e}{sw}{k} \qquad
+            from \quad
+            (def(\stck{_{sw}}))
+            \tag{2}
+            \label{l2_two}
+        \]
+        
+        And hence, 
+        
+        \[
+            \nexists \ k \ s.t. \
+            \reln{e}{sw}{k} \ \wedge \  
+            \reldet{e}{1}{hb}{k} \qquad
+            from \quad 
+            (def(\stck{_{hb}})),
+            (\ref{l2_two})
+        \]
+        
+        However, event for this case, $d$ qualifies as the only event having a direct relation with $d$. \\
+        
+        Now that we have established that there cannot exist any direct relations between $e$ and $k$, let us look at the indirect relations.We can approach this inductively, by first analyzing for the base case, where $n=2$.
+        
+        \[
+            \reldet{e}{2}{hb}{k}
+        \]
+        
+        For the above, we also have some event $g$ such that
+        
+        \[
+            \reldet{e}{1}{hb}{g} \ \wedge \ 
+            \reldet{g}{1}{hb}{k} \qquad
+            from \quad 
+            (def(\stck{_{hb}}))
+        \]
+        
+        Since, we have already established that only $d$ can have a direct relation with $e$, the event $g$ must be $d$. Hence we have
+        
+        \[
+            \reldet{d}{1}{hb}{k} \qquad
+            from \quad 
+            (\ref{l2_one}),
+            (def(\stck{_{hb}}))
+            \tag{3}
+            \label{l2_three}
+        \]
+        
+        Now for the inductive case, let us assume that the following holds
+        
+        \[
+            \reldet{e}{n}{hb}{k} \Rightarrow
+            \reln{d}{hb}{k}
+            \tag{4}
+            \label{l2_four}
+        \]
+        
+        Now, we need to show that for $\reldet{e}{n+1}{hb}{k}$, we can conclude that $\reln{d}{hb}{k}$. For this, we can note that
+        
+        \[
+            \reldet{e}{n+1}{hb}{k} \Rightarrow
+            \exists \ g \ \textit{s.t. } 
+            \reldet{e}{n}{hb}{g} \ \wedge \ 
+            \reldet{g}{1}{hb}{k} \qquad
+            from \quad
+            (def(\stck{_{hb}}))
+            \tag{5}
+            \label{l2_five}
+        \]
+        
+        From which we can infer that
+        
+        \[
+            \reln{d}{hb}{g} \qquad
+            from \quad
+            (\ref{l2_four}),
+            (\ref{l2_five})
+            \tag{6}
+            \label{l2_six}
+            %Tag properly
+        \]
+        
+        And from this, by transitivity, it follows that
+        
+        \[
+            \reln{d}{hb}{k} \qquad
+            from \quad
+            (\ref{l2_five}),
+            (\ref{l2_six}),
+            (def(\stck{_{hb}}))
+            %Tag properly
+        \]
+        
+        Thus, we have shown that, for every such event $k$, the above lemma holds. 
+    \end{proof}
+
+    
+    
+
+
+%LEMMA 1 proof 
+ \begin{proof}
+       
+        %This proof is based on just simple induction on happens-before relation. However, it will be backed by some definitions already mentioned in the memory model. 
+        We have the following
+        \[
+            \reln{e}{ao}{d} \ \wedge \ \cons{e}{d} 
+            \tag{0}
+            \label{l1_zero}
+        \]
+       
+       
+        Let us first analyze if $k$ can have a \textit{direct happens-before} relation with $d$. In the case that $d$ is an \textit{unordered} event, only $e$ can satisfy the above. 
+            \[
+                \reldet{e}{1}{hb}{d} \qquad 
+                from \  
+                (\ref{l1_zero})
+                \tag{1}
+                \label{l1_one}
+            \]
+        
+        While in the case when $d$ is a \textit{sequentially consistent write}, there could be some $k$ from another \textit{agent} having direct relation, but not the one we desire. This is because of the definition of synchronize-with relations given for the memory model, using which we can conclude that.. 
+        
+        \[
+            \et{d}{sc} \ \wedge \ d \!\in \! W \Rightarrow 
+            \nexists \ k \ \textit{s.t. }
+            \reln{k}{sw}{d} \qquad
+            from \quad
+            (def(\stck{_{sw}}))
+            \tag{2}
+            \label{l1_two}
+        \]
+        
+        And hence, 
+        
+        \[
+            \nexists \ k \ s.t. \
+            \reldet{k}{1}{hb}{d} \qquad
+            from \quad 
+            (def(\stck{_{hb}})),
+            (\ref{l1_two})
+        \]
+        
+        However, event for this case, $e$ qualifies as the only event having a direct relation with $d$. \\
+        
+        Now that we have established that there cannot exist any direct relations between $k$ and $d$, let us look at the indirect relations.We can approach this inductively, by first analyzing for the base case, where $n=2$.
+        
+        \[
+            \reldet{k}{2}{hb}{d}
+        \]
+        
+        For the above, we also have some event $g$ such that
+        
+        \[
+            \reldet{k}{1}{hb}{g} \ \wedge \ 
+            \reldet{g}{1}{hb}{d} \qquad
+            from \quad 
+            (def(\stck{_{hb}}))
+        \]
+        
+        Since, we have already established that only $e$ can have a direct relation with $d$, the event $g$ must be $e$. Hence we have
+        
+        \[
+            \reldet{k}{1}{hb}{e} \qquad
+            from \quad 
+            (\ref{l1_one}),
+            (def(\stck{_{hb}}))
+            \tag{3}
+            \label{l1_three}
+        \]
+        
+        Now for the inductive case, let us assume that the following holds
+        
+        \[
+            \reldet{k}{n}{hb}{d} \Rightarrow
+            \reln{k}{hb}{e}
+            \tag{4}
+            \label{l1_four}
+        \]
+        
+        Now, we need to show that for $\reldet{k}{n+1}{hb}{d}$, we can conclude that $\reln{k}{hb}{e}$. For this, we can note that
+        
+        \[
+            \reldet{k}{n+1}{hb}{d} \Rightarrow
+            \exists \ g \ \textit{s.t. } 
+            \reldet{k}{1}{hb}{g} \ \wedge \ 
+            \reldet{g}{n}{hb}{d} \qquad
+            from \quad
+            (def(\stck{_{hb}}))
+            \tag{5}
+            \label{l1_five}
+        \]
+        
+        From which we can infer that
+        
+        \[
+            \reln{g}{hb}{e} \qquad
+            from \quad
+            (\ref{l1_four}),
+            (\ref{l1_five})
+            \tag{6}
+            \label{l1_six}
+            %Tag properly
+        \]
+        
+        And from this, by transitivity, it follows that
+        
+        \[
+            \reln{k}{hb}{e} \qquad
+            from \quad
+            (\ref{l1_five}),
+            (\ref{l1_six}),
+            (def(\stck{_{hb}}))
+            %Tag properly
+        \]
+        
+        Thus, we have shown that, for every such event $k$, the above lemma holds. 
+    \end{proof}
+ 
+   
+
+
+ 
+ 
+ \begin{proof}
+        
+        We have the following
+        \[
+            \reln{e}{ao}{d} \ \wedge \ \cons{e}{d} 
+            \tag{0}
+            \label{l2_zero}
+        \]
+        
+        Now let us assume
+        \[
+            \reln{e}{hb}{k} 
+            \tag{1}
+            \label{l2_one}
+        \]
+        
+        We address the first case
+        \[
+            \et{e}{uo} 
+            \tag{2}
+            \label{l2_two}
+        \]
+        
+        \hspace{15pt} If $k$ belongs to another \textit{Agent}
+        \[
+            \exists g \ s.t \ 
+            \reln{e}{hb}{g} \ \wedge \ \reln{g}{hb}{k} \ \wedge \ \reln{e}{ao}{g} \qquad
+            \textit{from} \
+            (\ref{l2_one}), 
+            (\ref{l2_two}) 
+            \tag{3}
+            \label{l2_three}
+        \]
+        
+         For the second case we have 
+        \[
+            \et{e}{sc} \ \wedge \ \event{e}{R}
+            \tag{4}
+            \label{l2_four}
+        \]
+
+        \hspace{15pt} If $k$ belongs to another \textit{Agent}
+        \[
+            \exists g \ s.t \ 
+            \reln{e}{hb}{g} \ \wedge \ \reln{g}{hb}{k} \ \wedge \ \reln{e}{ao}{g} \qquad
+            \textit{from} \
+            (\ref{l2_one}), 
+            (\ref{l2_four}) 
+            \tag{5}
+            \label{l2_five}
+        \]
+        
+        For both cases above, if $k$ belongs to the same \textit{Agent}
+        \[
+            \exists g \ s.t \ 
+            \reln{e}{hb}{g} \ \wedge \ \reln{g}{hb}{k} \ \wedge \ \reln{e}{ao}{g} \qquad
+            \textit{from} \
+            (\ref{l2_zero}), 
+            (\ref{l2_one})
+            \tag{6}
+            \label{l2_six}
+        \]
+    
+        Event $e$ qualifies to be that event $g$
+        \[
+            g \ = \ d \qquad 
+            \textit{from} \
+            (\ref{l2_zero}), 
+            (\ref{l2_three}), 
+            (\ref{l2_five}),
+            (\ref{l2_six})
+            \tag{7}
+            \label{l2_seven}
+        \]
+        
+        Thus, we can conclude that
+        \[
+            \reln{d}{hb}{k} \qquad
+            \textit{from} \ 
+            (\ref{l2_seven})
+        \]
+        
+    \end{proof}
+
+
+%Tryout lemma proofs
+
+    \begin{proof}
+        
+        We have the following
+        \[
+            \reln{e}{ao}{d} \ \wedge \ \cons{e}{d} 
+            \tag{0}
+            \label{l1_zero}
+        \]
+        
+        Now let us assume
+        \[
+            \reln{k}{hb}{d} 
+            \tag{1}
+            \label{l1_one}
+        \]
+        
+        We address the first case
+        \[
+            \et{d}{uo} 
+            \tag{2}
+            \label{l1_two}
+        \]
+        
+        %I WOULD NEED TO PERHAPS EVEN REFACTOR THE MEMORY MODEL IN TERMS OF DEFNITIONS AND AXIOMS USING THIS PACKAGE amsthm. IT WOULD BE USEFUL AS WE CAN USE THE REFERENCES WHILE WORDING OUR REASONING HERE
+        
+        \hspace{15pt} If $k$ belongs to another \textit{Agent}, then there can be two cases, one where (\ref{l1_one}) is a \textit{direct} relation and one where it comes through another event using the \textit{transitive property} of $\stck{_{hb}}$. The former case is not possible because of (\ref{l1_two}), as only \textit{read} events that are of type \textit{sc} can have a direct relation. (refer to the definition of $\stck{_{hb}}$ from the memory model). So it must be the latter that holds. It is also that due to (\ref{l1_two}) that there must be an event that belongs to the same agent as $d$ through which (\ref{l1_one}) is derived.    
+        \[
+            \exists g \ s.t \ 
+            \reln{k}{hb}{g} \ \wedge \ \reln{g}{hb}{d} \ \wedge \ \reln{g}{ao}{d} \qquad
+            \textit{from} \
+            (\ref{l1_one}), 
+            (\ref{l1_two}) 
+            \tag{3}
+            \label{l1_three}
+        \]
+        
+         For the second case we have 
+        \[
+            \et{d}{sc} \ \wedge \ \event{d}{W}
+            \tag{4}
+            \label{l1_four}
+        \]
+
+        \hspace{15pt} If $k$ belongs to another \textit{Agent}, then, once again there can be two cases, one where (\ref{l1_one}) is a \textit{direct} relation and one where it comes through another event using the \textit{transitive property} of $\stck{_{hb}}$. The former case is not possible because of (\ref{l1_four}), as only \textit{read} events that are of type \textit{sc} can have a \textit{direct} relation. (refer to the definition of $\stck{_{hb}}$ from the memory model). So it must be the latter that holds. It is also that due to (\ref{l1_four}) that there must be an event that belongs to the same agent as $d$ through which (\ref{l1_one}) is derived.
+        \[
+            \exists g \ s.t \ 
+            \reln{k}{hb}{g} \ \wedge \ \reln{g}{hb}{d} \ \wedge \ \reln{g}{ao}{d} \qquad
+            \textit{from} \
+            (\ref{l1_one}), 
+            (\ref{l1_four}) 
+            \tag{5}
+            \label{l1_five}
+        \]
+        
+        For both cases above, if $k$ belongs to the same \textit{Agent}, then as usual, there are two cases, one with \textit{direct} relation and one through \textit{transitive property} of $\stck{_{hb}}$. The former case is not possible due to (\ref{l1_zero}). So it must be the latter. Hence,
+        \[
+            \exists g \ s.t \ 
+            \reln{k}{hb}{g} \ \wedge \ \reln{g}{hb}{d} \ \wedge \ \reln{g}{ao}{d} \qquad
+            \textit{from} \
+            (\ref{l1_zero}), 
+            (\ref{l1_one})
+            \tag{6}
+            \label{l1_six}
+        \]
+    
+        Event $e$ qualifies to be that event $g$, because of (\ref{l1_zero}) and the property that $\stck{_{ao}} \ \subset \ \stck{_{hb}}$. Thus,
+        \[
+            g \ = \ e \qquad 
+            \textit{from} \
+            (\ref{l1_zero}), 
+            (\ref{l1_three}), 
+            (\ref{l1_five}),
+            (\ref{l1_six})
+            \tag{7}
+            \label{l1_seven}
+        \]
+        
+        Thus, we can conclude that
+        \[
+            \reln{k}{hb}{e} \qquad
+            \textit{from} \
+            (\ref{l1_seven})
+        \]
+        
+        
+        
+    \end{proof}
+
+
+
+
+
+
+%TO BE REMOVED AFTER DISCUSSING WITH CLARK 
+
+    \begin{lemma}
+    Given two unordered events $e$, and $d$, such that $\cons{e}{d}$ is true, then for all events $k$ such that k happens-before either $e$ or $d$, we have the property, (double-implication)
+    
+         If events $e$ and $d$ are of type $unordered$, then if $k$ is ordered using $\stck{_{hb}}$ before/after one of them, then it respects the same relation with the other respectively, and vice versa.  
+         
+         More formally, 
+         If ($\et{e}{uo} \ \wedge \ \et{d}{uo}$), then
+                
+                \[
+                    (k \stck{_{hb}} e) 
+                    \Longleftrightarrow
+                    (k \stck{_{hb}} d) 
+                \]
+                
+                \[
+                    (d \stck{_{hb}} k) 
+                    \Longleftrightarrow
+                    (e \stck{_{hb}} k) 
+                \]
+    \end{lemma}
+    
+    \begin{proof}
+        
+        We will need to prove mainly two cases, wherein the events $e$ and $d$ are agent-ordered differently. Proving one will be enough as the other case will be in the same lines. 
+        
+        Let us assume that $e$ is ordered before $d$
+        \begin{align*}\label{arg1}
+          & e \stck{_{ao}} d \tag{1}
+        \end{align*}
+        
+        To prove the first part, we divide it into two parts:
+        
+        \begin{align*}
+                   ( (k \stck{_{hb}} e) 
+                    \Longrightarrow
+                    (k \stck{_{hb}} d) ) 
+                    \ \wedge \ 
+                    (k \stck{_{hb}} d) 
+                    \Longrightarrow
+                    (k \stck{_{hb}} e)
+        \end{align*}
+        
+        \begin{flalign*}
+            \text{For the first implication} && \\
+            & k \stck{_{hb}} e \tag*{assume}  \\
+            & k \stck{_{hb}} d \tag*{transitive($\stck{_{hb}}$)} \\  
+            \text{For the second implication} && \\
+            & k \stck{_{hb}} d \tag*{assume} \\ 
+            & k \stck{_{hb}} e \tag*{transitive($\stck{_{hb}}$), In(d), (\ref{arg1})}
+        \end{flalign*}
+        
+        The first implication is straightforward, due to transitive property of $\stck{_{hb}}$ relation. For the second implication, $k \stck{_{hb}} d$ is possible only when it comes from some transitive relation. The fact that $d$ is not an incoming event also indicates that the only way this relation could be established is through some other event agent-ordered before $d$. Since we have (\ref{arg1}), we can conclude that $k \stck{_{hb}} e$.  
+        
+        To prove the second part, we divide it again into two parts:
+          
+        \begin{align*}
+                   ( (d \stck{_{hb}} k) 
+                    \Longrightarrow
+                    (e \stck{_{hb}} k) )
+                    \ \wedge \ 
+                    (e \stck{_{hb}} k) 
+                    \Longrightarrow
+                    (d \stck{_{hb}} k)
+        \end{align*}
+        
+        %\begin{flalign*}
+        %    \text{For the first implication} && \\
+        %    & d \stck{_{hb}} k \tag*{assume}  \\
+        %    & e \stck{_{hb}} k \tag*{transitive($\stck{_{hb}}$)} \\  
+        %    \text{For the second implication} && \\
+        %    & e \stck{_{hb}} k \tag*{assume} \\ 
+        %    & d \stck{_{hb}} k \tag*{transitive($\stck{_{hb}}$), Out(d), (\ref{arg1})}
+        %\end{flalign*}
+        
+        The first implication is again straightforward, due to transitive property of $\stck{_{hb}}$ relation. For the second implication, $e \stck{_{hb}} k$ is possible only when it comes from some transitive relation. The fact that $e$ is not an outgoing event also indicates that the only way this relation could be established is through some other event agent-ordered after $e$. Since we have (\ref{arg1}), we can conclude that $d \stck{_{hb}} k$.  
+        
+        In the same lines, we can prove for $d \stck{_{ao}} e$.
+    \end{proof}
+    
+    \begin{lemma}
+    
+        If ($e \stck{_{ao}} d \ \wedge \ \et{e}{sc} \ \wedge \ \et{d}{uo} \ \wedge \  e \in R $), then
+                \[
+                    (k \stck{_{hb}} e) 
+                    \Longleftrightarrow
+                    (k \stck{_{hb}} d) 
+                \]
+                
+                \[
+                    (d \stck{_{hb}} k) 
+                    \Longleftrightarrow
+                    (e \stck{_{hb}} k) 
+                \]
+    
+    \end{lemma}
+    
+    \begin{proof}
+    
+        Same as for Lemma 1, with the exception that here, we have a fixed agent-order between events $e$ and $d$
+        %MENTION OTHER PROPERTIES
+    \end{proof}
+    
+    \begin{lemma}
+            
+            If ($e \stck{_{ao}} d \ \wedge \ \et{e}{uo} \ \wedge \ 
+                \et{d}{sc} \ \wedge \  
+                d \in W $), then
+                
+                \[
+                    (k \stck{_{hb}} e) 
+                    \Longleftrightarrow
+                    (k \stck{_{hb}} d) 
+                \]
+                
+                \[
+                    (d \stck{_{hb}} k) 
+                    \Longleftrightarrow
+                    (e \stck{_{hb}} k) 
+                \]
+    \end{lemma}
+    
+    \begin{proof}
+        
+        The proof is same as Lemma 2. 
+    \end{proof}
+    
+    \begin{lemma}
+    
+        If ($e \stck{_{ao}} d \ \wedge \ \et{e}{sc} \ \wedge \ 
+                \et{d}{uo} \ \wedge \  
+                e \in W $), then
+                
+                \[
+                    (k \stck{_{hb}} e) 
+                    \Longleftrightarrow
+                    (k \stck{_{hb}} d) 
+                \]
+                
+                \[
+                    (d \stck{_{hb}} k) 
+                    \Longrightarrow
+                    (e \stck{_{hb}} k) 
+                \]
+    
+    \end{lemma}
+    
+    \begin{proof}
+    
+        The proof for double-implication is same as that given for Lemma 1,2,3. The proof for the other part is based on transitive property of $\stck{_{hb}}$. Note that here it is not a double implication because the reverse is not true. This is due to the fact that event $e$ could be an outgoing event, and hence it may not be the case that $d \stck{_{hb}} k$.
+        
+    \end{proof}
+    
+    \begin{lemma}
+    
+        If ($e \stck{_{ao}} d \ \wedge \ \et{e}{uo} \ \wedge \ 
+                \et{d}{sc} \ \wedge \  
+                d \in R $), then
+                
+                \[
+                    (k \stck{_{hb}} e) 
+                    \Longrightarrow
+                    (k \stck{_{hb}} d) 
+                \]
+                
+                \[
+                    (d \stck{_{hb}} k) 
+                    \Longleftrightarrow
+                    (e \stck{_{hb}} k) 
+                \]
+    
+    \end{lemma}
+    
+    \begin{proof}
+    
+        The first implication is due to transitivity of $\stck{_{hb}}$ relation. Note that it is not a double implication as the reverse is not true. This is because event $d$ could be an incoming event, which in that case would not imply that $k \stck{_{hb}} e$. 
+        
+        The proof for double implication is same as that for Lemma 1, 2, 3. 
+    
+    \end{proof}
+    

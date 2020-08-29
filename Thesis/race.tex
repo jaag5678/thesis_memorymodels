@@ -1,0 +1,41 @@
+%Races----------------------------------------------------------------------------------------------------------------------------------
+        
+    \section{Race}
+        
+        \paragraph{Race Condition $RC$} 
+            We assume race condition to be a set of pairs of events that are in a race.
+            
+            Two events $e$ and $d$ are in a race condition when they are shared memory events 
+            
+             \[(e \in \set{SM}) \wedge (d \in \set{SM})\]
+            
+            having at least overlapping ranges, which are either two writes or the two events are involved in a $\stck{_{rf}}$ relation with each other. 
+            
+               
+            \[ 
+                 (e,d \in (\set{W} \cup \set{RMW})  \wedge (\Re(d) \cap_{\Re} \Re(e) \neq \phi)) 
+                            \vee ((d \stck{_{rf}} e) \vee (e \stck{_{rf}} d)) \Rightarrow (e,d) \in RC 
+            \]
+            
+             \critic{blue}{Though we say it as write events, they also encompass read-modify-write events, as specified by the axiom above.}
+            
+        \critic{red}{It is interesting to note that the standard specifies only those read-write events that do have a $\stck{_{rf}}$ relation among them to be in a race condition, while the relation signifies an order that has resolved itself because the $\stck{_{rf}}$ relation is there. According to me, their intention was to say that if there \textit{could} exist a $\stck{_{rf}}$ relation among two events, then they would definitely be in a race. This clarification needs to be incorporated in the axiom that defines what is a race condition.}
+        
+       
+        
+        \paragraph{Data Race $DR$} 
+            Two events are in a data race when they are already in a race condition and when the two events are not of type $sc$ together or they have overlapping ranges: 
+            
+            \[(e,d) \in RC  
+                \wedge ((\neg (e:sc) \vee \neg(d:sc)) 
+                \vee (\Re(e) \cap_{\Re} \Re(d) \neq \Re(e) \cup_{\Re} \Re(d)) ) 
+                \Rightarrow (e,d) \in DR
+                \]
+        \critic{red}{The definition for data race also implies that sequentially consistent events with overlapping ranges are considered to be in a data race. This is counter-intuitive in the sense that if all agents observe the same order in which these events happen, then there is no question of it being in a data-race as such, there is a unanimous agreement among all agents about the order in which they take place during the execution.}
+        
+        
+    \paragraph{Data-Race-Free (DRF) Programs}
+        An execution is considered data-race free if none of the above conditions for data-races occur among events. A program is data-race free if all its executions are data race free. 
+        \newline\newline
+        \textit{\textbf{The memory model guarantees sequential consistency for all data-race free programs.}}
+        

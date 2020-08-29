@@ -1,0 +1,71 @@
+%A new command to quickly use cons function in formal descriptions
+\newcommand{\cons}[2]{\textit{cons}(#1,#2)}
+  
+%--------------------------------------------------------------------------------------------------------------   
+    \subsection{Lemmas to assist our proof}    
+    In order to assist our proof, we define two lemmas based on the ordering relations. 
+    
+    \begin{lemma} Consider three events $e$, $d$, and $k$. \\
+    
+        If
+            \[
+                \cons{e}{d} \ \wedge \ \reln{e}{ao}{d} \ \wedge \
+                (
+                    (\et{d}{uo}) \ \vee \
+                    (\et{d}{sc} \ \wedge \ \event{d}{W})
+                )
+            \]
+            
+        then,
+            \[
+                \reln{k}{hb}{d}\ \Rightarrow\ \reln{k}{hb}{e}.
+            \]
+    \end{lemma}
+    
+    %An alternative short proof 
+    \begin{proof}
+        We have the following to be true :
+            \begin{align*}
+                cons(e,d) \ \wedge \ \reln{e}{ao}{d}.
+            \end{align*}
+        In both cases where $d$ is unordered or a sequentially consistent write, for any event $k$
+        \[
+            dir(k,d)\ \Rightarrow\ cons(k,d).
+        \]
+        
+        An event that satisfies the above with $d$ is $e$. Because $\stck{_\textit{ao}}$ is a total order, $e$ will be the only event. This would mean that for any other $k \neq e$,
+        \begin{align*}
+            \reln{k}{hb}{d}\ \Rightarrow\ \reln{k}{hb}{e}.
+        \end{align*}
+        
+        Note that although there could be a direct \textit{happens-before} relation with some event $k$ from \textit{another} agent, they are only relations satisfying $dir(d,k)$.
+        
+    \end{proof}
+
+%---------------------------------------------------------------------------------------------------------------    
+    
+%SHORTER VERSION OF PROOF WITHOUT THE ENGLISH EXPLAINATION IN THE MIDDLE. DISCUSS AND DECIDE ON WHICH FORM IS BETTER
+    \begin{lemma}Consider three events $e$, $d$ and $k$. \\
+    
+        If
+            \[
+                \cons{e}{d} \ \wedge \ \reln{e}{ao}{d} \ \wedge \
+                (
+                    (\et{e}{uo}) \ \vee \
+                    (\et{e}{sc} \ \wedge \ \event{e}{R})
+                )
+            \]
+            
+        then,
+            \[
+                \reln{e}{hb}{k}\ \Rightarrow\ \reln{d}{hb}{k}.
+            \]
+    \end{lemma}
+    
+    %An alternative proof for this 
+    \begin{proof}
+        The proof is symmetric to that of Lemma 1. 
+    \end{proof}
+
+    \emph{Note that the above lemmas are only for events $k$ which are not of type \textit{init}}
+    

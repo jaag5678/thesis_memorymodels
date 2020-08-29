@@ -1,0 +1,59 @@
+    %NOTE: We actually do not need to have this definition as this is as good as redefining a property of sequentially consistent events which already is specified in the memory model
+    
+    %Define Incoming and Outgoing functions for events
+%    \begin{definition}{Incoming/Outgoing Event}
+    
+    %MORE FORMAL
+%        An event that can have a \textit{direct} (i.e. without the use of transitive property) $\stck{_{hb}}$ relation with an event not of the same agent. The difference between whether they qualify to be Incoming / Outgoing can be determined by whether in the relation, that event '\textit{happens-before}' or '\textit{happens-after}' the other event. We define two boolean functions \textit{In} and \textit{Out}, which take an event, and tell us if they could be Incoming/Outgoing events.
+        
+        %We might not need this because, the occurrence of such direct relation also depends on the candidate under consideration and is not generalized to an event. The fact that it could qualify is something of our interest. But not that whether in any given candidate such a direct relation exists. 
+        
+ %       More formally, 
+        
+ %       \[ 
+ %           \textit{In(e)} \longrightarrow
+%            %There is an event d s.t d-hb-e AND d,e belong to different agents AND there does not exist an event k s.t. d-hb-k AND k-hb-e
+%        \]
+%        
+  %      \[ 
+ %           \textit{Out(e)} \longrightarrow
+%            %There is an event d s.t e-hb-d AND d,e belong to different agents AND there does not exist an event k s.t. e-hb-k AND k-hb-d
+%        \]
+        
+        %HOW DO WE KNOW IF THERE COULD EXIST SUCH AN EVENT d, SOME PROGRAMS MAY NOT HAVE THAT AS PER THE SEMANTICS OF THE MEMORY MODEL
+%    \end{definition}
+%----------------------------------------------------------------------------------------------------------------------------------------- 
+%-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+  %Put here the alternative representation of ordering relations.
+        %Tag it as it will be used in our proofs of lemmas 
+    \begin{definition}{Alternative notation for Happens-Before relation}
+    %NAME: Happens-Before path (length of the path)
+    
+    
+        This new notation, is to help us indicate whether a $\stck{_{hb}}$ relation is direct or indirect. The general form would be as below:
+        
+            \[ \reldet{e}{n}{hb}{d} \]
+            
+        Here, $n$ is a natural number to indicates the number of $\stck{_{hb}}$ relations involved to derive the above. With this, we can define direct relations as :
+        
+            \[ \reldet{e}{1}{hb}{d} \]
+        
+        And indirect relations with some natural number $n>1$
+        
+            \[ \reldet{e}{n}{hb}{d} \]
+        
+        The transitive property of $\stck{_{hb}}$ relation can be depicted by: 
+    
+            %Tag this property    
+            \[
+                \reldet{e}{x}{hb}{g} \wedge
+                \reldet{g}{y}{hb}{d} \Longrightarrow
+                \reldet{e}{x+y}{hb}{d}
+                \tag{trans(hb)}
+                \label{ggwpez}
+            \]
+    
+    \end{definition}
+ 

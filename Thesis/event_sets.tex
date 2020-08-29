@@ -1,0 +1,132 @@
+%Events----------------------------------------------------------------------------------------------------------------------------------
+    
+    %Useful command syntax
+    \newcommand{\rmw}{\textit{rmw}\,}
+    \newcommand{\set}[1]{\textbf{\textit{#1}}}
+
+    \subsection{Event Set}
+    Given an agent cluster, an \textit{event set} is a collection of all events from the agent event lists. This set is composed of mainly two distinct subsets:
+       
+        %Shared Memory Events
+        \subsubsection{Shared Memory (\set{SM}) Events} This set is composed of three mutually exclusive and independent set of events on shared memory: 
+            \begin{enumerate}
+                \item Write events (\set{W})
+                \item Read events (\set{R}) 
+                \item Read Modify Write events (\set{RMW}) 
+            \end{enumerate}
+        
+        %Synchronize events 
+        \subsubsection{Synchronize (\set{S}) Events} These events only restrict the ordering of execution of events by agents. They are of two parts
+            \begin{enumerate}
+                \item \textit{lock} which are set of events an agent uses to enter a critical section by acquiring lock. Each element of the set is denoted by $l^i_j$
+                \item \textit{unlock}  which are set of events an agent uses to leave critical section by releasing the lock acquired. Each element of the set is denoted by $u^i_j$
+            \end{enumerate}
+            
+        \critic{blue}{The features of $lock$ and $unlock$ is actually not something given to the programmer to use in Javascript. They are used to implement the feature $wait$ and  $notify$ that the programmer can use which adhere to the semantics of $futexes$ in Linux. Hence, in the original standard of the model, the distinction between lock and unlock is not made, and it is simply stated as Synchronize Event}
+ 
+    \critic{blue}{There is an additional set of events called Host Events, but for our purpose of reasoning with the memory model, we do not mention it here.}  
+    
+        
+    %Range of events
+        \paragraph{Range ($\Re$)}
+            Each of the \textit{shared memory events} are associated with a contiguous range of memory on which it operates. Range is a function that maps a shared memory event to the range it operates on. This we represent as a starting index $i$ and a size $s$. So we could represent the range of a write event $w$ as 
+                    
+                    \[\Re(w) = (i, s) \]
+           
+            Each shared memory event must have a valid range.  
+                    \[\forall {e \in SM},\  \Re(e) = (i, s) \Rightarrow{} i \geq 0, s \geq 1 \]
+           
+            \critic{red}{The range as per the ECMAScript standard denotes only the set of contiguous byte indices. The starting byte index is kept separate. We find this to be unnecessary. Hence we define range to have starting index and size.}
+           
+            \paragraph{}
+            There are three possibilities while comparing two ranges, viz. \textit{disjoint}, \textit{overlapping} and \textit{equal} ranges. To define these in terms of ranges we define two operators:
+            
+            \begin{enumerate}
+                \item Intersection $(\cap{_\Re})$ - Set of byte indices common to both ranges.
+                \item Union $(\cup_\Re)$ - A unique set of byte indices that exist in both the ranges.  
+            \end{enumerate}
+            
+            Using union and intersection, we can define the properties that two ranges can have when compared 
+            \begin{enumerate}
+                \item $\Re(e) \cap_\Re \Re(d) = \phi$ - ranges are \textit{disjoint} if they do not overlap even on a single byte index
+                \item $(\Re(e)\cap_\Re \Re(d) \neq \phi) \wedge (\Re(e) \cap_\Re  \Re(d) \neq \Re(e) \cup_\Re \Re(d))$ - ranges \textit{overlap} but are not equal if they have some common byte indices for a subset of the total indices involved
+                \item $\Re(e) \cap_\Re  \Re(d) = \Re(e) \cup_\Re \Re(d)$ - ranges are \textit{equal} if all the indices involved are equal between the two ranges. In simple terms, we define equality as $\Re(e) = \Re(d)$
+            \end{enumerate}
+            
+            \critic{blue}{Note that two ranges being overlapping is different from them being equal. Although the common meaning of overlapping might mean that they can be equal, for ranges, overlapping and equal are distinct.}
+            
+         \paragraph{Value($V$)}  
+           It is a function that maps a byte address given to the value that is stored in that address.For example, the byte address $k \text{ has the value } x_k$ will be depicted as:
+                
+                \[V(k) = x_k\]
+            
+            \critic{red}{We introduce the value function to just map memory to values stored there. Note that we also assume only integer values for the sake of reasoning with memory models.}
+            
+         \paragraph{}
+            Using the above constructs, we represent the three subset of shared memory events with their ranges in the following way:
+            
+            Consider a chunk of memory {k,k+1...k+10} wherein the values stored are:
+            
+                \[\forall i \in [0,10], V(k+i) = x_{k+i}\]
+                
+            \begin{itemize}
+                \item $w$ with range $(k,11)$ modifying memory to ${x'_{k}}...{x'_{k+10}}$ will be as : 
+                
+                        \[{W^i_j}[k...(k+10)] = \{x'_{k}, x'_{k+1}...x'_{k + 10}\}\]
+                
+                \item $r$ will be represented the same as write with a distinction in semantics that the right hand side is what is read from the range of memory 
+                
+                        \[{R^i_j}[k...(k+10)] = \{x_{k}, x_{k+1}...x_{k + 10}\}\]
+                
+                \item $\rmw$ will be mapped to two tuples, the left one indicating the values read and the right one indicating the values written to the same memory. 
+                
+                        \[{RMW^i_j}[k...(k+10)] = \{(x_{k}, x_{k+1}...x_{k + 10}), (x{'}_{k}, x{'}_{k+1}...x{'}_{k + 10}) \}\]
+                
+            \end{itemize}
+            
+            \critic{blue}{Note that some examples will also be like $R[0..4] = 10$, where 10 symbolizes the value stored in 32 bits of memory, which is ideally the form \{0, 0, 0, 32\}. This is because, we are taking decimal equivalent of a 32 bit binary number. It is important to note this fact.}
+
+
+%Types of Events Based on Order--------------------------------------------------------------------------------------------------------------------
+    
+    \subsection{Types of events based on Order} 
+        Order signifies the sequence in which event actions are visible to different agents as well as the order in which they are executed by the agents themselves. In our context, there are mainly three types for each shared memory event that tells us the kind of ordering that it respects. 
+        
+        \begin{enumerate}
+            \item \textbf{Sequentially Consistent ($sc$)} - Events of this type are $atomic$ in nature. The meaning of sequentially consistent implies that there is a strict global total ordering of such events which is agreed upon by all concurrent processes sharing the same memory. 
+            
+            \item \textbf{Unordered ($uo$)} - Events of this type are considered non-atomic and can occur in different orders for each concurrent process, meaning there is no fixed global order respected by agents for such events. 
+            
+            \item \textbf{Initialize ($init$)} - Events of this type are used to initialize the values in memory before events in an agent cluster begin to execute concurrently. Additionally, only write events can be of this type and there is only one init event for each byte address in shared memory. 
+        \end{enumerate}
+        
+        \paragraph{}
+        We represent the type of events in the following format - $event : type$ 
+        
+        \critic{red}{The word \textit{atomic} is actually misleading. It does not imply the events are evaluated using just one instruction. For example, a 64-bit sequentially consistent write on a 32-bit system has to be done with two subsequent memory actions. But its intermediate state of write must not be seen by any other agent. In an abstract sense, this event must appear '\textit{atomic}'.The \textit{atomic} here also refers to implications of whether an event's consequence is visible to all other agents in the same global total order or not. The compiler must ensure that for specific hardware, such guarantees are satisfied.}
+        
+        \critic{red}{The notion of sequentially consistent has the same semantics of what C++ has for such events. Note that this semantics is not mentioned here explicitly, but by talking with fellow researchers working on the same domain, as well as with careful observation, it has come to our understanding that this is assumed to be true. We will make sure that the semantics is defined here properly as per what is there of C++.}
+      
+        \critic{red}{We are not sure if $init$ is a type of write that has a range as the range of shared memory involved in the agent cluster or is it individual writes for each byte address. This is not mentioned in the $standard$. We assume them to be for individual byte addresses, as we will see shortly in the rule for $\stck{_{hb}}$ ordering why we consider this assumption to be the best one.  But note that it may not be the case always. As an example, consider a 32-bit hardware not having instructions to support 16 or 8 bit memory actions. In that case we do not know what the $init$ event will sum up to. It would rather be better for it to be just one $init$ write event that ranges through the entire shared memory, and modify the $\stck{_{hb}}$ relation accordingly.}
+      
+%Tearing factor of events---------------------------------------------------------------------------------------------------------------------------
+
+    \subsection{Tearing (Or not)}
+        Additionally, each shared-memory event is also associated with whether they are tear-free operations or not.
+        
+        \paragraph{Tearing}
+            Operations that tear are not aligned accesses with respect to the hardware and can be serviced using two or more memory fetches. 
+            
+        \paragraph{Tear-Free}
+            Operations that are tear-free are aligned with respect to the hardware and should appear to 
+            be serviced in one memory fetch. (this might not be possible always, but we are concerned with whether it can appear to be tear free)
+     
+        \critic{red}{There is a very confusing definition of \textit{tear-free ness} given by ECMAScript. These definitions are part of how the tear factor affects the behavior of programs in a concurrent setting. This is also defined as a set of axioms further below. We make this distinction to avoid confusion : 
+        \begin{enumerate}
+            \item For every Read event, tear-free-ness questions whether this event is allowed to read from multiple write events on equal range as this event
+            \item For every Write event, tear-free-ness questions whether this event is allowed to be read by multiple reads on equal range as this event. 
+        \end{enumerate}
+        }
+        
+        For most of our analysis, unless otherwise stated we will assume all events to be tear-free
+                       

@@ -1,0 +1,150 @@
+%INTRODUCTION TO MEMORY CONSISTENCY MODELS 
+
+
+\section{Introduction}
+    \paragraph{}
+    The word \textit{concurrent} comes from two separate latin words '\textit{con}' meaning 'run' and '\textit{curro}' meaning 'together'. The concept of concurrency has been known for a long time. We conduct most of our daily tasks concurrently, a simple example being making lunch.
+    
+    In terms of programming / computation however, this concept is quite recent, that it has not even been a century when this idea was adopted. There is a slight change in what concurrency means in computer science though. It is a word to describe programs divided across fragments which execute in different orders(or out of order) but does not affect the final intended result. This is often very effective as different parts of your program can run in parallel, thus improving performance. Note however, that parallelism is not the same as concurrency. 
+    
+    A simple example such as below shows why concurrency can be leveraged to run fragments of a program out of order.
+    
+    \begin{center}
+        \begin{tikzpicture}
+            
+            \node (start) [inst] {\textbf{\tc{MidnightBlue}{P}}};
+        
+            \node (in1) [inst, below of = start] {\tc{BrickRed}{x = 1}};
+            \node (in2) [inst, below of = in1] {\tc{BrickRed}{y = 2}};
+            \node (in3) [inst, below of = in2] {\tc{BrickRed}{z = 3}};
+        
+            \node (start1) [inst, right of = in1, node distance = 3cm] {\textbf{\tc{MidnightBlue}{P1}}};
+            \node (start2) [inst, right of = start1, node distance = 1.5cm] {\textbf{\tc{MidnightBlue}{P2}}};
+            \node (start3) [inst, right of = start2, node distance = 1.5cm] {\textbf{\tc{MidnightBlue}{P3}}};
+            
+            
+            \node (in11) [inst, below of = start1] {\tc{BrickRed}{x = 1}};
+            
+            \node (in21) [inst, below of = start2] {\tc{BrickRed}{y = 2}};
+            
+            \node (in31) [inst, below of = start3] {\tc{BrickRed}{z = 3}};
+            
+        \end{tikzpicture}
+    \end{center}
+    
+    In the case above, the left hand side program runs sequentially in processor P, whereas the right hand side has three different processors, each running one fragment of the code. Note that in this case, the three instructions can run in any order, contrast to the other case, where a fixed sequence is there. We often want such a program to run concurrently so that performance of our code is improved. 
+    \newline
+    
+    Doing this however, is not so straightforward. Most scenarios cannot be translated to truly independent fragments of code. For example, while making lunch, if we just have one stove, then only one dish can use it at a time. In terms of programming, there is some form of communication required at points of execution. 
+    \paragraph{}
+    For example, I want to read/write multiple times from a memory chunk. In a sequential sense, we would have no problem as at a given point in execution, either a write / read is happening. However, it might not be the case in a concurrent setting. 
+    
+    \begin{center}
+        \begin{tikzpicture}
+            
+            \node (start) [inst] {\textbf{\tc{MidnightBlue}{P}}};
+        
+            \node (in1) [inst, below of = start] {\tc{BrickRed}{x = 1}};
+            \node (in2) [inst, below of = in1] {\tc{BrickRed}{a = x}};
+            \node (in3) [inst, below of = in2] {\tc{BrickRed}{x = 2}};
+            \node (in4) [inst, below of = in3] {\tc{BrickRed}{b = x}};
+            
+            
+        
+            \node (start1) [inst, right of = in1, node distance = 3cm] {\textbf{\tc{MidnightBlue}{P1}}};
+            \node (start2) [inst, right of = start1, node distance = 1.5cm] {\textbf{\tc{MidnightBlue}{P2}}};
+            
+            \node (in11) [inst, below of = start1] {\tc{BrickRed}{x = 1}};
+            \node (in12) [inst, below of = in11] {\tc{BrickRed}{a = x}};
+            
+            
+            \node (in21) [inst, below of = start2] {\tc{BrickRed}{x = 2}};
+            \node (in22) [inst, below of = in21] {\tc{BrickRed}{b = x}};
+            
+            
+        \end{tikzpicture}
+    \end{center}
+    
+    Dividing the program in these fragments, however, may result in certain read values that should not have happened. For example, the value of $b$ can be $1$. 
+    
+    However, in a concurrent setting, if we arrange it in such a way that one processor issues reads and the other issues writes, the fact that they happen out of order necessarily means we need some form of mechanism to ensure that no process is reading from memory that is being written and vice versa. Doing this however, is often not so straightforward. 
+    
+    \begin{figure}[hbt!]
+        \centering    
+        \begin{minipage}[c]{0.35\textwidth}
+            \begin{gather*}
+                \textbf{P1} \\ if(\text{no writers in region}) \\  \text{Do something useful} 
+            \end{gather*}
+        \end{minipage}
+        \begin{minipage}[c]{0.35\textwidth}
+            \begin{gather*}
+                \textbf{P2} \\ if(\text{no writers in region}) \\  \text{Do something useful}
+            \end{gather*}
+        \end{minipage}
+        \begin{minipage}[c]{0.2\textwidth}
+            \begin{gather*}
+                \dots \text{and so on}
+            \end{gather*}
+        \end{minipage}
+    
+        \caption{Example where fragments need to communicate}
+        \label{fig:my_label}
+    \end{figure}
+    
+    Common useful examples of the above in terms of programming can be explained using readers-writers, producer-consumer and dining philosopher's problem (cite). 
+    
+    Our objective in terms of communication is simple. We need some means of communication that is sufficient enough to communicate effectively and correctly as well as allow fragments(or threads/processes) to execute independently otherwise. 
+    
+    In terms of communication, there are mainly two ways that are adopted: 
+    \begin{itemize}
+        \item \textbf{Message Passing } 
+             A fragment communicates the information to another by dedicating a specific channel and sending the copy of its information along that channel. The receiving fragment will 'listen' on that channel to get the information passed. 
+            
+        \item \textbf{Shared Memory }
+              Here, multiple fragments share a common memory on which they write  and from which they read the shared information. Note that in this case, there is no explicit communication among fragments. Each one is unaware of information being passed to other fragments.
+    \end{itemize}
+    
+    Even though message passing could intuitively be a more easy way of ensuring communicated values are being given to appropriate fragments, they suffer from some performance issues, one factor being the copying of messages to be passed. However, it is comparatively easy to ensure proper communication.  
+    
+    In using shared memory on the other hand, communication is not really explicit in that sense, it is often hard to capture by intuition alone. Different languages has different rules of how and when memory events reflect the change in shared memory as well as when is this visible to other processes. 
+    
+    Although one would like to used shared memory for the sake of performance, it is often not so straightforward to design programs with shared memory that do what the user intends to. This is often due to the fact that the user is quite used to thinking of programs having some global sequence of execution. 
+    
+    Although one would like to reason as though all operations being executed in some sequence, it often is not necessary to think so.    
+    
+    \begin{figure}[hbt!]
+        \centering
+        \begin{minipage}[c]{0.2\textwidth}
+            \begin{gather*}
+                \textbf{P1} \\ x=1 \\ y=1 \\ z=2 
+            \end{gather*}
+        \end{minipage}
+        \begin{minipage}[c]{0.2\textwidth}
+            \begin{gather*}
+                \textbf{P2} \\ a=x \\ b=x
+            \end{gather*}
+        \end{minipage}
+
+        \caption{hmmm}
+        \label{fig:my_label}
+    \end{figure}
+    
+    In the above example, P2 need not know the order in which $x$, $y$ and $z$ are written. Just the read of $x$ matters. 
+    
+    Similar to above example, there are many other situations where other threads need not know \textit{immediately} what others are doing. For this reason,  hardware provide features that can leverage the "non-sequential" aspect to improve the performance of concurrent programs. However, it is often not that straightforward to use. The problem came up as there was not a concise set of semantics that defined the behaviors of programs using these features. The collection of such semantics forms what is termed as a memory consistency model. I encourage the avid reader to read (cite Adve, Gharchorloo) to get more clarity on why we need a concise semantics for shared memory usage to reason with our programs.
+    
+    
+    \paragraph{How do we represent the semantics?}
+    There are commonly two ways the semantics of such a model are defined; operational and axiomatic. Note that while thinking of a specification for computation axiomatically, one must clearly separate the implementation specifics from it. In short, the operational semantics must be separated as much as possible from the axiomatic semantics. As the latter specifies \textbf{what} behaviors a program can have, while the former is meant to specify \textbf{how} to depict those behaviors. The reader can refer to (cite x86TSO) to see how the two defer for the x86TSO memory model.
+    
+    Our focus here is on the shared memory consistency model of ECMAScript, particularly, the axiomatic semantics.
+    
+    %Need to write also the motivation for optimization
+    
+    \critic{blue}{This document is made in the goal to provide a clear axiomatic formulation of the ECMAScript memory consistency model.} 
+
+    \critic{red}{This model is written in the hopes of clarifying the ECMAScript standard specification for the memory model. So the flow in which it is defined will not be much different from what the standard has.}
+    
+
+%-----------------------------------------------------------------------------------------------------------------------------------------------
+    

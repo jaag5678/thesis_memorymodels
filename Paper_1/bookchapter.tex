@@ -1,0 +1,169 @@
+
+%%%%%%%%%%%%%%%%%%%%%%% file typeinst.tex %%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the LaTeX source for the instructions to authors using
+% the LaTeX document class 'llncs.cls' for contributions to
+% the Lecture Notes in Computer Sciences series.
+% http://www.springer.com/lncs       Springer Heidelberg 2006/05/04
+%
+% It may be used as a template for your own input - copy it
+% to a new file with a new name and use it as the basis
+% for your article.
+%
+% NB: the document class 'llncs' has its own and detailed documentation, see
+% ftp://ftp.springer.de/data/pubftp/pub/tex/latex/llncs/latex2e/llncsdoc.pdf
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[runningheads,a4paper]{llncs}
+\usepackage{tasks}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setcounter{tocdepth}{3}
+\usepackage{graphicx}
+%\usepackage{amsthm}
+\usepackage{float}
+\usepackage{centernot}
+\usepackage[subtle]{savetrees}
+\usepackage[dvipsnames]{xcolor}
+
+
+%\setlength{\belowcaptionskip}{-20pt}
+\setlength{\intextsep}{3pt}
+
+\usepackage{url}
+
+%Sorting subsubsection spacing
+\makeatletter
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+                       {-5\p@ \@plus -4\p@ \@minus -4\p@}% Formerly -18\p@ \@plus -4\p@ \@minus -4\p@
+                       {-0.5em \@plus -0.22em \@minus -0.1em}%
+                       {\normalfont\normalsize\bfseries\boldmath}}
+\makeatother
+
+\newcommand{\keywords}[1]{\par\addvspace\baselineskip
+\noindent\keywordname\enspace\ignorespaces#1}
+
+%SOME CRAFTED COMMANDS 
+
+%A short form to write critics of own color
+\usepackage{array}
+\long\def\authornote#1{%
+	\leavevmode\unskip\raisebox{-3.5pt}{\rlap{$\scriptstyle\diamond$}}%
+	\marginpar{\raggedright\hbadness=10000
+		\def\baselinestretch{0.8}\tiny
+		\it #1\par}}
+\newcommand{\ati}[1]{\authornote{AK: #1}}
+\newcommand{\clark}[1]{\authornote{\textcolor{red}{\textbf{C: #1}}}}
+
+%Short form to use stack_relative
+\newcommand{\stck}{\stackrel{\longrightarrow}}
+
+%A different version of the above 
+\newcommand{\stckdet}[1]{\stackrel{{#1}}}
+
+%We write a lot of relations between two events using the orderings, so a short form to use that
+\newcommand{\reln}[3]{#1\stck{_{\textit{#2}}}#3}
+
+\newcommand{\dblind}[1]{~}
+%\newcommand{\dblind}[1]{#1}
+
+%We also will introduce a short form to write an event belongs to some set
+\newcommand{\event}[2]{#1\!\in\!#2}
+
+%To make events and their type more close to each other
+\newcommand{\typ}[1]{\textit{#1}}
+\newcommand{\et}[2]{#1\!:\!\typ{#2}}
+
+%Short form to write color text
+\newcommand{\tc}[2]{\textcolor{#1}{#2}}
+\newcommand{\needcite}{\textbf{\tc{red}{cite}}}
+
+\begin{document}
+
+\mainmatter  % start of an individual contribution
+
+% first the title is needed
+\title{Reordering Under the ECMAScript Memory Consistency Model}
+
+% a short form should be given in case it is too long for the running head
+\titlerunning{Reordering Under the ECMAScript Memory Consistency Model}
+
+% the name(s) of the author(s) follow(s) next
+%
+% NB: Chinese authors should write their first names(s) in front of
+% their surnames. This ensures that the names appear correctly in
+% the running heads and the author index.
+%
+\author{\dblind{Akshay Gopalakrishnan}
+\dblind{\and Clark Verbrugge}}
+%
+%\authorrunning{Lecture Notes in Computer Science: Authors' Instructions}
+% (feature abused for this document to repeat the title also on left hand pages)
+
+% the affiliations are given next; don't give your e-mail address
+% unless you accept that it will be published
+\institute{\dblind{McGill University}\\
+\dblind{Montr\'{e}al, Qu\'{e}bec, Canada}\\
+\dblind{\email{akshay.akshay@mail.mcgill.ca}, \email{clump@cs.mcgill.ca}}}
+
+%
+% NB: a more complex sample for affiliations and the mapping to the
+% corresponding authors can be found in the file "llncs.dem"
+% (search for the string "\mainmatter" where a contribution starts).
+% "llncs.dem" accompanies the document class "llncs.cls".
+%
+
+%\toctitle{Lecture Notes in Computer Science}
+%\tocauthor{Authors' Instructions}
+\maketitle
+
+\begin{abstract}
+Relaxed memory accesses are used to gain substantial improvement in the performance of concurrent programs.
+A relaxed consistency model specifically describes the semantics of such memory accesses for a particular programming language. 
+Historically, such semantics are often ill defined or misunderstood, and have been shown to 
+conflict with common compiler optimizations essential for the performance of programs overall.
+In this paper, we give a formal description of the ECMAScript relaxed memory consistency model. 
+We then analyze the impact of this model on one of the most common compiler optimizations, viz. \textit{instruction reordering}. We give a conservative proof under which such optimization is allowed for relaxed memory accesses. 
+Finally, we discuss the advantage of our conservative approach and the gaps needed to be filled in order to incorporate such analysis while doing such optimizations at the program level.  
+%\emph{abstract} environment.
+\keywords{relaxed memory consistency, optimization, ECMAScript}
+\end{abstract}
+
+
+\input{intro}
+
+\input{related_work}
+    
+\section{The ECMAScript Memory Consistency Model}
+    
+    We give a relatively more formal and concise axiomatic description of Section 28 of the ECMAScript standard. The version we are referring to is the current working draft~\cite{ECMA}. It is important to note that this working draft has not changed the memory model specifics since the time we started our work on this.  
+    
+    \input{EcmaScriptMemModel/agents}
+    
+    \input{EcmaScriptMemModel/event_sets}
+    
+    \input{EcmaScriptMemModel/event_relations}
+         
+    \input{EcmaScriptMemModel/ordering_relations_on_events}
+    
+    \input{EcmaScriptMemModel/definitions}
+    
+    \input{EcmaScriptMemModel/valid_execution_rules}
+    
+    \input{EcmaScriptMemModel/race}
+    
+    \input{EcmaScriptMemModel/valid_execution}
+    
+    \input{InstructionReordering/optimization_proof}
+    
+    \input{discussion}
+    
+    \input{conclusion}
+
+\nocite{*}
+    \bibliographystyle{splncs04}
+    \bibliography{references} 
+   
+\end{document}
