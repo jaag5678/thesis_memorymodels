@@ -1,0 +1,32 @@
+%AGENTS----------------------------------------------------------------------------------------------------------------------------------------  
+\section{Agents, Events and their Types}
+
+    \subsection{Agents}
+        A concurrent program involves different threads/processes running concurrently. Agents are analogous to different threads/processes. 
+        
+        \critic{red}{Agents actually have more meaning than what we refer to here. However, in terms of reasoning just with memory consistency rules, we are safely abstracting them to just mean threads/processes.}
+
+        %Agent Clusters
+        \paragraph{Agent Cluster}
+        Collection of agents concurrently communicating with each other (directly/ indirectly) form an agent cluster.  There can be multiple agent clusters. However, an agent can only belong to one agent cluster.
+
+        \critic{red}{Please look back at what Conrad had said to about agent clusters.}
+        
+        %Perhaps give an example here later
+
+        \critic{blue}{Note that for the purpose of reasoning with optimizations given the memory model, we stick to assuming that just one agent cluster exists. We also assume that agents in the cluster communicate only through one common shared memory segment.}
+
+        \critic{purple}{Could elaborate the role when different shared array buffers are used to communicate accross agents belonging to different clusters. However, this is something that is not primary to our purpose of investigation, but would be essential as a whole from a practical standpoint to enforce correct concurrent programming.}
+        
+        %Agent Event Set
+        \paragraph{Agent Event List $(ael)$}
+        Every agent is mapped to a list of events. Operationally (when a program actually runs),  these events are appended to the list during evaluation. We define $ael$ is a mapping of each agent to a list of events.
+        
+            \[ael(a) = [e_1, e_2, ... e_k ] \]
+        
+        \critic{blue}{The standard refers this to be an Event List, but we find it a bit misleading as it does not signify a list for each agent. Hence we name it as Agent Event List}
+
+        
+
+            
+

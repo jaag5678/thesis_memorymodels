@@ -1,59 +1,61 @@
-%Events----------------------------------------------------------------------------------------------------------------------------------
+%Events------------------------------------------------------------------
+\subsection{Events}
+        
+The memory model is described mainly using a set of events and some ordering relations on them. An evaluation of an operation results in a set of events that are evaluated. An event is either an operation that involves (shared) memory access or that constrains the order of execution of multiple events. The latter are called \textit{Synchronize Events}
+
+\critic{blue}{Synchronizing events are analogous to $lock$ and $unlock$ events that allow exclusive access to critical sections of memory. However, this is not specified in the standard as part of the memory model.}
+
+%Event_sets----------------------------------------------------------------------------------------------------------------------------------
     
     %Useful command syntax
     \newcommand{\rmw}{\textit{rmw}\,}
     \newcommand{\set}[1]{\textbf{\textit{#1}}}
 
     \subsection{Event Set}
-    Given an agent cluster, an \textit{event set} is a collection of all events from the agent event lists. This set is composed of mainly two distinct subsets:
+    Given an agent cluster, an \textit{event set} is a collection of all events from the agent event lists. This set is composed of mainly two distinct subsets as follows: 
        
         %Shared Memory Events
-        \subsubsection{Shared Memory (\set{SM}) Events} This set is composed of three mutually exclusive and independent set of events on shared memory: 
+        \subsubsection{Shared Memory (\set{SM}) Events} This set is composed of two sets of events: 
+            
+            \critic{purple}{Use a better listing to enumerate both items below in the same line}
             \begin{enumerate}
                 \item Write events (\set{W})
                 \item Read events (\set{R}) 
-                \item Read Modify Write events (\set{RMW}) 
             \end{enumerate}
-        
+            Events that belong to both Write and Read events are called Read-Modify-Write. 
         %Synchronize events 
-        \subsubsection{Synchronize (\set{S}) Events} These events only restrict the ordering of execution of events by agents. They are of two parts
+        \subsubsection{Synchronize (\set{S}) Events} These events only restrict the ordering of execution of events by agents. They are of two sets, which are mutually exclusive:
             \begin{enumerate}
-                \item \textit{lock} which are set of events an agent uses to enter a critical section by acquiring lock. Each element of the set is denoted by $l^i_j$
-                \item \textit{unlock}  which are set of events an agent uses to leave critical section by releasing the lock acquired. Each element of the set is denoted by $u^i_j$
+                \item Lock events (\set{L})
+                \item Unlock events (\set{U}) 
             \end{enumerate}
             
-        \critic{blue}{The features of $lock$ and $unlock$ is actually not something given to the programmer to use in Javascript. They are used to implement the feature $wait$ and  $notify$ that the programmer can use which adhere to the semantics of $futexes$ in Linux. Hence, in the original standard of the model, the distinction between lock and unlock is not made, and it is simply stated as Synchronize Event}
+        \critic{blue}{The features of $Lock$ and $Unlock$ events is actually not something given to the programmer to use in Javascript. They are used to implement the feature $wait$ and  $notify$ that the programmer can use which adhere to the semantics of $futexes$ in Linux. Hence, in the original standard of the model, the distinction between lock and unlock is not made, and it is simply stated as Synchronize Event}
  
-    \critic{blue}{There is an additional set of events called Host Events, but for our purpose of reasoning with the memory model, we do not mention it here.}  
-    
+    \critic{blue}{There is an additional set of events called Host Specific Events, but for our purpose, it is not of any major concern.}  
         
     %Range of events
         \paragraph{Range ($\Re$)}
             Each of the \textit{shared memory events} are associated with a contiguous range of memory on which it operates. Range is a function that maps a shared memory event to the range it operates on. This we represent as a starting index $i$ and a size $s$. So we could represent the range of a write event $w$ as 
                     
                     \[\Re(w) = (i, s) \]
-           
-            Each shared memory event must have a valid range.  
-                    \[\forall {e \in SM},\  \Re(e) = (i, s) \Rightarrow{} i \geq 0, s \geq 1 \]
-           
+        
             \critic{red}{The range as per the ECMAScript standard denotes only the set of contiguous byte indices. The starting byte index is kept separate. We find this to be unnecessary. Hence we define range to have starting index and size.}
            
-            \paragraph{}
-            There are three possibilities while comparing two ranges, viz. \textit{disjoint}, \textit{overlapping} and \textit{equal} ranges. To define these in terms of ranges we define two operators:
+            Two Ranges can be \textit{disjoint}, \textit{overlapping} or \textit{equal}. We use the two operators below to define these three possibilities between ranges of events $e$ and $d$ :
             
             \begin{enumerate}
                 \item Intersection $(\cap{_\Re})$ - Set of byte indices common to both ranges.
                 \item Union $(\cup_\Re)$ - A unique set of byte indices that exist in both the ranges.  
             \end{enumerate}
             
-            Using union and intersection, we can define the properties that two ranges can have when compared 
             \begin{enumerate}
-                \item $\Re(e) \cap_\Re \Re(d) = \phi$ - ranges are \textit{disjoint} if they do not overlap even on a single byte index
-                \item $(\Re(e)\cap_\Re \Re(d) \neq \phi) \wedge (\Re(e) \cap_\Re  \Re(d) \neq \Re(e) \cup_\Re \Re(d))$ - ranges \textit{overlap} but are not equal if they have some common byte indices for a subset of the total indices involved
-                \item $\Re(e) \cap_\Re  \Re(d) = \Re(e) \cup_\Re \Re(d)$ - ranges are \textit{equal} if all the indices involved are equal between the two ranges. In simple terms, we define equality as $\Re(e) = \Re(d)$
+                \item Disjoint $\Re(e) \cap_\Re \Re(d) = \phi$ 
+                \item Overlapping $(\Re(e)\cap_\Re \Re(d) \neq \phi) \wedge (\Re(e) \cap_\Re  \Re(d) \neq \Re(e) \cup_\Re \Re(d))$ - 
+                \item Equal $\Re(e) \cap_\Re  \Re(d) = \Re(e) \cup_\Re \Re(d)$ - In simple terms, we define equality as $\Re(e) = \Re(d)$
             \end{enumerate}
             
-            \critic{blue}{Note that two ranges being overlapping is different from them being equal. Although the common meaning of overlapping might mean that they can be equal, for ranges, overlapping and equal are distinct.}
+            \critic{blue}{Note that two ranges being overlapping is different from them being equal. This distinction is used to define certain things ahead in the model.}
             
          \paragraph{Value($V$)}  
            It is a function that maps a byte address given to the value that is stored in that address.For example, the byte address $k \text{ has the value } x_k$ will be depicted as:
@@ -62,7 +64,6 @@
             
             \critic{red}{We introduce the value function to just map memory to values stored there. Note that we also assume only integer values for the sake of reasoning with memory models.}
             
-         \paragraph{}
             Using the above constructs, we represent the three subset of shared memory events with their ranges in the following way:
             
             Consider a chunk of memory {k,k+1...k+10} wherein the values stored are:
