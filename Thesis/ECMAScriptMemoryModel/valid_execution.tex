@@ -1,20 +1,15 @@
 %Consistent Executions-------------------------------------------------------------------------------------------------------------------
 
-    \section{Consistent Execution}
-    
-        \paragraph{Valid Execution} 
-            A valid execution is when the above valid execution rules are not violated, plus a few restrictions on the happens-before order\footnotemark{}. So to summarize, a valid execution is when:
-            \begin{itemize}
-                \item $\stck{_{hb}}$ is a strict partial order.
-                \item Reads that exist are not
-                    \begin{itemize}
-                        \item Invalid coherent reads.
-                        \item Invalid tear-free reads.
-                    \end{itemize}
-                \item Execution does not violate sequentially consistent atomics. 
-            \end{itemize}
-    
-    \textit{\textbf{The memory model guarantees that every program must have at least one valid execution}}
-    
-    \critic{blue}{There is also some conditions on host-specific events (which we mentioned is not of our main concern) and what is called a chosen read, which is nothing but the reads that the underlying hardware memory model allows. Since we are not concerned with the memory models of different hardware, this restriction on reads is not of our concern, but it is interesting to note that this rule has implications of how to write compilers for specific hardware and that they are free to 'strengthen' the model if need be. }
+   %Consistent Executions-------------------------------------------------------------------------------------------------------------------
+
+   \section{Consistent Executions (Valid Observables)}
+        A valid observable behaviour is when:
+        \begin{enumerate}
+           \item No $\stck{_\textit{rf}}$ relation violates the above memory consistency rules.
+           \item $\stck{_\textit{hb}}$ is a strict partial order.
+        \end{enumerate} 
+
+        \textit{The memory model guarantees that every program must have at least one valid observable behaviour.}
+
+        \critic{blue}{There is also some conditions on host-specific events (which we mentioned is not of our main concern) and what is called a chosen read, which is nothing but the reads that the underlying hardware memory model allows. Since we are not concerned with the memory models of different hardware, this restriction on reads is not of our concern.}
     

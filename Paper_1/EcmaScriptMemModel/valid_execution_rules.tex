@@ -16,11 +16,12 @@
                 (\Re(e) \cap_\Re \Re(d) \neq \phi).
             \end{align*}
             
-            A read value cannot come from a write that has happened after it or if there is a write $g$ that happens between them, writing at the same memory.     \begin{gather*}
+            A read value cannot come from a write that has happened after it or if there is a write $g$ that happens between them, writing at the same memory.     
+                \begin{gather*}
                     \reln{e}{hb}{d}\ \Rightarrow{}\ \neg \ \reln{e}{rf}{d}. \\
                     \reln{d}{hb}{e}
                     \ \wedge \ 
-                    \reln{d}{hb}{g} \ \wedge \  \reln{g}{ao}{e}
+                    \reln{d}{hb}{g} \ \wedge \  \reln{g}{hb}{e}
                     \ \Rightarrow{} \
                     \forall x \in (\Re(d) \cap_\Re \Re(g) \cap_\Re \Re(e)), \ \neg \ \reln{e}{rbf}{(d,x)}.
                 \end{gather*}

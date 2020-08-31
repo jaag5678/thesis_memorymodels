@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.8.29)  30 AUG 2020 21:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.8.29)  31 AUG 2020 13:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -856,12 +856,6 @@ LaTeX Warning: Label `fig:my_label' multiply defined.
 
 LaTeX Warning: Label `fig:my_label' multiply defined.
 
-
-LaTeX Warning: Label `fig:my_label' multiply defined.
-
-
-LaTeX Warning: Label `fig:my_label' multiply defined.
-
 )
 \openout1 = `main.aux'.
 
@@ -992,234 +986,211 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (./ECMAScriptMemoryModel/event_sets.tex [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 74.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 77.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 77.
 
 [2]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 88.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 91.
  [3]) (./ECMAScriptMemoryModel/event_relations.tex)
 (./ECMAScriptMemoryModel/ordering_relations_on_events.tex [4])
 (./ECMAScriptMemoryModel/valid_execution_rules.tex [5])
-(./ECMAScriptMemoryModel/race.tex [6]
-Underfull \hbox (badness 10000) in paragraph at lines 38--41
-
- []
-
-) (./ECMAScriptMemoryModel/valid_execution.tex) (./optimization_proof.tex
+(./ECMAScriptMemoryModel/race.tex) (./ECMAScriptMemoryModel/valid_execution.tex
+[6]) (./optimization_proof.tex
 \c@lemma=\count128
 \c@theorem=\count129
 \c@corollary=\count130
 \c@definition=\count131
-
-[7]
-<Candidate.pdf, id=48, 291.00719pt x 263.06279pt>
-File: Candidate.pdf Graphic file (type pdf)
-<use Candidate.pdf>
-Package pdftex.def Info: Candidate.pdf  used on input line 51.
-(pdftex.def)             Requested size: 203.70363pt x 184.14268pt.
- [8 <./Candidate.pdf>]
-<Execution.pdf, id=66, 291.00719pt x 263.06279pt>
-File: Execution.pdf Graphic file (type pdf)
-<use Execution.pdf>
-Package pdftex.def Info: Execution.pdf  used on input line 67.
-(pdftex.def)             Requested size: 203.70363pt x 184.14268pt.
-<Observable_Behavior.pdf, id=67, 291.00719pt x 263.06279pt>
-File: Observable_Behavior.pdf Graphic file (type pdf)
-<use Observable_Behavior.pdf>
-Package pdftex.def Info: Observable_Behavior.pdf  used on input line 84.
-(pdftex.def)             Requested size: 203.70363pt x 184.14268pt.
- [9 <./Execution.pdf> <./Observable_Behavior.pdf>]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 130.
-
-Underfull \hbox (badness 10000) in paragraph at lines 149--150
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 66.
+ [7]
+Underfull \hbox (badness 10000) in paragraph at lines 85--86
 
  []
 
-<Lemma_Proof1_Case1.pdf, id=100, 145.50359pt x 211.7511pt>
+<Lemma_Proof1_Case1.pdf, id=49, 145.50359pt x 211.7511pt>
 File: Lemma_Proof1_Case1.pdf Graphic file (type pdf)
 <use Lemma_Proof1_Case1.pdf>
-Package pdftex.def Info: Lemma_Proof1_Case1.pdf  used on input line 217.
+Package pdftex.def Info: Lemma_Proof1_Case1.pdf  used on input line 153.
 (pdftex.def)             Requested size: 101.8518pt x 148.22475pt.
-[10]
-<Lemma_Proof1_Case2.pdf, id=104, 217.77359pt x 211.7511pt>
+[8 <./Lemma_Proof1_Case1.pdf>]
+<Lemma_Proof1_Case2.pdf, id=67, 217.77359pt x 211.7511pt>
 File: Lemma_Proof1_Case2.pdf Graphic file (type pdf)
 <use Lemma_Proof1_Case2.pdf>
-Package pdftex.def Info: Lemma_Proof1_Case2.pdf  used on input line 259.
+Package pdftex.def Info: Lemma_Proof1_Case2.pdf  used on input line 195.
 (pdftex.def)             Requested size: 152.44046pt x 148.22475pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 269--270
+Underfull \hbox (badness 10000) in paragraph at lines 205--206
 
  []
 
-[11 <./Lemma_Proof1_Case1.pdf> <./Lemma_Proof1_Case2.pdf>]
-<Lemma_Proof2_Case1.pdf, id=136, 145.50359pt x 204.765pt>
+[9 <./Lemma_Proof1_Case2.pdf>]
+<Lemma_Proof2_Case1.pdf, id=85, 145.50359pt x 204.765pt>
 File: Lemma_Proof2_Case1.pdf Graphic file (type pdf)
 <use Lemma_Proof2_Case1.pdf>
-Package pdftex.def Info: Lemma_Proof2_Case1.pdf  used on input line 340.
+Package pdftex.def Info: Lemma_Proof2_Case1.pdf  used on input line 276.
 (pdftex.def)             Requested size: 101.8518pt x 143.3345pt.
-<Lemma_Proof2_Case2.pdf, id=137, 232.9503pt x 204.765pt>
+<Lemma_Proof2_Case2.pdf, id=86, 232.9503pt x 204.765pt>
 File: Lemma_Proof2_Case2.pdf Graphic file (type pdf)
 <use Lemma_Proof2_Case2.pdf>
-Package pdftex.def Info: Lemma_Proof2_Case2.pdf  used on input line 382.
+Package pdftex.def Info: Lemma_Proof2_Case2.pdf  used on input line 318.
 (pdftex.def)             Requested size: 163.06409pt x 143.3345pt.
- [12 <./Lemma_Proof2_Case1.pdf>] [13 <./Lemma_Proof2_Case2.pdf>]
-<Q1(a).pdf, id=173, 405.43468pt x 154.6578pt>
+ [10 <./Lemma_Proof2_Case1.pdf> <./Lemma_Proof2_Case2.pdf>] [11]
+<Q1(a).pdf, id=121, 405.43468pt x 154.6578pt>
 File: Q1(a).pdf Graphic file (type pdf)
 <use Q1(a).pdf>
-Package pdftex.def Info: Q1(a).pdf  used on input line 478.
+Package pdftex.def Info: Q1(a).pdf  used on input line 414.
 (pdftex.def)             Requested size: 283.80234pt x 108.2597pt.
- [14]
-<Q1(b).pdf, id=177, 413.62529pt x 247.8861pt>
+<Q1(b).pdf, id=122, 413.62529pt x 247.8861pt>
 File: Q1(b).pdf Graphic file (type pdf)
 <use Q1(b).pdf>
-Package pdftex.def Info: Q1(b).pdf  used on input line 490.
+Package pdftex.def Info: Q1(b).pdf  used on input line 426.
 (pdftex.def)             Requested size: 289.53572pt x 173.51906pt.
- [15 <./Q1(a).pdf> <./Q1(b).pdf>]
-<Q1(d).pdf, id=206, 608.2725pt x 139.4811pt>
+ [12 <./Q1(a).pdf> <./Q1(b).pdf>]
+<Q1(d).pdf, id=150, 608.2725pt x 139.4811pt>
 File: Q1(d).pdf Graphic file (type pdf)
 <use Q1(d).pdf>
-Package pdftex.def Info: Q1(d).pdf  used on input line 550.
+Package pdftex.def Info: Q1(d).pdf  used on input line 486.
 (pdftex.def)             Requested size: 425.78786pt x 97.6361pt.
 
 
 pdfTeX warning: pdflatex (file ./Table1_Final.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
-<Table1_Final.pdf, id=207, 288.78792pt x 105.194pt>
+<Table1_Final.pdf, id=151, 288.78792pt x 105.194pt>
 File: Table1_Final.pdf Graphic file (type pdf)
 <use Table1_Final.pdf>
-Package pdftex.def Info: Table1_Final.pdf  used on input line 572.
+Package pdftex.def Info: Table1_Final.pdf  used on input line 508.
 (pdftex.def)             Requested size: 202.15015pt x 73.63528pt.
-<Q1(e).pdf, id=208, 608.2725pt x 309.07468pt>
+<Q1(e).pdf, id=152, 608.2725pt x 309.07468pt>
 File: Q1(e).pdf Graphic file (type pdf)
 <use Q1(e).pdf>
-Package pdftex.def Info: Q1(e).pdf  used on input line 601.
+Package pdftex.def Info: Q1(e).pdf  used on input line 537.
 (pdftex.def)             Requested size: 425.78786pt x 216.35078pt.
-<Q1(f).pdf, id=209, 596.2275pt x 377.49028pt>
+[13 <./Q1(d).pdf> <./Table1_Final.pdf>]
+<Q1(f).pdf, id=186, 596.2275pt x 377.49028pt>
 File: Q1(f).pdf Graphic file (type pdf)
 <use Q1(f).pdf>
-Package pdftex.def Info: Q1(f).pdf  used on input line 609.
+Package pdftex.def Info: Q1(f).pdf  used on input line 545.
 (pdftex.def)             Requested size: 417.3564pt x 264.24138pt.
-[16 <./Q1(d).pdf> <./Table1_Final.pdf> <./Q1(e).pdf>]
-<Q2(c).pdf, id=250, 387.36719pt x 175.61609pt>
+ [14 <./Q1(e).pdf> <./Q1(f).pdf>]
+<Q2(c).pdf, id=208, 387.36719pt x 175.61609pt>
 File: Q2(c).pdf Graphic file (type pdf)
 <use Q2(c).pdf>
-Package pdftex.def Info: Q2(c).pdf  used on input line 642.
+Package pdftex.def Info: Q2(c).pdf  used on input line 578.
 (pdftex.def)             Requested size: 271.15518pt x 122.93042pt.
-<Q2(d).pdf, id=251, 377.49028pt x 196.8153pt>
+<Q2(d).pdf, id=209, 377.49028pt x 196.8153pt>
 File: Q2(d).pdf Graphic file (type pdf)
 <use Q2(d).pdf>
-Package pdftex.def Info: Q2(d).pdf  used on input line 650.
+Package pdftex.def Info: Q2(d).pdf  used on input line 586.
 (pdftex.def)             Requested size: 264.24138pt x 137.76976pt.
- [17 <./Q1(f).pdf> <./Q2(c).pdf>]
+
 
 pdfTeX warning: pdflatex (file ./Table2_Final.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
-<Table2_Final.pdf, id=273, 279.85655pt x 92.2928pt>
+<Table2_Final.pdf, id=210, 279.85655pt x 92.2928pt>
 File: Table2_Final.pdf Graphic file (type pdf)
 <use Table2_Final.pdf>
-Package pdftex.def Info: Table2_Final.pdf  used on input line 680.
+Package pdftex.def Info: Table2_Final.pdf  used on input line 616.
 (pdftex.def)             Requested size: 195.89824pt x 64.6045pt.
 
 
 pdfTeX warning: pdflatex (file ./Table_Range.pdf): PDF inclusion: found PDF ver
 sion <1.7>, but at most version <1.5> allowed
-<Table_Range.pdf, id=274, 688.64278pt x 89.43413pt>
+<Table_Range.pdf, id=211, 688.64278pt x 89.43413pt>
 File: Table_Range.pdf Graphic file (type pdf)
 <use Table_Range.pdf>
-Package pdftex.def Info: Table_Range.pdf  used on input line 696.
+Package pdftex.def Info: Table_Range.pdf  used on input line 632.
 (pdftex.def)             Requested size: 482.04666pt x 62.60345pt.
 
-Overfull \hbox (29.07877pt too wide) in paragraph at lines 696--697
+Overfull \hbox (29.07877pt too wide) in paragraph at lines 632--633
  [][] 
  []
 
-<Q3(a).pdf, id=275, 492.88138pt x 320.1561pt>
+[15 <./Q2(c).pdf> <./Q2(d).pdf> <./Table2_Final.pdf>]
+<Q3(a).pdf, id=252, 492.88138pt x 320.1561pt>
 File: Q3(a).pdf Graphic file (type pdf)
 <use Q3(a).pdf>
-Package pdftex.def Info: Q3(a).pdf  used on input line 709.
+Package pdftex.def Info: Q3(a).pdf  used on input line 645.
 (pdftex.def)             Requested size: 345.0146pt x 224.10773pt.
-[18 <./Q2(d).pdf> <./Table2_Final.pdf> <./Table_Range.pdf>]
-<Q3_(b)Case1.pdf, id=318, 795.93356pt x 399.41219pt>
+<Q3_(b)Case1.pdf, id=253, 795.93356pt x 399.41219pt>
 File: Q3_(b)Case1.pdf Graphic file (type pdf)
 <use Q3_(b)Case1.pdf>
-Package pdftex.def Info: Q3_(b)Case1.pdf  used on input line 722.
+Package pdftex.def Info: Q3_(b)Case1.pdf  used on input line 658.
 (pdftex.def)             Requested size: 477.56383pt x 239.64915pt.
 
-Overfull \hbox (24.59593pt too wide) in paragraph at lines 722--723
+Overfull \hbox (24.59593pt too wide) in paragraph at lines 658--659
  [][] 
  []
 
-<Q3_(c)Case2.pdf, id=319, 582.25531pt x 313.17pt>
+[16 <./Table_Range.pdf> <./Q3(a).pdf>]
+<Q3_(c)Case2.pdf, id=282, 582.25531pt x 313.17pt>
 File: Q3_(c)Case2.pdf Graphic file (type pdf)
 <use Q3_(c)Case2.pdf>
-Package pdftex.def Info: Q3_(c)Case2.pdf  used on input line 738.
+Package pdftex.def Info: Q3_(c)Case2.pdf  used on input line 674.
 (pdftex.def)             Requested size: 349.35588pt x 187.90344pt.
-[19 <./Q3(a).pdf> <./Q3_(b)Case1.pdf>]
-<Q3_(d)Case3.pdf, id=354, 549.97469pt x 218.7372pt>
+<Q3_(d)Case3.pdf, id=283, 549.97469pt x 218.7372pt>
 File: Q3_(d)Case3.pdf Graphic file (type pdf)
 <use Q3_(d)Case3.pdf>
-Package pdftex.def Info: Q3_(d)Case3.pdf  used on input line 746.
+Package pdftex.def Info: Q3_(d)Case3.pdf  used on input line 682.
 (pdftex.def)             Requested size: 329.98735pt x 131.24332pt.
-<Q3_(e)Case4.pdf, id=355, 1135.3617pt x 493.845pt>
+ [17 <./Q3_(b)Case1.pdf> <./Q3_(c)Case2.pdf>]
+<Q3_(e)Case4.pdf, id=317, 1135.3617pt x 493.845pt>
 File: Q3_(e)Case4.pdf Graphic file (type pdf)
 <use Q3_(e)Case4.pdf>
-Package pdftex.def Info: Q3_(e)Case4.pdf  used on input line 754.
+Package pdftex.def Info: Q3_(e)Case4.pdf  used on input line 690.
 (pdftex.def)             Requested size: 454.13664pt x 197.53448pt.
 
-Overfull \hbox (1.16875pt too wide) in paragraph at lines 754--755
+Overfull \hbox (1.16875pt too wide) in paragraph at lines 690--691
  [][] 
  []
 
-[20 <./Q3_(c)Case2.pdf> <./Q3_(d)Case3.pdf> <./Q3_(e)Case4.pdf>]
-<Q4(a).pdf, id=404, 175.61609pt x 117.3183pt>
+<Q4(a).pdf, id=318, 175.61609pt x 117.3183pt>
 File: Q4(a).pdf Graphic file (type pdf)
 <use Q4(a).pdf>
-Package pdftex.def Info: Q4(a).pdf  used on input line 769.
+Package pdftex.def Info: Q4(a).pdf  used on input line 705.
 (pdftex.def)             Requested size: 122.93042pt x 82.12224pt.
-<Q4(a)_1.pdf, id=405, 405.43468pt x 151.5261pt>
+[18 <./Q3_(d)Case3.pdf> <./Q3_(e)Case4.pdf> <./Q4(a).pdf>]
+<Q4(a)_1.pdf, id=362, 405.43468pt x 151.5261pt>
 File: Q4(a)_1.pdf Graphic file (type pdf)
 <use Q4(a)_1.pdf>
-Package pdftex.def Info: Q4(a)_1.pdf  used on input line 803.
+Package pdftex.def Info: Q4(a)_1.pdf  used on input line 739.
 (pdftex.def)             Requested size: 283.80234pt x 106.06752pt.
- [21 <./Q4(a).pdf> <./Q4(a)_1.pdf>]
-<Q4(a)_2.pdf, id=427, 456.74638pt x 151.5261pt>
+<Q4(a)_2.pdf, id=363, 456.74638pt x 151.5261pt>
 File: Q4(a)_2.pdf Graphic file (type pdf)
 <use Q4(a)_2.pdf>
-Package pdftex.def Info: Q4(a)_2.pdf  used on input line 826.
+Package pdftex.def Info: Q4(a)_2.pdf  used on input line 762.
 (pdftex.def)             Requested size: 319.72029pt x 106.06752pt.
-<Q4(a)_3.pdf, id=428, 187.66109pt x 151.5261pt>
+<Q4(a)_3.pdf, id=364, 187.66109pt x 151.5261pt>
 File: Q4(a)_3.pdf Graphic file (type pdf)
 <use Q4(a)_3.pdf>
-Package pdftex.def Info: Q4(a)_3.pdf  used on input line 837.
+Package pdftex.def Info: Q4(a)_3.pdf  used on input line 773.
 (pdftex.def)             Requested size: 131.36186pt x 106.06752pt.
-
+ [19 <./Q4(a)_1.pdf> <./Q4(a)_2.pdf>]
 
 pdfTeX warning: pdflatex (file ./Table4_Final.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
-<Table4_Final.pdf, id=429, 273.27094pt x 93.40897pt>
+<Table4_Final.pdf, id=387, 273.27094pt x 93.40897pt>
 File: Table4_Final.pdf Graphic file (type pdf)
 <use Table4_Final.pdf>
-Package pdftex.def Info: Table4_Final.pdf  used on input line 873.
+Package pdftex.def Info: Table4_Final.pdf  used on input line 809.
 (pdftex.def)             Requested size: 191.28833pt x 65.38582pt.
-[22 <./Q4(a)_2.pdf> <./Q4(a)_3.pdf>]) [23 <./Table4_Final.pdf>] (./main.aux)
+) [20 <./Q4(a)_3.pdf> <./Table4_Final.pdf>] [21] (./main.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14485 strings out of 494923
- 285941 string characters out of 6180742
- 331838 words of memory out of 5000000
- 17444 multiletter control sequences out of 15000+600000
- 14904 words of font info for 55 fonts, out of 8000000 for 9000
+ 14463 strings out of 494923
+ 285484 string characters out of 6180742
+ 331819 words of memory out of 5000000
+ 17427 multiletter control sequences out of 15000+600000
+ 13567 words of font info for 51 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 55i,10n,56p,854b,294s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,14n,56p,729b,294s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texli
@@ -1230,20 +1201,20 @@ ts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/symbols/msbm10.pfb>
-Output written on main.pdf (23 pages, 2192563 bytes).
+cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/symbols/msbm10.pfb>
+Output written on main.pdf (21 pages, 2081643 bytes).
 PDF statistics:
- 540 PDF objects out of 1000 (max. 8388607)
- 373 compressed objects within 4 object streams
+ 489 PDF objects out of 1000 (max. 8388607)
+ 339 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
- 148 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 133 words of extra memory for PDF output out of 10000 (max. 10000000)
 

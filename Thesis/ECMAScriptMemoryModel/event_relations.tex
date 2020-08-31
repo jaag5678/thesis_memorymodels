@@ -1,37 +1,40 @@
 %Relation among events----------------------------------------------------------------------------------------------------------------------------
     \section{Relation among events}
-        There are three basic relations that assist us in reasoning about events and their interaction with memory.
+        We now describe a set of relations between events. These relations help us describe the consistency rules.
         
-        %Read bytes from relation 
-        \paragraph{Read-Bytes-From $(\stck{_{rbf}})$}
+        \subsubsection{Read-Write event relations}
+        There are two basic relations that assist us in reasoning about read and write events.
         
-        This relation maps every read event to a list of tuples consisting of write event and their corresponding byte index that is read. For instance, consider a read event $r[i...(i+3)]$ and corresponding write events $w_1[i...(i+3)]$, $w_2[i...(i+4)]$. One possible $\stck{_{rbf}}$ relation would be: \[r \stck{_{rbf}} \{(w_1, i), (w_2, i+1), (w_2, i+2)\}\]
+            %Read bytes from relation 
+            \paragraph{Read-Bytes-From $(\stck{_{rbf}})$}
+            
+            This relation maps every read event to a list of tuples consisting of write event and their corresponding byte index that is read. For instance, consider a read event $r[i...(i+3)]$ and corresponding write events $w_1[i...(i+3)]$, $w_2[i...(i+4)]$. One possible $\stck{_\textit{rbf}}$ relation could be represented as  
+                \[\reln{e}{\textit{rbf}}{\{(d1, i), (d2, i\!+\!1), (d2, i\!+\!2)\}} \]
+            or having individual binary relation with each write-index pair as 
+            \begin{align*}
+                \reln{e}{rbf}{(d1, i)},\ \reln{e}{rbf}{(d2, i\!+\!1)}  \text{ and } \reln{e}{rbf}{(d2, i\!+\!2)}.
+            \end{align*}
+            
+            %Reads from relation
+            \paragraph{Reads-From $(\stck{_{rf}})$}
+            
+            This relation, is similar to the above relation, except that the byte index details are not involved in the composite list. So for the above example, the \textit{rf} relation would be represented either as   
+                $\reln{e}{rf}{(d1, d2)}$
+            or individual binary read-write relation as 
+                $\reln{e}{rf}{d1}$ and $\reln{e}{rf}{d2}$.
+            
+            %Agent sync with relation
+        \subsubsection{Agent-Synchronizes With (\set{ASW})}
         
-        \critic{blue}{We will represent individual rbf relations with read events in our examples. So for the above example, the three rbf pairs are: \[r \stck{_{rbf}} (w_1, i),\ r \stck{_{rbf}} (w_2, i+1),\ r \stck{_{rbf}} (w_2, i+2)\]}
+            A list for each agent that consist of ordered tuples of synchronize events. These tuples specify ordering constraints among agents at different points of execution. So such a list for an agent $k$ would be represented like:  
+                \[ASW_k = \{ \langle s_1, s_2 \rangle, \langle s_3, s_4 \rangle ...\}\]
         
-        %Reads from relation
-        \paragraph{Reads-From $(\stck{_{rf}})$}
-        
-        This relation, is similar to the above relation, except that the byte index details are not involved in the composite list. So for the above example, the rf relation would be :  \[r \stck{_{rf}} \{w_1,w_2\}\]
-        
-        \critic{blue}{Similar to rbf, we also represent pair-wise relation in rf : \[r \stck{_{rf}} w_1,\ r \stck{_{rf}} w_2\]}
-        
-        %Agent sync with relation
-        \paragraph{Agent-Synchronizes With (\set{ASW})}
-        
-        A list for each agent that consist of ordered tuples of synchronize events. These tuples specify ordering constraints among agents at different points of execution. So such a list for an agent $k$ would be represented like:  
-        \[ASW_k = \{ \langle s_1, s_2 \rangle, \langle s_3, s_4 \rangle ...\}\]
-        
-        A property that must hold for each of these lists is: 
-        \begin{itemize} 
-            \item For every pair in the list, the second event belongs to the parent agent and the first belongs to another agent it synchronized with.
+            For every pair in the list, the second event belongs to the parent agent and the first belongs to another agent it synchronized with.
                 \[  
                     \forall{i,j>0},\ 
-                    \langle s^i, s^j\rangle \in ASW_j 
+                    \langle s_1, s_2 \rangle \in ASW_j 
                     \Rightarrow{} 
-                    i \neq j\ \ \wedge \
-                    s^j \in ael(k)                        
+                    s_2 \in ael(k)                        
                 \]
-        \end{itemize}
         
-        \critic{blue}{The analogy is similar to the property that every unlock must be paired with a subsequent lock, which enforces the condition that a lock can be acquired only when it has been released.}
+        \critic{blue}{This is analogous to the property that every unlock must be paired with a subsequent lock, which enforces the condition that a lock can be acquired only when it has been released.}

@@ -1,0 +1,66 @@
+\subsection{Preliminaries}
+    
+    Before we go into the consistency rules. we define certain preliminary definitions that create a separation based on a program, the axiomatic events and the various ordering relations defined above. This will help us understand where the consistency rules actually apply.    
+    
+    %What is a program 
+    \begin{definition}{Program} 
+        A \emph{program} is the source code without abstraction to a set of events and ordering relations. In our context, it is the original Javascript program. 
+        
+        %Note that here we need to supply a Javascript program using shared array buffers and atomic objects. A thing to do after we give examples for the ones below
+    \end{definition}
+    
+    %What is one run of a program to us?
+    \begin{definition}{Candidate}
+        This is a collection of abstracted set of shared memory events of a program involved in one possible execution, with the added $\stck{_\textit{ao}}$ relations. We can think of this as each thread having a set of shared memory events to run in a given intra-thread ordering. An example of a candidate is shown in figure~\ref{fig:candidate}.
+        
+    %GIVE AN EXAMPLE
+    
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{Candidate.pdf}
+            \caption{An example of a Candidate}
+            \label{fig:candidate}
+        \end{figure}
+        
+    \end{definition}
+    
+    %What relations that give us information on order in which events run are entailed when the program actually runs? 
+    
+    %CLARK: The ordering relations such as mo and hb are mainly to give us a justification of the rf relations that we see as a result of executing the program. In that sense, the definition must be more about a witness
+    \begin{definition}{Candidate Execution}
+        A Candidate with the addition of $\stck{_\textit{sw}}$, $\stck{_\textit{hb}}$ and $\stck{_\textit{mo}}$ relations. This can be viewed as the witness/justification of an actual execution of a Program. Note that there can be many Candidate Executions for a given Candidate. The following figure shows an example of a candidate execution. 
+        %FOLLOW UP WITH PREVIOUS EXAMPLE
+        
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{Execution.pdf}
+            \caption{An example of an Execution based on Candidate above}
+            \label{fig:my_label}
+        \end{figure}
+        
+    \end{definition}
+    
+    \critic{blue}{Although by definition, the above relations are derived using $\stck{_{rf}}$ relation, what we want to show is that given these relations exist, what are the implications on $\stck{_{rf}}$ relations. Hence, our axioms of the memory model are based on restriction of $\stck{_{rf}}$ contrast to it being restriction on these ordering relations that are adidtional in a Candidate Execution.}
+    
+    %What values are read when the program is run
+    \begin{definition}{Observable Behavior}
+    
+    The set of pairwise $\stck{_\textit{rf}}$ and $\stck{_\textit{rbf}}$ relations that result in one execution of the program. Think of this as our outcome of a program execution.
+    %FOLLOW UP WITH PREVIOUS EXAMPLE
+    
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{Observable_Behavior.pdf}
+            \caption{Observable Behavior}
+            \label{fig:my_label}
+        \end{figure}
+        
+    \critic{purple}{Make sure to change this figure to fit the modified definition of observable behaviors}
+    
+    \critic{blue}{The axioms of our memory model restrict the possible Observable Behaviors by specifying constraints on $\stck{_{rf}}$ relations based on a Candidate Execution. For our purpose and flow in which we successively add relations to set of events, this would also include the implication on $\stck{_{rf}}$ relation while having a $\stck{_{sw}}$ relation among two events.} 
+    
+    %MAY NEED TO JUSTIFY WHY THE OBSERVABLE BEHAVIORS ARE DEPENDANT ON hb and mo relations. We would need to justify this while proving when reordering is possible
+    
+    \end{definition}
+%-----------------------------------------------------------------------------------------------------------------------------------------
+    

@@ -3,21 +3,15 @@
         
         %Agent Order
         \paragraph{Agent Order ($\stck{_{ao}}$)}
-            An relation on all events. It respects the order in which the events are evaluated by a particular agent. 
-            \[\forall{i, j > 0},\ e^i_j \stck{_{ao}} e^i_{j+1} \]
-        
-            \begin{enumerate}
-                \item Agent order also respects transitivity. 
+            A total order among events belonging to the same agent event list. It is analogous to intra-thread ordering. For example, if two events $e$ and $d$ belong to the same agent event list , then either $\reln{e}{\textit{ao}}{d}$ or $\reln{d}{\textit{ao}}{e}$. 
             
-                    \[ (e \stck{_{ao}} d) \wedge (d \stck{_{ao}} g) \Rightarrow{} (e \stck{_{ao}} g)\]
-            
-            \end{enumerate}
-            
-            \critic{blue}{Note that the relations are only with respect to events belonging to the same agent. A collection of such relations together form the agent order. This is analogous and meant to be equivalent to what we call as intra-thread sequential order. It is the same as what \textbf{sequenced-before} is defined to be in C++}
+            \critic{blue}{Note that the relations are only with respect to events belonging to the same agent. A collection of such relations together form the agent order. This is analogous to what we know as intra-thread sequential order. It is also the same as what \textbf{sequenced-before} is defined to be in C++.}
+
+            \critic{purple}{Sequenced before maybe a bit weaker that agent order, as we saw in one of the papers. Basically, sequenced before precisely tells us which events can be reordered and which cannot, in contrast to agent order. I think it is similar to preserved program order in hardware, which is defined to capture dependancies resulting due to control flow in programs. Do check and see if these are the same. Discuss with Clark. }
         
         %Synchronize With Order
         \paragraph{Synchronize-With Order ($\stck{_{sw}} $)}
-            An ordering relation that represents the synchronizations among different agents.
+            Represents the synchronizations among different agents through relations between their events. It is a composition of two sets as below: 
             \begin{enumerate}
                 \item All pairs belonging to $ASW$ of every agent belongs to this ordering relation. 
             
@@ -29,11 +23,11 @@
             
             \end{enumerate}
             
-            \critic{blue} {Note that for the second condition, both ranges of events have to be equal. However, there is no restriction that the read event cannot read-from other write events.}
+            \critic{blue} {Note that for the second condition, both ranges of events have to be equal. This however, does not mean that the read cannot read from multiple write events. (the read-from relation here is not functional.)}
             
         %Happens Before order 
         \paragraph{Happens Before Order ($\stck{_{hb}}$)}
-             A \textit{partial order} on events which are composed of the following:
+            A transitive order on events, composed of the following:
             
             \begin{enumerate}
                 \item Every agent-ordered relation is also a happens-before relation 
@@ -59,8 +53,6 @@
         
         %Memory Order
         \paragraph{Memory Order ($\stck{_{mo}}$)}
-            This order is a \textit{total order} on all events that are evaluated in an agent cluster. 
-            \begin{enumerate}
-                \item Happens before order is a part of memory order
-                    \[(e \stck{_{hb}} d) \Rightarrow{} (e \stck{_{mo}} d)\]
-            \end{enumerate}
+            This order is a \textit{total order} on all events that respects happens-before order. 
+                \[(e \stck{_{hb}} d) \Rightarrow{} (e \stck{_{mo}} d)\]
+          
