@@ -56,6 +56,16 @@
 %Short form to write color text
 \newcommand{\critic}[2]{\textcolor{#1}{\footnotesize #2}}
 
+%Some preliminary latex commands to format writing theorems 
+
+\newtheorem{lemma}{Lemma}
+
+\newtheorem{theorem}{Theorem}[lemma]
+
+\newtheorem{corollary}{Corollary}[theorem]
+
+\newtheorem{definition}{Definition}
+
 %COMMENT FOR NOW AS IT IS NOT OUR PRIORITY 
 %\input{intro.tex}
 
@@ -72,6 +82,8 @@
 
 \input{ECMAScriptMemoryModel/ordering_relations_on_events.tex}
 
+\input{ECMAScriptMemoryModel/definitions.tex}
+
 \input{ECMAScriptMemoryModel/valid_execution_rules.tex}
 
 \input{ECMAScriptMemoryModel/race.tex}
@@ -80,7 +92,7 @@
 
 %\input{todo_imp.tex}
     
-\input{optimization_proof}
+\input{InstructionReordering/optimization_proof.tex}
 
 %The end ? ------------------------------------------------------------------------------------------------------------------------------    
     
