@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.8.29)  2 SEP 2020 14:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.8.29)  10 SEP 2020 13:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**main.tex
+**main
 (./main.tex
 LaTeX2e <2017-04-15>
 Babel <3.18> and hyphenation patterns for 3 language(s) loaded.
@@ -764,6 +764,307 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/centernot.sty
 Package: centernot 2016/05/16 v1.4 Centers the not symbol horizontally (HO)
 )
+(/usr/share/texlive/texmf-dist/tex/latex/tasks/tasks.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2018/02/21 L3 programming layer (loader) 
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3-code.tex
+Package: expl3 2018/02/21 L3 programming layer (code)
+\c_max_int=\count122
+\l_tmpa_int=\count123
+\l_tmpb_int=\count124
+\g_tmpa_int=\count125
+\g_tmpb_int=\count126
+\g__intarray_font_int=\count127
+\g__prg_map_int=\count128
+\c_log_iow=\count129
+\l_iow_line_count_int=\count130
+\l__iow_line_target_int=\count131
+\l__iow_one_indent_int=\count132
+\l__iow_indent_int=\count133
+\c_zero_dim=\dimen168
+\c_max_dim=\dimen169
+\l_tmpa_dim=\dimen170
+\l_tmpb_dim=\dimen171
+\g_tmpa_dim=\dimen172
+\g_tmpb_dim=\dimen173
+\c_zero_skip=\skip49
+\c_max_skip=\skip50
+\l_tmpa_skip=\skip51
+\l_tmpb_skip=\skip52
+\g_tmpa_skip=\skip53
+\g_tmpb_skip=\skip54
+\c_zero_muskip=\muskip11
+\c_max_muskip=\muskip12
+\l_tmpa_muskip=\muskip13
+\l_tmpb_muskip=\muskip14
+\g_tmpa_muskip=\muskip15
+\g_tmpb_muskip=\muskip16
+\l_keys_choice_int=\count134
+\c__fp_leading_shift_int=\count135
+\c__fp_middle_shift_int=\count136
+\c__fp_trailing_shift_int=\count137
+\c__fp_big_leading_shift_int=\count138
+\c__fp_big_middle_shift_int=\count139
+\c__fp_big_trailing_shift_int=\count140
+\c__fp_Bigg_leading_shift_int=\count141
+\c__fp_Bigg_middle_shift_int=\count142
+\c__fp_Bigg_trailing_shift_int=\count143
+\c__fp_rand_size_int=\count144
+\c__fp_rand_four_int=\count145
+\c__fp_rand_eight_int=\count146
+\l__sort_length_int=\count147
+\l__sort_min_int=\count148
+\l__sort_top_int=\count149
+\l__sort_max_int=\count150
+\l__sort_true_max_int=\count151
+\l__sort_block_int=\count152
+\l__sort_begin_int=\count153
+\l__sort_end_int=\count154
+\l__sort_A_int=\count155
+\l__sort_B_int=\count156
+\l__sort_C_int=\count157
+\l__tl_build_start_index_int=\count158
+\l__tl_build_index_int=\count159
+\l__tl_analysis_normal_int=\count160
+\l__tl_analysis_index_int=\count161
+\l__tl_analysis_nesting_int=\count162
+\l__tl_analysis_type_int=\count163
+\l__regex_internal_a_int=\count164
+\l__regex_internal_b_int=\count165
+\l__regex_internal_c_int=\count166
+\l__regex_balance_int=\count167
+\l__regex_group_level_int=\count168
+\l__regex_mode_int=\count169
+\c__regex_cs_in_class_mode_int=\count170
+\c__regex_cs_mode_int=\count171
+\l__regex_catcodes_int=\count172
+\l__regex_default_catcodes_int=\count173
+\c__regex_catcode_D_int=\count174
+\c__regex_catcode_S_int=\count175
+\c__regex_catcode_L_int=\count176
+\c__regex_catcode_O_int=\count177
+\c__regex_catcode_A_int=\count178
+\c__regex_all_catcodes_int=\count179
+\l__regex_show_lines_int=\count180
+\l__regex_min_state_int=\count181
+\l__regex_max_state_int=\count182
+\l__regex_left_state_int=\count183
+\l__regex_right_state_int=\count184
+\l__regex_capturing_group_int=\count185
+\l__regex_min_pos_int=\count186
+\l__regex_max_pos_int=\count187
+\l__regex_curr_pos_int=\count188
+\l__regex_start_pos_int=\count189
+\l__regex_success_pos_int=\count190
+\l__regex_curr_char_int=\count191
+\l__regex_curr_catcode_int=\count192
+\l__regex_last_char_int=\count193
+\l__regex_case_changed_char_int=\count194
+\l__regex_curr_state_int=\count195
+\l__regex_step_int=\count196
+\l__regex_min_active_int=\count197
+\l__regex_max_active_int=\count198
+\l__regex_replacement_csnames_int=\count199
+\l__regex_match_count_int=\count266
+\l__regex_min_submatch_int=\count267
+\l__regex_submatch_int=\count268
+\l__regex_zeroth_submatch_int=\count269
+\g__regex_trace_regex_int=\count270
+\c_empty_box=\box41
+\l_tmpa_box=\box42
+\l_tmpb_box=\box43
+\g_tmpa_box=\box44
+\g_tmpb_box=\box45
+\l__box_top_dim=\dimen174
+\l__box_bottom_dim=\dimen175
+\l__box_left_dim=\dimen176
+\l__box_right_dim=\dimen177
+\l__box_top_new_dim=\dimen178
+\l__box_bottom_new_dim=\dimen179
+\l__box_left_new_dim=\dimen180
+\l__box_right_new_dim=\dimen181
+\l__box_internal_box=\box46
+\l__coffin_internal_box=\box47
+\l__coffin_internal_dim=\dimen182
+\l__coffin_offset_x_dim=\dimen183
+\l__coffin_offset_y_dim=\dimen184
+\l__coffin_x_dim=\dimen185
+\l__coffin_y_dim=\dimen186
+\l__coffin_x_prime_dim=\dimen187
+\l__coffin_y_prime_dim=\dimen188
+\c_empty_coffin=\box48
+\l__coffin_aligned_coffin=\box49
+\l__coffin_aligned_internal_coffin=\box50
+\l_tmpa_coffin=\box51
+\l_tmpb_coffin=\box52
+\l__coffin_display_coffin=\box53
+\l__coffin_display_coord_coffin=\box54
+\l__coffin_display_pole_coffin=\box55
+\l__coffin_display_offset_dim=\dimen189
+\l__coffin_display_x_dim=\dimen190
+\l__coffin_display_y_dim=\dimen191
+\l__coffin_bounding_shift_dim=\dimen192
+\l__coffin_left_corner_dim=\dimen193
+\l__coffin_right_corner_dim=\dimen194
+\l__coffin_bottom_corner_dim=\dimen195
+\l__coffin_top_corner_dim=\dimen196
+\l__coffin_scaled_total_height_dim=\dimen197
+\l__coffin_scaled_width_dim=\dimen198
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
+File: l3pdfmode.def 2017/03/18 v L3 Experimental driver: PDF mode
+\l__driver_color_stack_int=\count271
+\l__driver_tmp_box=\box56
+))
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2018/02/21 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count272
+\g__xparse_grabber_int=\count273
+\l__xparse_m_args_int=\count274
+\l__xparse_mandatory_args_int=\count275
+\l__xparse_v_nesting_int=\count276
+)
+(/usr/share/texlive/texmf-dist/tex/latex/eepic/epic.sty
+Enhancements to Picture Environment. Version 1.2 - Released June 1, 1986
+\@@multicnt=\count277
+\d@lta=\count278
+\@delta=\dimen199
+\@@delta=\dimen256
+\@gridcnt=\count279
+\@joinkind=\count280
+\@dotgap=\dimen257
+\@ddotgap=\dimen258
+\@x@diff=\count281
+\@y@diff=\count282
+\x@diff=\dimen259
+\y@diff=\dimen260
+\@dotbox=\box57
+\num@segments=\count283
+\num@segmentsi=\count284
+\@datafile=\read2
+) (/usr/share/texlive/texmf-dist/tex/latex/cntformats/cntformats.sty
+Package: cntformats 2014/07/20 v0.7 A different way to read counters. (CN)
+
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count285
+)
+(/usr/share/texlive/texmf-dist/tex/latex/cnltx/cnltx-base.sty
+Package: cnltx-base 2015/08/17 v0.13 LaTeX tools and documenting facilities (CN
+)
+
+(/usr/share/texlive/texmf-dist/tex/latex/pgfopts/pgfopts.sty
+Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
+\pgfopts@list@add@a@toks=\toks43
+\pgfopts@list@add@b@toks=\toks44
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+\c@cnltx@tmpa=\count286
+\c@cnltx@tmpb=\count287
+\c@cnltx@tmpc=\count288
+\cnltx@tmpa@length=\skip55
+\cnltx@tmpb@length=\skip56
+\cnltx@tmpc@length=\skip57
+
+(/usr/share/texlive/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
+Package: xtemplate 2018/02/21 L3 Experimental prototype document functions
+\l__xtemplate_tmp_dim=\dimen261
+\l__xtemplate_tmp_int=\count289
+\l__xtemplate_tmp_muskip=\muskip17
+\l__xtemplate_tmp_skip=\skip58
+)
+(/usr/share/texlive/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+)
+Package: tasks 2016/08/13 v0.12 Horizontalcolumnedlists (CN)
+\l__tasks_depth_int=\count290
+\g__tasks_int=\count291
+\g__tasks_total_items_int=\count292
+\l__tasks_columns_int=\count293
+\l__tasks_rows_int=\count294
+\g__tasks_current_col_num_int=\count295
+\g__tasks_current_row_num_int=\count296
+\l__tasks_item_columns_int=\count297
+\l__tasks_item_indent_dim=\dimen262
+\l__tasks_item_default_indent_dim=\dimen263
+\l__tasks_item_width_dim=\dimen264
+\l__tasks_label_width_dim=\dimen265
+\l__tasks_label_default_width_dim=\dimen266
+\l__tasks_label_offset_dim=\dimen267
+\l__tasks_label_default_offset_dim=\dimen268
+\l__tasks_column_sep_dim=\dimen269
+\l__tasks_after_item_skip=\skip59
+\l__tasks_custom_after_item_skip=\skip60
+\l__tasks_before_list_skip=\skip61
+\l__tasks_after_list_skip=\skip62
+\l__tasks_item_coffin=\box58
+\l__tasks_label_coffin=\box59
+\c@task=\count298
+\l__tasks_tmpa_int=\count299
+\l__tasks_tmpb_int=\count300
+\l__tasks_tmpa_coffin=\box60
+.................................................
+. xtemplate info: "declare-object-type"
+. 
+. Declaring object type 'tasks' taking 3 argument(s) on line 379.
+.................................................
+\l__tasks_choice_width_dim=\dimen270
+\l__tasks_choice_linewidth_dim=\dimen271
+\l__tasks_choice_checkwidth_dim=\dimen272
+\l__tasks_choice_raise_dim=\dimen273
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \startnewitemline with sig. '' on line 692.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \NewTasks with sig. 'O{}mO{\task }D(){1}' on line 701.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \RenewTasks with sig. 'O{}mO{\task }D(){1}' on line 708.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-environment"
+. 
+. Defining environment 'tasks' with sig. 'O{}D(){1}' on line 714.
+.................................................
+\g__file_internal_ior=\read3
+
+(/usr/share/texlive/texmf-dist/tex/latex/tasks/tasks.cfg
+File: tasks.cfg 2016/08/13 v0.12 tasks instances
+)
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \settasks with sig. 'm' on line 722.
+.................................................
+)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibraryshapes.geometric.code.tex
 File: tikzlibraryshapes.geometric.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1
@@ -781,7 +1082,7 @@ File: tikzlibraryarrows.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.
 tex
 File: pgflibraryarrows.code.tex 2013/09/23 v3.0.1a (rcs-revision 1.16)
-\arrowsize=\dimen168
+\arrowsize=\dimen274
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarypositioning.code.tex
@@ -862,18 +1163,18 @@ LaTeX Warning: Label `fig:my_label' multiply defined.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -911,32 +1212,26 @@ LaTeX Font Info:    ... okay on input line 31.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count122
-\scratchdimen=\dimen169
-\scratchbox=\box41
-\nofMPsegments=\count123
-\nofMParguments=\count124
-\everyMPshowfont=\toks43
-\MPscratchCnt=\count125
-\MPscratchDim=\dimen170
-\MPnumerator=\count126
-\makeMPintoPDFobject=\count127
-\everyMPtoPDFconversion=\toks44
+\scratchcounter=\count301
+\scratchdimen=\dimen275
+\scratchbox=\box61
+\nofMPsegments=\count302
+\nofMParguments=\count303
+\everyMPshowfont=\toks45
+\MPscratchCnt=\count304
+\MPscratchDim=\dimen276
+\MPnumerator=\count305
+\makeMPintoPDFobject=\count306
+\everyMPtoPDFconversion=\toks46
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-)
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-)))
+))
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 
@@ -945,24 +1240,11 @@ Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 )))
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 38.
 Package grfext Info: Graphics extension search list:
@@ -975,20 +1257,20 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for U+msa on input line 33.
+LaTeX Font Info:    Try loading font information for U+msa on input line 34.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 33.
+LaTeX Font Info:    Try loading font information for U+msb on input line 34.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-\c@lemma=\count128
-\c@theorem=\count129
-\c@corollary=\count130
-\c@definition=\count131
+\c@lemma=\count307
+\c@theorem=\count308
+\c@corollary=\count309
+\c@definition=\count310
 
 (./ECMAScriptMemoryModel/agents.tex) (./ECMAScriptMemoryModel/events.tex)
 (./ECMAScriptMemoryModel/event_sets.tex [1
@@ -1064,22 +1346,26 @@ File: Lemma_Proof2_Case2.pdf Graphic file (type pdf)
 <use Lemma_Proof2_Case2.pdf>
 Package pdftex.def Info: Lemma_Proof2_Case2.pdf  used on input line 237.
 (pdftex.def)             Requested size: 163.06409pt x 143.3345pt.
- [12 <./Lemma_Proof2_Case1.pdf>]) [13 <./Lemma_Proof2_Case2.pdf>]
+ [12 <./Lemma_Proof2_Case1.pdf>]) (./InstructionReordering/ValidReorderingProof
+/theorem.tex)
+(./InstructionReordering/ValidReorderingProof/proof.tex [13 <./Lemma_Proof2_Cas
+e2.pdf>] (./InstructionReordering/ValidReorderingProof/ProofParts/part1.tex
 <Q1(a).pdf, id=173, 405.43468pt x 154.6578pt>
 File: Q1(a).pdf Graphic file (type pdf)
 <use Q1(a).pdf>
-Package pdftex.def Info: Q1(a).pdf  used on input line 130.
+Package pdftex.def Info: Q1(a).pdf  used on input line 27.
 (pdftex.def)             Requested size: 283.80234pt x 108.2597pt.
 <Q1(b).pdf, id=174, 413.62529pt x 247.8861pt>
 File: Q1(b).pdf Graphic file (type pdf)
 <use Q1(b).pdf>
-Package pdftex.def Info: Q1(b).pdf  used on input line 147.
+Package pdftex.def Info: Q1(b).pdf  used on input line 41.
 (pdftex.def)             Requested size: 289.53572pt x 173.51906pt.
- [14 <./Q1(a).pdf>]
+
+[14 <./Q1(a).pdf>]
 <Q1(d).pdf, id=188, 608.2725pt x 139.4811pt>
 File: Q1(d).pdf Graphic file (type pdf)
 <use Q1(d).pdf>
-Package pdftex.def Info: Q1(d).pdf  used on input line 182.
+Package pdftex.def Info: Q1(d).pdf  used on input line 79.
 (pdftex.def)             Requested size: 425.78786pt x 97.6361pt.
 
 
@@ -1088,74 +1374,76 @@ rsion <1.7>, but at most version <1.5> allowed
 <Table1_Final.pdf, id=189, 288.78792pt x 105.194pt>
 File: Table1_Final.pdf Graphic file (type pdf)
 <use Table1_Final.pdf>
-Package pdftex.def Info: Table1_Final.pdf  used on input line 197.
+Package pdftex.def Info: Table1_Final.pdf  used on input line 94.
 (pdftex.def)             Requested size: 202.15015pt x 73.63528pt.
 [15 <./Q1(b).pdf> <./Q1(d).pdf>]
 <Q1(e).pdf, id=217, 608.2725pt x 309.07468pt>
 File: Q1(e).pdf Graphic file (type pdf)
 <use Q1(e).pdf>
-Package pdftex.def Info: Q1(e).pdf  used on input line 206.
+Package pdftex.def Info: Q1(e).pdf  used on input line 103.
 (pdftex.def)             Requested size: 425.78786pt x 216.35078pt.
 <Q1(f).pdf, id=218, 596.2275pt x 377.49028pt>
 File: Q1(f).pdf Graphic file (type pdf)
 <use Q1(f).pdf>
-Package pdftex.def Info: Q1(f).pdf  used on input line 214.
+Package pdftex.def Info: Q1(f).pdf  used on input line 111.
 (pdftex.def)             Requested size: 417.3564pt x 264.24138pt.
- [16 <./Table1_Final.pdf> <./Q1(e).pdf>]
+ [16 <./Table1_Final.pdf> <./Q1(e).pdf>])
+(./InstructionReordering/ValidReorderingProof/ProofParts/part2.tex
 <Q2(c).pdf, id=250, 387.36719pt x 175.61609pt>
 File: Q2(c).pdf Graphic file (type pdf)
 <use Q2(c).pdf>
-Package pdftex.def Info: Q2(c).pdf  used on input line 240.
+Package pdftex.def Info: Q2(c).pdf  used on input line 21.
 (pdftex.def)             Requested size: 271.15518pt x 122.93042pt.
 <Q2(d).pdf, id=251, 377.49028pt x 196.8153pt>
 File: Q2(d).pdf Graphic file (type pdf)
 <use Q2(d).pdf>
-Package pdftex.def Info: Q2(d).pdf  used on input line 248.
+Package pdftex.def Info: Q2(d).pdf  used on input line 29.
 (pdftex.def)             Requested size: 264.24138pt x 137.76976pt.
-
-[17 <./Q1(f).pdf> <./Q2(c).pdf>]
+ [17 <./Q1(f).pdf> <./Q2(c).pdf>]
 
 pdfTeX warning: pdflatex (file ./Table2_Final.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
 <Table2_Final.pdf, id=273, 279.85655pt x 92.2928pt>
 File: Table2_Final.pdf Graphic file (type pdf)
 <use Table2_Final.pdf>
-Package pdftex.def Info: Table2_Final.pdf  used on input line 260.
+Package pdftex.def Info: Table2_Final.pdf  used on input line 41.
 (pdftex.def)             Requested size: 195.89824pt x 64.6045pt.
+) (./InstructionReordering/ValidReorderingProof/ProofParts/part3.tex
 <Q4(a).pdf, id=274, 175.61609pt x 117.3183pt>
 File: Q4(a).pdf Graphic file (type pdf)
 <use Q4(a).pdf>
-Package pdftex.def Info: Q4(a).pdf  used on input line 272.
+Package pdftex.def Info: Q4(a).pdf  used on input line 6.
 (pdftex.def)             Requested size: 122.93042pt x 82.12224pt.
 <Q4(a)_1.pdf, id=275, 405.43468pt x 151.5261pt>
 File: Q4(a)_1.pdf Graphic file (type pdf)
 <use Q4(a)_1.pdf>
-Package pdftex.def Info: Q4(a)_1.pdf  used on input line 303.
+Package pdftex.def Info: Q4(a)_1.pdf  used on input line 37.
 (pdftex.def)             Requested size: 283.80234pt x 106.06752pt.
-[18 <./Q2(d).pdf> <./Table2_Final.pdf> <./Q4(a).pdf>]
+ [18 <./Q2(d).pdf> <./Table2_Final.pdf> <./Q4(a).pdf>]
 <Q4(a)_2.pdf, id=316, 456.74638pt x 151.5261pt>
 File: Q4(a)_2.pdf Graphic file (type pdf)
 <use Q4(a)_2.pdf>
-Package pdftex.def Info: Q4(a)_2.pdf  used on input line 324.
+Package pdftex.def Info: Q4(a)_2.pdf  used on input line 58.
 (pdftex.def)             Requested size: 319.72029pt x 106.06752pt.
 <Q4(a)_3.pdf, id=317, 187.66109pt x 151.5261pt>
 File: Q4(a)_3.pdf Graphic file (type pdf)
 <use Q4(a)_3.pdf>
-Package pdftex.def Info: Q4(a)_3.pdf  used on input line 335.
+Package pdftex.def Info: Q4(a)_3.pdf  used on input line 69.
 (pdftex.def)             Requested size: 131.36186pt x 106.06752pt.
- [19 <./Q4(a)_1.pdf> <./Q4(a)_2.pdf> <./Q4(a)_3.pdf>]
+ [19 <./Q4(a)_1.pdf> <./Q4(a)_2.pdf> <./Q4(a)_3.pdf>])
+(./InstructionReordering/ValidReorderingProof/ProofParts/part4.tex
 <Q3(a).pdf, id=350, 492.88138pt x 320.1561pt>
 File: Q3(a).pdf Graphic file (type pdf)
 <use Q3(a).pdf>
-Package pdftex.def Info: Q3(a).pdf  used on input line 382.
+Package pdftex.def Info: Q3(a).pdf  used on input line 13.
 (pdftex.def)             Requested size: 345.0146pt x 224.10773pt.
 <Q3_(b)Case1.pdf, id=351, 795.93356pt x 399.41219pt>
 File: Q3_(b)Case1.pdf Graphic file (type pdf)
 <use Q3_(b)Case1.pdf>
-Package pdftex.def Info: Q3_(b)Case1.pdf  used on input line 397.
+Package pdftex.def Info: Q3_(b)Case1.pdf  used on input line 28.
 (pdftex.def)             Requested size: 477.56383pt x 239.64915pt.
 
-Overfull \hbox (24.59593pt too wide) in paragraph at lines 397--398
+Overfull \hbox (24.59593pt too wide) in paragraph at lines 28--29
  [][] 
  []
 
@@ -1163,47 +1451,47 @@ Overfull \hbox (24.59593pt too wide) in paragraph at lines 397--398
 <Q3_(c)Case2.pdf, id=369, 582.25531pt x 313.17pt>
 File: Q3_(c)Case2.pdf Graphic file (type pdf)
 <use Q3_(c)Case2.pdf>
-Package pdftex.def Info: Q3_(c)Case2.pdf  used on input line 413.
+Package pdftex.def Info: Q3_(c)Case2.pdf  used on input line 44.
 (pdftex.def)             Requested size: 349.35588pt x 187.90344pt.
 <Q3_(d)Case3.pdf, id=370, 549.97469pt x 218.7372pt>
 File: Q3_(d)Case3.pdf Graphic file (type pdf)
 <use Q3_(d)Case3.pdf>
-Package pdftex.def Info: Q3_(d)Case3.pdf  used on input line 420.
+Package pdftex.def Info: Q3_(d)Case3.pdf  used on input line 51.
 (pdftex.def)             Requested size: 329.98735pt x 131.24332pt.
  [21 <./Q3_(b)Case1.pdf> <./Q3_(c)Case2.pdf>]
 <Q3_(e)Case4.pdf, id=404, 1135.3617pt x 493.845pt>
 File: Q3_(e)Case4.pdf Graphic file (type pdf)
 <use Q3_(e)Case4.pdf>
-Package pdftex.def Info: Q3_(e)Case4.pdf  used on input line 427.
+Package pdftex.def Info: Q3_(e)Case4.pdf  used on input line 58.
 (pdftex.def)             Requested size: 454.13664pt x 197.53448pt.
 
-Overfull \hbox (1.16875pt too wide) in paragraph at lines 427--428
+Overfull \hbox (1.16875pt too wide) in paragraph at lines 58--59
  [][] 
  []
 
-
+)
 
 pdfTeX warning: pdflatex (file ./Table4_Final.pdf): PDF inclusion: found PDF ve
 rsion <1.7>, but at most version <1.5> allowed
 <Table4_Final.pdf, id=405, 273.27094pt x 93.40897pt>
 File: Table4_Final.pdf Graphic file (type pdf)
 <use Table4_Final.pdf>
-Package pdftex.def Info: Table4_Final.pdf  used on input line 438.
+Package pdftex.def Info: Table4_Final.pdf  used on input line 25.
 (pdftex.def)             Requested size: 191.28833pt x 65.38582pt.
-[22 <./Q3_(d)Case3.pdf> <./Q3_(e)Case4.pdf> <./Table4_Final.pdf>]) [23]
+[22 <./Q3_(d)Case3.pdf> <./Q3_(e)Case4.pdf> <./Table4_Final.pdf>])) [23]
 (./main.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14483 strings out of 494923
- 286056 string characters out of 6180742
- 330838 words of memory out of 5000000
- 17436 multiletter control sequences out of 15000+600000
- 13567 words of font info for 51 fonts, out of 8000000 for 9000
+ 23943 strings out of 494923
+ 484028 string characters out of 6180742
+ 507326 words of memory out of 5000000
+ 26822 multiletter control sequences out of 15000+600000
+ 540199 words of font info for 59 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 55i,14n,56p,723b,294s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,14n,56p,10330b,316s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texli
@@ -1224,7 +1512,7 @@ nts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/symbols/msbm10.pfb>
-Output written on main.pdf (23 pages, 2000513 bytes).
+Output written on main.pdf (23 pages, 2001283 bytes).
 PDF statistics:
  528 PDF objects out of 1000 (max. 8388607)
  365 compressed objects within 4 object streams

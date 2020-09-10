@@ -1,0 +1,61 @@
+\begin{proof}
+
+    We look at this in terms of performing an instruction reordering on a candidate execution of $C$. We would want the resulting candidate execution to preserve all the other $\stck{_{hb}}$ relations (except $\reln{e}{hb}{d}$) and that any new $\stck{_{hb}}$ relations strictly reduce possible observable behaviors.
+    
+    The proof is structured as follows. We first show that existing \textit{happens-before} relations in any candidate execution of $C$ except $\reln{e}{hb}{d}$ remain intact after reordering. We then identify the cases where new \textit{happens-before} relations could be established. We identify from these cases whether \textit{happens-before} cycles could be introduced.
+    We then show for the remaining cases that new relations do not introduce any new observable behaviors.
+
+    The above steps can be summarized as addressing four main questions for any $Candidate Execution$ of $C'$
+    \begin{enumerate}
+        \item Apart from $\reln{e}{hb}{d}$, do other \emph{happens-before} relations remain intact?
+        \item Apart from $\reln{d}{hb}{e}$, are any new \emph{happens-before} relations established? 
+        \item Are any \emph{happens-before} cycles introduced? 
+        \item Do the new relations bring new \emph{observable behaviors?}
+    \end{enumerate}
+    
+    \input{InstructionReordering/ValidReorderingProof/ProofParts/part1.tex}
+    \input{InstructionReordering/ValidReorderingProof/ProofParts/part2.tex}
+    \input{InstructionReordering/ValidReorderingProof/ProofParts/part3.tex}
+    \input{InstructionReordering/ValidReorderingProof/ProofParts/part4.tex}
+
+    The table below summarizes the valid cases where, we have a pair of valid pivots, where new relations do not introduce new observable behaviors and do not have cycles. 
+    %Show the table here
+    \centering
+    \begin{figure}[H]
+        \includegraphics[scale=0.7]{Table4_Final.pdf}
+        \caption{The final table summarizing the valid cases where observable behaviors will only be a subset after reordering.}
+        \label{fig:my_label}
+    \end{figure}
+
+    \critic{blue}{Keep in mind that the comparision of ranges is done while addressing question 3 in the proof, so the table above, implicitly also takes into account only the valid cases where ranges are also correct}
+    
+    The table above, precisely is the definition of a reorderable pair. If we write the above table in the form of an expression we have an expanded format of our Reorderable pair function. 
+
+    \begin{align*}
+        Reord(e,d) = \\
+        (
+        ((\et{e}{uo} \wedge \et{d}{uo}) \ \wedge \\ 
+            \quad ( 
+                    &(\event{e}{R} \wedge \event{d}{R}) \vee \\ 
+                    &(\event{e}{W} \wedge \event{d}{R} \wedge (\Re(e) \And \Re(d) = \phi)) \vee \\
+                    &(\event{e}{R} \wedge \event{d}{W} \wedge (\Re(e) \And \Re(d) = \phi)) \vee \\
+                    &(\event{e}{W} \wedge \event{d}{W} \wedge (\Re(e) \And \Re(d) = \phi)) 
+                )
+        ) \\ \vee \\
+        ((\et{e}{sc} \wedge \et{d}{uo}) \ \wedge \\
+            \quad (
+                    & (\event{e}{W} \wedge \event{d}{R} \wedge (\Re(e) \And \Re(d) = \phi)) \vee \\
+                    & (\event{e}{W} \wedge \event{d}{W} \wedge (\Re(e) \And \Re(d) = \phi)) 
+                )
+        ) \\ \vee \\
+        ((\et{e}{uo} \wedge \et{d}{sc}) \ \wedge \\
+            \quad (
+                    & (\event{e}{R} \wedge \event{d}{R} \wedge) \vee \\
+                    & (\event{e}{W} \wedge \event{d}{R} \wedge (\Re(e) \And \Re(d) = \phi)) 
+                )
+        )
+        )
+    \end{align*}
+        
+        \qed  
+\end{proof}
