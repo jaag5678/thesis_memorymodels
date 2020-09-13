@@ -1,0 +1,74 @@
+\begin{corollary}
+    Consider a Candidate C of a program and its Candidate Executions which are valid. Consider two events $e$ and $d$ such that $\neg \cons{e}{d}$ is true in C and $\reln{e}{ao}{d}$. 
+    Consider another Candidate C' resulting after reordering $e$ and $d$ in C. 
+    Then, the set of Observable behaviors possible in C' is a subset of C only if $Reord(e,d)$ and the following holds true.
+    
+    \[
+        \forall \ k \ \textit{s.t.} \ 
+        \reln{e}{ao}{k} \ \wedge \ \reln{k}{ao}{d} \ . \ 
+        Reord(e,k) \ \wedge \ Reord(k,d)
+    \]
+    
+\end{corollary}
+    
+\begin{proof}
+    We prove this by induction of number of events $k$ between $e$ and $d$. Let $n$ denote the number of events.
+
+    \paragraph{Base Case: $n = 1.$}
+        This means we have one event $k$ such that
+            \[
+                \reln{e}{ao}{\reln{k}{ao}{d}} 
+            \]
+        What we want after reordering is 
+        \[
+            \reln{d}{ao}{\reln{k}{ao}{e}} 
+        \]
+        Without loss of generality, we can choose to first reorder $k$ and $d$. For this we have $cons(k,d)$ to be true. To reorder, what we only need is $Reord(k,d)$ to hold. Thus, after reordering, we have
+        \[
+            \reln{e}{ao}{\reln{d}{ao}{k}} 
+        \]
+        Similarly, now we need $Reord(e,d)$ to hold to reorder them above, after doing so, we will get
+        \[
+            \reln{d}{ao}{\reln{e}{ao}{k}} 
+        \]
+        Now lastly, we need to reorder $e$ and $k$ for which we need $Reord(e,k)$ to hold, thus giving us our final result
+        \[
+            \reln{d}{ao}{\reln{k}{ao}{e}} 
+        \]
+        The conditions required to do the reordering is in line with the requirement stated by the corollary. 
+
+    \paragraph{2. Inductive Case $n > 1$}
+        Assume the above corollary holds for $n = t$. 
+        
+        We need to show that for $n = t + 1$, the corollary still holds, for this note firstly that, we have the following ordering relations. 
+        
+        \[
+            \reln{e}{ao}{\reln{k_1}{ao}{\reln{k_2}{ao}{\reln{k_3}{ao}{\reln{...}{ao}{\reln{k_t}{ao}{\reln{k_{t+1}}{ao}{d}}}}}}}  
+        \]
+
+        Without loss of generality, we can first reorder $k_{t+1}$ and $d$. To do this, we need $Reord(k_{t+1}, d)$ to hold, thus giving us the resultant ordering.
+        \[
+            \reln{e}{ao}{\reln{k_1}{ao}{\reln{k_2}{ao}{\reln{k_3}{ao}{\reln{...}{ao}{\reln{k_t}{ao}{\reln{d}{ao}{k_{t+1}}}}}}}}  
+        \]
+        
+        Now we have $t$ such events between $e$ and $d$. With our assumption, we can reorder $e$ and $d$, thus giving us 
+        \[
+            \reln{d}{ao}{\reln{k_1}{ao}{\reln{k_2}{ao}{\reln{k_3}{ao}{\reln{...}{ao}{\reln{k_t}{ao}{\reln{e}{ao}{k_{t+1}}}}}}}}  
+        \]
+
+        Finally, we need to reorder $e$ and $k_{t+1}$ to get our final result, for which we need $Reord(e, k_{t+1})$ to hold, thus giving us finally
+        \[
+            \reln{d}{ao}{\reln{k_1}{ao}{\reln{k_2}{ao}{\reln{k_3}{ao}{\reln{...}{ao}{\reln{k_t}{ao}{\reln{k_{t+1}}{ao}{e}}}}}}}  
+        \]
+
+        Thus we can see that we need two more conditions to hold for us to ensure we can reorder $e$ amd $d$ with $n = t + 1$. This is exactly what the corollary requires. 
+
+        Hence, by induction the proof is complete. 
+
+        \critic{blue}{Observe that wherever our argument states the requirement of $Reord$ to hold between two events, it is also the case that those two events are consecutive and have an agent ordering exactly as our Theorem states.}
+        
+        
+        
+
+\end{proof}
+    

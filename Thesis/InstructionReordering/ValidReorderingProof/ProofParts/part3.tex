@@ -28,9 +28,11 @@
         \item Additional new relations may introduce cycles
     \end{enumerate}
 
-    The first part is straightforward as we assume we can only do reordering on Candidate Exectuions of $C$ not having cycles. 
+    The first part is straightforward as we assume we can only do reordering on Candidate Exectuions of $C$ not having happens-before cycles. 
 
-    To address the second part, we first address the cases where $\reln{d}{hb}{e}$ may be part of the cycle. The other event $k$, may be either from the set $K_e$, $K_d$ or a new relation that is formed.
+    For the second part, we first address the cases where $\reln{d}{hb}{e}$ may be part of the cycle. The other event $k$, may be either from the set $K_e$, $K_d$ or a new relation that is formed.
+
+    \critic{blue}{$K_e$ and $K_d$ only apart from the new relation because these are the only valid cases where happens-before relations are preserved after reordering. So we need not consider cases such thta $\reln{e}{hb}{k}$ or $\reln{k}{hb}{d}$ as the old relationsas they are covered by $K_e$ and $K_d$.}
     %Show figure here
     \begin{figure}[H]
         \centering
@@ -60,7 +62,6 @@
         \label{fig:my_label}
     \end{figure}
 
-
     For the one case where we have two new sets of relations formed, i.e $\reln{d}{hb}{k}$ and $\reln{k}{hb}{e}$, we could have a case where $k$ is a common event for both sets. But, by lemma 1, we also have $\reln{k}{hb}{d}$ and by lemma 2, $\reln{e}{hb}{k}$. Thus, we have a cycle. The following figure shows this pictorially
 
     %Show figure here
@@ -71,9 +72,11 @@
         \label{fig:my_label}
     \end{figure}
 
+    \critic{blue}{It is not actually due to lemmas, but just that the new relations were derived through $e$ or $d$, as these relations existed before reordering.}
+
     \critic{purple}{Maybe have a better figure, meaning a set of relations where each figure shows clearly which relaiton is implied due to whcih lemma}
 
-    Now for the case when $\reln{d}{hb}{e}$ may not be part of the cycle, we have only two other relations, $\reln{k}{hb}{e}$ or $\reln{d}{hb}{k}$.
+    Now for the case when $\reln{d}{hb}{e}$ may not be part of the cycle, we have only two other new relations, $\reln{k}{hb}{e}$ or $\reln{d}{hb}{k}$.
 
     Considering the first scenario where the new set of relations are of the form $\reln{k}{hb}{e}$. Suppose a cycle exists with another event $k'$. Then 
     \[

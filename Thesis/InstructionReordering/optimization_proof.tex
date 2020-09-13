@@ -96,23 +96,9 @@
 
     \input{InstructionReordering/ValidReorderingProof/proof.tex}
 
+    \input{InstructionReordering/ValidReorderingProof/corollary.tex}
 
 
-\begin{corollary}
-    Consider a Candidate C of a program and its Candidate Executions which are valid. Consider two events $e$ and $d$ such that $\neg \cons{e}{d}$ is true in C and $\reln{e}{ao}{d}$. Consider another Candidate C' resulting after reordering $e$ and $d$ in C. Then, the set of Observable behaviors possible in C' is a subset of C only if $Reord(e,d)$ and the following holds true.
-    
-    \[
-        \forall \ k \ \textit{s.t.} \ 
-        \reln{e}{ao}{k} \ \wedge \ \reln{k}{ao}{d} \ . \ 
-        Reord(e,k) \ \wedge \ Reord(k,d)
-    \]
-    
-\end{corollary}
-    
-\begin{proof}
-    
-\end{proof}
-    
 \subsection{Counter examples for the invalid cases}
 
 \subsection{}
