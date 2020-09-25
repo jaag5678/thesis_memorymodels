@@ -1,0 +1,88 @@
+\relax 
+\@writefile{toc}{\contentsline {title}{Reordering Under the ECMAScript Memory Consistency Model}{1}}
+\@writefile{toc}{\authcount {2}}
+\@writefile{toc}{\contentsline {author}{{Akshay Gopalakrishnan} {\and Clark Verbrugge}}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Example program with its possible outcomes under sequential consistency.}}{1}}
+\newlabel{intro:Example}{{1}{1}}
+\citation{ECMA}
+\citation{Lamport79}
+\citation{AdveG}
+\citation{Sewell}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Left program is when the two reads in T1 are reordered, whereas the right program is when the two writes of T2 are reordered.}}{2}}
+\newlabel{intro:Example2}{{2}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{2}}
+\citation{SarkarS}
+\citation{OwensS}
+\citation{JeremyM}
+\citation{BenderJ}
+\citation{BattyM}
+\citation{SevcikJ}
+\citation{VafeiadisV}
+\citation{Sevcik2}
+\citation{WattC}
+\citation{ECMA}
+\@writefile{toc}{\contentsline {section}{\numberline {3}The ECMAScript Memory Consistency Model}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Agents and Agent Clusters}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Events}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{Range ($\Re $)}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{Types of events based on Order}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{Tearing (or not)}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Relation among events}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{Read-Write event relations}{5}}
+\@writefile{toc}{\contentsline {paragraph}{Read-Bytes-From $(\mathrel {\mathop {_\textit  {rbf}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }})$}{5}}
+\@writefile{toc}{\contentsline {paragraph}{Reads-From $(\mathrel {\mathop {_\textit  {rf}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }})$}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{Agent-Synchronizes With (\textbf  {\textit  {ASW}})}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Ordering Relations among Events}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{Agent Order ($\mathrel {\mathop {_\textit  {ao}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}$)}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{Synchronize-With Order ($\mathrel {\mathop {_\textit  {sw}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }} $)}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{Happens Before Order ($\mathrel {\mathop {_\textit  {hb}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}$)}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{Memory Order ($\mathrel {\mathop {_\textit  {mo}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}$)}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Some Preliminary Definitions}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Valid Execution Rules (the Axioms)}{6}}
+\@writefile{toc}{\contentsline {subsubsection}{Coherent Reads}{6}}
+\@writefile{toc}{\contentsline {subsubsection}{Tear-Free Reads}{6}}
+\@writefile{toc}{\contentsline {subsubsection}{Sequentially Consistent Atomics}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7}Race}{7}}
+\@writefile{toc}{\contentsline {subsubsection}{Race Condition ($RC$)}{7}}
+\@writefile{toc}{\contentsline {subsubsection}{Data Race ($DR$)}{7}}
+\@writefile{toc}{\contentsline {subsubsection}{Data-Race-Free (DRF) Programs}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.8}Consistent Executions (Valid Observables)}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Instruction Reordering}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Our approach}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Preliminaries}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Lemmas to assist our proof}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Valid Reordering}{10}}
+\newlabel{def:reord}{{7}{10}}
+\@writefile{toc}{\contentsline {subsubsection}{1. Preserving \textit  {happens-before} relations}{10}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Table summarizing whether we have valid pair of pivots based on $e$ and $d$.}}{11}}
+\newlabel{proof:table1}{{1}{11}}
+\@writefile{toc}{\contentsline {subsubsection}{2. Additional \textit  {happens-before} relations}{11}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Table summarizing when new \textit  {happens-before} relations could be introduced based on having valid pair of pivots.}}{12}}
+\newlabel{proof:table2}{{2}{12}}
+\@writefile{toc}{\contentsline {subsubsection}{3. Presence of cycles?}{12}}
+\@writefile{toc}{\contentsline {subsubsection}{4. Do new relations introduce new observable behaviours}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The role of the axioms on introducing a new relation between an unordered read (purple box) and a preceding (by \textit  {hb}) event $k$ (red box), varying based on whether $k$ is a read, write, or sequentially consistent write.}}{13}}
+\newlabel{fig:subcases}{{3}{13}}
+\citation{NaumovichA}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces The final table summarizing the valid cases where observable behaviors will only be a subset after reordering.}}{14}}
+\newlabel{proof:table3}{{3}{14}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{14}}
+\citation{*}
+\bibstyle{splncs04}
+\bibdata{references}
+\bibcite{AdveG}{1}
+\bibcite{BattyM}{2}
+\bibcite{BenderJ}{3}
+\bibcite{ECMA}{4}
+\bibcite{Lamport79}{5}
+\bibcite{JeremyM}{6}
+\bibcite{NaumovichA}{7}
+\bibcite{OwensS}{8}
+\bibcite{SarkarS}{9}
+\bibcite{Sevcik2}{10}
+\bibcite{SevcikJ}{11}
+\bibcite{Sewell}{12}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion and Future work}{15}}
+\bibcite{VafeiadisV}{13}
+\bibcite{WattC}{14}

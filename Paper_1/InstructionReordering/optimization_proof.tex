@@ -18,8 +18,8 @@
         \item All executions of the candidate before reordering have happens-before as a strict partial order
     \end{enumerate}
     
-    We first consider when consecutive events in the same agent can be reordered, followed by non-consecutive cases. The crux of the proof is to guarantee that reordering does not bring any new reads-from relations that did not result due to any execution of the original program. 
-
+    We first consider when consecutive events in the same agent can be reordered, followed by non-consecutive cases. The crux of the proof is to guarantee that reordering does not bring any new observable behaviors.
+    
 %---------------------------------------------------------------------------------------------------------------------------------------    
 \input{InstructionReordering/definitions}
 
@@ -89,7 +89,7 @@
             K_d = \{k \ | \ \reln{d}{hb}{k} \}. 
         \end{align*}
             
-         Consider two events $\event{p1}{K_e}$ and $\event{p2}{K_d}$ (When $e$ is the first event or $d$ is the last event, assume dummy events that can act as $p1$ or $p2$.) belonging to the same agent as that of $e$ and $d$ such that in $C$:
+        Consider two events $\event{p1}{K_e}$ and $\event{p2}{K_d}$ (When $e$ is the first event or $d$ is the last event, assume dummy events that can act as $p1$ or $p2$.) belonging to the same agent as that of $e$ and $d$ such that in $C$:
         \begin{align*}
             dir(p1,e)\ \wedge\ dir(d,p2).
         \end{align*}
@@ -120,8 +120,9 @@
         \end{table}
         \emph{Note that the relations preserved are those other than $\reln{e}{hb}{d}$. Note also that relevant happens-before relations with initialize events are always preserved. }
         
-        %MAKE SOME MAJOR CHANGES TO THIS
-        \subsubsection{2. Additional \textit{happens-before} relations}
+    %-------------------------------------------------------------------------------------------------------------------------------
+        
+    \subsubsection{2. Additional \textit{happens-before} relations}
         Among cases that have valid pair of pivots, some may introduce new $\stck{_\textit{hb}}$ relations in Candidate Executions of $C'$. As an example, for the case when $d$ is a sequentially consistent read, by lemma 1, in any Candidate Execution of $C$,
         \begin{align*}
             \reln{k}{hb}{d} \ \centernot\Rightarrow \ \reln{k}{hb}{e}.
@@ -139,7 +140,9 @@
             \label{proof:table2}
         \end{table}
        
-        \subsubsection{3. Presence of cycles?}
+    %------------------------------------------------------------------------------------------------------------------------------
+
+    \subsubsection{3. Presence of cycles?}
         Before we go into analyzing whether new relations introduce observable behaviours, we first ensure there are no $\stck{_\textit{hb}}$ cycles introduced in the process. Note that if a cycle exists in Candidate Executions of $C'$, then 
         \begin{enumerate}
             \item The relations preserved do not themselves create a cycle
@@ -158,13 +161,15 @@
         \begin{align*}
             \reln{k}{hb}{e} \ \wedge \ \reln{e}{hb}{k'} \ \wedge \ \reln{k'}{hb}{k}.
         \end{align*}
-        By lemma 1, we also have $\reln{k}{hb}{d}$. So, the following is also a cycle
+        By lemma 1, we also have $\reln{k}{hb}{d}$ and by transitivity we also have $\reln{d}{hb}{k'}$. So, the following is also a cycle
         \begin{align*}
-            \reln{k}{hb}{d} \ \wedge \ \reln{e}{hb}{k'} \ \wedge \ \reln{k'}{hb}{k}.
+            \reln{k}{hb}{d} \ \wedge \ \reln{d}{hb}{k'} \ \wedge \ \reln{k'}{hb}{k}.
         \end{align*}
         But these relations already existed in the original Candidate Execution, which implies a cycle existed in Candidate Execution of $C$. Thus, by contradiction, a cycle cannot exist. In similar lines we can show for the set $\reln{d}{hb}{k}$ that there cannot be any cycles. 
-        
-        \subsubsection{4. Do new relations introduce new observable behaviours}
+    
+    %---------------------------------------------------------------------------------------------------------------------------------  
+
+    \subsubsection{4. Do new relations introduce new observable behaviours}
         In any candidate execution, reordering events $e$ and $d$ eliminates the relation $\reln{e}{hb}{d}$ and introduces the new relation $\reln{d}{hb}{e}$.  New behaviours created by the latter directly, if any, are 
         of course intentional (and should normally be avoided by ensuring $e$ and $d$ are independent), but we need to ensure that this does not also result in new behaviours indirectly.
 
@@ -210,12 +215,13 @@
     
         The table above, precisely is the definition of a reorderable pair (Def.~\ref{def:reord}). \qed
                 
-        
         \vspace{1mm}Note that in the above we did not consider the $\stck{_\textit{mo}}$ relation, as preserving $\stck{_\textit{hb}}$ relations naturally preserves all the $\stck{_\textit{mo}}$ relations that must hold.
 \end{proof}
 
     The following corollary helps us define when instruction reordering among non-consecutive events is possible.
   
+%--------------------------------------------------------------------------------------------------------------------------------------
+
 \begin{corollary}
     Consider a Candidate C of a program and its Candidate Executions which are valid. Consider two events $e$ and $d$ where $\reln{e}{ao}{d}$, but $\neg \cons{e}{d}$. Consider another Candidate C' resulting after reordering $e$ and $d$ in C. Then, the set of Observable behaviors possible in C' is a subset of C only if $Reord(e,d)$ and the following holds true.
     \[

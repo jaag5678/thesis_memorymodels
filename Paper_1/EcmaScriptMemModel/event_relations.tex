@@ -9,7 +9,7 @@
         %Read bytes from relation 
             \paragraph{Read-Bytes-From $(\stck{_\textit{rbf}})$}
         
-            This relation maps every read event to a list of tuples consisting of a write event and the corresponding byte index that is read. For instance, consider a read event $e$ and corresponding write events $d1$, $d2$ all of whose ranges start with byte index $i$ and size 3. One possible $\stck{_\textit{rbf}}$ relation could be represented as  
+            This relation maps every read event to a list of tuples consisting of a write event and the corresponding byte index that is read. For instance, consider a read event $e$ and corresponding write events $d1$, $d2$ all of whose ranges have byte index $i$ and size 3. One possible $\stck{_\textit{rbf}}$ relation could be represented as  
                 \[\reln{e}{\textit{rbf}}{\{(d1, i), (d2, i\!+\!1), (d2, i\!+\!2)\}} \]
             or having individual binary relation with each write-index pair as 
                 \begin{align*}

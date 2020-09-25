@@ -4,7 +4,7 @@
     %Something we need to define for sake of proofs
     \begin{definition}{Consecutive pair of events (\emph{cons})}
         
-        We define \emph{cons} as a function, which takes two events as input, and gives us a boolean indicating if they are consecutive pairs. Two events $e$ and $d$ are consecutive if they have an $\stck{_\textit{ao}}$ relation among them and are \emph{next to each other}, which can be defined formally as 
+        We define \emph{cons} as a function, which takes two events as input, and gives us a boolean indicating if they are consecutive pairs. Two events $e$ and $d$ are consecutive if they have an $\stck{_\textit{ao}}$ relation among them and are \emph{next to each other} in the same agent (thread), which can be defined formally as 
             \begin{align*}
                 (
                 e \stck{_\textit{ao}} d  \ \wedge \ 
@@ -25,8 +25,10 @@
     \begin{definition}{Direct happens-before relation (dir)}
         
         We define \emph{dir} to take an ordered pair of events $(e,d)$ such that $\reln{e}{hb}{d}$ and gives a boolean value to indicate whether this relation is \textit{direct}, i.e those relations that are not derived through transitive property of $\stck{_\textit{hb}}$.
+
+        %Perhaps put a formal defintion here 
         
-        We can infer certain things using this function based on some information on events $e$ and $d$. 
+        We can infer certain relations/conditions that must hold using this function based on some information on events $e$ and $d$. 
         \begin{itemize}
             \item If $\et{e}{uo}$, then $dir(e,d) \ \Rightarrow \ cons(e,d)$
             \item If $\et{d}{uo}$, then $dir(e,d) \ \Rightarrow \ cons(e,d)$

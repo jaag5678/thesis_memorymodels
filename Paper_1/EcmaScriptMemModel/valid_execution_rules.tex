@@ -16,7 +16,7 @@
                 (\Re(e) \cap_\Re \Re(d) \neq \phi).
             \end{align*}
             
-            A read value cannot come from a write that has happened after it or if there is a write $g$ that happens between them, writing at the same memory.     
+            A read ($e$) value cannot come from a write ($d$) that has happened after it or if there is a write ($g$) that happens between them, writing at the same memory.     
                 \begin{gather*}
                     \reln{e}{hb}{d}\ \Rightarrow{}\ \neg \ \reln{e}{rf}{d}. \\
                     \reln{d}{hb}{e}
@@ -27,7 +27,7 @@
                 \end{gather*}
      
       \subsubsection{Tear-Free Reads} 
-               If two tear free writes $d$ and $g$ and a tear free read $e$ all with equal ranges exist, then $e$ can read only from one of them
+               If two tear free writes ($d$ and $g$) and a tear free read ($e$) all with equal ranges exist, then $e$ can read only from one of them
                 \begin{align*}
                       \et{d}{tf}\ \wedge\ \et{g}{tf} \ \wedge \ \et{e}{tf} 
                         \ \wedge \ 

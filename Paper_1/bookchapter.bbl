@@ -1,0 +1,67 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{AdveG}
+Adve, S.V., Gharachorloo, K.: Shared memory consistency models: {A} tutorial.
+  {IEEE} Computer  (1996)
+
+\bibitem{BattyM}
+Batty, M., Owens, S., Sarkar, S., Sewell, P., Weber, T.: Mathematizing {C++}
+  concurrency. In: {POPL}, Austin, TX, USA (2011)
+
+\bibitem{BenderJ}
+Bender, J., Palsberg, J.: A formalization of {J}ava's concurrent access modes.
+  OOPSLA  (2019)
+
+\bibitem{ECMA}
+Draft: {ECMAScript} language specification  (2020),
+  \url{https://tc39.es/ecma262/#sec-memory-model}
+
+\bibitem{Lamport79}
+Lamport, L.: How to make a multiprocessor computer that correctly executes
+  multiprocess programs. {IEEE} Trans. Computers  (1979)
+
+\bibitem{JeremyM}
+Manson, J.: The design and verification of {J}ava’s memory model. In: OOPSLA
+  (2002)
+
+\bibitem{NaumovichA}
+Naumovich, G., Avrunin, G.S.: A conservative data flow algorithm for detecting
+  all pairs of statement that may happen in parallel. In: FSE, Lake Buena
+  Vista, FL, USA (1998)
+
+\bibitem{OwensS}
+Owens, S., Sarkar, S., Sewell, P.: A better x86 memory model: x86-tso. In:
+  TPHOLs, Munich, Germany (2009)
+
+\bibitem{SarkarS}
+Sarkar, S., Sewell, P., Nardelli, F.Z., Owens, S., Ridge, T., Braibant, T.,
+  Myreen, M.O., Alglave, J.: The semantics of x86-cc multiprocessor machine
+  code. In: {POPL}, Savannah, GA, USA (2009)
+
+\bibitem{Sevcik2}
+{\u{S}}ev{\u{c}}{\'{i}}k, J.: Safe optimisations for shared-memory concurrent
+  programs. In: {PLDI}, San Jose, USA (2011)
+
+\bibitem{SevcikJ}
+{\u{S}}ev{\u{c}}{\'{i}}k, J., Aspinall, D.: On validity of program
+  transformations in the {J}ava memory model. In: {ECOOP}, Paphos, Cyprus
+  (2008)
+
+\bibitem{Sewell}
+Sewell, P.: Memory, an elusive abstraction. In: {ISMM}, Toronto, Ontario,
+  Canada (2010)
+
+\bibitem{VafeiadisV}
+Vafeiadis, V., Balabonski, T., Chakraborty, S., Morisset, R., Nardelli, F.Z.:
+  Common compiler optimisations are invalid in the {C11} memory model and what
+  we can do about it. In: {POPL}, Mumbai, India (2015)
+
+\bibitem{WattC}
+Watt, C., Pulte, C., Podkopaev, A., Barbier, G., Dolan, S., Flur, S.,
+  Pichon{-}Pharabod, J., Guo, S.: Repairing and mechanising the {J}ava{S}cript
+  relaxed memory model. In: {PLDI}, London, UK (2020)
+
+\end{thebibliography}

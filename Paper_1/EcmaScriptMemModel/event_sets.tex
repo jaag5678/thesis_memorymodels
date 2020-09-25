@@ -9,7 +9,7 @@
     Agent execution is modelled in terms of events. 
     An event, in our context, is either an operation that involves (shared) Read/Write memory access or Synchronize events that constrains the order of execution of multiple events. 
     We define \set{E} as the set of events involved in an agent cluster. 
-    We refer to \set{SM}, \set{R}, \set{W}, \set{S} as sets of Shared Memory, Read, Write and Synchronize events respectively. Read-Modify-Write events belong to both \set{R} and \set{W}. 
+    We refer to \set{SM}, \set{R}, \set{W}, \set{S} as sets of Shared Memory, Read, Write and Synchronize events respectively. Shared Memory events are composed of Read and Write event sets. Read-Modify-Write events belong to both \set{R} and \set{W}. 
        
         \subsubsection{Range ($\Re$)}
             Each of the \textit{shared memory events} are associated with a contiguous range of memory on which it operates. $\Re$ is a function that maps a shared memory event to the range of memory indices it operates on which we represent as a starting index $i$ and a size $s$. As an example, the range of event $e$ would be like: 
