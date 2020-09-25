@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.8.29)  13 SEP 2020 15:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.8.29)  24 SEP 2020 19:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1309,7 +1309,7 @@ Package pdftex.def Info: Observable_Behavior.pdf  used on input line 53.
 ion_rules.tex [7 <./Observable_Behavior.pdf>]) (./ECMAScriptMemoryModel/race.te
 x)
 (./ECMAScriptMemoryModel/valid_execution.tex [8])
-(./InstructionReordering/optimization_proof.tex
+(./InstructionReordering/Reordering_Opt.tex
 (./InstructionReordering/definitions.tex [9]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 31.
@@ -1319,37 +1319,46 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--5
 
  []
 
-<Lemma_Proof1_Case1.pdf, id=99, 145.50359pt x 211.7511pt>
-File: Lemma_Proof1_Case1.pdf Graphic file (type pdf)
-<use Lemma_Proof1_Case1.pdf>
-Package pdftex.def Info: Lemma_Proof1_Case1.pdf  used on input line 72.
+<InstructionReordering/Lemma_Proof1_Case1.pdf, id=99, 145.50359pt x 211.7511pt>
+
+File: InstructionReordering/Lemma_Proof1_Case1.pdf Graphic file (type pdf)
+<use InstructionReordering/Lemma_Proof1_Case1.pdf>
+Package pdftex.def Info: InstructionReordering/Lemma_Proof1_Case1.pdf  used on 
+input line 72.
 (pdftex.def)             Requested size: 101.8518pt x 148.22475pt.
 [10]
-<Lemma_Proof1_Case2.pdf, id=104, 217.77359pt x 211.7511pt>
-File: Lemma_Proof1_Case2.pdf Graphic file (type pdf)
-<use Lemma_Proof1_Case2.pdf>
-Package pdftex.def Info: Lemma_Proof1_Case2.pdf  used on input line 114.
+<InstructionReordering/Lemma_Proof1_Case2.pdf, id=104, 217.77359pt x 211.7511pt
+>
+File: InstructionReordering/Lemma_Proof1_Case2.pdf Graphic file (type pdf)
+<use InstructionReordering/Lemma_Proof1_Case2.pdf>
+Package pdftex.def Info: InstructionReordering/Lemma_Proof1_Case2.pdf  used on 
+input line 114.
 (pdftex.def)             Requested size: 152.44046pt x 148.22475pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 124--125
 
  []
 
-[11 <./Lemma_Proof1_Case1.pdf> <./Lemma_Proof1_Case2.pdf>]
-<Lemma_Proof2_Case1.pdf, id=136, 145.50359pt x 204.765pt>
-File: Lemma_Proof2_Case1.pdf Graphic file (type pdf)
-<use Lemma_Proof2_Case1.pdf>
-Package pdftex.def Info: Lemma_Proof2_Case1.pdf  used on input line 195.
+[11 <./InstructionReordering/Lemma_Proof1_Case1.pdf> <./InstructionReordering/L
+emma_Proof1_Case2.pdf>]
+<InstructionReordering/Lemma_Proof2_Case1.pdf, id=136, 145.50359pt x 204.765pt>
+
+File: InstructionReordering/Lemma_Proof2_Case1.pdf Graphic file (type pdf)
+<use InstructionReordering/Lemma_Proof2_Case1.pdf>
+Package pdftex.def Info: InstructionReordering/Lemma_Proof2_Case1.pdf  used on 
+input line 195.
 (pdftex.def)             Requested size: 101.8518pt x 143.3345pt.
-<Lemma_Proof2_Case2.pdf, id=137, 232.9503pt x 204.765pt>
-File: Lemma_Proof2_Case2.pdf Graphic file (type pdf)
-<use Lemma_Proof2_Case2.pdf>
-Package pdftex.def Info: Lemma_Proof2_Case2.pdf  used on input line 237.
+<InstructionReordering/Lemma_Proof2_Case2.pdf, id=137, 232.9503pt x 204.765pt>
+File: InstructionReordering/Lemma_Proof2_Case2.pdf Graphic file (type pdf)
+<use InstructionReordering/Lemma_Proof2_Case2.pdf>
+Package pdftex.def Info: InstructionReordering/Lemma_Proof2_Case2.pdf  used on 
+input line 237.
 (pdftex.def)             Requested size: 163.06409pt x 143.3345pt.
- [12 <./Lemma_Proof2_Case1.pdf>]) (./InstructionReordering/ValidReorderingProof
-/theorem.tex)
-(./InstructionReordering/ValidReorderingProof/proof.tex [13 <./Lemma_Proof2_Cas
-e2.pdf>] (./InstructionReordering/ValidReorderingProof/ProofParts/part1.tex
+ [12 <./InstructionReordering/Lemma_Proof2_Case1.pdf>])
+(./InstructionReordering/ValidReorderingProof/theorem.tex)
+(./InstructionReordering/ValidReorderingProof/proof.tex [13 <./InstructionReord
+ering/Lemma_Proof2_Case2.pdf>]
+(./InstructionReordering/ValidReorderingProof/ProofParts/part1.tex
 <Q1(a).pdf, id=173, 405.43468pt x 154.6578pt>
 File: Q1(a).pdf Graphic file (type pdf)
 <use Q1(a).pdf>
@@ -1360,8 +1369,7 @@ File: Q1(b).pdf Graphic file (type pdf)
 <use Q1(b).pdf>
 Package pdftex.def Info: Q1(b).pdf  used on input line 41.
 (pdftex.def)             Requested size: 289.53572pt x 173.51906pt.
-
-[14 <./Q1(a).pdf>]
+ [14 <./Q1(a).pdf>]
 <Q1(d).pdf, id=188, 608.2725pt x 139.4811pt>
 File: Q1(d).pdf Graphic file (type pdf)
 <use Q1(d).pdf>
@@ -1487,7 +1495,7 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  23945 strings out of 494923
- 484142 string characters out of 6180742
+ 484482 string characters out of 6180742
  509326 words of memory out of 5000000
  26822 multiletter control sequences out of 15000+600000
  540199 words of font info for 59 fonts, out of 8000000 for 9000
@@ -1513,7 +1521,7 @@ nts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/symbols/msbm10.pfb>
-Output written on main.pdf (24 pages, 2006933 bytes).
+Output written on main.pdf (24 pages, 2007023 bytes).
 PDF statistics:
  531 PDF objects out of 1000 (max. 8388607)
  367 compressed objects within 4 object streams
