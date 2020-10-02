@@ -2,18 +2,14 @@
         
     \subsection{Race}
         \subsubsection{Race Condition ($RC$)}
-            We define \set{RC} as the set of all pairs of events that are in a race. Two events $e$ and $d$ are in a race condition when they are shared memory events:
-                \begin{align*}
-                    (e \in SM)\ \wedge\ (d \in SM).
-                \end{align*}
-            having overlapping ranges, not having a $\stck{_\textit{hb}}$ relation with each other, and which are either two writes or the two events are involved in a $\stck{_\textit{rf}}$ relation with each other. This can be stated concisely as,
+            We define \set{RC} as the set of all pairs of events that are in a race. Two events $e$ and $d$ are in a race condition when they are shared memory events ($e,d \in \set{SM}$), having overlapping ranges, not having a $\stck{_\textit{hb}}$ relation with each other, and which are either two writes or the two events are involved in a $\stck{_\textit{rf}}$ relation with each other. This can be stated concisely as,
                 \begin{align*}
                     \neg \ (\reln{e}{hb}{d})\ \wedge\ \neg \ (\reln{d}{hb}{e}) 
                     \ \wedge \ 
-                     (
+                     ( \
                      (\event{e,d}{W}\  \wedge\ (\Re(d) \cap_{\Re} \Re(e) \neq \phi)) 
                           \  \vee\ (d \stck{_\textit{rf}} e)\ \vee\ (e \stck{_\textit{rf}} d)
-                    ).
+                    \ ).
                 \end{align*}
                 
         \subsubsection{Data Race ($DR$)}

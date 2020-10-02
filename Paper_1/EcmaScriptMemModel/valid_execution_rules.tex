@@ -16,7 +16,7 @@
                 (\Re(e) \cap_\Re \Re(d) \neq \phi).
             \end{align*}
             
-            A read ($e$) value cannot come from a write ($d$) that has happened after it or if there is a write ($g$) that happens between them, writing at the same memory.     
+            A read ($e$) value cannot come from a write ($d$) that has happened after it or if there is a write ($g$) that happens between them, writing to the same memory:     
                 \begin{gather*}
                     \reln{e}{hb}{d}\ \Rightarrow{}\ \neg \ \reln{e}{rf}{d}. \\
                     \reln{d}{hb}{e}
@@ -47,7 +47,13 @@
                 \begin{align*}
                     d \stck{_{mo}} g \stck{_{mo}} e.
                 \end{align*}
-            There are three separate rules that restrict reads-from relation between $d$ and $e$
+            There are three separate cases that restrict $e$ to read from $d$, which are as below:
+            \begin{itemize}
+                \item If all events are sequentially consistent with equal ranges.
+                \item If both $g$ and $d$ are sequentially consistent with equal ranges and they happen before $e$.
+                \item If both $e$ and $g$ are sequentially consistent with equal ranges and $d$ happens before them. 
+            \end{itemize}
+            The above cases can be summarized concisely by the rules below:
                 \begin{gather*}
                         \et{d}{sc}\ \wedge\ \et{g}{sc}\ \wedge\ \et{e}{sc} 
                         \ \wedge \ (\Re(d) \!=\! \Re(g) \!=\! \Re(e))
