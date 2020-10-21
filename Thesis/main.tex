@@ -13,18 +13,6 @@
 \usepackage{centernot}
 \usepackage{tasks}
 
-%Using tikz library for flowcharts and arrows
-\usetikzlibrary{shapes.geometric, arrows}
-
-%For proper positioning of flowchart nodes
-\usetikzlibrary{positioning}
-
-%Setting some preliminary shapes for flowchart and arrows
-\tikzstyle{inst} = [draw = none, fill = none]
-\tikzstyle{arrow} = [->, >=stealth, thin]
-
-\tikzstyle{imply} = [->, thick, >=stealth]
-
 \title{ECMAScript Axiomatic Memory Consistency Model}
 \author{Akshay Gopalakrishnan}
 \date{November 2019}
@@ -90,10 +78,11 @@
 \input{ECMAScriptMemoryModel/race.tex}
 
 \input{ECMAScriptMemoryModel/valid_execution.tex}
-
-%\input{todo_imp.tex}
     
-\input{InstructionReordering/Reordering_Opt.tex}
+\input{InstructionReordering/reordering_opt.tex}
+
+\input{Elimination/intro.tex}
+
 
 %The end ? ------------------------------------------------------------------------------------------------------------------------------    
     

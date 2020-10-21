@@ -10,12 +10,12 @@
     
     Any other new relations that are introduced can be divided into 4 cases, in terms of our events $e$ and $d$ and the newrelation with some event $k$:
     %Show a figure here summarizing the four cases
-    \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.7]{Q3(a).pdf}
-        \caption{Caption}
-        \label{fig:my_label}
-    \end{figure}
+    \begin{tasks}(2)
+        \task  $\et{e}{uo} \ \wedge \ \event{e}{R} \ \wedge \ \reln{k}{hb}{e}$.
+        \task  $\et{e}{uo} \ \wedge \  \event{e}{W} \ \wedge \ \reln{k}{hb}{e}$.
+        \task  $\et{d}{uo} \ \wedge \  \event{d}{R} \ \wedge \ \reln{d}{hb}{k}$.
+        \task  $\et{d}{uo} \ \wedge \ \event{d}{W} \ \wedge \ \reln{d}{hb}{k}$.
+    \end{tasks}
     
     \critic{purple}{Change the figure above to represent only the first four cases}
     In each of the above cases, note firstly that we need to only consider cases where their ranges are overlapping/equal.
@@ -26,7 +26,7 @@
     %Show all cases here for different k
     \begin{figure}[H]
         \centering
-        \includegraphics[scale=0.6]{Q3_(b)Case1.pdf}
+        \includegraphics[scale=0.6]{InstructionReordering/ValidReorderingProof/ProofParts/Part4/part4(a).pdf}
         \caption{The role of the axioms on introducing a new relation between an unordered Read and some event $k$}
         \label{fig:my_label}
     \end{figure}
@@ -41,21 +41,21 @@
     The other cases, also have instances which can 'trigger' some cases of the axioms, thus restricting possibly some $\stck{_{rf}}$ relations. These cases are shown in the figures below: 
     \begin{figure}[H]
         \centering
-        \includegraphics[scale=0.6]{Q3_(c)Case2.pdf}
+        \includegraphics[scale=0.6]{InstructionReordering/ValidReorderingProof/ProofParts/Part4/part4(b).pdf}
         \caption{(i) and (ii(b)) satisfy the axiom of Coherent Reads}
         \label{fig:my_label}
     \end{figure}
           
     \begin{figure}[H]
         \centering
-        \includegraphics[scale=0.6]{Q3_(d)Case3.pdf}
+        \includegraphics[scale=0.6]{InstructionReordering/ValidReorderingProof/ProofParts/Part4/part4(c).pdf}
         \caption{(ii) satisfies the axiom of Coherent Reads}
         \label{fig:my_label}
     \end{figure}
     
     \begin{figure}[H]
         \centering
-        \includegraphics[scale=0.4]{Q3_(e)Case4.pdf}
+        \includegraphics[scale=0.4]{InstructionReordering/ValidReorderingProof/ProofParts/Part4/part4(d).pdf}
         \caption{(i(a)), (ii(a)) satisfy the axiom of Coherent Reads, whereas (i(b)), (ii(b)) satisfy the axiom of SequentiallyConsistent Atomics}
         \label{fig:my_label}
     \end{figure}

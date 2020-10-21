@@ -1,6 +1,3 @@
-% A rough draft of the proof of the simple instruction reordering, given the memory model
-
-
 
 \section{Instruction Reordering}
     Instruction reordering is a common operation in compiler optimization, essential to instruction scheduling of course, but also implicit in loop invariant removal, partial redundancy elimination, and other optimizations that may move instructions. 
@@ -42,7 +39,7 @@
 
     \input{InstructionReordering/definitions.tex}
 
-    \input{InstructionReordering/lemmas.tex}
+    \input{InstructionReordering/Lemmas/lemmas.tex}
 
 \subsection{Valid reordering}
     We view reordering as manipulating the agent-order relation among two events. In that sense, reordering two consecutive events $e$ and $d$ such that $e \stck{_{ao}} d$ becomes:
