@@ -1,0 +1,42 @@
+\begin{corollary}
+    Consider a Candidate C of a program and its Candidate Executions which are valid. Consider two write events $e$ and $d$ both having equal ranges such that $\neg \cons{e}{d}$ is true in C and $\reln{e}{ao}{d}$. 
+    Consider another Candidate C' without the event $e$.  
+    Then, the set of Observable behaviors possible in C' is a subset of C only if the following holds true.
+    \begin{align*}
+        \forall \ i \ \in \ [1,n-1] \ \textit{s.t.} \
+        \cons{e}{k_1} \ \wedge \ \cons{k_n, d} \ \wedge \ \cons{k_i, k_{i+1}}, \\
+        \exists \ (n + 1) \geq j > 0 \ \textit{s.t.} \ 
+        \forall l \ \in \ [1,j-1] \ . \ Reord(e, k_l) \ 
+        \wedge \ 
+        \forall m \ \in \ [j,n] \ . \ Reord(k_m, d) 
+    \end{align*}
+            
+    
+\end{corollary}
+
+\begin{proof}
+
+    We prove this using induction on the number of events $k$ between $e$ and $d$. For each case, we see whether a valid $j$ exists. 
+
+    \paragraph{Base Case (n=1)}
+
+        For this case, if we have $Reord(e,k1)$ then $j=2$ is a valid choice. By Theorem of reordering, we get Candidate $C''$ with $\cons(e,d)$ whose observable behaviors are a subset. By Theroem (write elim), a observable behaviors of $C'$ is a subset of that of $C''$. By transitivity property of subsets, behaviors of $C'$ is a subset of $C$. 
+        
+        \critic{blue}{Write above arguments properly}
+    
+        While if we have $Reord(k1,d)$ then $j=1$ is a valid choice. The argument is the same as above. 
+        
+    \paragraph{Inductive Case (n)}
+        
+        Suppose the corollary holds for the case $n$. Meaning, the observable behaviors of $C'$ is a subset of $C$. And suppose $j$ is alos the number as needed. 
+
+        Then for the case where there are $n+1$ events,we have the following two cases:
+
+        If $k_x$ is the additonal event added in between $e$ and $d$, then, if $Reord(k_x, d) \wedge x>j$, the new $j$ remains the same as the old one. Because $Reord(K_{n+1}, d)$, by theorem of reordering, the Candidate $C''$ after reordering has observable behaviors as a subset of $C$. Now after reordering, we have our inductive case assumption, hence observable behaviors of $C'$ is a subset of $C$. 
+        
+        On the other hand, if $Reord(e,k_x) \wedge x \leq j$, the new $j$ is plus one the old $j$. Because $Reord(e,k_1)$  by theorem of reordering $e$ and $k_1$, the Candidate $C''$ after reordering has observable behaviors as a subset of $C$. Now $j$ for $C''$ becomes $j-1$, hence we get our original inductive case assumption on $n$. By transitive property of subsets observable behaviors of $C'$ is a subset of $C$. 
+
+        \critic{red}{Very rudimentary format of arguments, discuss with Clark and get them more formal}
+
+    
+\end{proof}
