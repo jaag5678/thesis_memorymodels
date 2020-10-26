@@ -111,22 +111,31 @@
 \@writefile{toc}{\contentsline {paragraph}{Base Case: $n = 1.$}{23}}
 \@writefile{toc}{\contentsline {paragraph}{2. Inductive Case $n > 1$}{23}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Counter examples for the invalid cases}{24}}
-\@writefile{lof}{\contentsline {figure}{\numberline {26}{\ignorespaces Case where a = 0 , b = 1 is invalid due to Coherent Reads}}{24}}
 \@writefile{toc}{\contentsline {paragraph}{Reads to same memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {26}{\ignorespaces Case where a = 0 , b = 1 is invalid due to Coherent Reads}}{24}}
 \@writefile{lof}{\contentsline {figure}{\numberline {27}{\ignorespaces Case where the reads are reordered and a = 0 , b = 1 is valid}}{25}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.5}}{25}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Elimination}{25}}
-\@writefile{toc}{\contentsline {paragraph}{1. Preserving \emph  {happens-before} relations}{25}}
-\@writefile{toc}{\contentsline {paragraph}{2. The \emph  {happens-before} relations lost}{26}}
-\@writefile{toc}{\contentsline {paragraph}{3. Presence of Cycles?}{26}}
-\@writefile{toc}{\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{26}}
-\@writefile{lof}{\contentsline {figure}{\numberline {28}{\ignorespaces The first type of relations removed and the various patterns forbidden by them.}}{26}}
-\@writefile{lof}{\contentsline {figure}{\numberline {29}{\ignorespaces The second type of relations removed and the various patterns forbidden by them.}}{27}}
-\@writefile{toc}{\contentsline {paragraph}{Preserving Happens-before relations}{27}}
-\@writefile{toc}{\contentsline {paragraph}{2. The \emph  {happens-before} relations lost}{28}}
-\@writefile{toc}{\contentsline {paragraph}{3. Presence of Cycles?}{28}}
-\@writefile{toc}{\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{28}}
-\@writefile{lof}{\contentsline {figure}{\numberline {30}{\ignorespaces First case possibilities (change caption stimiar to that for read elim)}}{28}}
-\@writefile{lof}{\contentsline {figure}{\numberline {31}{\ignorespaces Second case possibilities (change caption stimiar to that for read elim)}}{29}}
-\@writefile{toc}{\contentsline {paragraph}{Base Case (n=1)}{29}}
-\@writefile{toc}{\contentsline {paragraph}{Inductive Case (n)}{29}}
+\@writefile{toc}{\contentsline {paragraph}{Reads to non-equal range of memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{25}}
+\@writefile{toc}{\contentsline {paragraph}{A Read $e$ of type $sc$ followed by a Write of either $uo/sc$}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {28}{\ignorespaces Case where a = 1 and b = 1 is invalid due to Coherent Reads.}}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {29}{\ignorespaces Case where events of T1 are reordered, resulting in a = 1 and b = 1 to be valid.}}{26}}
+\@writefile{toc}{\contentsline {paragraph}{A Read $e$ of type $uo$ followed by a write $d$ of type $sc$}{26}}
+\@writefile{lof}{\contentsline {figure}{\numberline {30}{\ignorespaces Case where a = 1 and b = 1 is invalid due to Coherent Reads.}}{26}}
+\@writefile{lof}{\contentsline {figure}{\numberline {31}{\ignorespaces Case where events of T2 are reordered, resulting in a = 1 and b = 1 to be valid.}}{26}}
+\@writefile{toc}{\contentsline {paragraph}{A Write $e$ followed by a Read $d$ both of type $sc$}{26}}
+\@writefile{toc}{\contentsline {paragraph}{A Write $e$ of type $uo/sc$ followed by a Write $d$ of type $sc$}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5}}{26}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Elimination}{26}}
+\@writefile{toc}{\contentsline {paragraph}{1. Preserving \emph  {happens-before} relations}{27}}
+\@writefile{toc}{\contentsline {paragraph}{2. The \emph  {happens-before} relations lost}{27}}
+\@writefile{toc}{\contentsline {paragraph}{3. Presence of Cycles?}{27}}
+\@writefile{toc}{\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {32}{\ignorespaces The first type of relations removed and the various patterns forbidden by them.}}{28}}
+\@writefile{lof}{\contentsline {figure}{\numberline {33}{\ignorespaces The second type of relations removed and the various patterns forbidden by them.}}{28}}
+\@writefile{toc}{\contentsline {paragraph}{Preserving Happens-before relations}{29}}
+\@writefile{toc}{\contentsline {paragraph}{2. The \emph  {happens-before} relations lost}{29}}
+\@writefile{toc}{\contentsline {paragraph}{3. Presence of Cycles?}{29}}
+\@writefile{toc}{\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {34}{\ignorespaces First case possibilities (change caption stimiar to that for read elim)}}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {35}{\ignorespaces Second case possibilities (change caption stimiar to that for read elim)}}{30}}
+\@writefile{toc}{\contentsline {paragraph}{Base Case (n=1)}{31}}
+\@writefile{toc}{\contentsline {paragraph}{Inductive Case (n)}{31}}
