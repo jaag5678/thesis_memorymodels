@@ -42,9 +42,10 @@
             \item Since none of the axioms disallow the above pattern, $a$ is allowed to read the value of $x$ to be $0$.
             \item Hence, the reordering of the two reads is invalid. 
         \end{itemize}
-
+%---------------------------------------------------------------------------------------------------------------------------------------
     \paragraph{Reads to non-equal range  of memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}
 
+%---------------------------------------------------------------------------------------------------------------------------------------    
     \paragraph{A Read $e$ of type $sc$ followed by a Write of either $uo/sc$}
         
         The following is an example of a program with a sequentially consistent read followed by a write of any type. 
@@ -75,6 +76,7 @@
             \item Since there is no $\stck{_{hb}}$ relation among the above two events, $b$ can read the value of $y$ as $1$.
         \end{itemize}
 
+%--------------------------------------------------------------------------------------------------------------------------------------        
     \paragraph{A Read $e$ of type $uo$ followed by a write $d$ of type $sc$}
 
         For this we can use the same example for the previous part (tag figure of example), where we just reorder $T2$'s events.
@@ -90,6 +92,66 @@
             \caption{Case where events of T2 are reordered, resulting in  a = 1 and b = 1 to be valid.}
         \end{figure}
 
+%---------------------------------------------------------------------------------------------------------------------------------------
+        
     \paragraph{A Write $e$ followed by a Read $d$ both of type $sc$}
+        
+        A counter example for this is different. It is not the Observable Behavior we are concerned with that is introduced, but that which is allowed but creates a $\stck{_{hb}}$ cycle. The following example is as such:
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{InstructionReordering/Example5(Wsc-Rsc).pdf}
+            \caption{Case where a = 1 and b = 1 is valid and no happens-before cycles}
+        \end{figure}
+
+        After reordering the two events of $T1$ in the above example, the same observable behavior holds, but has a cycle introduced. One might think that simply discarding that execution would do. But this would mean discarding $\stck{_{hb}}$ relations also, which would require more information to infer which relations are going to create such cycles and which are not. Since we place no assumptions on these relations, but that any happens-before relation other than the one we remove explicitly be reordering are all possible. Hence, the following reordered program outcome is something we do not risk to allow.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{InstructionReordering/Example5R(Wsc-Rsc).pdf}
+            \caption{Case where a = 1 and b = 1 is creates a happens-before cycle}
+        \end{figure}
+
+        Observation:
+        \begin{itemize}
+            \item From the read values we can infer that the Candidate Execution should have $\reln{x=1_{sc}}{hb}{a=x_{sc}}$ and $\reln{y=1_{sc}}{hb}{a=y_{sc}}$.
+            \item The above relations create the cycle $\reln{a=y_{sc}}{hb}{\reln{x=1_{sc}}{hb}{\reln{a=x_{sc}}{hb}{\reln{y=1_{sc}}{hb}{a=y_{sc}}}}}$.
+            \item This execution is invalid. 
+        \end{itemize}
+
+%---------------------------------------------------------------------------------------------------------------------------------------
 
     \paragraph{A Write $e$ of type $uo/sc$ followed by a Write $d$ of type $sc$}
+        
+        The following example shows a program with a thread having a write of any access mode($uo/sc$) followed by a write of type $sc$.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{InstructionReordering/Example7(Wuo,sc-Wsc).pdf}
+            \caption{Case where a = 0 and b = 1 is invalid due to Coherent Reads.}
+        \end{figure}
+        The figure on the left above shows an example of a candidate where the case of reads in the red box is not possible. 
+        The figure on the right shows the Candidate Execution of such a case. 
+        Observations:
+        \begin{itemize}
+            \item From the Candidate Execution, we can infer $\reln{x=0_{init}}{hb}{\reln{x=1_{uo/sc}}{hb}{a=x_{uo/sc}}}$
+            \item This is a pattern that matches the second axiom of Coherent reads, thus restricting the read of $a$ to have the value of $0$ as $x$. 
+            \item This inference was due to $\reln{y=1_{sc}}{hb}{b=y_{sc}}$.
+        \end{itemize}
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{InstructionReordering/Example7R(Wuo,sc-Wsc).pdf}
+            \caption{Case where events of T1 are reordered, resulting in  a = 0 and b = 1 to be valid.}
+        \end{figure}
+        
+        The figure on the right above shows the program after reordering the two events in $T1$ where case of reads in the orange box is possible. 
+        The figure on the left shows the Candidate Execution that explains the orange box case. 
+        Observations:
+        \begin{itemize}
+            \item From the Candidate Execution, we can infer $\neg\reln{x=1_{uo/sc}}{hb}{a=x_{uo/sc}}$
+            \item Hence, there is no pattern that the axioms restrict, thus validating $x$ to be read as $0$ by $a$. 
+        \end{itemize}
+
+
+        \critic{red}{All the above counter examples have a lot of repetitive text and can have better formal arguments than a list of observations. Make plans to clean up this once filled in with all the counter examples.}
+
+

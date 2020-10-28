@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.8.29)  26 OCT 2020 12:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.8.29)  27 OCT 2020 19:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1587,15 +1587,31 @@ File: InstructionReordering/Example4R(Ruo-Wsc).pdf Graphic file (type pdf)
 Package pdftex.def Info: InstructionReordering/Example4R(Ruo-Wsc).pdf  used on 
 input line 89.
 (pdftex.def)             Requested size: 353.44604pt x 122.93042pt.
-)) (./Elimination/intro.tex
-[26 <./InstructionReordering/Example4(Ruo-Wsc).pdf> <./InstructionReordering/Ex
-ample4R(Ruo-Wsc).pdf>] (./Elimination/ReadElimProof/theorem.tex)
+<InstructionReordering/Example7(Wuo,sc-Wsc).pdf, id=504, 474.81387pt x 161.6438
+9pt>
+File: InstructionReordering/Example7(Wuo,sc-Wsc).pdf Graphic file (type pdf)
+<use InstructionReordering/Example7(Wuo,sc-Wsc).pdf>
+Package pdftex.def Info: InstructionReordering/Example7(Wuo,sc-Wsc).pdf  used o
+n input line 100.
+(pdftex.def)             Requested size: 332.36745pt x 113.14995pt.
+ [26 <./InstructionReordering/Example4(Ruo-Wsc).pdf> <./InstructionReordering/E
+xample4R(Ruo-Wsc).pdf>]
+<InstructionReordering/Example7R(Wuo,sc-Wsc).pdf, id=538, 473.85028pt x 161.643
+89pt>
+File: InstructionReordering/Example7R(Wuo,sc-Wsc).pdf Graphic file (type pdf)
+<use InstructionReordering/Example7R(Wuo,sc-Wsc).pdf>
+Package pdftex.def Info: InstructionReordering/Example7R(Wuo,sc-Wsc).pdf  used 
+on input line 114.
+(pdftex.def)             Requested size: 331.69293pt x 113.14995pt.
+))
+(./Elimination/intro.tex (./Elimination/ReadElimProof/theorem.tex)
 (./Elimination/ReadElimProof/proof.tex
-(./Elimination/ReadElimProof/ProofParts/part1.tex)
+(./Elimination/ReadElimProof/ProofParts/part1.tex [27 <./InstructionReordering/
+Example7(Wuo,sc-Wsc).pdf> <./InstructionReordering/Example7R(Wuo,sc-Wsc).pdf>])
 (./Elimination/ReadElimProof/ProofParts/part2.tex)
 (./Elimination/ReadElimProof/ProofParts/part3.tex)
 (./Elimination/ReadElimProof/ProofParts/part4.tex
-<Elimination/ReadElimProof/ProofParts/Part4_Case1.pdf, id=537, 752.8125pt x 363
+<Elimination/ReadElimProof/ProofParts/Part4_Case1.pdf, id=572, 752.8125pt x 363
 .27718pt>
 File: Elimination/ReadElimProof/ProofParts/Part4_Case1.pdf Graphic file (type p
 df)
@@ -1603,8 +1619,8 @@ df)
 Package pdftex.def Info: Elimination/ReadElimProof/ProofParts/Part4_Case1.pdf  
 used on input line 13.
 (pdftex.def)             Requested size: 376.40532pt x 181.63814pt.
- [27]
-<Elimination/ReadElimProof/ProofParts/Part4_Case2.pdf, id=541, 549.97469pt x 21
+ [28]
+<Elimination/ReadElimProof/ProofParts/Part4_Case2.pdf, id=576, 549.97469pt x 21
 8.7372pt>
 File: Elimination/ReadElimProof/ProofParts/Part4_Case2.pdf Graphic file (type p
 df)
@@ -1614,13 +1630,13 @@ used on input line 27.
 (pdftex.def)             Requested size: 274.98666pt x 109.36832pt.
 ))
 (./Elimination/WriteElimProof/theorem.tex)
-(./Elimination/WriteElimProof/proof.tex [28 <./Elimination/ReadElimProof/ProofP
-arts/Part4_Case1.pdf> <./Elimination/ReadElimProof/ProofParts/Part4_Case2.pdf>]
-(./Elimination/WriteElimProof/ProofParts/part1.tex)
-(./Elimination/WriteElimProof/ProofParts/part2.tex)
+(./Elimination/WriteElimProof/proof.tex
+(./Elimination/WriteElimProof/ProofParts/part1.tex [29 <./Elimination/ReadElimP
+roof/ProofParts/Part4_Case1.pdf> <./Elimination/ReadElimProof/ProofParts/Part4_
+Case2.pdf>]) (./Elimination/WriteElimProof/ProofParts/part2.tex)
 (./Elimination/WriteElimProof/ProofParts/part3.tex)
 (./Elimination/WriteElimProof/ProofParts/part4.tex
-<Elimination/WriteElimProof/ProofParts/Part4Case1.pdf, id=575, 582.25531pt x 31
+<Elimination/WriteElimProof/ProofParts/Part4Case1.pdf, id=610, 582.25531pt x 31
 3.17pt>
 File: Elimination/WriteElimProof/ProofParts/Part4Case1.pdf Graphic file (type p
 df)
@@ -1628,8 +1644,8 @@ df)
 Package pdftex.def Info: Elimination/WriteElimProof/ProofParts/Part4Case1.pdf  
 used on input line 12.
 (pdftex.def)             Requested size: 291.12694pt x 156.58461pt.
- [29 <./Elimination/WriteElimProof/ProofParts/Part4Case1.pdf>]
-<Elimination/WriteElimProof/ProofParts/Part4Case2.pdf, id=594, 1135.3617pt x 49
+ [30 <./Elimination/WriteElimProof/ProofParts/Part4Case1.pdf>]
+<Elimination/WriteElimProof/ProofParts/Part4Case2.pdf, id=630, 1135.3617pt x 49
 3.845pt>
 File: Elimination/WriteElimProof/ProofParts/Part4Case2.pdf Graphic file (type p
 df)
@@ -1637,18 +1653,18 @@ df)
 Package pdftex.def Info: Elimination/WriteElimProof/ProofParts/Part4Case2.pdf  
 used on input line 26.
 (pdftex.def)             Requested size: 340.61113pt x 148.15463pt.
-)) (./Elimination/WriteElimProof/corollary.tex [30 <./Elimination/WriteElimProo
-f/ProofParts/Part4Case2.pdf>])) [31]
+)) (./Elimination/WriteElimProof/corollary.tex [31 <./Elimination/WriteElimProo
+f/ProofParts/Part4Case2.pdf>])) [32]
 (./main.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 22970 strings out of 494923
- 465220 string characters out of 6180742
+ 22980 strings out of 494923
+ 465727 string characters out of 6180742
  479174 words of memory out of 5000000
- 25814 multiletter control sequences out of 15000+600000
+ 25822 multiletter control sequences out of 15000+600000
  540199 words of font info for 59 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  55i,14n,54p,10334b,316s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1672,10 +1688,10 @@ nts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/symbols/msbm10.pfb>
-Output written on main.pdf (31 pages, 2273284 bytes).
+Output written on main.pdf (32 pages, 2340265 bytes).
 PDF statistics:
- 684 PDF objects out of 1000 (max. 8388607)
- 472 compressed objects within 5 object streams
+ 719 PDF objects out of 1000 (max. 8388607)
+ 496 compressed objects within 5 object streams
  0 named destinations out of 1000 (max. 500000)
- 183 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 193 words of extra memory for PDF output out of 10000 (max. 10000000)
 
