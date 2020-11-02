@@ -1,0 +1,77 @@
+\subsection{From Candidates to Program}
+
+    Insights:
+    \begin{itemize}
+        \item At the program level, what is done in general is code motion. 
+        \item We can classify differnt cases of code motion. 
+        \item The two parts would be that of conditionals and that of loops.
+        \item We still did not define general reordering, but we viewed it in terms of agent order to be general enough. 
+    \end{itemize}
+
+    General Corollary defining code motion in a Candidate, not a program. 
+    \begin{corollary}
+        Consider a Candidate C of a program and its Candidate Executions which are valid. Consider a set of events ${k_1, k_2, ... k_n}$ such that 
+        \begin{align}
+            \forall i \in [1,n-1] \ . \ \reln{k_i}{ao}{k_{i+1}} \wedge \cons{k_i}{k_{i+1}} 
+        \end{align}
+        Consider an event $e$ such that 
+        \begin{align}
+            \cons{e}{k_1} \ \wedge \ \reln{e}{ao}{d}  
+        \end{align}
+        Consider another candidate $C'$ with the only differnence from $C$ being that
+        \begin{align}
+            \cons{e}{k_n} \ \wedge \ \reln{k_n}{ao}{e}
+        \end{align}
+        Then the set of observable behaviors of $C'$ is a subset of that of $C$ only if 
+        \begin{align}
+            \forall i \in [1,n] \ . \ Reord(e,k_i)
+        \end{align} 
+    \end{corollary}
+
+    \begin{proof}
+        Apply theorem of reordering successively, and by transititvity of subset relations, the corollary holds.
+    \end{proof}
+
+    \critic{blue}{The above corollary we defined is the most general form of reordering, which also defines code motion. It is interesting to note that we first noted reordering as reversing agent order, but we never considered it as strictly as we should have.}
+
+    \critic{red}{Make the corollary more precise, it can be simplified greatly.}
+    
+    Preliminaries needed:
+    \begin{itemize}
+        \item Program to Candidates 
+        \item One conditional results in two possible candidates. Describe formally that the two candidates are distinct, in that there are some events that aren't present in each of them, but are present in the other. 
+        \item One loop can bring many candidates based on the number of iterations of loop done before it ends. (perhaps for our case assume no loop goes forever.)
+    \end{itemize}
+
+    Perhaps we need a general corollary for program level 
+    \begin{corollary}{Reordering under Program with Conditionals}
+        Consider a program $P$ and its candidates $C_1, C_2, ... , C_n$ such that events $e$ and $d$ present in all of these of them with $\reln{e}{ao}{d}$. Consider the set of corresponding candidates $C'_1, C'_2, ... , C'_n$ after reordering $e$ and $d$ and its corresponding program $P'$. Then the set of observable behaviors of $P'$ is a subset of that of $P$ if the following conditions hold:
+        \critic{blue}{Reordering conditions}
+        \begin{align*}
+            Reord(e,d) \ \wedge \ \\ 
+            \forall C_{i \in [1,n]} \ , \ \forall k \in C_i \ \text{s.t.} \ \reln{e}{ao}{k} \wedge \reln{k}{ao}{d} \\ 
+            Reord(e,k) \wedge Reord(k,d) 
+        \end{align*}
+        \critic{red}{The above condition can be simplified as we already have corollary to show reordering of non-consecutive events}
+        \critic{blue}{No new non-existant agent order relation between events $e$ or $d$ and some other event $k$ introduced condition}
+        \begin{align*}
+            \neg (
+                \exists C' \in P' \ \forall C \in P \ \text{s.t.} \ k \in C \wedge k \in C' \wedge \\ 
+                (
+                    (e \in C' \ \wedge \ e \notin C) \ \vee \ (d \in C' \ \wedge \ d \notin C)
+                )
+            ) 
+            \end{align*}
+        \critic{red}{I have not written the above corollary properly, as I have not yet addressed the program that we consider and their linkage to Candidates.}
+    \end{corollary}
+
+    \critic{blue}{It has come to my notice that in general reordering may not be fine, if we end up removing something outside a conditional. To show this I have a simple counter example. However, the only way to show this, is to say that there is some candidate which suddenly has an agent order relation between two events which were not supposed to have any relation to them. Simply put, we can say that there is a candidate execution of the reordered program, where both the events exist, where as there isn't any candidate of the original program where such a thing can happen.}
+
+    \begin{proof}
+        \begin{itemize}
+            \item We can easily show with our corollary of reordering non consecutive events that the above conditions must hold. 
+            \item The second part of the proof would involve going into two parts, one for conditional and one for loops
+            \item The part of conditionals we can show by counter example, that a new observable behavior can occur, thus making our subset claim false. 
+            \item The part for loops may not be right actually, we have to change our statement once again as we would need to show that there isnt a set of events k and e or d in any original candidate where loops weren't iterated. But e or d exists in some candidate execution of the reordered program. 
+        \end{itemize}
+    \end{proof}
