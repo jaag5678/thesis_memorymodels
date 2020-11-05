@@ -36,42 +36,42 @@
 
     \critic{red}{Make the corollary more precise, it can be simplified greatly.}
     
-    Preliminaries needed:
+    Preliminaries needed for conditionals:
     \begin{itemize}
-        \item Program to Candidates 
         \item One conditional results in two possible candidates. Describe formally that the two candidates are distinct, in that there are some events that aren't present in each of them, but are present in the other. 
-        \item One loop can bring many candidates based on the number of iterations of loop done before it ends. (perhaps for our case assume no loop goes forever.)
+        \item There are two types of conditionals; need to have two defintions for conditionals then. 
     \end{itemize}
 
     Perhaps we need a general corollary for program level 
     \begin{corollary}{Reordering under Program with Conditionals}
-        Consider a program $P$ and its candidates $C_1, C_2, ... , C_n$ such that events $e$ and $d$ present in all of these of them with $\reln{e}{ao}{d}$. Consider the set of corresponding candidates $C'_1, C'_2, ... , C'_n$ after reordering $e$ and $d$ and its corresponding program $P'$. Then the set of observable behaviors of $P'$ is a subset of that of $P$ if the following conditions hold:
-        \critic{blue}{Reordering conditions}
+        Consider a program $P$ and its candidates $C_1, C_2, ... , C_n$ in which events $e$ and $d$ present in all of them with $\reln{e}{ao}{d}$. Consider the set of corresponding candidates $C'_1, C'_2, ... , C'_n$ after reordering $e$ and $d$ and its corresponding program $P'$. Then the set of observable behaviors of $P'$ is a subset of that of $P$ if the following conditions hold:
         \begin{align*}
             Reord(e,d) \ \wedge \ \\ 
             \forall C_{i \in [1,n]} \ , \ \forall k \in C_i \ \text{s.t.} \ \reln{e}{ao}{k} \wedge \reln{k}{ao}{d} \\ 
             Reord(e,k) \wedge Reord(k,d) 
         \end{align*}
         \critic{red}{The above condition can be simplified as we already have corollary to show reordering of non-consecutive events}
-        \critic{blue}{No new non-existant agent order relation between events $e$ or $d$ and some other event $k$ introduced condition}
+        \critic{blue}{No Candidate of $P$ exists such that only one of $e$ or $d$ exists in them. }
         \begin{align*}
-            \neg (
-                \exists C' \in P' \ \forall C \in P \ \text{s.t.} \ k \in C \wedge k \in C' \wedge \\ 
-                (
-                    (e \in C' \ \wedge \ e \notin C) \ \vee \ (d \in C' \ \wedge \ d \notin C)
-                )
-            ) 
-            \end{align*}
-        \critic{red}{I have not written the above corollary properly, as I have not yet addressed the program that we consider and their linkage to Candidates.}
+            \nexists C \in P \ s.t. \ 
+                (e \in C \ \wedge \ d \notin C) \ \vee \ 
+                (e \notin C \ \wedge \ d \in C) 
+        \end{align*}
     \end{corollary}
 
-    \critic{blue}{It has come to my notice that in general reordering may not be fine, if we end up removing something outside a conditional. To show this I have a simple counter example. However, the only way to show this, is to say that there is some candidate which suddenly has an agent order relation between two events which were not supposed to have any relation to them. Simply put, we can say that there is a candidate execution of the reordered program, where both the events exist, where as there isn't any candidate of the original program where such a thing can happen.}
-
     \begin{proof}
+        The proof would go as follows:
         \begin{itemize}
-            \item We can easily show with our corollary of reordering non consecutive events that the above conditions must hold. 
-            \item The second part of the proof would involve going into two parts, one for conditional and one for loops
-            \item The part of conditionals we can show by counter example, that a new observable behavior can occur, thus making our subset claim false. 
-            \item The part for loops may not be right actually, we have to change our statement once again as we would need to show that there isnt a set of events k and e or d in any original candidate where loops weren't iterated. But e or d exists in some candidate execution of the reordered program. 
+            \item By property of conditionals, there could be a candidate with $e$ existing but $d$ not. This would mean that $d$ is a part of conditional brnaching.
+            \item Reordering would then result in removing certain agent order relations with $e$ and adding the same with $d$.
+            \item Removal occurs because after reordering, $P'$ will have candidates with $d$ existing but not $e$. 
+            \item Adding occurs in the same fashion.
+            \item Removal in this case may result in new observable behaviors with events outside the same agent
+            \item Adding may also introduce new observable behaviors with events outside the same agent. 
+            \item The new observable behaviors can occur due to the other conditional branch having some sc events that syncronize with other threads.
+            \item Maybe finding SC events in the other branch may not be so difficult to do. But perhaps if it is difficult, then reordering should not be done. 
+            \item Perhaps we could say that those events with whome $d$ has now relations, if it is the case that it has a new relation with some $k$ thats of type $sc$ (perhaps we can narrow it down to a read / write), then we shouldnt be allowed to do reordering. 
         \end{itemize}
     \end{proof}
+
+    \critic{blue}{It has come to my notice that in general reordering may not be fine, if we end up removing something outside a conditional. To show this I have a simple counter example. However, the only way to show this, is to say that there is some candidate which suddenly has an agent order relation between two events which were not supposed to have any relation to them. Simply put, we can say that there is a candidate execution of the reordered program, where both the events exist, where as there isn't any candidate of the original program where such a thing can happen.}
