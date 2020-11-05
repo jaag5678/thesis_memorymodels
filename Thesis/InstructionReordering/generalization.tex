@@ -1,28 +1,14 @@
 \subsection{From Candidates to Program}
 
-    Insights:
-    \begin{itemize}
-        \item At the program level, what is done in general is code motion. 
-        \item We can classify differnt cases of code motion. 
-        \item The two parts would be that of conditionals and that of loops.
-        \item We still did not define general reordering, but we viewed it in terms of agent order to be general enough. 
-    \end{itemize}
-
-    General Corollary defining code motion in a Candidate, not a program. 
+    To investigate the validity of reordering at the program level, we first, in terms of candidates, address code motion. The following two corollaries cover them: 
     \begin{corollary}
-        Consider a Candidate C of a program and its Candidate Executions which are valid. Consider a set of events ${k_1, k_2, ... k_n}$ such that 
-        \begin{align}
-            \forall i \in [1,n-1] \ . \ \reln{k_i}{ao}{k_{i+1}} \wedge \cons{k_i}{k_{i+1}} 
-        \end{align}
+        Consider a Candidate C of a program and its Candidate Executions which are valid. Consider a set of events $k_{i \in[1,n]}$ such that $\reln{k_i}{ao}{k_{i+1}} \wedge \cons{k_i}{k_{i+1}}$.
         Consider an event $e$ such that 
         \begin{align}
-            \cons{e}{k_1} \ \wedge \ \reln{e}{ao}{d}  
+            \cons{e}{k_1} \ \wedge \ \reln{e}{ao}{k_1}  
         \end{align}
-        Consider another candidate $C'$ with the only differnence from $C$ being that
-        \begin{align}
-            \cons{e}{k_n} \ \wedge \ \reln{k_n}{ao}{e}
-        \end{align}
-        Then the set of observable behaviors of $C'$ is a subset of that of $C$ only if 
+        Consider another candidate $C'$ with the only differnence from $C$ being $\cons{e}{k_n} \ \wedge \ \reln{k_n}{ao}{e}$.
+        Then the set of observable behaviors of $C'$ is a subset of that of $C$ if 
         \begin{align}
             \forall i \in [1,n] \ . \ Reord(e,k_i)
         \end{align} 
@@ -32,23 +18,57 @@
         Apply theorem of reordering successively, and by transititvity of subset relations, the corollary holds.
     \end{proof}
 
-    \critic{blue}{The above corollary we defined is the most general form of reordering, which also defines code motion. It is interesting to note that we first noted reordering as reversing agent order, but we never considered it as strictly as we should have.}
+    \begin{corollary}
+        Consider a Candidate C of a program and its Candidate Executions which are valid. Consider a set of events $k_{i \in[1,n]}$ such that $\reln{k_i}{ao}{k_{i+1}} \wedge \cons{k_i}{k_{i+1}}$.
+        Consider an event $d$ such that 
+        \begin{align}
+            \cons{d}{k_n} \ \wedge \ \reln{k_n}{ao}{d}  
+        \end{align}
+        Consider another candidate $C'$ with the only differnence from $C$ being $\cons{d}{k_1} \ \wedge \ \reln{d}{ao}{k_1}$.
+        Then the set of observable behaviors of $C'$ is a subset of that of $C$ if 
+        \begin{align}
+            \forall i \in [1,n] \ . \ Reord(k_i,d)
+        \end{align} 
+    \end{corollary}
 
-    \critic{red}{Make the corollary more precise, it can be simplified greatly.}
-    
-    Preliminaries needed for conditionals:
-    \begin{itemize}
-        \item One conditional results in two possible candidates. Describe formally that the two candidates are distinct, in that there are some events that aren't present in each of them, but are present in the other. 
-        \item There are two types of conditionals; need to have two defintions for conditionals then. 
-    \end{itemize}
+    \begin{proof}
+        Apply theorem of reordering successively, and by transititvity of subset relations, the corollary holds.
+    \end{proof}
+
+    \critic{blue}{The above corollaries defined is the general form of reordering, which also defines code motion. It is interesting to note that we first noted reordering as reversing agent order, but we never considered it as strictly as we should have. Perhaps make the corollary for non-consecutive reordering of two events more precise.}
+
+    We first consider programs with conditionals. The following property holds for any candidates of programs having conditional branching. 
+
+    \begin{property}{Candidates of Programs with Conditionals (2-branch)}
+        Let $B1,B2$ be two sets of events based on each branch of a conditional in a program $P$. Let $C$ be any Candidate of $P$, Consider $b1,b2$ to be representative of any event in $B1,B2$ respectively. Then:
+        \begin{align*}
+            \nexists C \in P \ \text{s.t.} \ b1 \in C \ \wedge \ b2 \in C 
+        \end{align*}
+        There cannot exist any candidate of the program such that events from both sets can be part of it. 
+    \end{property}
+
+    \begin{property}{Candidates of Programs with Conditionals (1-branch)}
+        Let $B1$ be two sets of events based on each branch of a conditional in a program $P$. Let $C$ be any Candidate of $P$, Consider $b1$ to be representative of any event in $B1$. Then:
+        \begin{align*}
+            \exists C \in P \ \text{s.t.} \ b1 \notin C  
+        \end{align*}
+        There exists a candidate of the program such that events from the branch cannot be part of it. 
+    \end{property}
+
+    \critic{blue}{While the property for 1 branch may not always hold (it can be the case that the branch is always taken in any execution) we are defining it for any program.}
+
+    \begin{proof}
+        Based on an exeuction of the program, the conditional will either be satisfied or not, but never both. Hence proved both properties. 
+        \critic{blue}{Do we need an elaborate proof of this? As this is direct from existing literature on sequential programs.}
+    \end{proof}
 
     Perhaps we need a general corollary for program level 
     \begin{corollary}{Reordering under Program with Conditionals}
-        Consider a program $P$ and its candidates $C_1, C_2, ... , C_n$ in which events $e$ and $d$ present in all of them with $\reln{e}{ao}{d}$. Consider the set of corresponding candidates $C'_1, C'_2, ... , C'_n$ after reordering $e$ and $d$ and its corresponding program $P'$. Then the set of observable behaviors of $P'$ is a subset of that of $P$ if the following conditions hold:
+        Consider a program $P$ and its candidates $C_1, C_2, ... , C_n$ in which events $e$ and $d$ present in all of them with $\reln{e}{ao}{d}$. Consider the set of corresponding candidates $C'_1, C'_2, ... , C'_n$ after reordering $e$ and $d$ and its corresponding program $P'$. Then the set of observable behaviors of $P'$ is a subset of that of $P$ if:
         \begin{align*}
-            Reord(e,d) \ \wedge \ \\ 
-            \forall C_{i \in [1,n]} \ , \ \forall k \in C_i \ \text{s.t.} \ \reln{e}{ao}{k} \wedge \reln{k}{ao}{d} \\ 
-            Reord(e,k) \wedge Reord(k,d) 
+            Reord(e,d) \ \wedge \ 
+            ( \forall C_{i \in [1,n]}, \forall k \in C_i \ \text{s.t.} \ \reln{e}{ao}{k} \wedge \reln{k}{ao}{d}, \    
+            Reord(e,k) \wedge Reord(k,d) )
         \end{align*}
         \critic{red}{The above condition can be simplified as we already have corollary to show reordering of non-consecutive events}
         \critic{blue}{No Candidate of $P$ exists such that only one of $e$ or $d$ exists in them. }
@@ -62,15 +82,12 @@
     \begin{proof}
         The proof would go as follows:
         \begin{itemize}
-            \item By property of conditionals, there could be a candidate with $e$ existing but $d$ not. This would mean that $d$ is a part of conditional brnaching.
-            \item Reordering would then result in removing certain agent order relations with $e$ and adding the same with $d$.
-            \item Removal occurs because after reordering, $P'$ will have candidates with $d$ existing but not $e$. 
-            \item Adding occurs in the same fashion.
-            \item Removal in this case may result in new observable behaviors with events outside the same agent
-            \item Adding may also introduce new observable behaviors with events outside the same agent. 
-            \item The new observable behaviors can occur due to the other conditional branch having some sc events that syncronize with other threads.
-            \item Maybe finding SC events in the other branch may not be so difficult to do. But perhaps if it is difficult, then reordering should not be done. 
-            \item Perhaps we could say that those events with whome $d$ has now relations, if it is the case that it has a new relation with some $k$ thats of type $sc$ (perhaps we can narrow it down to a read / write), then we shouldnt be allowed to do reordering. 
+            \item By property of conditionals, there could be a candidate with $e$ existing but $d$ not. This would mean that $d$ is a part of conditional brnaching. Meaning if $d$ is event in one branch and $k$ is in the other branch, then Property of conditionals must hold for any candidate. 
+            \item After reordering the property for candidates based on original program does not hold, thus having a candidate where $d$ and $k$ exist. 
+            \item If $d$ is a write, then a new reads from relation can exist, thus introducing a new observable behavior.
+            \item If $d$ is a read, then too a new reads-from relation can exist. 
+            \item Note that here, we are talking in terms of candidates, meaning if a reads-from relation cannot exist, it is not due to the Consistency rules, but that such an event does not exist. This is different from restricting behaviors, rather its introducing new behaviors. 
+            \item Perhaps this should be mentioned in the proofs where only one candidate is considered too.  
         \end{itemize}
     \end{proof}
 

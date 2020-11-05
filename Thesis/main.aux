@@ -67,20 +67,80 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Caption}}{13}}
 \newlabel{fig:my_label}{{7}{13}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Valid reordering}{13}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}From Candidates to Program}{13}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.5}}{15}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Elimination}{15}}
-\@writefile{toc}{\contentsline {paragraph}{1. Preserving \emph  {happens-before} relations}{16}}
-\@writefile{toc}{\contentsline {paragraph}{2. The \emph  {happens-before} relations lost}{16}}
-\@writefile{toc}{\contentsline {paragraph}{3. Presence of Cycles?}{16}}
-\@writefile{toc}{\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{16}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces The first type of relations removed and the various patterns forbidden by them.}}{17}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces The second type of relations removed and the various patterns forbidden by them.}}{17}}
-\@writefile{toc}{\contentsline {paragraph}{Preserving Happens-before relations}{18}}
-\@writefile{toc}{\contentsline {paragraph}{2. The \emph  {happens-before} relations lost}{18}}
-\@writefile{toc}{\contentsline {paragraph}{3. Presence of Cycles?}{18}}
-\@writefile{toc}{\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{18}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces First case possibilities (change caption stimiar to that for read elim)}}{18}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Second case possibilities (change caption stimiar to that for read elim)}}{19}}
-\@writefile{toc}{\contentsline {paragraph}{Base Case (n=1)}{19}}
-\@writefile{toc}{\contentsline {paragraph}{Inductive Case (n)}{20}}
+\@writefile{toc}{\contentsline {paragraph}{1. Preserving \textit  {happens-before} relations}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces For any Candidate Execution of $C$, the set $K_e$ and $K_d$}}{14}}
+\newlabel{fig:my_label}{{8}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces The direct relation changes that can be observed while reordering events $e$ and $d$}}{15}}
+\newlabel{fig:my_label}{{9}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces For any Candidate execution, the intuition behind valid pivots $<p1,p2>$}}{15}}
+\newlabel{fig:my_label}{{10}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Table summarizing whether we have valid pair of pivots based on $e$ and $d$}}{16}}
+\newlabel{fig:my_label}{{11}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces A Candidate Execution where p1 is not a valid pivot}}{16}}
+\newlabel{fig:my_label}{{12}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces The resultant Candidate Execution after reordering, exposing the relations with $p_x$, $K_{e2}$ and $d$ that arelost}}{17}}
+\newlabel{fig:my_label}{{13}{17}}
+\@writefile{toc}{\contentsline {paragraph}{2. Additional \textit  {happens-before} relations}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces A Candidate Execution where $d$ is a sequentially consistent read}}{17}}
+\newlabel{fig:my_label}{{14}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces The Candidate Execution after reordering, exposing the new relations established with $e$, $p3$ and set $k$}}{18}}
+\newlabel{fig:my_label}{{15}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Table summarizing when new \textit  {happens-before} relations could be introduced based on having valid pair of pivots }}{18}}
+\newlabel{fig:my_label}{{16}{18}}
+\@writefile{toc}{\contentsline {paragraph}{3. Presence of cycles?}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Caption}}{18}}
+\newlabel{fig:my_label}{{17}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces If k belongs to one of the sets $K_e$ or $K_d$}}{19}}
+\newlabel{fig:my_label}{{18}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces If $k\mathrel {\mathop {_{hb}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}e$ or $d\mathrel {\mathop {_{hb}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}k$ are new sets of relations}}{19}}
+\newlabel{fig:my_label}{{19}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces A cycle exists in the case where we have two new sets of relations ($k\mathrel {\mathop {_{hb}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}e$ and $d\mathrel {\mathop {_{hb}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}k$) }}{19}}
+\newlabel{fig:my_label}{{20}{19}}
+\@writefile{toc}{\contentsline {paragraph}{4. Do new relations introduce new observable behaviors?}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces The role of the axioms on introducing a new relation between an unordered Read and some event $k$}}{21}}
+\newlabel{fig:my_label}{{21}{21}}
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces (i) and (ii(b)) satisfy the axiom of Coherent Reads}}{21}}
+\newlabel{fig:my_label}{{22}{21}}
+\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces (ii) satisfies the axiom of Coherent Reads}}{22}}
+\newlabel{fig:my_label}{{23}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces (i(a)), (ii(a)) satisfy the axiom of Coherent Reads, whereas (i(b)), (ii(b)) satisfy the axiom of SequentiallyConsistent Atomics}}{22}}
+\newlabel{fig:my_label}{{24}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces The final table summarizing the valid cases where observable behaviors will only be a subset after reordering.}}{22}}
+\newlabel{fig:my_label}{{25}{22}}
+\newlabel{corol1}{{2.1.1}{23}}
+\@writefile{toc}{\contentsline {paragraph}{Base Case: $n = 1.$}{23}}
+\@writefile{toc}{\contentsline {paragraph}{2. Inductive Case $n > 1$}{23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Counter examples for the invalid cases}{24}}
+\@writefile{toc}{\contentsline {paragraph}{Reads to same memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {26}{\ignorespaces Case where a = 0 , b = 1 is invalid due to Coherent Reads}}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {27}{\ignorespaces Case where the reads are reordered and a = 0 , b = 1 is valid}}{25}}
+\@writefile{toc}{\contentsline {paragraph}{Reads to non-equal range of memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{25}}
+\@writefile{toc}{\contentsline {paragraph}{A Read $e$ of type $sc$ followed by a Write of either $uo/sc$}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {28}{\ignorespaces Case where a = 1 and b = 1 is invalid due to Coherent Reads.}}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {29}{\ignorespaces Case where events of T1 are reordered, resulting in a = 1 and b = 1 to be valid.}}{26}}
+\@writefile{toc}{\contentsline {paragraph}{A Read $e$ of type $uo$ followed by a write $d$ of type $sc$}{26}}
+\@writefile{lof}{\contentsline {figure}{\numberline {30}{\ignorespaces Case where a = 1 and b = 1 is invalid due to Coherent Reads.}}{26}}
+\@writefile{lof}{\contentsline {figure}{\numberline {31}{\ignorespaces Case where events of T2 are reordered, resulting in a = 1 and b = 1 to be valid.}}{26}}
+\@writefile{toc}{\contentsline {paragraph}{A Write $e$ followed by a Read $d$ both of type $sc$}{26}}
+\@writefile{lof}{\contentsline {figure}{\numberline {32}{\ignorespaces Case where a = 1 and b = 1 is valid and no happens-before cycles}}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {33}{\ignorespaces Case where a = 1 and b = 1 is creates a happens-before cycle}}{27}}
+\@writefile{toc}{\contentsline {paragraph}{A Write $e$ of type $uo/sc$ followed by a Write $d$ of type $sc$}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {34}{\ignorespaces Case where a = 0 and b = 1 is invalid due to Coherent Reads.}}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {35}{\ignorespaces Case where events of T1 are reordered, resulting in a = 0 and b = 1 to be valid.}}{28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5}From Candidates to Program}{28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.6}}{30}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Elimination}{30}}
+\@writefile{toc}{\contentsline {paragraph}{1. Preserving \emph  {happens-before} relations}{30}}
+\@writefile{toc}{\contentsline {paragraph}{2. The \emph  {happens-before} relations lost}{30}}
+\@writefile{toc}{\contentsline {paragraph}{3. Presence of Cycles?}{30}}
+\@writefile{toc}{\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{31}}
+\@writefile{lof}{\contentsline {figure}{\numberline {36}{\ignorespaces The first type of relations removed and the various patterns forbidden by them.}}{31}}
+\@writefile{lof}{\contentsline {figure}{\numberline {37}{\ignorespaces The second type of relations removed and the various patterns forbidden by them.}}{31}}
+\@writefile{toc}{\contentsline {paragraph}{Preserving Happens-before relations}{32}}
+\@writefile{toc}{\contentsline {paragraph}{2. The \emph  {happens-before} relations lost}{32}}
+\@writefile{toc}{\contentsline {paragraph}{3. Presence of Cycles?}{32}}
+\@writefile{toc}{\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{32}}
+\@writefile{lof}{\contentsline {figure}{\numberline {38}{\ignorespaces First case possibilities (change caption stimiar to that for read elim)}}{33}}
+\@writefile{lof}{\contentsline {figure}{\numberline {39}{\ignorespaces Second case possibilities (change caption stimiar to that for read elim)}}{33}}
+\@writefile{toc}{\contentsline {paragraph}{Base Case (n=1)}{34}}
+\@writefile{toc}{\contentsline {paragraph}{Inductive Case (n)}{34}}
