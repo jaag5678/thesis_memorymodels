@@ -17,11 +17,6 @@
 \author{Akshay Gopalakrishnan}
 \date{November 2019}
 
-\begin{document}
-
-\maketitle
-
-
 %Short form to use stack_relative
 \newcommand{\stck}{\stackrel{\longrightarrow}}
 
@@ -48,8 +43,11 @@
 %A new command to quickly use cons function in formal descriptions
 \newcommand{\cons}[2]{\textit{cons}(#1,#2)}
 
-%Some preliminary latex commands to format writing theorems 
+%Useful command syntax
+\newcommand{\rmw}{\textit{rmw}\,}
+\newcommand{\set}[1]{\textbf{\textit{#1}}}
 
+%Some preliminary latex commands to format writing theorems 
 \newtheorem{lemma}{Lemma}
 
 \newtheorem{theorem}{Theorem}[lemma]
@@ -60,35 +58,18 @@
 
 \newtheorem{property}{Property}
 
-%COMMENT FOR NOW AS IT IS NOT OUR PRIORITY 
-%\input{intro.tex}
 
+\begin{document}
 
-%The ECMAScript Memory Model
+    \maketitle
 
-\input{ECMAScriptMemoryModel/agents.tex}
+    %\input{intro.tex}
 
-\input{ECMAScriptMemoryModel/events.tex}  
+    %The ECMAScript Memory Model
+    \input{ECMAScriptMemoryModel/intro.tex}
 
-\input{ECMAScriptMemoryModel/event_sets.tex}
+    \input{InstructionReordering/reordering_opt.tex}
 
-\input{ECMAScriptMemoryModel/event_relations.tex}
+    \input{Elimination/intro.tex}
 
-\input{ECMAScriptMemoryModel/ordering_relations_on_events.tex}
-
-\input{ECMAScriptMemoryModel/definitions.tex}
-
-\input{ECMAScriptMemoryModel/valid_execution_rules.tex}
-
-\input{ECMAScriptMemoryModel/race.tex}
-
-\input{ECMAScriptMemoryModel/valid_execution.tex}
-    
-\input{InstructionReordering/reordering_opt.tex}
-
-\input{Elimination/intro.tex}
-
-
-%The end ? ------------------------------------------------------------------------------------------------------------------------------    
-    
 \end{document}

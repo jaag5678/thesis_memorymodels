@@ -1,30 +1,20 @@
 %AGENTS----------------------------------------------------------------------------------------------------------------------------------------  
-\section{Agents, Events and their Types}
+\subsection{Agents, Events and their Types}
 
-    \subsection{Agents}
-        A concurrent program involves different threads/processes running concurrently. Agents are analogous to different threads/processes. 
-        
-        \critic{red}{Agents actually have more meaning than what we refer to here. However, in terms of reasoning just with memory consistency rules, we are safely abstracting them to just mean threads/processes.}
-
+    \subsubsection{Agents}
+        A concurrent program involves different threads/processes running concurrently. Agents are analogous to different threads/processes. Agents actually have more meaning than what we refer to here. However, with respect to the memory consistency model , we can safely abstract them to just mean threads/processes.
         %Agent Clusters
         \paragraph{Agent Cluster}
-        Collection of agents concurrently communicating with each other (directly/ indirectly) form an agent cluster.  There can be multiple agent clusters. However, an agent can only belong to one agent cluster.
+        Collection of agents concurrently communicating with each other through means of shared memory form an agent cluster.  There can be multiple agent clusters. However, an agent can only belong to one agent cluster. Agents communicating through message passing do not belong in the same agent cluster. 
 
-        \critic{red}{Please look back at what Conrad had said to about agent clusters.}
-        
-        %Perhaps give an example here later
+        For our purpose, we assume just one agent cluster having one shared memory using which agents communicate. 
 
-        \critic{blue}{Note that for the purpose of reasoning with optimizations given the memory model, we stick to assuming that just one agent cluster exists. We also assume that agents in the cluster communicate only through one common shared memory segment.}
-
-        \critic{purple}{Could elaborate the role when different shared array buffers are used to communicate accross agents belonging to different clusters. However, this is something that is not primary to our purpose of investigation, but would be essential as a whole from a practical standpoint to enforce correct concurrent programming.}
-        
+        \critic{red}{Perhaps draw a figure here to represent the role of agent clusters and different shared memory fragments.}
         %Agent Event Set
         \paragraph{Agent Event List $(ael)$}
-        Every agent is mapped to a list of events. Operationally (when a program actually runs),  these events are appended to the list during evaluation. We define $ael$ is a mapping of each agent to a list of events.
+        Every agent is mapped to a list of events. Operationally, these events are appended to the list during evaluation. We define $ael$ as a mapping of each agent to a list of events.
         
-            \[ael(a) = [e_1, e_2, ... e_k ] \]
-        
-        \critic{blue}{The standard refers this to be an Event List, but we find it a bit misleading as it does not signify a list for each agent. Hence we name it as Agent Event List}
+        The standard refers this to be an Event List, but we find it a bit misleading as it does not signify a list for each agent. Hence we name it as Agent Event List. 
 
         
 

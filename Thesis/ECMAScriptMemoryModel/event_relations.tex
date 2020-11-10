@@ -1,5 +1,5 @@
 %Relation among events----------------------------------------------------------------------------------------------------------------------------
-    \section{Relation among events}
+    \subsection{Relation among events}
         We now describe a set of relations between events. These relations help us describe the consistency rules.
         
         \subsubsection{Read-Write event relations}
@@ -22,6 +22,12 @@
                 $\reln{e}{rf}{(d1, d2)}$
             or individual binary read-write relation as 
                 $\reln{e}{rf}{d1}$ and $\reln{e}{rf}{d2}$.
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.7]{ECMAScriptMemoryModel/ReadsFrom.pdf}
+                \caption{An example to show the reads-from relations that are drawn for the example program between read and write events.}
+            \end{figure}
             
             %Agent sync with relation
         \subsubsection{Agent-Synchronizes With (\set{ASW})}

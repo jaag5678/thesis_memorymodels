@@ -1,58 +1,59 @@
 %Ordering Relation among Events----------------------------------------------------------------------------------------------------------------------       
-        \section{Ordering Relations among Events}
+\subsection{Ordering Relations among Events}
         
-        %Agent Order
-        \paragraph{Agent Order ($\stck{_{ao}}$)}
-            A total order among events belonging to the same agent event list. It is analogous to intra-thread ordering. For example, if two events $e$ and $d$ belong to the same agent event list , then either $\reln{e}{\textit{ao}}{d}$ or $\reln{d}{\textit{ao}}{e}$. 
-            
-            \critic{blue}{Note that the relations are only with respect to events belonging to the same agent. A collection of such relations together form the agent order. This is analogous to what we know as intra-thread sequential order. It is also the same as what \textbf{sequenced-before} is defined to be in C++.}
-
-            \critic{purple}{Sequenced before maybe a bit weaker that agent order, as we saw in one of the papers. Basically, sequenced before precisely tells us which events can be reordered and which cannot, in contrast to agent order. I think it is similar to preserved program order in hardware, which is defined to capture dependancies resulting due to control flow in programs. Do check and see if these are the same. Discuss with Clark. }
+    %Agent Order
+    \paragraph{Agent Order ($\stck{_{ao}}$)}
+        A total order among events belonging to the same agent event list. It is analogous to intra-thread ordering. For example, iftwo events $e$ and $d$ belong to the same agent event list , then either $\reln{e}{ao}{d}$ or $\reln{d}{ao}{e}$. 
         
-        %Synchronize With Order
-        \paragraph{Synchronize-With Order ($\stck{_{sw}} $)}
-            Represents the synchronizations among different agents through relations between their events. It is a composition of two sets as below: 
-            \begin{enumerate}
-                \item All pairs belonging to $ASW$ of every agent belongs to this ordering relation. 
-            
-                        \[\forall{i, j > 0}, \ \langle e_i, e_j \rangle \in ASW \Rightarrow{} e_i \stck{_{sw}} e_j \]
-            
-                \item Specific reads-from pairs also belong to this ordering relation. 
-            
-                        \[(r \stck{_{rf}} w) \ \wedge \ \et{r}{sc} \ \wedge \ \et{w}{sc} \ \wedge \ (\Re(r)\!=\!\Re(w)) \ \Rightarrow{} \ (w \stck{_{sw}} r)\]
-            
-            \end{enumerate}
-            
-            \critic{blue} {Note that for the second condition, both ranges of events have to be equal. This however, does not mean that the read cannot read from multiple write events. (the read-from relation here is not functional.)}
-            
-        %Happens Before order 
-        \paragraph{Happens Before Order ($\stck{_{hb}}$)}
-            A transitive order on events, composed of the following:
-            
-            \begin{enumerate}
-                \item Every agent-ordered relation is also a happens-before relation 
-              
-                    \[(e \stck{_{ao}} d) \ \Rightarrow{} \ (e \stck{_{hb}} d)\]
-              
-                \item Every synchronize-with relation is also a happens-before relation 
-              
-                    \[(e \stck{_{sw}} d) \ \Rightarrow{} \ (e \stck{_{hb}} d)\]
-                     
-                \item Initialize type of events happen before all shared memory events that have overlapping ranges with them. 
+        Note that the relations are only with respect to events belonging to the same agent. A collection of such relations togetherform the agent order. 
+    %Synchronize With Order
+    \paragraph{Synchronize-With Order ($\stck{_{sw}} $)}
+        Represents the synchronizations among different agents through relations between their events. It is a composition of two setsas below: 
+        \begin{enumerate}
+            \item All pairs belonging to $ASW$ of every agent belongs to this ordering relation. 
+                \begin{align*}
+                    \forall{i, j > 0}, \ \langle e_i, e_j \rangle \in ASW \Rightarrow{} \reln{e_i}{sw}{e_j} 
+                \end{align*}
+                    
+            \item Specific reads-from pairs also belong to this ordering relation. 
+                \begin{align*}
+                    (\reln{r}{rf}{w}) \ \wedge \ \et{r}{sc} \ \wedge \ \et{w}{sc} \ \wedge \ (\Re(r)\!=\!\Re(w)) \ \Rightarrow{} \
+                    (\reln{w}{sw}{r})
+                \end{align*}
+                    
+        \end{enumerate}
+        
+        \critic{blue} {Note that for the second condition, both ranges of events have to be equal. This however, does not mean thatthe read cannot read from multiple write events. (the read-from relation here is not functional.)}
+        
+    %Happens Before order 
+    \paragraph{Happens Before Order ($\stck{_{hb}}$)}
+        A transitive order on events, composed of the following:
+        
+        \begin{enumerate}
+            \item Every agent-ordered relation is also a happens-before relation 
+                \begin{align*}
+                    (\reln{e}{ao}{d}) \ \Rightarrow{} \ (\reln{e}{hb}{d})    
+                \end{align*}
                 
-                    \[
-                        \forall e,d \in SM \ \wedge \ 
-                        \et{e}{init} \ \wedge \ 
-                        (\Re(e) \cap \Re(d) \neq \phi)
-                        \ \Rightarrow{} \ 
-                        e \stck{_{hb}} d
-                    \]
-            \end{enumerate}
-        
-        \critic{red}{It is also important to note that those $\stck{_{hb}}$ relations that are formed due to Sequentially Consistent events (read-write), imply a more stronger visibility guarantee, in that all the threads observe the same global total order of such events. This however, is not expressed using this relation. Perhaps a better way to represent it may be required.}
-        
-        %Memory Order
-        \paragraph{Memory Order ($\stck{_{mo}}$)}
-            This order is a \textit{total order} on all events that respects happens-before order. 
-                \[(e \stck{_{hb}} d) \Rightarrow{} (e \stck{_{mo}} d)\]
-          
+            \item Every synchronize-with relation is also a happens-before relation 
+                \begin{align*}
+                    (\reln{e}{sw}{d}) \ \Rightarrow{} \ (\reln{e}{hb}{d})    
+                \end{align*}
+                 
+            \item Initialize type of events happen before all shared memory events that have overlapping ranges with them. 
+                \begin{align*}
+                    \forall e,d \in SM \ \wedge \ 
+                    \et{e}{init} \ \wedge \ 
+                    (\Re(e) \cap \Re(d) \neq \phi)
+                    \ \Rightarrow{} \ 
+                    \reln{e}{hb}{d}
+                \end{align*}          
+        \end{enumerate}
+    
+    %Memory Order
+    \paragraph{Memory Order ($\stck{_{mo}}$)}
+        This order is a \textit{total order} on all events that respects happens-before order. 
+        \begin{align*}
+            \reln{e}{hb}{d} \Rightarrow{} \reln{e}{mo}{d}    
+        \end{align*}
+            
