@@ -22,11 +22,12 @@
                 $\reln{e}{rf}{(d1, d2)}$
             or individual binary read-write relation as 
                 $\reln{e}{rf}{d1}$ and $\reln{e}{rf}{d2}$.
-
+            Figure below is an example of a program with its outcome (read values) shown in terms of reads-from relations. 
             \begin{figure}[H]
                 \centering
                 \includegraphics[scale=0.7]{ECMAScriptMemoryModel/ReadsFrom.pdf}
                 \caption{An example to show the reads-from relations that are drawn for the example program between read and write events.}
+                \label{read-from}
             \end{figure}
             
             %Agent sync with relation
@@ -42,5 +43,14 @@
                     \Rightarrow{} 
                     s_2 \in ael(k)                        
                 \]
+
+            The figure below shows an example of this relation among two agents. 
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.7]{ECMAScriptMemoryModel/AgentSyncWith.pdf}
+                \caption{An example to show the reads-from relations that are drawn for the example program between read and write events.}
+                \label{agent-sync-with}
+            \end{figure}
+            \critic{red}{Consider whether figure is needed or not for this sake.}
         
         \critic{blue}{This is analogous to the property that every unlock must be paired with a subsequent lock, which enforces the condition that a lock can be acquired only when it has been released.}

@@ -6,6 +6,12 @@
         A total order among events belonging to the same agent event list. It is analogous to intra-thread ordering. For example, iftwo events $e$ and $d$ belong to the same agent event list , then either $\reln{e}{ao}{d}$ or $\reln{d}{ao}{e}$. 
         
         Note that the relations are only with respect to events belonging to the same agent. A collection of such relations togetherform the agent order. 
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{ECMAScriptMemoryModel/AgentOrder.pdf}
+            \caption{An example with agent order among the events.}
+        \end{figure}
     %Synchronize With Order
     \paragraph{Synchronize-With Order ($\stck{_{sw}} $)}
         Represents the synchronizations among different agents through relations between their events. It is a composition of two setsas below: 
@@ -23,6 +29,12 @@
                     
         \end{enumerate}
         
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{ECMAScriptMemoryModel/SynchronizeWith.pdf}
+            \caption{An example with synchronize with relations among the events.}
+        \end{figure}
+
         \critic{blue} {Note that for the second condition, both ranges of events have to be equal. This however, does not mean thatthe read cannot read from multiple write events. (the read-from relation here is not functional.)}
         
     %Happens Before order 
@@ -50,10 +62,22 @@
                 \end{align*}          
         \end{enumerate}
     
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{ECMAScriptMemoryModel/Happens-before.pdf}
+            \caption{An example with all the types of happens-before relations between events.}
+        \end{figure}
     %Memory Order
     \paragraph{Memory Order ($\stck{_{mo}}$)}
         This order is a \textit{total order} on all events that respects happens-before order. 
         \begin{align*}
             \reln{e}{hb}{d} \Rightarrow{} \reln{e}{mo}{d}    
         \end{align*}
-            
+        
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{ECMAScriptMemoryModel/MemoryOrder.pdf}
+            \caption{An example with a memory order (total) among all events.}
+        \end{figure}
+
+    \critic{blue}{An interesting part is that memory order, though total, is a bit undefined as to how it weaves together this total order given different init events. One can certainly make init events weaved among events that occur in each agent, thus making it sort of subjective as to when certain memory fragments are initialized. Discuss with Clark. }
