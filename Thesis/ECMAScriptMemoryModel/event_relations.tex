@@ -1,6 +1,6 @@
 %Relation among events----------------------------------------------------------------------------------------------------------------------------
     \subsection{Relation among events}
-        We now describe a set of relations between events. These relations help us describe the consistency rules.
+        We now describe a set of binary relations between events. These relations help us describe the consistency rules.
         
         \subsubsection{Read-Write event relations}
         There are two basic relations that assist us in reasoning about read and write events.
@@ -9,7 +9,9 @@
             \paragraph{Read-Bytes-From $(\stck{_{rbf}})$}
             
             This relation maps every read event to a list of tuples consisting of write event and their corresponding byte index that is read. For instance, consider a read event $r[i...(i+3)]$ and corresponding write events $w_1[i...(i+3)]$, $w_2[i...(i+4)]$. One possible $\stck{_\textit{rbf}}$ relation could be represented as  
-                \[\reln{e}{\textit{rbf}}{\{(d1, i), (d2, i\!+\!1), (d2, i\!+\!2)\}} \]
+                \begin{align*}
+                    \reln{e}{\textit{rbf}}{\{(d1, i), (d2, i\!+\!1), (d2, i\!+\!2)\}}     
+                \end{align*}   
             or having individual binary relation with each write-index pair as 
             \begin{align*}
                 \reln{e}{rbf}{(d1, i)},\ \reln{e}{rbf}{(d2, i\!+\!1)}  \text{ and } \reln{e}{rbf}{(d2, i\!+\!2)}.
@@ -33,10 +35,10 @@
             %Agent sync with relation
         \subsubsection{Agent-Synchronizes With (\set{ASW})}
         
-            A list for each agent that consist of ordered tuples of synchronize events. These tuples specify ordering constraints among agents at different points of execution. So such a list for an agent $k$ would be represented like:  
+            It is a list for each agent that consist of ordered tuples of synchronize events. These tuples specify ordering constraints among agents at different points of execution. So such a list for an agent $k$ would be represented like:  
                 \[ASW_k = \{ \langle s_1, s_2 \rangle, \langle s_3, s_4 \rangle ...\}\]
         
-            For every pair in the list, the second event belongs to the parent agent and the first belongs to another agent it synchronized with.
+            For every pair in the list, the second event belongs to the parent agent and the first belongs to another agent it synchronized with\footnotemark.
                 \[  
                     \forall{i,j>0},\ 
                     \langle s_1, s_2 \rangle \in ASW_j 
@@ -51,6 +53,5 @@
                 \caption{An example to show the reads-from relations that are drawn for the example program between read and write events.}
                 \label{agent-sync-with}
             \end{figure}
-            \critic{red}{Consider whether figure is needed or not for this sake.}
         
-        \critic{blue}{This is analogous to the property that every unlock must be paired with a subsequent lock, which enforces the condition that a lock can be acquired only when it has been released.}
+        \footnotetext{This is analogous to the property that every unlock must be paired with a subsequent lock, which enforces the condition that a lock can be acquired only when it has been released.}
