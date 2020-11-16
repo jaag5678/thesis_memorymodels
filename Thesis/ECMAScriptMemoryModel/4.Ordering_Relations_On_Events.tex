@@ -1,8 +1,8 @@
 %Ordering Relation among Events----------------------------------------------------------------------------------------------------------------------       
-\subsection{Ordering Relations among Events}
+\section{Ordering Relations among Events}
         
     %Agent Order
-    \subsubsection{Agent Order ($\stck{_{ao}}$)}
+    \subsection{Agent Order ($\stck{_{ao}}$)}
         It is a union of total order among events belonging to the same agent event list. It is analogous to intra-thread ordering. For example, iftwo events $e$ and $d$ belong to the same agent event list , then either $\reln{e}{ao}{d}$ or $\reln{d}{ao}{e}$. 
         
         \begin{figure}[H]
@@ -12,7 +12,7 @@
         \end{figure}
     
         %Synchronize With Order
-    \subsubsection{Synchronize-With Order ($\stck{_{sw}} $)}
+    \subsection{Synchronize-With Order ($\stck{_{sw}} $)}
        Binary relation between two events that establish synchronization between multiple agents. It is a composition of two sets: 
         \begin{enumerate}
             \item All pairs belonging to $ASW$ of every agent belongs to this ordering relation. 
@@ -37,7 +37,7 @@
         \footnotetext{Note that for the second condition, both ranges of events have to be equal. This however, does not mean thatthe read cannot read from multiple write events. (the read-from relation here is not functional.)}
         
     %Happens Before order 
-    \subsubsection{Happens Before Order ($\stck{_{hb}}$)}
+    \subsection{Happens Before Order ($\stck{_{hb}}$)}
         A transitive order on events, composed of the following:
         
         \begin{enumerate}
@@ -68,7 +68,7 @@
         \end{figure}
     
     %Memory Order
-    \subsubsection{Memory Order ($\stck{_{mo}}$)}
+    \subsection{Memory Order ($\stck{_{mo}}$)}
         A \textit{total order} on all events that respects happens-before order. 
         \begin{align*}
             \reln{e}{hb}{d} \Rightarrow{} \reln{e}{mo}{d}    

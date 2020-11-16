@@ -1,8 +1,8 @@
 %Relation among events----------------------------------------------------------------------------------------------------------------------------
-    \subsection{Relation among events}
+    \section{Relation among events}
         We now describe a set of binary relations between events. These relations help us describe the consistency rules.
         
-        \subsubsection{Read-Write event relations}
+        \subsection{Read-Write event relations}
         There are two basic relations that assist us in reasoning about read and write events.
         
             %Read bytes from relation 
@@ -33,7 +33,7 @@
             \end{figure}
             
             %Agent sync with relation
-        \subsubsection{Agent-Synchronizes With (\set{ASW})}
+        \subsection{Agent-Synchronizes With (\set{ASW})}
         
             It is a list for each agent that consist of ordered tuples of synchronize events. These tuples specify ordering constraints among agents at different points of execution. So such a list for an agent $k$ would be represented like:  
                 \[ASW_k = \{ \langle s_1, s_2 \rangle, \langle s_3, s_4 \rangle ...\}\]

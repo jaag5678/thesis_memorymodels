@@ -1,9 +1,10 @@
 \begin{corollary}
-    Consider a Candidate C of a program and its Candidate Executions which are valid. Consider two write events $e$ and $d$ both having equal ranges such that $\neg \cons{e}{d}$ is true in C and $\reln{e}{ao}{d}$. 
+    Consider a Candidate C of a program and its Candidate Executions which are valid. Consider two write events $e$ and $d$ both having equal ranges such that $\neg \cons{e}{d}$ is true in C, $e$ is of type unordered and $\reln{e}{ao}{d}$. 
     Consider another Candidate C' without the event $e$.  
     Then, the set of Observable behaviors possible in C' is a subset of C only if the following holds true.
     \begin{align*}
         \forall \ i \ \in \ [1,n-1] \ \textit{s.t.} \
+        \reln{e}{ao}{k_1} \ \wedge \ \reln{k_n}{ao}{d} \ \wedge \ \reln{k_i}{ao}{k_{i+1}} \ \wedge \  
         \cons{e}{k_1} \ \wedge \ \cons{k_n, d} \ \wedge \ \cons{k_i, k_{i+1}}, \\
         \exists \ (n + 1) \geq j > 0 \ \textit{s.t.} \ 
         \forall l \ \in \ [1,j-1] \ . \ Reord(e, k_l) \ 
@@ -39,4 +40,28 @@
         \critic{red}{Very rudimentary format of arguments, discuss with Clark and get them more formal}
 
     
+\end{proof}
+
+\begin{proof}
+    We prove by induction on the number of events $k$ between $e$ and $d$. We verify that if a $j$ exists that is valid, the Observable behaviors of $C'$ is a subset of $C$.
+
+    \paragraph{Base Case : n = 1}
+
+        We have the case when:
+        \begin{align*}
+            \reln{e}{ao}{k_1} \ \wedge \ reln{k_1}{ao}{d}
+        \end{align*}
+        We can divide this into two cases one with $Reord(e, k_1)$ and one with $Reord(k_1, d)$.
+
+        In the first case, note that $j=2$ is the valid choice. Thus, by Theorem of Reordering and Def of consecutive events and agent order, we can reorder $e$ and $k_1$, thus giving us a Candidate $C''$ with :
+        \begin{align*}
+            \reln{k_1}{ao}{e} \ \wedge \ \reln{e}{ao}{d}
+        \end{align*}  
+        whose observable behaviors are a subset of $C$
+
+        Due to Def of Consecutive instructions and Theorem of Elmination, we can eliminate $e$, thus giving us 
+        \begin{align*}
+            \reln{k_1}{ao}{d}
+        \end{align*} 
+
 \end{proof}

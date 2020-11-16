@@ -36,7 +36,7 @@
         \[
             \reln{d}{ao}{\reln{k}{ao}{e}} 
         \]
-        The conditions required to do the reordering is in line with the requirement stated by the corollary. 
+        By transitive property of subsets, we can conclude that the Observable Behavior of the final program after reordering is a subset of the original.  
 
     \paragraph{2. Inductive Case $n > 1$}
         Assume the above corollary holds for $n = t$. 
@@ -62,14 +62,46 @@
             \reln{d}{ao}{\reln{k_1}{ao}{\reln{k_2}{ao}{\reln{k_3}{ao}{\reln{...}{ao}{\reln{k_t}{ao}{\reln{k_{t+1}}{ao}{e}}}}}}}  
         \]
 
-        Thus we can see that we need two more conditions to hold for us to ensure we can reorder $e$ amd $d$ with $n = t + 1$. This is exactly what the corollary requires. 
+        Thus we can see that we need two more conditions to hold for us to ensure we can reorder $e$ amd $d$ with $n = t + 1$. by transitive property of subsets, we can conclude that the Observable Behavior of the final program after reordering is a subset of the original.
 
         Hence, by induction the proof is complete. 
 
         \critic{blue}{Observe that wherever our argument states the requirement of $Reord$ to hold between two events, it is also the case that those two events are consecutive and have an agent ordering exactly as our Theorem states.}
-        
-        
-        
 
 \end{proof}
     
+
+To investigate the validity of reordering at the program level, we first, in terms of candidates, address code motion. The following two corollaries cover them: 
+\begin{corollary}
+    Consider a Candidate C of a program and its Candidate Executions which are valid. Consider a set of events $k_{i \in[1,n]}$ such that $\reln{k_i}{ao}{k_{i+1}} \wedge \cons{k_i}{k_{i+1}}$.
+    Consider an event $e$ such that 
+    \begin{align*}
+        \cons{e}{k_1} \ \wedge \ \reln{e}{ao}{k_1}  
+    \end{align*}
+    Consider another candidate $C'$ with the only differnence from $C$ being $\cons{e}{k_n} \ \wedge \ \reln{k_n}{ao}{e}$.
+    Then the set of observable behaviors of $C'$ is a subset of that of $C$ if 
+    \begin{align}
+        \forall i \in [1,n] \ . \ Reord(e,k_i)
+    \end{align} 
+\end{corollary}
+
+\begin{proof}
+    Apply theorem of reordering successively, and by transititvity of subset relations, the corollary holds.
+\end{proof}
+
+\begin{corollary}
+    Consider a Candidate C of a program and its Candidate Executions which are valid. Consider a set of events $k_{i \in[1,n]}$ such that $\reln{k_i}{ao}{k_{i+1}} \wedge \cons{k_i}{k_{i+1}}$.
+    Consider an event $d$ such that 
+    \begin{align*}
+        \cons{d}{k_n} \ \wedge \ \reln{k_n}{ao}{d}  
+    \end{align*}
+    Consider another candidate $C'$ with the only differnence from $C$ being $\cons{d}{k_1} \ \wedge \ \reln{d}{ao}{k_1}$.
+    Then the set of observable behaviors of $C'$ is a subset of that of $C$ if 
+    \begin{align}
+        \forall i \in [1,n] \ . \ Reord(k_i,d)
+    \end{align} 
+\end{corollary}
+
+\begin{proof}
+    Apply theorem of reordering successively, and by transititvity of subset relations, the corollary holds.
+\end{proof}

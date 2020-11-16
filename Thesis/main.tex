@@ -1,6 +1,6 @@
 %AXIOMATIC MODEL DEMYSTIFIED----------------------------------------------
 
-\documentclass[10pt]{article}
+\documentclass[12pt, TexShade, letterpaper]{report}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -12,10 +12,37 @@
 \usepackage{float}
 \usepackage{centernot}
 \usepackage{tasks}
+\usepackage{fancyhdr}
+\usepackage{lmodern}
 
-\title{ECMAScript Axiomatic Memory Consistency Model}
-\author{Akshay Gopalakrishnan}
-\date{November 2019}
+
+% Overwrite the plain page style with a red line and page numbering
+\fancypagestyle{plain}{%
+	\fancyhf{} % clear all header and footer fields
+	\fancyhead[R]{\textbf{\thepage}} % except the center
+}
+
+% Create the fancy page style header
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{\nouppercase{\leftmark}}}
+\chead{}
+\rhead{\textbf{\thepage}}
+
+
+% Set page numbering to roman
+\setcounter{page}{2}\renewcommand{\thepage}{\roman{page}}
+
+\author{\textcopyright Author, August, 2020}
+\date{}
+
+
+\usepackage{xpatch}
+\xpretocmd\headrule{\color{red}}{}{\PatchFailed}
+
+
+
+
 
 %Short form to use stack_relative
 \newcommand{\stck}{\stackrel{\longrightarrow}}
@@ -61,17 +88,94 @@
 
 \begin{document}
 
-    \maketitle
+\begin{titlepage}
+    \begin{center}
+        \vspace*{0.5cm}
 
+        \LARGE
+        \textbf{Analysis of the ECMAScript Memory Model : A Program Transformation Perspective}
+        
+        \vspace{1cm}
+        
+        \textit{Akshay Gopalakrishnan}
+        
+        \vspace{7cm}
+        
+        % \includegraphics[width=0.25\textwidth]{mcglogo.png}
+        
+        \Large
+        School of Computer Science
+        
+        \vspace{-5mm}
+        McGill University
+        
+        %\vspace{-5mm}
+    %	Montr\'eal, Qu\'ebec, Canada
+        
+        \vspace{5mm}
+        August 15, 2020
+        \small
+        \vspace{0.5cm}
+        {\color{red} \hrule height 0.75mm}
+        
+        \vspace{0.3cm}
+        A thesis submitted to McGill University in partial fulfillment of the requirements of the degree of Computer Science
+        
+        \copyright\hspace{0.5mm}2020 Author
+        
+    \end{center}
+\end{titlepage}
+
+\setlength{\voffset}{2cm}
+\renewcommand{\chaptermark}[1]{%
+    \markboth{\thechapter.\ #1}{}}
+    
+
+    \chapter*{Abstract}\markboth{Abstract}{}
+	\label{chap:engAbstract}
+%	\addcontentsline{toc}{section}{\nameref{chap:engAbstract}}
+
+\chapter*{Abrégé}\markboth{Abrégé}{}
+	\label{chap:frAbstract}
+%	\addcontentsline{toc}{section}{\nameref{chap:frAbstract}}
+
+\chapter*{Acknowledgements}\markboth{Acknowledgements}{}
+	\label{chap:acknowledgments}
+%	\addcontentsline{toc}{section}{\nameref{chap:acknowledgments}}
+
+
+ % Start of ToC, LoT, gls
+ \tableofcontents\thispagestyle{plain}
+
+ \listoffigures\thispagestyle{plain}
+%	\addcontentsline{toc}{section}{\listfigurename}
+ \listoftables
+%	\addcontentsline{toc}{section}{\listtablename}
+
+  \clearpage
+ \pagenumbering{arabic} % restart page numbers at one, now in arabic style
+
+    \chapter{Introduction}
     %\input{intro.tex}
 
+    \chapter{Background}
+
+    \chapter{Related Work}
+
+    \chapter{The Memory Model}
     %The ECMAScript Memory Model
-    \input{ECMAScriptMemoryModel/intro.tex}
+    \input{ECMAScriptMemoryModel/0.Intro.tex}
 
     %Instruction reordering
-    %\input{InstructionReordering/reordering_opt.tex}
+    \chapter{Instruction Reordering}
+    \input{InstructionReordering/reordering_opt.tex}
 
-    %Elimination 
-    %\input{Elimination/intro.tex}
+    %Elimination
+    \chapter{Elimination} 
+    \input{Elimination/intro.tex}
+
+    \chapter{Our Critique of The Model}
+
+    \chapter{Conclusion, Summary, Future Work}
 
 \end{document}

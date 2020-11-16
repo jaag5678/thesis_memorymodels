@@ -1,11 +1,11 @@
 %Valid Execution Rules---------------------------------------------------------------------------------------------------------------------------------
         
-    \subsection{Valid Execution Rules (the Axioms)}
+    \section{Valid Execution Rules (the Axioms)}
         We now state the memory consistency rules. The rules are on \textit{Candidate Executions} which will place constraints on the possible \textit{Observable behaviors} that may result from it. 
          
 %--------------------------------------------------------------------------------------------------------------------------------------  
         %Coherent Reads   
-        \subsubsection{Coherent Reads} 
+        \subsection{Coherent Reads} 
         
             There are certain restrictions of what a read event cannot see at different points of execution based on $\stck{_{hb}}$ relation with write events. 
 
@@ -49,14 +49,14 @@
          
 %------------------------------------------------------------------------------------------------------------------------------------------
 
-        \subsubsection{Tear-Free Reads} 
+        \subsection{Tear-Free Reads} 
             If two tear free writes $d$ and $g$ and a tear free read $e$ all with equal ranges exist, then $e$ can read only from one of them\footnotemark.
                 
             \begin{align*}
                 \et{d}{tf}\ \wedge\ \et{g}{tf} \ \wedge \ \et{e}{tf} 
                   \ \wedge \ 
                   (\Re(d) \!=\! \Re(g) \!=\! \Re(e)) 
-                  \ \Rightarrow{} \ 
+                  \ \Rightarrow{} \\ 
                       ((\reln{e}{rf}{d}) 
                       \ \wedge \ 
                       (\neg \ \reln{e}{rf}{g})) 
@@ -66,9 +66,16 @@
                       (\neg \ \reln{e}{rf}{d})).
             \end{align*}
                     
+            The following figure shows the pattern that is disallowed among all tear-free events. 
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.7]{ECMAScriptMemoryModel/TearFreeReads.pdf}
+                \caption{Pattern of Tear-free reads}
+            \end{figure}
+
             \footnotetext{To recap a tear-free event cannot be separated into multiple small events that do the same operation. However, considering different hardware architectures, the notion of tear-free need not necessarily mean this. (eg: A 64bit tear-free write to be done in a 32bit system). In a more abstract sense, we need an event to appear 'tear-free'.}    
             
-        \subsubsection{Sequentially Consistent Atomics} 
+        \subsection{Sequentially Consistent Atomics} 
             
             To specifically define how events that are sequentially consistent affects what values a read cannot see, we assume the following memory order among writes $d$ and $g$ and a read $e$ to be the premise for all the rules:  
                 \begin{align*}
