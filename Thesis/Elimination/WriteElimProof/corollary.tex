@@ -1,46 +1,15 @@
 \begin{corollary}
-    Consider a Candidate C of a program and its Candidate Executions which are valid. Consider two write events $e$ and $d$ both having equal ranges such that $\neg \cons{e}{d}$ is true in C, $e$ is of type unordered and $\reln{e}{ao}{d}$. 
-    Consider another Candidate C' without the event $e$.  
-    Then, the set of Observable behaviors possible in C' is a subset of C only if the following holds true.
+    Consider a Candidate C of a program and its Candidate Executions which are valid. Consider two events $e$ and $d$ both having equal ranges such that:
     \begin{align*}
-        \forall \ i \ \in \ [1,n-1] \ \textit{s.t.} \
-        \reln{e}{ao}{k_1} \ \wedge \ \reln{k_n}{ao}{d} \ \wedge \ \reln{k_i}{ao}{k_{i+1}} \ \wedge \  
-        \cons{e}{k_1} \ \wedge \ \cons{k_n, d} \ \wedge \ \cons{k_i, k_{i+1}}, \\
-        \exists \ (n + 1) \geq j > 0 \ \textit{s.t.} \ 
-        \forall l \ \in \ [1,j-1] \ . \ Reord(e, k_l) \ 
-        \wedge \ 
-        \forall m \ \in \ [j,n] \ . \ Reord(k_m, d) 
+        \event{e}{W} \ \wedge \ \event{d}{W} \ \wedge \ \et{e}{uo} \ \wedge \ \reln{e}{ao}{d} \ \wedge \ \neg\cons{e}{d}
+    \end{align*} 
+    Consider another Candidate C' without the event $e$. If
+    \begin{align*}
+        \forall k \ \text{s.t.} \ \reln{e}{ao}{k} \wedge \reln{k}{ao}{d} \ , \
+        Reord(e, k)
     \end{align*}
-            
-    
+    Then, the set of Observable behaviors possible in C' is a subset of C.
 \end{corollary}
-
-\begin{proof}
-
-    We prove this using induction on the number of events $k$ between $e$ and $d$. For each case, we see whether a valid $j$ exists. 
-
-    \paragraph{Base Case (n=1)}
-
-        For this case, if we have $Reord(e,k1)$ then $j=2$ is a valid choice. By Theorem of reordering, we get Candidate $C''$ with $\cons(e,d)$ whose observable behaviors are a subset. By Theroem (write elim), a observable behaviors of $C'$ is a subset of that of $C''$. By transitivity property of subsets, behaviors of $C'$ is a subset of $C$. 
-        
-        \critic{blue}{Write above arguments properly}
-    
-        While if we have $Reord(k1,d)$ then $j=1$ is a valid choice. The argument is the same as above. 
-        
-    \paragraph{Inductive Case (n)}
-        
-        Suppose the corollary holds for the case $n$. Meaning, the observable behaviors of $C'$ is a subset of $C$. And suppose $j$ is alos the number as needed. 
-
-        Then for the case where there are $n+1$ events,we have the following two cases:
-
-        If $k_x$ is the additonal event added in between $e$ and $d$, then, if $Reord(k_x, d) \wedge x>j$, the new $j$ remains the same as the old one. Because $Reord(K_{n+1}, d)$, by theorem of reordering, the Candidate $C''$ after reordering has observable behaviors as a subset of $C$. Now after reordering, we have our inductive case assumption, hence observable behaviors of $C'$ is a subset of $C$. 
-        
-        On the other hand, if $Reord(e,k_x) \wedge x \leq j$, the new $j$ is plus one the old $j$. Because $Reord(e,k_1)$  by theorem of reordering $e$ and $k_1$, the Candidate $C''$ after reordering has observable behaviors as a subset of $C$. Now $j$ for $C''$ becomes $j-1$, hence we get our original inductive case assumption on $n$. By transitive property of subsets observable behaviors of $C'$ is a subset of $C$. 
-
-        \critic{red}{Very rudimentary format of arguments, discuss with Clark and get them more formal}
-
-    
-\end{proof}
 
 \begin{proof}
     We prove by induction on the number of events $k$ between $e$ and $d$. We verify that if a $j$ exists that is valid, the Observable behaviors of $C'$ is a subset of $C$.
@@ -51,17 +20,38 @@
         \begin{align*}
             \reln{e}{ao}{k_1} \ \wedge \ reln{k_1}{ao}{d}
         \end{align*}
-        We can divide this into two cases one with $Reord(e, k_1)$ and one with $Reord(k_1, d)$.
 
-        In the first case, note that $j=2$ is the valid choice. Thus, by Theorem of Reordering and Def of consecutive events and agent order, we can reorder $e$ and $k_1$, thus giving us a Candidate $C''$ with :
+        By Theorem of Reordering and Def of consecutive events and agent order, we can reorder $e$ and $k_1$, thus giving us a Candidate $C''$ with :
         \begin{align*}
             \reln{k_1}{ao}{e} \ \wedge \ \reln{e}{ao}{d}
         \end{align*}  
-        whose observable behaviors are a subset of $C$
+        whose observable behaviors are a subset of $C$.
 
-        Due to Def of Consecutive instructions and Theorem of Elmination, we can eliminate $e$, thus giving us 
+        By Def of Consecutive instructions and Theorem of Elmination, we can eliminate $e$, thus giving us candidate $C'$  with  
         \begin{align*}
             \reln{k_1}{ao}{d}
         \end{align*} 
+        whose observable behaviors are a subset of $C''$.
+
+        By transitive property of subsets, we can conclude that the observable behaviors of $C'$ is a subset of $C$. 
+    \paragraph{Inductive Case (n)}
+
+        Let us assume that if the number of events in between are $n$, then the corollary holds. Let us consider the Candidate to be $C_n$ and corresponding candidate after elimination as $C'_n$. The observable behavior of $C'_n$ is a subset of that of $C_n$.
+
+        If we can show the above holds true for $n+1$ events, we are done.
+        
+        To show this, suppose we have $C_{n+1}$ as the candidate and $C'$ as the one after elimination of $e$. 
+        
+        Because $\stck{_{ao}}$ is a total order, there is a total order among all $n+1$ events $k$ agent ordered between $e$ and $d$ such that we can label them $k_1, k_2 , ... , k_{n+1}$ with the following properties
+        \begin{align*}
+            \reln{e}{ao}{\reln{k_1}{ao}{\reln{...}{ao}{\reln{k_{n+1}}{ao}{d}}}} 
+            \ \wedge \ 
+            cons(e,k_1) \wedge cons(k_1, k_2) \wedge ... \wedge cons(k_{n+1}, d) 
+        \end{align*}
+        By Theorem of Reordering and Def of consecutive events and agent order, we can reorder $e$ and $k_1$, thus giving a corresponding candidate $C_n$ having observable behaviors as a subset of $C_{n+1}$. 
+
+        By our inductive assumption, we have that the observable behaviors of $C'$ is a subset of $C_n$. By transitive property of subsets, we can then conclude that the observable behaviors of $C'$ are a subset of that of $C_{n+1}$.
 
 \end{proof}
+
+\critic{blue}{The above proof is clear, but it seems to me that I need to label all definitions and lemmas and theorems and corollary so that I can refer them here.}

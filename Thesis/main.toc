@@ -65,8 +65,7 @@
 \contentsline {paragraph}{2. The \emph {happens-before} relations lost}{57}
 \contentsline {paragraph}{3. Presence of Cycles?}{57}
 \contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{57}
-\contentsline {paragraph}{Base Case (n=1)}{60}
-\contentsline {paragraph}{Inductive Case (n)}{60}
 \contentsline {paragraph}{Base Case : n = 1}{60}
+\contentsline {paragraph}{Inductive Case (n)}{60}
 \contentsline {chapter}{\numberline {7}Our Critique of The Model}{62}
 \contentsline {chapter}{\numberline {8}Conclusion, Summary, Future Work}{63}
