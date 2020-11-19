@@ -1,5 +1,5 @@
 
-\section{Instruction Reordering}
+\section{Introduction}
     Instruction reordering is a common operation in compiler optimization, essential to instruction scheduling of course, but also implicit in loop invariant removal, partial redundancy elimination, and other optimizations that may move instructions. 
     However, whether we can do such reordering freely given a concurrent program using relaxed memory accesses is a bit unclear. 
      
@@ -41,7 +41,7 @@
 
     \input{InstructionReordering/Lemmas/lemmas.tex}
 
-\subsection{Valid reordering}
+\section{Valid reordering}
     We view reordering as manipulating the agent-order relation among two events. In that sense, reordering two consecutive events $e$ and $d$ such that $e \stck{_{ao}} d$ becomes:
     \[
         e \stck{_{ao}} d 

@@ -1,0 +1,74 @@
+\section{From Candidates to Program}
+
+    \begin{corollary}
+        Consider a program $P$ and its candidates $C_1, C_2, ... , C_n$ in which events $e$ and $d$ present such that 
+        \begin{align*}
+            \event{e}{W} \ \wedge \ \event{d}{W} \ \wedge \ \et{e}{uo} \ \wedge \ \reln{e}{ao}{d} \ \wedge \ \Re(e)\!=\!\Re(d)
+        \end{align*} . 
+        Consider the set of corresponding candidates $C'_1, C'_2, ... , C'_n$ after eliminating $e$ and its corresponding program $P'$. If
+        \begin{align*}
+            \forall C_{i \in [1,n]}, \forall k \in C_i \ \text{s.t.} \ \reln{e}{ao}{k} \wedge \reln{k}{ao}{d}, \    
+            Reord(e,k)  
+        \end{align*}
+        and
+        \begin{align*}
+            \nexists C \in P \ \text{s.t.} \ \event{e}{C} \wedge d \notin C
+        \end{align*}
+        Then the set of observable behaviors of $P'$ is a subset of that of $P$.
+    \end{corollary}
+
+    \begin{proof}
+        We first prove that the second condition must hold. We show this by proving that if it does not hold, a new observable behavior can be introduced. 
+        
+        Suppose the second condition does not hold, then we have 
+        \begin{align*}
+            \exists C \in P \ \text{s.t.} \  \event{e}{C} \wedge d \notin C
+        \end{align*}
+
+        By Prop \ref{CondB1} and Prop \ref{CondB1}, we can infer that the above holds if $e$ or $d$ are part of a conditional branch. 
+        \begin{itemize}
+            \item Case 1: $e$ and $d$ both are part of conditionals 
+                By Prop \ref{CondB2} and \ref{CondB1}, we have 
+                \begin{align*}
+                    \exists C \in P \ \text{s.t.} \ d \notin C \\ 
+                    \exists C \in P \ \text{s.t.} \ e \notin C 
+                \end{align*}
+                After elimination $e$, we can have a new observable behavior in a candidate not having $d$ as above condition states. 
+                
+                \critic{red}{Need to refer to part of elimination proof as Coherent Reads would not be triggered anymore for a case and thus we can have a new observable behavior. How to explain this, ask Clark.}
+
+            \item Case 2: $e$ is part of conditional but $d$ is not
+                By Prop \ref{CondB2} and \ref{CondB1}, we have 
+                \begin{align*}
+                    \exists C \in P \ \text{s.t.} \ e \notin C 
+                \end{align*}
+                After elimination $e$, we cannot have a new observable behavior in a candidate due to not having $d$ as above condition states.
+
+            \item Case 3: $d$ is part of a conditional but $e$ is not 
+
+                By Prop \ref{CondB2} and \ref{CondB1}, we have 
+                \begin{align*}
+                    \exists C \in P \ \text{s.t.} \ d \notin C
+                \end{align*}
+                After elimination $e$, we can have a new observable behavior in a candidate not having $d$ as above condition states. 
+
+                \critic{red}{Need to refer to part of elimination proof as Coherent Reads would not be triggered anymore for a case and thus we can have a new observable behavior. How to explain this, ask Clark.}
+
+                \critic{purple}{Add the above property to conditionals with two branches also.}
+                
+        \end{itemize}
+
+        Now that we have that the second condition must hold, we prove the first condition too must hold. Let $C_i$ and $C_i'$ be the candidates before and after eliminating $e$. From the first condition we have then for $C_i$
+        \begin{align*}
+            \forall \ k \ \textit{s.t.} \ 
+            \reln{e}{ao}{k} \ \wedge \ \reln{k}{ao}{d} \ . \ 
+            Reord(e,k).
+        \end{align*}
+        The above is Corollary 1 (tag properly) for elimination, thus giving us that the observable behaviors of $C_i'$ is a subset of $C_i$. Hence this condition must hold for all candidates from which we eliminate $e$. 
+
+        By property of unions of sets, we can conclude that the set of Observable Behaviors of $P'$ is a subset of that of $P$.
+
+        Hence proved.
+
+        \critic{purple}{We have not given properly the link between Observable Behaviors, Candidate Executions, Candidates and Programs. Perhaps we need to define a function Obs that gives us the set of Observable Behaviors, where the Domain can be a Program, Candidate, or Candidate Execution.}
+    \end{proof}

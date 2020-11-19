@@ -32,40 +32,41 @@
 \contentsline {paragraph}{Data-Race-Free (DRF) Programs}{18}
 \contentsline {section}{\numberline {4.8}Consistent Executions (Valid Observables)}{18}
 \contentsline {chapter}{\numberline {5}Instruction Reordering}{19}
-\contentsline {section}{\numberline {5.1}Instruction Reordering}{19}
+\contentsline {section}{\numberline {5.1}Introduction}{19}
 \contentsline {paragraph}{Simple reordering is not straightforward under shared memory semantics}{19}
 \contentsline {paragraph}{What can be done?}{19}
 \contentsline {paragraph}{Our approach}{20}
 \contentsline {paragraph}{Assumption}{20}
 \contentsline {subsection}{\numberline {5.1.1}Preliminaries}{20}
 \contentsline {subsection}{\numberline {5.1.2}Lemmas to assist our proof}{21}
-\contentsline {subsection}{\numberline {5.1.3}Valid reordering}{25}
+\contentsline {section}{\numberline {5.2}Valid reordering}{25}
 \contentsline {paragraph}{1. Preserving \textit {happens-before} relations}{27}
 \contentsline {paragraph}{2. Additional \textit {happens-before} relations}{31}
 \contentsline {paragraph}{3. Presence of cycles?}{33}
 \contentsline {paragraph}{4. Do new relations introduce new observable behaviors?}{36}
 \contentsline {paragraph}{Base Case: $n = 1.$}{40}
 \contentsline {paragraph}{2. Inductive Case $n > 1$}{41}
-\contentsline {subsection}{\numberline {5.1.4}Counter examples for the invalid cases}{43}
+\contentsline {subsection}{\numberline {5.2.1}Counter examples for the invalid cases}{43}
 \contentsline {paragraph}{Reads to same memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{43}
 \contentsline {paragraph}{Reads to non-equal range of memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{44}
 \contentsline {paragraph}{A Read $e$ of type $sc$ followed by a Write of either $uo/sc$}{44}
 \contentsline {paragraph}{A Read $e$ of type $uo$ followed by a write $d$ of type $sc$}{46}
 \contentsline {paragraph}{A Write $e$ followed by a Read $d$ both of type $sc$}{46}
 \contentsline {paragraph}{A Write $e$ of type $uo/sc$ followed by a Write $d$ of type $sc$}{48}
-\contentsline {subsection}{\numberline {5.1.5}From Candidates to Program}{49}
-\contentsline {subsection}{\numberline {5.1.6}}{52}
-\contentsline {chapter}{\numberline {6}Elimination}{53}
-\contentsline {section}{\numberline {6.1}Elimination}{53}
-\contentsline {paragraph}{1. Preserving \emph {happens-before} relations}{53}
-\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{54}
-\contentsline {paragraph}{3. Presence of Cycles?}{54}
-\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{54}
-\contentsline {paragraph}{Preserving Happens-before relations}{56}
-\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{57}
-\contentsline {paragraph}{3. Presence of Cycles?}{57}
-\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{57}
-\contentsline {paragraph}{Base Case : n = 1}{60}
-\contentsline {paragraph}{Inductive Case (n)}{60}
-\contentsline {chapter}{\numberline {7}Our Critique of The Model}{62}
-\contentsline {chapter}{\numberline {8}Conclusion, Summary, Future Work}{63}
+\contentsline {section}{\numberline {5.3}From Candidates to Program}{49}
+\contentsline {subsection}{\numberline {5.3.1}}{53}
+\contentsline {chapter}{\numberline {6}Elimination}{54}
+\contentsline {section}{\numberline {6.1}Elimination}{54}
+\contentsline {paragraph}{1. Preserving \emph {happens-before} relations}{54}
+\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{55}
+\contentsline {paragraph}{3. Presence of Cycles?}{55}
+\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{55}
+\contentsline {paragraph}{Preserving Happens-before relations}{57}
+\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{58}
+\contentsline {paragraph}{3. Presence of Cycles?}{58}
+\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{58}
+\contentsline {paragraph}{Base Case : n = 1}{61}
+\contentsline {paragraph}{Inductive Case (n)}{61}
+\contentsline {section}{\numberline {6.2}From Candidates to Program}{62}
+\contentsline {chapter}{\numberline {7}Our Critique of The Model}{64}
+\contentsline {chapter}{\numberline {8}Conclusion, Summary, Future Work}{65}

@@ -67,7 +67,7 @@
 \@writefile{toc}{\contentsline {chapter}{\numberline {5}Instruction Reordering}{19}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Instruction Reordering}{19}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Introduction}{19}}
 \@writefile{toc}{\contentsline {paragraph}{Simple reordering is not straightforward under shared memory semantics}{19}}
 \@writefile{toc}{\contentsline {paragraph}{What can be done?}{19}}
 \@writefile{toc}{\contentsline {paragraph}{Our approach}{20}}
@@ -96,7 +96,7 @@
 \newlabel{l26}{{{6}}{25}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Caption}}{25}}
 \newlabel{fig:my_label}{{5.4}{25}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.3}Valid reordering}{25}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Valid reordering}{25}}
 \@writefile{toc}{\contentsline {paragraph}{1. Preserving \textit  {happens-before} relations}{27}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces For any Candidate Execution of $C$, the set $K_e$ and $K_d$}}{28}}
 \newlabel{fig:my_label}{{5.5}{28}}
@@ -140,7 +140,7 @@
 \newlabel{corol1}{{2.1.1}{40}}
 \@writefile{toc}{\contentsline {paragraph}{Base Case: $n = 1.$}{40}}
 \@writefile{toc}{\contentsline {paragraph}{2. Inductive Case $n > 1$}{41}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.4}Counter examples for the invalid cases}{43}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Counter examples for the invalid cases}{43}}
 \@writefile{toc}{\contentsline {paragraph}{Reads to same memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{43}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.23}{\ignorespaces Case where a = 0 , b = 1 is invalid due to Coherent Reads}}{43}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.24}{\ignorespaces Case where the reads are reordered and a = 0 , b = 1 is valid}}{44}}
@@ -157,31 +157,32 @@
 \@writefile{toc}{\contentsline {paragraph}{A Write $e$ of type $uo/sc$ followed by a Write $d$ of type $sc$}{48}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.31}{\ignorespaces Case where a = 0 and b = 1 is invalid due to Coherent Reads.}}{48}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.32}{\ignorespaces Case where events of T1 are reordered, resulting in a = 0 and b = 1 to be valid.}}{48}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.5}From Candidates to Program}{49}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}From Candidates to Program}{49}}
 \newlabel{CondB2}{{1}{49}}
 \newlabel{CondB1}{{2}{49}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.6}}{52}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Elimination}{53}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}}{53}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Elimination}{54}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Elimination}{53}}
-\@writefile{toc}{\contentsline {paragraph}{1. Preserving \emph  {happens-before} relations}{53}}
-\@writefile{toc}{\contentsline {paragraph}{2. The \emph  {happens-before} relations lost}{54}}
-\@writefile{toc}{\contentsline {paragraph}{3. Presence of Cycles?}{54}}
-\@writefile{toc}{\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{54}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces The first type of relations removed and the various patterns forbidden by them.}}{55}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces The second type of relations removed and the various patterns forbidden by them.}}{55}}
-\@writefile{toc}{\contentsline {paragraph}{Preserving Happens-before relations}{56}}
-\@writefile{toc}{\contentsline {paragraph}{2. The \emph  {happens-before} relations lost}{57}}
-\@writefile{toc}{\contentsline {paragraph}{3. Presence of Cycles?}{57}}
-\@writefile{toc}{\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{57}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces First case possibilities (change caption stimiar to that for read elim)}}{58}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces Second case possibilities (change caption stimiar to that for read elim)}}{59}}
-\@writefile{toc}{\contentsline {paragraph}{Base Case : n = 1}{60}}
-\@writefile{toc}{\contentsline {paragraph}{Inductive Case (n)}{60}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Our Critique of The Model}{62}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Elimination}{54}}
+\@writefile{toc}{\contentsline {paragraph}{1. Preserving \emph  {happens-before} relations}{54}}
+\@writefile{toc}{\contentsline {paragraph}{2. The \emph  {happens-before} relations lost}{55}}
+\@writefile{toc}{\contentsline {paragraph}{3. Presence of Cycles?}{55}}
+\@writefile{toc}{\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{55}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces The first type of relations removed and the various patterns forbidden by them.}}{56}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces The second type of relations removed and the various patterns forbidden by them.}}{56}}
+\@writefile{toc}{\contentsline {paragraph}{Preserving Happens-before relations}{57}}
+\@writefile{toc}{\contentsline {paragraph}{2. The \emph  {happens-before} relations lost}{58}}
+\@writefile{toc}{\contentsline {paragraph}{3. Presence of Cycles?}{58}}
+\@writefile{toc}{\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{58}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces First case possibilities (change caption stimiar to that for read elim)}}{59}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces Second case possibilities (change caption stimiar to that for read elim)}}{60}}
+\@writefile{toc}{\contentsline {paragraph}{Base Case : n = 1}{61}}
+\@writefile{toc}{\contentsline {paragraph}{Inductive Case (n)}{61}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}From Candidates to Program}{62}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Our Critique of The Model}{64}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {8}Conclusion, Summary, Future Work}{63}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}Conclusion, Summary, Future Work}{65}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
