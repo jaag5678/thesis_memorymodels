@@ -22,10 +22,10 @@
 \contentsline {subsection}{\numberline {4.4.3}Happens Before Order ($\mathrel {\mathop {_{hb}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}$)}{10}
 \contentsline {subsection}{\numberline {4.4.4}Memory Order ($\mathrel {\mathop {_{mo}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}$)}{11}
 \contentsline {section}{\numberline {4.5}Preliminaries}{12}
-\contentsline {section}{\numberline {4.6}Valid Execution Rules (the Axioms)}{13}
-\contentsline {subsection}{\numberline {4.6.1}Coherent Reads}{13}
+\contentsline {section}{\numberline {4.6}Valid Execution Rules (the Axioms)}{14}
+\contentsline {subsection}{\numberline {4.6.1}Coherent Reads}{14}
 \contentsline {subsection}{\numberline {4.6.2}Tear-Free Reads}{15}
-\contentsline {subsection}{\numberline {4.6.3}Sequentially Consistent Atomics}{15}
+\contentsline {subsection}{\numberline {4.6.3}Sequentially Consistent Atomics}{16}
 \contentsline {section}{\numberline {4.7}Race}{17}
 \contentsline {subsection}{\numberline {4.7.1}Race Condition $RC$}{17}
 \contentsline {subsection}{\numberline {4.7.2}Data Race $DR$}{17}
@@ -44,29 +44,29 @@
 \contentsline {paragraph}{2. Additional \textit {happens-before} relations}{31}
 \contentsline {paragraph}{3. Presence of cycles?}{33}
 \contentsline {paragraph}{4. Do new relations introduce new observable behaviors?}{36}
-\contentsline {paragraph}{Base Case: $n = 1.$}{40}
-\contentsline {paragraph}{2. Inductive Case $n > 1$}{41}
+\contentsline {paragraph}{Base Case: $n = 1.$}{41}
+\contentsline {paragraph}{2. Inductive Case $n > 1$}{42}
 \contentsline {subsection}{\numberline {5.2.1}Counter examples for the invalid cases}{43}
-\contentsline {paragraph}{Reads to same memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{43}
-\contentsline {paragraph}{Reads to non-equal range of memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{44}
-\contentsline {paragraph}{A Read $e$ of type $sc$ followed by a Write of either $uo/sc$}{44}
+\contentsline {paragraph}{Reads to same memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{44}
+\contentsline {paragraph}{Reads to non-equal range of memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{45}
+\contentsline {paragraph}{A Read $e$ of type $sc$ followed by a Write of either $uo/sc$}{45}
 \contentsline {paragraph}{A Read $e$ of type $uo$ followed by a write $d$ of type $sc$}{46}
-\contentsline {paragraph}{A Write $e$ followed by a Read $d$ both of type $sc$}{46}
+\contentsline {paragraph}{A Write $e$ followed by a Read $d$ both of type $sc$}{47}
 \contentsline {paragraph}{A Write $e$ of type $uo/sc$ followed by a Write $d$ of type $sc$}{48}
 \contentsline {section}{\numberline {5.3}From Candidates to Program}{49}
-\contentsline {subsection}{\numberline {5.3.1}}{53}
-\contentsline {chapter}{\numberline {6}Elimination}{54}
-\contentsline {section}{\numberline {6.1}Elimination}{54}
-\contentsline {paragraph}{1. Preserving \emph {happens-before} relations}{54}
-\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{55}
-\contentsline {paragraph}{3. Presence of Cycles?}{55}
-\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{55}
-\contentsline {paragraph}{Preserving Happens-before relations}{57}
-\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{58}
-\contentsline {paragraph}{3. Presence of Cycles?}{58}
-\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{58}
-\contentsline {paragraph}{Base Case : n = 1}{61}
-\contentsline {paragraph}{Inductive Case (n)}{61}
-\contentsline {section}{\numberline {6.2}From Candidates to Program}{62}
-\contentsline {chapter}{\numberline {7}Our Critique of The Model}{64}
-\contentsline {chapter}{\numberline {8}Conclusion, Summary, Future Work}{65}
+\contentsline {subsection}{\numberline {5.3.1}}{54}
+\contentsline {chapter}{\numberline {6}Elimination}{55}
+\contentsline {section}{\numberline {6.1}Elimination}{55}
+\contentsline {paragraph}{1. Preserving \emph {happens-before} relations}{55}
+\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{56}
+\contentsline {paragraph}{3. Presence of Cycles?}{56}
+\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{56}
+\contentsline {paragraph}{Preserving Happens-before relations}{58}
+\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{59}
+\contentsline {paragraph}{3. Presence of Cycles?}{59}
+\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{59}
+\contentsline {paragraph}{Base Case : n = 1}{62}
+\contentsline {paragraph}{Inductive Case (n)}{62}
+\contentsline {section}{\numberline {6.2}From Candidates to Program}{63}
+\contentsline {chapter}{\numberline {7}Our Critique of The Model}{67}
+\contentsline {chapter}{\numberline {8}Conclusion, Summary, Future Work}{68}

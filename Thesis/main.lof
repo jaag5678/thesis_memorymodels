@@ -13,7 +13,7 @@
 \contentsline {figure}{\numberline {4.9}{\ignorespaces An example of an Execution based on Candidate above}}{13}
 \contentsline {figure}{\numberline {4.10}{\ignorespaces Observable Behavior}}{13}
 \contentsline {figure}{\numberline {4.11}{\ignorespaces A read value cannot come from a write that has happened after it}}{14}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces A read value cannot come from a write if there is a write that happens between them, writing to the same memory:}}{14}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces A read value cannot come from a write if there is a write that happens between them, writing to the same memory:}}{15}
 \contentsline {figure}{\numberline {4.13}{\ignorespaces Pattern of Tear-free reads}}{15}
 \contentsline {figure}{\numberline {4.14}{\ignorespaces A read value cannot come from a write, if there exists a write memory ordered between them and all 3 events are sequentially consistent with equal ranges.}}{16}
 \contentsline {figure}{\numberline {4.15}{\ignorespaces A read value cannot come from a write, if there exists a write memory ordered between them and both writes are sequentially consistent with equal ranges.}}{16}
@@ -40,21 +40,21 @@
 \contentsline {figure}{\numberline {5.19}{\ignorespaces (i) and (ii(b)) satisfy the axiom of Coherent Reads}}{38}
 \contentsline {figure}{\numberline {5.20}{\ignorespaces (ii) satisfies the axiom of Coherent Reads}}{38}
 \contentsline {figure}{\numberline {5.21}{\ignorespaces (i(a)), (ii(a)) satisfy the axiom of Coherent Reads, whereas (i(b)), (ii(b)) satisfy the axiom of SequentiallyConsistent Atomics}}{39}
-\contentsline {figure}{\numberline {5.22}{\ignorespaces The final table summarizing the valid cases where observable behaviors will only be a subset after reordering.}}{39}
-\contentsline {figure}{\numberline {5.23}{\ignorespaces Case where a = 0 , b = 1 is invalid due to Coherent Reads}}{43}
+\contentsline {figure}{\numberline {5.22}{\ignorespaces The final table summarizing the valid cases where observable behaviors will only be a subset after reordering.}}{40}
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Case where a = 0 , b = 1 is invalid due to Coherent Reads}}{44}
 \contentsline {figure}{\numberline {5.24}{\ignorespaces Case where the reads are reordered and a = 0 , b = 1 is valid}}{44}
 \contentsline {figure}{\numberline {5.25}{\ignorespaces Case where a = 1 and b = 1 is invalid due to Coherent Reads.}}{45}
-\contentsline {figure}{\numberline {5.26}{\ignorespaces Case where events of T1 are reordered, resulting in a = 1 and b = 1 to be valid.}}{45}
+\contentsline {figure}{\numberline {5.26}{\ignorespaces Case where events of T1 are reordered, resulting in a = 1 and b = 1 to be valid.}}{46}
 \contentsline {figure}{\numberline {5.27}{\ignorespaces Case where a = 1 and b = 1 is invalid due to Coherent Reads.}}{46}
-\contentsline {figure}{\numberline {5.28}{\ignorespaces Case where events of T2 are reordered, resulting in a = 1 and b = 1 to be valid.}}{46}
+\contentsline {figure}{\numberline {5.28}{\ignorespaces Case where events of T2 are reordered, resulting in a = 1 and b = 1 to be valid.}}{47}
 \contentsline {figure}{\numberline {5.29}{\ignorespaces Case where a = 1 and b = 1 is valid and no happens-before cycles}}{47}
-\contentsline {figure}{\numberline {5.30}{\ignorespaces Case where a = 1 and b = 1 is creates a happens-before cycle}}{47}
+\contentsline {figure}{\numberline {5.30}{\ignorespaces Case where a = 1 and b = 1 is creates a happens-before cycle}}{48}
 \contentsline {figure}{\numberline {5.31}{\ignorespaces Case where a = 0 and b = 1 is invalid due to Coherent Reads.}}{48}
-\contentsline {figure}{\numberline {5.32}{\ignorespaces Case where events of T1 are reordered, resulting in a = 0 and b = 1 to be valid.}}{48}
+\contentsline {figure}{\numberline {5.32}{\ignorespaces Case where events of T1 are reordered, resulting in a = 0 and b = 1 to be valid.}}{49}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces The first type of relations removed and the various patterns forbidden by them.}}{56}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces The second type of relations removed and the various patterns forbidden by them.}}{56}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces First case possibilities (change caption stimiar to that for read elim)}}{59}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Second case possibilities (change caption stimiar to that for read elim)}}{60}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces The first type of relations removed and the various patterns forbidden by them.}}{57}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces The second type of relations removed and the various patterns forbidden by them.}}{57}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces First case possibilities (change caption stimiar to that for read elim)}}{60}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Second case possibilities (change caption stimiar to that for read elim)}}{61}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

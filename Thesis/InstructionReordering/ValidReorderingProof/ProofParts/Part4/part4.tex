@@ -34,11 +34,12 @@
     %Might have to elaborate this more
     \begin{enumerate}
         \item For (i), when $k$ is a read, none of the rules have any implications on observable behaviors.
-        \item For (ii), when $k$ is a write, the rule of coherent reads (ii(a)) or sequentially consistent atomics (ii(b)) couldrestrict the read ($e$) from reading overlapping ranges of $W'$ with $W$.
+        \item For (ii), when $k$ is a write, the rule of coherent reads (ii(a)) or sequentially consistent atomics (ii(b)) could restrict the read ($e$) from reading overlapping ranges of $W'$ with $W$.
     \end{enumerate}
-    
-    The above case analysis shows us that the new relation could 'trigger' the consistency rules, only to restrict possible reads-from relations, thus restricting possible observable behaviors. 
-    The other cases, also have instances which can 'trigger' some cases of the axioms, thus restricting possibly some $\stck{_{rf}}$ relations. These cases are shown in the figures below: 
+  
+  
+    Figure below shows a breakdown of sub-cases for the first case (b), varying based
+    on the nature of event $k$.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.6]{InstructionReordering/ValidReorderingProof/ProofParts/Part4/part4(b).pdf}
@@ -46,6 +47,14 @@
         \label{fig:my_label}
     \end{figure}
           
+    For case (b) we can observe the following from the above figure 
+    \begin{enumerate}
+        \item For (i), when $k$ is a read, the pattern of coherent reads restricts the $k$ from reading from the write $e$. 
+        \item For (ii), when $k$ is a write, the pattern of coherent reads, restricts some read from reading parts of $k$ due to the write $e$.   
+    \end{enumerate}
+
+    Figure below shows a breakdown of sub-cases for the first case (c), varying based
+    on the nature of event $k$.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.6]{InstructionReordering/ValidReorderingProof/ProofParts/Part4/part4(c).pdf}
@@ -53,12 +62,30 @@
         \label{fig:my_label}
     \end{figure}
     
+    For case (c), we can observe the following from the above figure
+    \begin{enumerate}
+        \item Case (i) does not correspond to any pattern restricted on the model, thus having no impact on the observable behaviors. 
+        \item Casee (ii) is a pattern of coherent reads, which restricts the read $d$ from reading values from the write. 
+    \end{enumerate}
+
+    Figure below shows a breakdown of sub-cases for the first case (d), varying based
+    on the nature of event $k$.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.4]{InstructionReordering/ValidReorderingProof/ProofParts/Part4/part4(d).pdf}
         \caption{(i(a)), (ii(a)) satisfy the axiom of Coherent Reads, whereas (i(b)), (ii(b)) satisfy the axiom of SequentiallyConsistent Atomics}
         \label{fig:my_label}
     \end{figure}
+
+    For case (d) we can observe the following 
+    \begin{enumerate}
+        \item For case (i), the pattern of coherent reads (i(a)) or the pattern of sequentially consistent atomics (i(b)) could restrict a read from reading values of write $d$, 
+        \item For case (ii), the pattern of coherent reads (ii(a)) or the pattern of sequentially consistent atomics (ii(b)) could restrict a read from reading values of write $d$, 
+    \end{enumerate}
+  
+    The above case analysis shows us that the new relation could 'trigger' the consistency rules, only to restrict possible reads-from relations, thus restricting possible observable behaviors. For all cases, instances which can 'trigger' some cases of the consistency rules only restrict possibly some $\stck{_{rf}}$ relations. Thus, we can conclude that no new observable behavior is introduced due to the new set of $\stck{_{hb}}$ relations. 
     
     \critic{blue}{The main reason for this is that we framed he axioms in a form that restricts \textit{reads-from} relations. Soin any case where adding an additional \textit{happens-before} relation "triggers" an axiom, we are bound to have somebehaviors restricted. It is this fact that is elicited explicitly by going case wise on all relations that are introduced.}
+
+    \critic{red}{Need to label all figures and refer them properly. Also consider elaborating a bit more on each subcase.}
     

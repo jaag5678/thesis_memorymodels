@@ -72,3 +72,45 @@
 
         \critic{purple}{We have not given properly the link between Observable Behaviors, Candidate Executions, Candidates and Programs. Perhaps we need to define a function Obs that gives us the set of Observable Behaviors, where the Domain can be a Program, Candidate, or Candidate Execution.}
     \end{proof}
+
+    As far as read elimination goes, since we only need the information of read event that is to be eliminated, we do not need to take cases as above for write elimination. Except there can exist one case, in which the read itself is the conditional check, which can result in choosing any branch based on the conditional being satisfied or not. 
+    
+    The compiler can ideally choose to eliminate the read event, if the choice of branch has not effect on the execution of the thread. However, the events in each branch can affect the execution of other threads and thus have a role in the possible observable behaviors. But if all the events in each branch are eliminable, then we can safely assume that it does not matter which branch is taken, as although the set of observable behaviors would be different, they would result in the same candidate after events in the chosen branch are eliminated. THis is what we assume the compiler intends to do by eliminating the conditional. 
+
+    \critic{blue}{Explain this a little better.}
+
+    \begin{corollary}
+        If the read to be eliminated is a conditional, then only if all events within the conditional can be eliminated, will this be safe to do. 
+        \critic{red}{The problem is that this is recursive, and hence the proof must also have some sort of recursion. But to be frank, the proof would not have any assumption on the structure  of flow of code  within each conditional branch, just that we can eliminate some event and what does that imply in terms of observable behaviors.}
+        
+        \critic{blue}{In order to show we can eliminate a write, we would need some other write po after and that respects the corollary before this one. Perhaps mention that the compiler needs to do a flow analysis to get this done. And this is not that arduous a task in terms of algorithmic complexity.}
+    \end{corollary}
+
+    \begin{proof}
+
+        By thoerem of reordering, we can only eliminate the read when it is of type unordered. 
+
+        To prove the next part, consider two candidates $C_1$ and $C_2$, one for each branch taken. Our task is to show that the observable behavior of both these candidates should be the same after the removal of read, which in our terms means the removal of each branch. 
+
+        \critic{blue}{But is it so? The compiler can choose to elimiate the conditional because it always turns out to be only true or only false.}
+
+        \critic{purple}{If it is a write, then we need to have some other write program ordered ahead to show that we can eliminate it. Perhaps put this as a general conditioon and write a boolean funciton to state when a write is eliminable. }
+
+        \critic{purple}{If it is a read, then we only require it to have access mode unordered.}
+
+        \critic{blue}{Perhaps we indeed need more information as to why the compiler is eliminating the conditional check.}
+
+        \begin{itemize}
+            \item The read removed is the shared memory one.
+            \item Even if the read is of type unordered, removing it will make the branch choice uncertain.
+            \item If the compiler thinks that only one branch will always be taken, then it could safely eliminate. 
+            \item But we place no assumption on why the compiler is doing so, hence in our eyes, the choice of branch is uncertain.
+            \item Given that the compiler does do it with the assurance that the conditional check is futile, one may elimiate the read. 
+            \item Perhaps a proof by counter example would suffice to show whether it is safe to do so. 
+            \item One best way is to observe that all events that are supposed to happen in each conditional branch, happens nevertheless after the branches merge. So one might want to eliminate events. 
+            \item To do the above, the compiler must assure that it can eliminate all events in each branch. If it can do so, then elimianting the read will be safe.
+            \item The above can be shown to hold as it is a simple argument based on Observable Behaviors, union of sets and transitive property of subsets. 
+            \item However, the question remains as to whether the compiler thinks the shared memory conditional check read is alwys the same value or whether it considers the branch choice irrelevant for the thread. 
+            \item If we say that we can eliminate all events in each branch, it shows that these events may not be needed. But if cannot eliminate all events in the branches, it may not imply that it is still safe to eliminate. Discuss with Clark.
+        \end{itemize}
+    \end{proof}

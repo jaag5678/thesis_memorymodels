@@ -49,13 +49,13 @@
 \newlabel{fig:my_label}{{4.9}{13}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Observable Behavior}}{13}}
 \newlabel{fig:my_label}{{4.10}{13}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.6}Valid Execution Rules (the Axioms)}{13}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.1}Coherent Reads}{13}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.6}Valid Execution Rules (the Axioms)}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.1}Coherent Reads}{14}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces A read value cannot come from a write that has happened after it}}{14}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces A read value cannot come from a write if there is a write that happens between them, writing to the same memory:}}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces A read value cannot come from a write if there is a write that happens between them, writing to the same memory:}}{15}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.6.2}Tear-Free Reads}{15}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces Pattern of Tear-free reads}}{15}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.3}Sequentially Consistent Atomics}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.3}Sequentially Consistent Atomics}{16}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces A read value cannot come from a write, if there exists a write memory ordered between them and all 3 events are sequentially consistent with equal ranges.}}{16}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces A read value cannot come from a write, if there exists a write memory ordered between them and both writes are sequentially consistent with equal ranges.}}{16}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.16}{\ignorespaces A read value cannot come from a write, if there exists a write memory ordered between them and both this write and the read are sequentially consistent with equal ranges.}}{17}}
@@ -135,54 +135,54 @@
 \newlabel{fig:my_label}{{5.20}{38}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.21}{\ignorespaces (i(a)), (ii(a)) satisfy the axiom of Coherent Reads, whereas (i(b)), (ii(b)) satisfy the axiom of SequentiallyConsistent Atomics}}{39}}
 \newlabel{fig:my_label}{{5.21}{39}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.22}{\ignorespaces The final table summarizing the valid cases where observable behaviors will only be a subset after reordering.}}{39}}
-\newlabel{fig:my_label}{{5.22}{39}}
-\newlabel{corol1}{{2.1.1}{40}}
-\@writefile{toc}{\contentsline {paragraph}{Base Case: $n = 1.$}{40}}
-\@writefile{toc}{\contentsline {paragraph}{2. Inductive Case $n > 1$}{41}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.22}{\ignorespaces The final table summarizing the valid cases where observable behaviors will only be a subset after reordering.}}{40}}
+\newlabel{fig:my_label}{{5.22}{40}}
+\newlabel{corol1}{{2.1.1}{41}}
+\@writefile{toc}{\contentsline {paragraph}{Base Case: $n = 1.$}{41}}
+\@writefile{toc}{\contentsline {paragraph}{2. Inductive Case $n > 1$}{42}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Counter examples for the invalid cases}{43}}
-\@writefile{toc}{\contentsline {paragraph}{Reads to same memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{43}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.23}{\ignorespaces Case where a = 0 , b = 1 is invalid due to Coherent Reads}}{43}}
+\@writefile{toc}{\contentsline {paragraph}{Reads to same memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{44}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.23}{\ignorespaces Case where a = 0 , b = 1 is invalid due to Coherent Reads}}{44}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.24}{\ignorespaces Case where the reads are reordered and a = 0 , b = 1 is valid}}{44}}
-\@writefile{toc}{\contentsline {paragraph}{Reads to non-equal range of memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{44}}
-\@writefile{toc}{\contentsline {paragraph}{A Read $e$ of type $sc$ followed by a Write of either $uo/sc$}{44}}
+\@writefile{toc}{\contentsline {paragraph}{Reads to non-equal range of memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{45}}
+\@writefile{toc}{\contentsline {paragraph}{A Read $e$ of type $sc$ followed by a Write of either $uo/sc$}{45}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.25}{\ignorespaces Case where a = 1 and b = 1 is invalid due to Coherent Reads.}}{45}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.26}{\ignorespaces Case where events of T1 are reordered, resulting in a = 1 and b = 1 to be valid.}}{45}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.26}{\ignorespaces Case where events of T1 are reordered, resulting in a = 1 and b = 1 to be valid.}}{46}}
 \@writefile{toc}{\contentsline {paragraph}{A Read $e$ of type $uo$ followed by a write $d$ of type $sc$}{46}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.27}{\ignorespaces Case where a = 1 and b = 1 is invalid due to Coherent Reads.}}{46}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.28}{\ignorespaces Case where events of T2 are reordered, resulting in a = 1 and b = 1 to be valid.}}{46}}
-\@writefile{toc}{\contentsline {paragraph}{A Write $e$ followed by a Read $d$ both of type $sc$}{46}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.28}{\ignorespaces Case where events of T2 are reordered, resulting in a = 1 and b = 1 to be valid.}}{47}}
+\@writefile{toc}{\contentsline {paragraph}{A Write $e$ followed by a Read $d$ both of type $sc$}{47}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.29}{\ignorespaces Case where a = 1 and b = 1 is valid and no happens-before cycles}}{47}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.30}{\ignorespaces Case where a = 1 and b = 1 is creates a happens-before cycle}}{47}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.30}{\ignorespaces Case where a = 1 and b = 1 is creates a happens-before cycle}}{48}}
 \@writefile{toc}{\contentsline {paragraph}{A Write $e$ of type $uo/sc$ followed by a Write $d$ of type $sc$}{48}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.31}{\ignorespaces Case where a = 0 and b = 1 is invalid due to Coherent Reads.}}{48}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.32}{\ignorespaces Case where events of T1 are reordered, resulting in a = 0 and b = 1 to be valid.}}{48}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.32}{\ignorespaces Case where events of T1 are reordered, resulting in a = 0 and b = 1 to be valid.}}{49}}
 \@writefile{toc}{\contentsline {section}{\numberline {5.3}From Candidates to Program}{49}}
-\newlabel{CondB2}{{1}{49}}
-\newlabel{CondB1}{{2}{49}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}}{53}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Elimination}{54}}
+\newlabel{CondB2}{{1}{50}}
+\newlabel{CondB1}{{2}{50}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}}{54}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Elimination}{55}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Elimination}{54}}
-\@writefile{toc}{\contentsline {paragraph}{1. Preserving \emph  {happens-before} relations}{54}}
-\@writefile{toc}{\contentsline {paragraph}{2. The \emph  {happens-before} relations lost}{55}}
-\@writefile{toc}{\contentsline {paragraph}{3. Presence of Cycles?}{55}}
-\@writefile{toc}{\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{55}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces The first type of relations removed and the various patterns forbidden by them.}}{56}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces The second type of relations removed and the various patterns forbidden by them.}}{56}}
-\@writefile{toc}{\contentsline {paragraph}{Preserving Happens-before relations}{57}}
-\@writefile{toc}{\contentsline {paragraph}{2. The \emph  {happens-before} relations lost}{58}}
-\@writefile{toc}{\contentsline {paragraph}{3. Presence of Cycles?}{58}}
-\@writefile{toc}{\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{58}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces First case possibilities (change caption stimiar to that for read elim)}}{59}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces Second case possibilities (change caption stimiar to that for read elim)}}{60}}
-\@writefile{toc}{\contentsline {paragraph}{Base Case : n = 1}{61}}
-\@writefile{toc}{\contentsline {paragraph}{Inductive Case (n)}{61}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}From Candidates to Program}{62}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Our Critique of The Model}{64}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Elimination}{55}}
+\@writefile{toc}{\contentsline {paragraph}{1. Preserving \emph  {happens-before} relations}{55}}
+\@writefile{toc}{\contentsline {paragraph}{2. The \emph  {happens-before} relations lost}{56}}
+\@writefile{toc}{\contentsline {paragraph}{3. Presence of Cycles?}{56}}
+\@writefile{toc}{\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{56}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces The first type of relations removed and the various patterns forbidden by them.}}{57}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces The second type of relations removed and the various patterns forbidden by them.}}{57}}
+\@writefile{toc}{\contentsline {paragraph}{Preserving Happens-before relations}{58}}
+\@writefile{toc}{\contentsline {paragraph}{2. The \emph  {happens-before} relations lost}{59}}
+\@writefile{toc}{\contentsline {paragraph}{3. Presence of Cycles?}{59}}
+\@writefile{toc}{\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{59}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces First case possibilities (change caption stimiar to that for read elim)}}{60}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces Second case possibilities (change caption stimiar to that for read elim)}}{61}}
+\@writefile{toc}{\contentsline {paragraph}{Base Case : n = 1}{62}}
+\@writefile{toc}{\contentsline {paragraph}{Inductive Case (n)}{62}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}From Candidates to Program}{63}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Our Critique of The Model}{67}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {8}Conclusion, Summary, Future Work}{65}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}Conclusion, Summary, Future Work}{68}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
