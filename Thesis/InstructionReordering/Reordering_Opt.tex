@@ -42,7 +42,7 @@
     \input{InstructionReordering/Lemmas/lemmas.tex}
 
 \section{Valid reordering}
-    We view reordering as manipulating the agent-order relation among two events. In that sense, reordering two consecutive events $e$ and $d$ such that $e \stck{_{ao}} d$ becomes:
+    We view reordering as manipulating the agent-order relation. In that sense, reordering two consecutive events $e$ and $d$ such that $e \stck{_{ao}} d$ becomes:
     \[
         e \stck{_{ao}} d 
         \longmapsto
@@ -55,11 +55,13 @@
     In particular we note that preserving $\stck{_{hb}}$ relations (other than the one we eliminate intentionally i.e $\reln{e}{hb}{d}$) would suffice for our purpose. 
     Since $\stck{_{mo}}$ respects $\stck{_{hb}}$, we in turn even preserve the memory order which is essential.  
 
-    In the end, we want to ensure that the set of possible observable behaviors of a program, remain unchanged after reordering. If that is not feasible, then we would want the set of observable behaviors after reordering at the very least to be a subset. This would ensure that the program does not have some new behaviours that weren't supposed to happen prior to reordering. 
+    Our main objective is to ensure that the set of possible observable behaviors of a program, remain unchanged after reordering. If that is not feasible, then we would want the set of observable behaviors after reordering at the very least to be a subset. This is to ensure that the Candidate of a program does not have some new behaviours that weren't supposed to happen prior to reordering. 
     
-    We begin by first defining a reorderable pair of events. We then formulate a theorem (with a proof) on the set of observable behaviors of a Candidate before and after reordering a pair of consecutive events which are reorderable. We consider reordering valid if the set of observable behaviours after reordering are a subset of the original. 
+    We begin by first defining a reorderable pair of events. We then formulate a theorem on the set of observable behaviors of a Candidate before and after reordering a pair of consecutive events which are reorderable. We consider reordering valid if the set of observable behaviours after reordering are a subset of the original. 
 
     \begin{definition}{Reorderable Pair (Reord)}
+        \label{Reord}
+        
         We define a boolean function \emph{Reord} that takes two ordered pair of events $e$ and $d$ such that $\reln{e}{ao}{d}$ and gives a boolean value indicating if they are a reorderable pair. 
         
         \begin{align*}
@@ -84,9 +86,6 @@
             )
         \end{align*}
 
-        \critic{purple}{Use the latter for the purpose at the end of the proof for reordering, to emphasize how we approached each case}
-
-         
     \end{definition}
 
     \input{InstructionReordering/ValidReorderingProof/theorem.tex}

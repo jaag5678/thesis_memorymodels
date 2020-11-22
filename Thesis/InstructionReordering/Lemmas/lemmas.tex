@@ -1,7 +1,9 @@
 \subsection{Lemmas to assist our proof}    
 In order to assist our proof, we define two \textit{lemmas} based on the ordering relations. 
 
-\begin{lemma} Consider three events $e$,$d$ and $k$. \\
+\begin{lemma} 
+    \label{Lemma1}
+    Consider three events $e$,$d$ and $k$. \\
 
     If
         \[
@@ -26,45 +28,23 @@ In order to assist our proof, we define two \textit{lemmas} based on the orderin
     
     We will divide the proof for this into two cases, based on what event $d$ is. For both cases, we have the following to be true :
     
-    \[
+    \begin{align*}
         cons(e,d) \ \wedge \ \reln{e}{ao}{d}
         \tag{0}
         \label{l10}
-    \]
-
-    In the first case, 
-    
-    \[
-        \et{d}{uo} 
-        \tag{1}
-        \label{l11}
-    \]
-    
-    Then for any event $k$
-    \[
+    \end{align*}
+        
+    In the first case, we have $\et{d}{uo}$. From Def \ref{Dir} and Def \ref{Cons}, we have for any event $k$
+    \begin{align*}
         dir(k,d) \Rightarrow cons(k,d)
-        \qquad from \quad
-        (\ref{l11})
-        \tag{2}
-        \label{l12}
-    \]
+    \end{align*}
+        
+    From (\ref{l10}), we have $k=e$ satisfying the above property with $d$. 
+    Because $\stck{_{ao}}$ is a total order, $e$ will be the only event. Thus, for any other $k \neq e$, we have 
     
-    An event that satisfies the above with $d$ is $e$.
-    \[
-         k = e  
-         \qquad from \quad
-         (\ref{l10}, \ref{l12})
-         \tag{3}
-         \label{l13}
-    \]
-    
-    Because $\stck{_{ao}}$ is a total order, $e$ will be the only event. This would mean that for any other $k \neq e$,
-    
-    \[
+    \begin{align*}
         \reln{k}{hb}{d} \Rightarrow \reln{k}{hb}{d}
-        \qquad from \quad
-        (\ref{l10}, \ref{l11}, \ref{l12}, \ref{l13}) 
-    \]
+    \end{align*}
     
     The following figure should explain this intuition:  
     \begin{figure}[H]
@@ -74,37 +54,23 @@ In order to assist our proof, we define two \textit{lemmas} based on the orderin
         \label{fig:my_label}
     \end{figure}
     
-    In the second case,
+    In the second case, we have 
     \[
         \et{d}{sc} \wedge d\!\in\!W
         \tag{4}
         \label{l14}
     \]
     
-    Then for any event $k$
+    Thus, from Def \ref{Dir} and Def \ref{Cons}, for any event $k$, we have 
     \[
         dir(k,d) \Rightarrow cons(k,d)
-        \qquad from \quad
-        (\ref{l14})
-        \tag{5}
-        \label{l15}
     \]
     
-    We once again have event $e$ satisfying the above
-    \[
-        k = e 
-        \qquad from \quad
-        (\ref{l10}, \ref{l15})
-        \tag{6}
-        \label{l16}
-    \]
-    
-    Though there could be direct \textit{happens-before} relation with some event $k$ from another \textit{agent}, these are only relations satisfying $dir(d,k)$. Thus, we can once again infer that for any $k \neq e$ 
+    From (\ref{l14}), event $e$ satisfies the above.
+    Though there could be direct \textit{happens-before} relation with some event $k$ from another \textit{agent}, from Def \ref{Dir} these are only relations satisfying $dir(d,k)$. Thus, we can once again infer that for any $k \neq e$ 
     
     \[
         \reln{k}{hb}{d} \Rightarrow \reln{k}{hb}{d}
-        \qquad from \quad
-        (\ref{l10}, \ref{l14}, \ref{l15}, \ref{l16})
     \]
     
     The following figure explains this intuition: 
@@ -121,7 +87,9 @@ In order to assist our proof, we define two \textit{lemmas} based on the orderin
 %---------------------------------------------------------------------------------------------------------------    
 
 %SHORTER VERSION OF PROOF WITHOUT THE ENGLISH EXPLAINATION IN THE MIDDLE. DISCUSS AND DECIDE ON WHICH FORM IS BETTER
-\begin{lemma}Consider three events $e$, $d$ and $k$ \\
+\begin{lemma}
+    \label{Lemma2}
+    Consider three events $e$, $d$ and $k$ \\
 
     If
         
@@ -153,39 +121,17 @@ In order to assist our proof, we define two \textit{lemmas} based on the orderin
         \label{l20}
     \]
 
-   In the first case,
-   
-   \[
-        \et{e}{uo} 
-        \tag{1}
-        \label{l21}
-   \]
-   
-   Then for any event k
-   
+   In the first case, we have $\et{e}{uo}$. From Def \ref{Dir} and Def \ref{Cons}, we have for any event $k$
    \[
         dir(e,k) \Rightarrow cons(e,k) 
-        \qquad from
-        \quad (\ref{l21})
-        \tag{2}
-        \label{l22}
    \]
    
-   The event that satisfies the above with $e$ is $d$
-   \[
-        k = d 
-        \qquad from 
-        \quad (\ref{l20}, \ref{l22})
-        \tag{3}
-        \label{l23}
-   \]
-   
-   Because $\stck{_{ao}}$ is a total order, $d$ would be the only such event. This would mean that for any other event $k \neq d$
+   From (\ref{l10}), we have $k=d$ satisfying the above property with $e$. 
+   Because $\stck{_{ao}}$ is a total order, $d$ would be the only such event. 
+   Thus, for any other event $k \neq d$, we can infer,
    
    \[
         \reln{e}{hb}{k} \Rightarrow \reln{d}{hb}{k}
-        \qquad from 
-        \quad (\ref{l20}, \ref{l21}, \ref{l22}, \ref{l23})
    \]
    %Better phrase the intuition
    The following figure should explain this intuition:  
@@ -197,37 +143,23 @@ In order to assist our proof, we define two \textit{lemmas} based on the orderin
         \label{fig:my_label}
     \end{figure}
     
-    In the second case,
+    In the second case, we have 
     \[
         \et{e}{sc} \wedge e\!\in\!R
         \tag{4}
         \label{l24}
     \]
     
-    Then for any event $k$
+    Thus, from Def \ref{Dir} and Def \ref{Cons}, for any event $k$, we have 
     \[
         dir(e,k) \Rightarrow cons(e,k)
-        \qquad from \quad
-        (\ref{l24})
-        \tag{5}
-        \label{l25}
     \]
     
-    We once again have event $d$ satisfying the above   
-    \[
-        k = d 
-        \qquad from \quad
-        (\ref{l20}, \ref{l25})
-        \tag{6}
-        \label{l26}
-    \]
-    
-    Though there could be direct \textit{happens-before} relation with some event $k$ from another \textit{agent}, these are only relations satisfying $dir(k,e)$. Thus, we can once again infer that for any $k \neq d$ 
+    From (\ref{l24}), we have event $k=d$ satisfying the above property with $e$  
+    Though there could be direct \textit{happens-before} relation with some event $k$ from another \textit{agent}, from Def \ref{Dir} these are only relations satisfying $dir(k,e)$. Thus, we can infer that for any $k \neq d$ 
     
     \[
         \reln{e}{hb}{k} \Rightarrow \reln{d}{hb}{k}
-        \qquad from \quad
-        (\ref{l10}, \ref{l24},  \ref{l25}, \ref{l16})
     \]
     
     The following figure explains this intuition: 

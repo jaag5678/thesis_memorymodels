@@ -29,12 +29,12 @@
         \label{fig:my_label}
     \end{figure}
     
-    Consider two events $\event{p1}{K_e}$ and $\event{p2}{K_d}$ (When $e$ is the first event or $d$ is the last event, assume dummyevents that can act as $p1$ or $p2$.) belonging to the same agent as that of $e$ and $d$ such that in $C$:
+    Consider two events $\event{p1}{K_e}$ and $\event{p2}{K_d}$ (When $e$ is the first event or $d$ is the last event, assume dummy events that can act as $p1$ or $p2$.) belonging to the same agent as that of $e$ and $d$ such that in $C$:
     \begin{align*}
         dir(p1,e)\ \wedge\ dir(d,p2).
     \end{align*}
     
-    Note that in terms of direct happens-before relations, on reordering, any $Candidate Execution$ of $C$ will have the followingchanges
+    Note that in terms of direct happens-before relations, on reordering, any $Candidate Execution$ of $C$ will have the following changes
     %Show a figure here 
     \begin{figure}[H]
         \centering
@@ -60,14 +60,14 @@
         \task $\reln{k}{hb}{d}$ 
     \end{tasks}
 
-    After reordering, we do have these relations preserved due to transitivity  
+    After reordering, we have (a) and (c) preserved due to transitivity  
     \begin{gather*}
         \reln{p1}{hb}{d} \ \wedge \ \reln{d}{hb}{e} \ \Rightarrow \ \reln{p1}{hb}{e}. \\
         \reln{e}{hb}{p2} \ \wedge \ \reln{d}{hb}{e} \ \Rightarrow \ \reln{d}{hb}{p2}. \\
         \reln{p1}{hb}{d} \ \wedge \ \reln{d}{hb}{e} \ \wedge \ \reln{e}{hb}{p2} \ \Rightarrow \ \reln{p1}{hb}{p2}. 
     \end{gather*}
 
-    The other two forms of relations may not be preserved due to $\reln{d}{sw}{k}$ or $\reln{k}{sw}{d}$. If we can "pivot" the  set $K_e$ to $p1$ and $K_d$ to $p2$, it would ensure that our other two intended relations also remain preserved after reordering by transitivity. To state formally, we have a valid pair of pivots $<p1,p2>$ when the following two conditions hold
+    (b) and (d) may not be preserved due to $\reln{d}{sw}{k}$ or $\reln{k}{sw}{d}$. If we can "pivot" the  set $K_e$ to $p1$ and $K_d$ to $p2$, it would ensure that our other two intended relations also remain preserved after reordering by transitivity. To state formally, we have a valid pair of pivots $<p1,p2>$ when the following two conditions hold
     \begin{gather*}
         \forall \ k \in K_e - \{p1\}, \ \reln{k}{hb}{p1}. \\
         \forall \ k \in K_d - \{p2\}, \ \reln{p2}{hb}{k}.
@@ -81,13 +81,13 @@
         \label{fig:my_label}
     \end{figure}
     
-    By lemma 1 and lemma 2 respectively, we have for $C$, the following condition where $<p1, p2>$ is a valid pivot pair
+    By Lemma \ref{Lemma1} and \ref{Lemma2} respectively, we have for $C$, the following condition where $<p1, p2>$ is a valid pivot pair
     \begin{gather*}
         \et{e}{uo} \vee (\et{e}{sc} \wedge \event{e}{W}). \\
         \et{d}{uo} \vee (\et{d}{sc} \wedge \event{d}{R}).
     \end{gather*}
         
-    The following table summarizes the cases where we have a valid pair of pivots $<p1,p2>$
+    The following table summarizes the cases where we have a valid pair of pivots\footnotemark $<p1,p2>$
     %Show a general table here 
     \begin{figure}[H]
         \centering
@@ -96,7 +96,7 @@
         \label{fig:my_label}
     \end{figure}
             
-    We show a simple example where we do not have a valid pair of pivots, particularly because $p1$ is not a valid pivot. Note thatin this example, $K_e = K_{e1} + K_{e2} + p1 + p_x$
+    We show a simple example where we do not have a valid pair of pivots, particularly because $p1$ is not a valid pivot. Note that in this example, $K_e = K_{e1} + K_{e2} + p1 + p_x$
     %Show figure here of program P
     \begin{figure}[H]
         \centering
@@ -113,4 +113,4 @@
         \label{fig:my_label}
     \end{figure}
         
-    \critic{purple}{Strictly speaking, it is not that the happens-before relations are preserved, but that the properties between different happens before relations hold, which implies that for any possible Candidate Execution after reordering, the set of happens-before relatiosn apart from that between $e$ and $d$ remain the same. I am emphasizing this point because we view reordering as just changing agent order between two events, which just needs information from Candiadate but not all its possible Executions.}
+    \footnotetext{This proof does not go about showing the exact happens-before relations that are preserved; rather it uses the properties between different happens before relations that hold, which would imply that for any possible Candidate Execution after reordering, the set of happens-before relations apart from that between $e$ and $d$ remain the same.}

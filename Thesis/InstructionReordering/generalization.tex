@@ -2,6 +2,17 @@
 
     We first consider programs with conditionals. The following two properties holds for any candidates of programs having conditional branching. 
 
+    \begin{property}{Candidates of Programs with Conditionals}
+        \label{CondB1}
+        Let $B1$ be two sets of events based on each branch of a conditional in a program $P$. Let $C$ be any Candidate of $P$, Consider $b1$ to be representative of any event in $B1$. Then:
+        \begin{align*}
+            \exists C \in P \ \text{s.t.} \ b1 \notin C  
+        \end{align*}
+        There exists a candidate of the program such that events from the branch cannot be part of it. 
+    \end{property}
+
+    The above property is general for conditionals, being 1-branch or 2-branch. The latter however, has another property which we define below:
+
     \begin{property}{Candidates of Programs with Conditionals (2-branch)}
         \label{CondB2}
         Let $B1,B2$ be two sets of events based on each branch of a conditional in a program $P$. Let $C$ be any Candidate of $P$, Consider $b1,b2$ to be representative of any event in $B1,B2$ respectively. Then:
@@ -11,16 +22,7 @@
         There cannot exist any candidate of the program such that events from both sets can be part of it. 
     \end{property}
 
-    \begin{property}{Candidates of Programs with Conditionals (1-branch)}
-        \label{CondB1}
-        Let $B1$ be two sets of events based on each branch of a conditional in a program $P$. Let $C$ be any Candidate of $P$, Consider $b1$ to be representative of any event in $B1$. Then:
-        \begin{align*}
-            \exists C \in P \ \text{s.t.} \ b1 \notin C  
-        \end{align*}
-        There exists a candidate of the program such that events from the branch cannot be part of it. 
-    \end{property}
-
-    \critic{red}{The property for candidates of a program with 1branch conditional may not always be true. Some programs may always satisfy the conditional. From a general point of view, a program represents all possibilities, hence this property suffices. }
+    Property \ref{CondB1} may not be true for all programs. Some may always satisfy the conditional in any execution. However, from a general point of view, a program represents all possibilities, hence we can 
 
     \critic{blue}{While the property for 1 branch may not always hold (it can be the case that the branch is always taken in any execution) we are defining it for any program.}
 
