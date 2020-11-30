@@ -1,4 +1,6 @@
 
+\input{ECMAScriptMemoryModel/prologue.tex}
+
 The model we consider is the current draft specification (cite here) of ECMAScript standard. 
 This draft as far as the memory model goes has remain unchanged, so we believe our work will also be of use to those working on thismodel. 
 The specification is claimed to be axiomatic by definition, which should, in our view remove the complexities of the rest of thestandard from the semantics of the model.
@@ -10,7 +12,7 @@ However, as we noted, there were quite some concerns with it:
     As an example, consider one of the Axioms of the model below as stated by the standard. 
     \begin{figure}[H]
         \centering 
-        \includegraphics[scale=0.5]{ECMAScriptMemoryModel/ECMAScriptStdCoherentReads.pdf}
+        \includegraphics[scale=0.6]{ECMAScriptMemoryModel/ECMAScriptStdCoherentReads.pdf}
         \caption{The definition for Coherent Reads}
     \end{figure}
     The above axiom is specified as a return value to an abstract operation. While understanding this requires one to know thedefintions of $Ws$, $execution$, $SharedDataBlockEventSet$ abstract operation, etc. we believe this is not needed as to understandwhat the axiom is about, which informally can be stated as below in two points:
@@ -26,7 +28,7 @@ However, as we noted, there were quite some concerns with it:
     One such example is in the figure below:
     \begin{figure}[H]
         \centering 
-        \includegraphics[scale=0.5]{ECMAScriptMemoryModel/ECMAScriptStd.pdf}
+        \includegraphics[scale=0.6]{ECMAScriptMemoryModel/ECMAScriptStd.pdf}
         \caption{The definition for Compose Write Event Bytes}
     \end{figure}
     The above figure is the definition of an abstract operation. To understand what this operation does, one must know the meaning ofthe terms $ModifyOp$, $Payload$, the list $Ws$, and also know what the argument $ByteIndex$ signifies. 
@@ -40,29 +42,12 @@ However, as we noted, there were quite some concerns with it:
     The following figure is the std specification of another Axiom 
     \begin{figure}[H]
         \centering 
-        \includegraphics[scale=0.5]{ECMAScriptMemoryModel/ECMAScriptStdSeqCnsAt.pdf}
+        \includegraphics[scale=0.6]{ECMAScriptMemoryModel/ECMAScriptStdSeqCnsAt.pdf}
         \caption{The Axiom of Sequentially Consistent Atomics}
     \end{figure}
     The above figure, though written concisely, in our view still makes it difficult to understand. 
     We reduced the above entire axiom into three main patterns using binary relations that should not exist in any execution of aprogram. 
     While the latter part is less of a semantic specification and more of a programming guideline while using relaxed memory accesses.(one can make countless counter-examples for this.) 
+
 Given the above concerns about the model specificaiton in the standard, we formalized it axiomatically in the form of binary relationsover events involved and axioms that place restrictions on certain binary relations using the others. 
-
-\input{ECMAScriptMemoryModel/1.Agents.tex}
-
-\input{ECMAScriptMemoryModel/2.Event_Sets.tex}
-
-\input{ECMAScriptMemoryModel/3.Event_Relations.tex}
-
-\input{ECMAScriptMemoryModel/4.Ordering_Relations_On_Events.tex}
-
-\input{ECMAScriptMemoryModel/5.PreliminaryDefinitions.tex}
-
-\input{ECMAScriptMemoryModel/6.Valid_Execution_Rules.tex}
-
-\input{ECMAScriptMemoryModel/7.Race.tex}
-
-\input{ECMAScriptMemoryModel/8.Valid_Execution.tex}
-
-\input{ECMAScriptMemoryModel/9.Examples.tex}
 

@@ -1,4 +1,4 @@
-\section{Preliminaries}
+\section{Helper Definitions}
     
     Before we go into the consistency rules. we define certain preliminary definitions that create a separation based on a program, the axiomatic events and the various ordering relations defined above. This will help us understand where the consistency rules actually apply.    
     
@@ -9,6 +9,7 @@
         %Note that here we need to supply a Javascript program using shared array buffers and atomic objects. A thing to do after we give examples for the ones below
     \end{definition}
     
+%-----------------------------------------------------------------------------------------------------------------------------------------    
     %What is one run of a program to us?
     \begin{definition}{Candidate}
         A a collection of abstracted set of shared memory events of a program involved in one possible execution, with the $\stck{_\textit{ao}}$ relations. We can think of this as each thread having a set of shared memory events to run in a given intra-thread ordering. An example of a candidate is shown in figure~\ref{fig:candidate}.
@@ -21,7 +22,8 @@
         \end{figure}
         
     \end{definition}
-    
+
+%-----------------------------------------------------------------------------------------------------------------------------------------  
     \begin{definition}{Candidate Execution}
         A Candidate with the addition of $\stck{_\textit{sw}}$, $\stck{_\textit{hb}}$ and $\stck{_\textit{mo}}$ relations. This can be viewed as the witness/justification of an actual execution of a Program. Note that there can be many Candidate Executions for a given Candidate. The following figure shows an example of a candidate execution. 
         
@@ -33,7 +35,8 @@
         \end{figure}
         
     \end{definition}
-    
+
+ %-----------------------------------------------------------------------------------------------------------------------------------------   
     %What values are read when the program is run
     \begin{definition}{Observable Behavior}
     
@@ -48,19 +51,19 @@
         
     \end{definition}
 
-
+%-----------------------------------------------------------------------------------------------------------------------------------------
+    
     \begin{definition}{Obs}
         We define $Obs_P, Obs_C, Obs_{CE}$ as functions that take a program, candidate and candidate execution respectively and give the set of observable behaviors possible by them. We are not concerned with the specific elements in this set, but the relation between the output of each of these functions among each other. 
 
-        Consider a program $P$ whose candidates are $C_1, C_2, ... , C_n$. Consider for each candidate $C_i$, the candidate executions $CE_1, CE_2, ... CE_m$. Then, we have the following properties that hold:
+        Consider a program $P$ whose candidates are $C_1, C_2, ... , C_n$. Consider for each candidate $C_i$, the candidate executions $CE_1, CE_2, ... CE_m$\footnotemark. Then, we have the following properties that hold:
         \begin{align*}
             Obs_P(P) = \cup_{i=1}^{n}Obs_C(C_i) \\ 
             Obs_C(C_i) = \cup_{j=1}^{m}Obs_C(CE_j)
         \end{align*}
 
-        \critic{blue}{Consider whether it is required to define $Obs_O$, since it is a redundant defintion, as it maps every observablke behavior to a singleton set with that observable behavior.}
+        \footnotetext{Note that the variables $n$ and $m$ need not be finite.}
     \end{definition}
 
-    \critic{red}{The last definition would call for quite some edits in the proofs ahead. Need to spend separate dedicated time to get them done. Plan this carefully and only after adding all necessary figures where required for each part of the proof.}
 %-----------------------------------------------------------------------------------------------------------------------------------------
     

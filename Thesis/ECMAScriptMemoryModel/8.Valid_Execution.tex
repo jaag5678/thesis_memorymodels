@@ -3,7 +3,15 @@
    %Consistent Executions-------------------------------------------------------------------------------------------------------------------
 
    \section{Consistent Executions (Valid Observables)}
-        A valid observable behaviour is when\footnotemark:
+      
+      Consistent executions are those which should ideally be possible if the program is actually run on some hardware. 
+      For a sequential program, we use the semantics of the programming language to understand what can be the outcome of a program. 
+      For a concurrent program, since we can have multiple outcomes of the same program being executed (keeping all inputs constant), we need a semantic model to rely on. 
+      The memory model is in essence just this semantic model for programs using shared memory.
+      
+      In our language, a consistent execution maps to a valid observable behavior, as this is what the user can actually record as an outcome of the program. 
+   
+      As per the standard specification, valid observable behaviour is when\footnotemark:
         \begin{enumerate}
            \item No $\stck{_\textit{rf}}$ relation violates the above memory consistency rules.
            \item $\stck{_\textit{hb}}$ is a strict partial order.

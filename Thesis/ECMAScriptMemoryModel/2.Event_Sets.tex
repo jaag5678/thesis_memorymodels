@@ -62,6 +62,12 @@
         We represent the type of events in the memory consistency rules in the format ``$\textit{event} : \textit{type}$''. 
         When representing events in examples, the type would be represented as a subscript: $\textit{event}_\textit{type}$. 
        
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{ECMAScriptMemoryModel/AccessModes.pdf}
+            \caption{Access Modes}
+        \end{figure}
+
         \footnotetext{The word \textit{atomic} does not imply the events are evaluated using just one instruction. For example, a 64-bit sequentially consistent write on a 32-bit system has to be done with two subsequent memory actions. But its intermediate state of write must not be seen by any other agent. In an abstract sense, this event must appear '\textit{atomic}'.The \textit{atomic} here also refers to implications of whether an event's consequence is visible to all other agents in the same global total order or not. The compiler must ensure that for each specific target hardware, such guarantees are satisfied.}
 
 %Tearing factor of events---------------------------------------------------------------------------------------------------------------------------
