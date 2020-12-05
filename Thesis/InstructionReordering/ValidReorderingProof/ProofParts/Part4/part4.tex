@@ -4,7 +4,7 @@
     New behaviours created by the latter directly, if any, are 
     of course intentional (and should normally be avoided by ensuring $e$ and $d$ are independent), but we need to ensure that this does not also result in new behaviours indirectly. 
     
-    Let us first consider the variants of events $e$ and $d$ that we need to analyze:
+    Let us first consider the variants of events $e$ and $d$ that we need to analyze from the previous table:
     \begin{tasks}(2)
         \task $\event{e}{R} \ \wedge \ \event{d}{R} \ \wedge \et{e}{uo} \ \wedge \et{d}{uo}$
         \task $\event{e}{R} \ \wedge \ \event{d}{R} \ \wedge \et{e}{uo} \ \wedge \et{d}{sc}$
@@ -20,11 +20,11 @@
     \begin{itemize}
         \item (a) and (b) do not fit any pattern of our Axioms, hence even after reordering the agent order between them does not match any other axiom. Hence this relation does not introduce any new observable behavior. This is irrespective of the range between the two read events.
         \item (c) fits in the pattern of Axiom \ref{CoRe}, when they have at least overlapping ranges. Before reordering, $d$ is not allowed to read from $e$, but after reordering, it can. Hence this relation can introduce observable behavior if the range between events $e$ and $d$ at least overlap. 
-        \item (d), (e) and (f) can fit in the pattern of Axiom \ref{CoRe} and \ref{SeqCsAt}, if $e$ and $d$ at least have overlapping ranges, preventing $d$ from reading parts of $e$ or some parts of another write $k$ due to $e$ being the intervening write. But after reordering, $d$ is allowed to read parts of $k$, which introduces new observable beahviors.
-        \item (g) and (h) can fit in the pattern of Axiom \ref{CoRe} and \ref{SeqCsAt}, if they have at least overlapping ranges. Before reordering, the agent order between $e$ and $d$ could prevent some read $k$ from reading parts of $e$. This is not the case after reordering, thus introducing a new observable behavior. 
+        \item (d), (e) and (f) can fit in the pattern of Axioms \ref{CoRe} and \ref{SeqCsAt}, if $e$ and $d$ at least have overlapping ranges, preventing $d$ from reading parts of $e$ or some parts of another write $k$ due to $e$ being the intervening write. But after reordering, $d$ is allowed to read parts of $k$, which introduces new observable beahviors.
+        \item (g) and (h) can fit in the pattern of Axioms \ref{CoRe} and \ref{SeqCsAt}, if they have at least overlapping ranges. Before reordering, the agent order between $e$ and $d$ could prevent some read $k$ from reading parts of $e$. This is not the case after reordering, thus possibly introducing a new observable behavior. 
     \end{itemize}
 
-    In summary, on observing the role on the axioms on the relation between $e$ and $d$, notice that if both $e$ and $d$ are read events then the range does not matter. For all other cases, if events $e$ and $d$ have at least overlapping ranges, one could introduce a new observable behavior after reordering them.
+    In summary, on observing the role on the Axioms on the relation between $e$ and $d$, notice that if both $e$ and $d$ are read events then the range does not matter. For all other cases, if events $e$ and $d$ have at least overlapping ranges, one could introduce a new observable behavior after reordering them.
     
     \critic{blue}{We will later show counter examples for each of the above cases that we discard as invalid to reorder. Decide whether to put figures here explaining each pattern that matches or palce counterexamples. The latter will be too much.}
     
@@ -52,11 +52,12 @@
     \end{figure}
     
     %Might have to elaborate this more
-    \begin{enumerate}
+    \begin{itemize}
+        
         \item For (i), when $k$ is a read, the pattern matches none of the Axioms.
         \item For (ii), when $k$ is a write, Axiom \ref{CoRe} (ii(a)) or Axiom \ref{SeqCsAt} (ii(b)) could restrict the read ($e$) from reading overlapping ranges of $W'$ with $W$.
-    \end{enumerate}
-  
+    \end{itemize}
+    
     Figure below shows a breakdown of sub-cases for the case (b), varying based
     on the nature of event $k$.
     \begin{figure}[H]
@@ -67,10 +68,10 @@
     \end{figure}
           
     For case (b) we can observe the following from the above figure 
-    \begin{enumerate}
+    \begin{itemize}
         \item For (i), when $k$ is a read, Axiom \ref{CoRe} restricts $k$ from reading from the write $e$. 
         \item For (ii), when $k$ is a write, Axiom \ref{CoRe} restricts some read from reading parts of $k$ due to the write $e$.   
-    \end{enumerate}
+    \end{itemize}
 
     Figure below shows a breakdown of sub-cases for the first case (c), varying based
     on the nature of event $k$.
@@ -82,10 +83,10 @@
     \end{figure}
     
     For case (c), we can observe the following from the above figure
-    \begin{enumerate}
+    \begin{itemize}
         \item Case (i) does not correspond to any pattern restricted on the model, thus having no impact on the observable behaviors. 
         \item For (ii), when $k$ is a write, Axiom \ref{CoRe} restricts the read $d$ from reading values of write $k$. 
-    \end{enumerate}
+    \end{itemize}
 
     Figure below shows a breakdown of sub-cases for the first case (d), varying based
     on the nature of event $k$.
@@ -97,14 +98,13 @@
     \end{figure}
 
     For case (d) we can observe the following 
-    \begin{enumerate}
+    \begin{itemize}
         \item For case (i), Axiom \ref{CoRe} (i(a)) or Axiom \ref{SeqCsAt} (i(b)) could restrict a read $k$ from reading values of write $d$, 
         \item For case (ii), Axiom \ref{CoRe} (ii(a)) or Axiom \ref{SeqCsAt} (ii(b)) could restrict a read from reading values of write $d$, 
-    \end{enumerate}
+    \end{itemize}
   
     The above case wise analysis showed us that any new relation (apart from $\reln{d}{hb}{e}$), matching the patterns of the axioms, only enables in restricting possible observable behaviors, which are $\stck{_{rf}}$ relations. Thus, we can infer that no new observable behavior is introduced due to the new set of $\stck{_{hb}}$ relations. 
     
-
     In summary, the table below summarizes the valid cases where, we have a pair of valid pivots, where new relations do not introduce new observable behaviors and do not have cycles. 
     %Show the table here
 

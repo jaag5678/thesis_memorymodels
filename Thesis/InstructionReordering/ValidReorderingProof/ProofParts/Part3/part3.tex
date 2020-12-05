@@ -8,19 +8,21 @@
         \label{fig:my_label}
     \end{figure}
 
-    Notice that here, Axiom \ref{CoRe} restricts $R$ to read from $W'$.
+    \critic{purple}{Fix the above figure to put event labels in lowercase.}
+
+    Notice that here, Axiom \ref{CoRe} restricts read $r$ to read from $w'$.
     \[
-        \reln{R}{hb}{W'} \Rightarrow \neg \reln{R}{rf}{W'}
+        \reln{r}{hb}{w'} \Rightarrow \neg \reln{r}{rf}{w'}.
     \]
 
-    But by transitive property, it is also the case that $\reln{W'}{hb}{R}$. 
+    By transitive property of happens-before, it is also the case that $\reln{w'}{hb}{r}$. 
     \[
-        \reln{W'}{hb}{W} \ \wedge \ \reln{W}{hb}{R} \ 
+        \reln{w'}{hb}{w} \ \wedge \ \reln{w}{hb}{r} \ 
         \Rightarrow \ 
-        \reln{W'}{hb}{R}
+        \reln{w'}{hb}{r}.
     \]
 
-    As per this, Axiom \ref{CoRe} will not restrict $\reln{R}{rf}{W'}$. To avoid such cases, we will need to ensure that no Candidate Execution of $C'$ after $e$ and $d$ are reordered have $\stck{_{hb}}$ cycles.
+    As per this, Axiom \ref{CoRe} will not restrict $\reln{r}{rf}{w'}$. To avoid such cases, we will need to ensure that no Candidate Execution of $C'$ after $e$ and $d$ are reordered have $\stck{_{hb}}$ cycles.
 
     Note that if a cycle exists after reordering, then 
     \begin{enumerate}
@@ -130,3 +132,5 @@
         \caption{Insert good caption here.}
         \label{fig:my_label}
     \end{table}
+
+    \critic{purple}{Fix the table to replace "YES" with "Y" and "NO" with "N".}

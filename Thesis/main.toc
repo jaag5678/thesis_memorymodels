@@ -42,7 +42,7 @@
 \contentsline {section}{\numberline {5.2}Valid reordering}{30}
 \contentsline {paragraph}{1. Preserving \textit {happens-before} relations}{32}
 \contentsline {paragraph}{2. Additional \textit {happens-before} relations}{36}
-\contentsline {paragraph}{3. Presence of cycles?}{38}
+\contentsline {paragraph}{3. Presence of cycles?}{37}
 \contentsline {paragraph}{4. Do new relations introduce new observable behaviors?}{41}
 \contentsline {paragraph}{Base Case: $n = 1.$}{47}
 \contentsline {paragraph}{2. Inductive Case $n > 1$}{48}
@@ -51,22 +51,22 @@
 \contentsline {paragraph}{Reads to non-equal range of memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{51}
 \contentsline {paragraph}{A Read $e$ of type $sc$ followed by a Write of either $uo/sc$}{51}
 \contentsline {paragraph}{A Read $e$ of type $uo$ followed by a write $d$ of type $sc$}{52}
-\contentsline {paragraph}{A Write $e$ followed by a Read $d$ both of type $sc$}{52}
+\contentsline {paragraph}{A Write $e$ followed by a Read $d$ both of type $sc$}{53}
 \contentsline {paragraph}{A Write $e$ of type $uo/sc$ followed by a Write $d$ of type $sc$}{54}
 \contentsline {section}{\numberline {5.3}From Candidates to Program}{55}
-\contentsline {subsection}{\numberline {5.3.1}}{59}
-\contentsline {chapter}{\numberline {6}Elimination}{60}
-\contentsline {section}{\numberline {6.1}Elimination}{60}
-\contentsline {paragraph}{1. Preserving \emph {happens-before} relations}{60}
-\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{61}
-\contentsline {paragraph}{3. Presence of Cycles?}{61}
-\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{61}
-\contentsline {paragraph}{Preserving Happens-before relations}{63}
-\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{64}
-\contentsline {paragraph}{3. Presence of Cycles?}{64}
-\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{64}
-\contentsline {paragraph}{Base Case : n = 1}{67}
-\contentsline {paragraph}{Inductive Case (n)}{67}
-\contentsline {section}{\numberline {6.2}From Candidates to Program}{68}
-\contentsline {chapter}{\numberline {7}Our Critique of The Model}{71}
-\contentsline {chapter}{\numberline {8}Conclusion, Summary, Future Work}{72}
+\contentsline {subsection}{\numberline {5.3.1}}{63}
+\contentsline {chapter}{\numberline {6}Elimination}{64}
+\contentsline {section}{\numberline {6.1}Elimination}{64}
+\contentsline {paragraph}{1. Preserving \emph {happens-before} relations}{64}
+\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{65}
+\contentsline {paragraph}{3. Presence of Cycles?}{65}
+\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{65}
+\contentsline {paragraph}{Preserving Happens-before relations}{67}
+\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{68}
+\contentsline {paragraph}{3. Presence of Cycles?}{68}
+\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{68}
+\contentsline {paragraph}{Base Case : n = 1}{71}
+\contentsline {paragraph}{Inductive Case (n)}{71}
+\contentsline {section}{\numberline {6.2}From Candidates to Program}{72}
+\contentsline {chapter}{\numberline {7}Our Critique of The Model}{75}
+\contentsline {chapter}{\numberline {8}Conclusion, Summary, Future Work}{76}

@@ -32,10 +32,10 @@
 \contentsline {figure}{\numberline {5.7}{\ignorespaces For any Candidate execution, the intuition behind valid pivots $<p1,p2>$}}{34}
 \contentsline {figure}{\numberline {5.8}{\ignorespaces Table summarizing whether we have valid pair of pivots based on $e$ and $d$}}{34}
 \contentsline {figure}{\numberline {5.9}{\ignorespaces A Candidate Execution where p1 is not a valid pivot}}{35}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces The resultant Candidate Execution after reordering, exposing the relations with $p_x$, $K_{e2}$ and $d$ that arelost}}{36}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces A Candidate Execution where $d$ is a sequentially consistent read}}{37}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces The resultant Candidate Execution after reordering, exposing the relations with $p_x$, $K_{e2}$ and $d$ that arelost}}{35}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces A Candidate Execution where $d$ is a sequentially consistent read}}{36}
 \contentsline {figure}{\numberline {5.12}{\ignorespaces The Candidate Execution after reordering, exposing the new relations established with $e$, $p3$ and set $k$}}{37}
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Table summarizing when new \textit {happens-before} relations could be introduced based on having valid pair of pivots }}{38}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Table summarizing when new \textit {happens-before} relations could be introduced based on having valid pair of pivots }}{37}
 \contentsline {figure}{\numberline {5.14}{\ignorespaces Caption}}{38}
 \contentsline {figure}{\numberline {5.15}{\ignorespaces If k belongs to one of the sets $K_e$ or $K_d$}}{39}
 \contentsline {figure}{\numberline {5.16}{\ignorespaces If $k\mathrel {\mathop {_{hb}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}e$ or $d\mathrel {\mathop {_{hb}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}k$ are new sets of relations}}{39}
@@ -45,20 +45,24 @@
 \contentsline {figure}{\numberline {5.20}{\ignorespaces (ii) satisfies the axiom of Coherent Reads}}{44}
 \contentsline {figure}{\numberline {5.21}{\ignorespaces (i(a)), (ii(a)) satisfy the axiom of Coherent Reads, whereas (i(b)), (ii(b)) satisfy the axiom of SequentiallyConsistent Atomics}}{45}
 \contentsline {figure}{\numberline {5.22}{\ignorespaces The final table summarizing the valid cases where observable behaviors will only be a subset after reordering.}}{46}
-\contentsline {figure}{\numberline {5.23}{\ignorespaces Case where a = 0 , b = 1 is invalid due to Coherent Reads}}{49}
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Case where a = 0 , b = 1 is invalid due to Coherent Reads}}{50}
 \contentsline {figure}{\numberline {5.24}{\ignorespaces Case where the reads are reordered and a = 0 , b = 1 is valid}}{50}
 \contentsline {figure}{\numberline {5.25}{\ignorespaces Case where a = 1 and b = 1 is invalid due to Coherent Reads.}}{51}
-\contentsline {figure}{\numberline {5.26}{\ignorespaces Case where events of T1 are reordered, resulting in a = 1 and b = 1 to be valid.}}{51}
+\contentsline {figure}{\numberline {5.26}{\ignorespaces Case where events of T1 are reordered, resulting in a = 1 and b = 1 to be valid.}}{52}
 \contentsline {figure}{\numberline {5.27}{\ignorespaces Case where a = 1 and b = 1 is invalid due to Coherent Reads.}}{52}
-\contentsline {figure}{\numberline {5.28}{\ignorespaces Case where events of T2 are reordered, resulting in a = 1 and b = 1 to be valid.}}{52}
+\contentsline {figure}{\numberline {5.28}{\ignorespaces Case where events of T2 are reordered, resulting in a = 1 and b = 1 to be valid.}}{53}
 \contentsline {figure}{\numberline {5.29}{\ignorespaces Case where a = 1 and b = 1 is valid and no happens-before cycles}}{53}
-\contentsline {figure}{\numberline {5.30}{\ignorespaces Case where a = 1 and b = 1 is creates a happens-before cycle}}{53}
+\contentsline {figure}{\numberline {5.30}{\ignorespaces Case where a = 1 and b = 1 is creates a happens-before cycle}}{54}
 \contentsline {figure}{\numberline {5.31}{\ignorespaces Case where a = 0 and b = 1 is invalid due to Coherent Reads.}}{54}
-\contentsline {figure}{\numberline {5.32}{\ignorespaces Case where events of T1 are reordered, resulting in a = 0 and b = 1 to be valid.}}{54}
+\contentsline {figure}{\numberline {5.32}{\ignorespaces Case where events of T1 are reordered, resulting in a = 0 and b = 1 to be valid.}}{55}
+\contentsline {figure}{\numberline {5.33}{\ignorespaces Two forms of conditonals}}{57}
+\contentsline {figure}{\numberline {5.34}{\ignorespaces The above two cases where our assumption does not hold.}}{58}
+\contentsline {figure}{\numberline {5.35}{\ignorespaces Two cases where $e$ and $d$ can both be part of some conditional.}}{59}
+\contentsline {figure}{\numberline {5.36}{\ignorespaces Two cases where only $d$ is a part of some conditional branch.}}{62}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces The first type of relations removed and the various patterns forbidden by them.}}{62}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces The second type of relations removed and the various patterns forbidden by them.}}{62}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces First case possibilities (change caption stimiar to that for read elim)}}{65}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Second case possibilities (change caption stimiar to that for read elim)}}{66}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces The first type of relations removed and the various patterns forbidden by them.}}{66}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces The second type of relations removed and the various patterns forbidden by them.}}{66}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces First case possibilities (change caption stimiar to that for read elim)}}{69}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Second case possibilities (change caption stimiar to that for read elim)}}{70}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

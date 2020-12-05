@@ -1,144 +1,207 @@
 \section{From Candidates to Program}
 
-    We first consider programs with conditionals. The following two properties holds for any candidates of programs having conditional branching. 
+    So far we have only addressed reordering at the Candidate level. In practice, a program can have many Candidates. This is due to the program having several conditional branches and loops. To analyze when we can reordering two events at the program level, we must also address the involvement of conditionals and loops that may be between these two events.
+    
+    The way we approach this is to not have any assumptions as to why the compiler chooses to do a particular reordering in the program. 
+    We instead only check if the reoredered program can have its observable behaviors as a subset of the original. This ensures that the algorithm for the compiler optimization need not change, but that our set of conditions will just be additional checks that can be done before actually doing the reordering. Such an approach makes reordering parametric to the memory model. 
 
-    \begin{property}{Candidates of Programs with Conditionals}
-        \label{CondB1}
-        Let $B1$ be two sets of events based on each branch of a conditional in a program $P$. Let $C$ be any Candidate of $P$, Consider $b1$ to be representative of any event in $B1$. Then:
-        \begin{align*}
-            \exists C \in P \ \text{s.t.} \ b1 \notin C  
-        \end{align*}
-        There exists a candidate of the program such that events from the branch cannot be part of it. 
-    \end{property}
+    The downside is that this approach will be conservative as we use no information as to why a particular set of events are reordered. We do not compare and contrast in details the perks of both approaches. This is beyond the scope of this thesis.
+    
+    \subsection{Addressing programs with Conditionals}
+        We first consider programs with conditionals. The following two properties holds for any candidates of programs having conditional branching. 
 
-    The above property is general for conditionals, being 1-branch or 2-branch. The latter however, has another property which we define below:
+        \begin{property}{Candidates of Programs with Conditionals}
+            \label{CondB1}
+            Let $B1$ be the sets of events based on a branch of a conditional in a program $P$. Let $C$ be any Candidate of $P$, Consider $b1$ to be representative of any event in $B1$ and an event $k$ outside the conditional branch. Then:
+            \begin{align*}
+                \exists C \in P \ \text{s.t.} b1 \notin C  
+            \end{align*}
+            There exists a candidate of the program such that events from the branch cannot be part of it\footnotemark. 
+        \end{property}
 
-    \begin{property}{Candidates of Programs with Conditionals (2-branch)}
-        \label{CondB2}
-        Let $B1,B2$ be two sets of events based on each branch of a conditional in a program $P$. Let $C$ be any Candidate of $P$, Consider $b1,b2$ to be representative of any event in $B1,B2$ respectively. Then:
-        \begin{align*}
-            \nexists C \in P \ \text{s.t.} \ b1 \in C \ \wedge \ b2 \in C \\ 
-        \end{align*}
-        There cannot exist any candidate of the program such that events from both sets can be part of it. 
-    \end{property}
+        The above property is general for conditionals, being 1-branch or 2-branch. The latter however, has another property which we define below:
 
-    Property \ref{CondB1} may not be true for all programs. Some may always satisfy the conditional in any execution. However, from a general point of view, a program represents all possibilities, hence we can 
+        \begin{property}{Candidates of Programs with Conditionals (2-branch)}
+            \label{CondB2}
+            Let $B1,B2$ be two sets of events based on each branch of a conditional in a program $P$. Let $C$ be any Candidate of $P$,  Consider $b1,b2$ to be representative of any event in $B1,B2$ respectively. Then:
+            \begin{align*}
+                \nexists C \in P \ \text{s.t.} \ b1 \in C \ \wedge \ b2 \in C \\ 
+            \end{align*}
+            There cannot exist any candidate of the program such that events from both sets can be part of it. 
+        \end{property}
 
-    \critic{blue}{While the property for 1 branch may not always hold (it can be the case that the branch is always taken in any execution) we are defining it for any program.}
+        The figure below summarizes the two forms of conditionals we can have in any program. 
+        \begin{figure}[H]
+            \centering 
+            \includegraphics[scale=0.7]{InstructionReordering/Conditionals2Form.pdf}
+            \caption{Two forms of conditonals}
+        \end{figure}
 
-    \begin{proof}
-        Based on an exeuction of the program, the conditional will either be satisfied or not, but never both. Hence proved both properties. 
-        \critic{blue}{Do we need an elaborate proof of this? As this is direct from existing literature on sequential programs.}
-    \end{proof}
+        \footnotetext{While the property for 1 branch may not always hold (it can be the case that the branch is always taken in any execution) we are defining it for any program.}
 
-    Perhaps we need a general corollary for program level 
-    \begin{corollary}{Reordering under Program with Conditionals}
-        Consider a program $P$ and its candidates $C_1, C_2, ... , C_n$ in which events $e$ and $d$ present in all of them with $\reln{e}{ao}{d}$. Consider the set of corresponding candidates $C'_1, C'_2, ... , C'_n$ after reordering $e$ and $d$ and its corresponding program $P'$. Then the set of observable behaviors of $P'$ is a subset of that of $P$ if the following two conditions hold:
-        \begin{align*}
-            Reord(e,d) \ \wedge \ 
-            ( \forall C_{i \in [1,n]}, \forall k \in C_i \ \text{s.t.} \ \reln{e}{ao}{k} \wedge \reln{k}{ao}{d}, \    
-            Reord(e,k) \wedge Reord(k,d) )
-        \end{align*}
-        \critic{red}{The above condition can be simplified as we already have corollary to show reordering of non-consecutive events}
-        \critic{blue}{No Candidate of $P$ exists such that only one of $e$ or $d$ exists in them. }
-        \begin{align*}
-            \nexists C \in P \ s.t. \ 
+        \begin{corollary}
+            Consider a program $P$ and its candidates $C_1, C_2, ... , C_n$ in which events $e$ and $d$ present in all of them with $\reln{e}{ao}{d}$. Consider the set of corresponding candidates $C'_1, C'_2, ... , C'_n$ after reordering $e$ and $d$ and its corresponding program $P'$. If the following two conditions hold:
+            \begin{align}
+                Reord(e,d) \ \wedge \ 
+                ( \forall C_{i \in [1,n]}, \forall k \in C_i \ \text{s.t.} \ \reln{e}{ao}{k} \wedge \reln{k}{ao}{d}, \    
+                Reord(e,k) \wedge Reord(k,d) ) \\
+                \nexists C \in P \ s.t. \ 
+                    (e \in C \ \wedge \ d \notin C) \ \vee \ 
+                    (e \notin C \ \wedge \ d \in C) 
+            \end{align}
+            then the set of observable behaviors of $P'$ is a subset of that of $P$. 
+        \end{corollary}
+
+        \begin{proof}
+        
+            We prove the second condition first. 
+            Suppose the second condition does not hold. Thus we would have
+            \begin{align*}
+                \exists C \in P \ s.t. \ 
                 (e \in C \ \wedge \ d \notin C) \ \vee \ 
-                (e \notin C \ \wedge \ d \in C) 
-        \end{align*}
-    \end{corollary}
+                (e \notin C \ \wedge \ d \in C)
+            \end{align*}
 
-    \begin{proof}
-      
-        \critic{blue}{Make the above more formal, and use union of sets and subset property.}
-        
-        We prove the second condition first. 
-        Suppose the second condition does not hold. Thus we would have
-        \begin{align*}
-            \exists C \in P \ s.t. \ 
-            (e \in C \ \wedge \ d \notin C) \ \vee \ 
-            (e \notin C \ \wedge \ d \in C)
-        \end{align*}
-        
-        This can only happen, if events $e$ or $d$ are part of a conditional branch.
-        \begin{itemize}
-            \item C1: Both $e$ and $d$ are part of conditional branches
-                If $e$ and $d$ are in different branches of same conditonal, then by Prop \ref{CondB2}, we would have 
-                \begin{align*}
-                    \nexists C \in P \ \text{s.t.} \ e \in C \ \wedge \ d \in C 
-                \end{align*}
-                But our Corollary assumption is that there exists such candidates. Hence, this cannot be the case.
+            This can only happen, if events $e$ or $d$ are part of a conditional branch.
+            \begin{itemize}
+                \item C1: Both $e$ and $d$ are part of conditional branches
+
+                    If $e$ and $d$ are in different branches of same conditonal, then by Prop \ref{CondB2}, we would have 
+                    \begin{align*}
+                        \nexists C \in P \ \text{s.t.} \ e \in C \ \wedge \ d \in C 
+                    \end{align*}
+                    But our Corollary assumption is that there exists such candidates. Hence, this cannot be the case.
+
+                    If $e$ and $d$ are of the same conditonal branch, and neither one of them belong in any conditional branch nested within, then our assumption does not hold. 
+
+                    \begin{figure}[H]
+                        \centering 
+                        \includegraphics[scale=0.7]{InstructionReordering/ConditionalsProofFig1.pdf}
+                        \caption{The above two cases where our assumption does not hold.}
+                    \end{figure}
+
+                    If $e$ and $d$ belong to branches of differnt conditionals, then they can be of two forms, viz. where one conditional branch is nested within the other or both conditonal branches are not nested within each other.  
+
+                    \begin{figure}[H]
+                        \centering 
+                        \includegraphics[scale=0.7]{InstructionReordering/ConditionalsProofFig2.pdf}
+                        \caption{Two cases where $e$ and $d$ can both be part of some conditional.}
+                    \end{figure}
+
+                    For the first form, without loss of generality, let us consider $d$ is part of conditional branch nested within $e$'s branch. 
+
+                    By Prop \ref{CondB2}, there would exist some event $l$ in another branch such that 
+                    \begin{align*}
+                        \nexists C \in P \ \text{s.t.} \ d \in C \ \wedge \ l \in C 
+                    \end{align*}
+                    On reodering $e$ and $d$, we have 
+                    \begin{align*}
+                        \nexists C \in P' \ \text{s.t.} \ e \in C \ \wedge \ l \in C 
+                    \end{align*}
+                    Thus we have 
+                    \begin{align*}
+                        \exists C \in P' \ \text{s.t} \ d \in C \ \wedge \ l \in C
+                    \end{align*}
+                    giving us a new Candidate in $P'$ not in $P$. 
+                    Irrespective of $d$ being a read or a write, there could be a new $\stck{_{rf}}$ relation be formed with some event$k$. Thus, we have a new observable behavior. 
+
+                    By Prop \ref{CondB1}, we would have 
+                    \begin{align*}
+                        \exists C \in P \ \text{s.t.} \ d \notin C  
+                    \end{align*}
+                    Suppose there exists another event $l$ in the same branch as $d$, but not part of any nested conditional within. Then we also have 
+                    \begin{align*}
+                        \nexists C \in P \ \text{s.t.} \ 
+                        (d \in C \ \wedge \ l \notin C) 
+                        \ \vee \ 
+                        (d \notin C \ \wedge \ l \in C)   
+                    \end{align*}
+
+                    \critic{red}{The above conclusion need not be proved. Neither should it be put as a property.}
+
+                    On reodering $e$ and $d$, we have by Prop \ref{CondB1}
+                    \begin{align*}
+                        \exists C \in P' \ \text{s.t.} \ e \notin C  
+                    \end{align*}
+                    We also have that 
+                    \begin{align*}
+                        \exists C \in P' \ \text{s.t} \ (d \notin C \ \wedge \ l \in C) 
+                    \end{align*}
+                    giving us a new Candidate in $P'$ not in $P$.
+                    Irrespective of $d$ being a read or a write, there could be a new $\stck{_{rf}}$ relation be formed with some event$k$. Thus, we have a new observable behavior. 
+
+                    For the second case, suppose they are part of conditonals of typr Prop \ref{CondB2}. Therefore, there exists events $l1, l2$ in their respective counter branches such that:
+                    \begin{align*}
+                        \nexists C \in P \ \text{s.t.} \ e \in C \wedge l1 \in C \\ 
+                        \nexists C \in P \ \text{s.t.} \ d \in C \wedge l2 \in C 
+                    \end{align*} 
+                    Reodering $e$ and $d$ would result in program $P'$ such that
+                    \begin{align*}
+                        \nexists C' \in P' \ \text{s.t.} \ d \in C \wedge l1 \in C \\ 
+                        \nexists C' \in P' \ \text{s.t.} \ e \in C \wedge l2 \in C  
+                    \end{align*}  
+                    Thus giving us new Candidates in $P'$ not in $P$ such that 
+                    \begin{align*}
+                        e \in C' \wedge l1 \in C' \\ 
+                        d \in C' \wedge l2 \in C'
+                    \end{align*}
+                    Irrespective of $e$ and $d$ being reads or writes, there could be a new $\stck{_{rf}}$ relation be formed with some event$k$. Thus, we have a new observable behavior. 
+
+                    From the above we can also conclude that even if $e$ or $d$ (one of them) are in a conditional branch satsifying Prop \ref{CondB2}, a new observable behavior can be introduced due to a new Candidate that violates the original Prop \ref{CondB2} of every candidate of program $P$.
+
+                    Lastly, suppose both $e$ and $d$ are part of conditonal branches satisfying Prop \ref{CondB1}, then we have 
+                    \begin{align*}
+                        \exists C \in P \ \text{s.t.} \ e \notin C \\
+                        \exists C \in P \ \text{s.t.} \ d \notin C
+                    \end{align*}
+                    Let $B_e$ and $B_d$ be the respective set of events that belong in the same branch as $B_e$ and $B_d$ respectively. Thus, by Prop \ref{CondB1}, we also have 
+                    \begin{align*}
+                        e \notin C \ \Rightarrow \ \nexists k \in B_e \ \text{s.t.} \ k \in C \\
+                        d \notin C \ \Rightarrow \ \nexists k \in B_d \ \text{s.t.} \ k \in C
+                    \end{align*}
+                    Now after reordering $e$ and $d$, we could have a Candidate in $P'$ such that the above conditions are violated. Irrespective of $e$ and $d$ being reads or writes, there could be a new $\stck{_{rf}}$ relation be formed with some event$k$. Thus, we have a new observable behavior\footnotemark.  
+
+                    \footnotetext{One may think of it as introducing a new event in a Candidate, thus causing new observable behavior.}
+
+                \item C2: Without loss of generality, let us consider $d$ is part of conditional branch but $e$ is not. 
                 
-                If $e$ and $d$ are of the same conditonal branch, then our assumption does not hold by Prop \ref{CondB1}, \ref{CondB2}. 
+                    By Prop \ref{CondB2}, there would exist some event $l$ in another branch such that 
+                    \begin{align*}
+                        \nexists C \in P \ \text{s.t.} \ d \in C \ \wedge \ l \in C 
+                    \end{align*}
+                    On reodering $e$ and $d$, we have 
+                    \begin{align*}
+                        \nexists C \in P' \ \text{s.t.} \ e \in C \ \wedge \ l \in C 
+                    \end{align*}
+                    Thus we have 
+                    \begin{align*}
+                        \exists C \in P' \ \text{s.t} \ d \in C \ \wedge \ l \in C
+                    \end{align*}
+                    giving us a new Candidate in $P'$ not in $P$. 
+                    Irrespective of $e$ being a read or a write, there could be a new $\stck{_{rf}}$ relation be formed with some event$k$. Thus, we have a new observable behavior. 
 
-                if $e$ and $d$ belong to branches of differnt conditionals, then suppose they are part of conditonals of typr Prop \ref{CondB2}. Therefore, there exists events $l1, l2$ in their respective counter branches such that:
-                \begin{align*}
-                    \nexists C \in P \ \text{s.t.} \ e \in C \wedge l1 \in C \\ 
-                    \nexists C \in P \ \text{s.t.} \ d \in C \wedge l2 \in C 
-                \end{align*} 
-                Reodering $e$ and $d$ would result in program $P'$ such that
-                \begin{align*}
-                    \nexists C' \in P' \ \text{s.t.} \ d \in C \wedge l1 \in C \\ 
-                    \nexists C' \in P' \ \text{s.t.} \ e \in C \wedge l2 \in C  
-                \end{align*}  
-                Thus giving us new Candidates in $P'$ not in $P$ such that 
-                \begin{align*}
-                    e \in C' \wedge l1 \in C' \\ 
-                    d \in C' \wedge l2 \in C'
-                \end{align*}
-                Irrespective of $e$ and $d$ being reads or writes, there could be a new $\stck{_{rf}}$ relation be formed with some event$k$. Thus, we have a new observable behavior. 
-                
-                From the above we can also conclude that even if $e$ or $d$ (one of them) are in a conditional branch satsifying Prop \ref{CondB2}, a new observable behavior can be introduced due to a new Candidate that violates the original Prop \ref{CondB2} of every candidate of program $P$.
+                    By Prop \ref{CondB1}, we would have 
+                    \begin{align*}
+                        \exists C \in P \ \text{s.t.} \ d \notin C  
+                    \end{align*}
+                    On reodering $e$ and $d$, we have 
+                    \begin{align*}
+                        \exists C \in P' \ \text{s.t.} \ e \notin C  
+                    \end{align*}
+                    Thus we have 
+                    \begin{align*}
+                        \nexists C \in P' \ \text{s.t} \ d \notin C 
+                    \end{align*}
+                    giving us a new Candidate in $P'$ not in $P$.
+                    Irrespective of $e$ being a read or a write, there could be a new $\stck{_{rf}}$ relation be formed with some event$k$. Thus, we have a new observable behavior. 
 
-                Lastly, suppose both $e$ and $d$ are part of conditonal branches satisfying Prop \ref{CondB1}, then we have 
-                \begin{align*}
-                    \exists C \in P \ \text{s.t.} \ e \notin C \\
-                    \exists C \in P \ \text{s.t.} \ d \notin C
-                \end{align*}
-                Let $B_e$ and $B_d$ be the respective set of events that belong in the same branch as $B_e$ and $B_d$ respectively. Thus, by Prop \ref{CondB1}, we also have 
-                \begin{align*}
-                    e \notin C \ \Rightarrow \ \nexists k \in B_e \ \text{s.t.} \ k \in C \\
-                    d \notin C \ \Rightarrow \ \nexists k \in B_d \ \text{s.t.} \ k \in C
-                \end{align*}
-                Now after reordering $e$ and $d$, we could have a Candidate in $P'$ such that the above conditions are violated. Irrespective of $e$ and $d$ being reads or writes, there could be a new $\stck{_{rf}}$ relation be formed with some event$k$. Thus, we have a new observable behavior.  
-                
-                \critic{red}{Think about this later, discuss with Clark as to how to explain this better. Use diagrams perhaps. This is not well justified. Perhaps place the above condition as a property of each conditional. It would be easier to reason with.}
+                    \begin{figure}[H]
+                        \centering 
+                        \includegraphics[scale=0.7]{InstructionReordering/ConditionalsProofFig3.pdf}
+                        \caption{Two cases where only $d$ is a part of some conditional branch.}
+                    \end{figure}
 
-                \critic{blue}{One may think of it as introducing a new event in a Candidate, thus causing new observable behavior.}
-
-            \item C2: Without loss of generality, let us consider $e$ is part of conditional but $d$ is not. 
-        
-                By Prop \ref{CondB2}, there would exist some event $l$ in another branch such that 
-                \begin{align*}
-                    \nexists C \in P \ \text{s.t.} \ e \in C \ \wedge \ l \in C 
-                \end{align*}
-                On reodering $e$ and $d$, we have 
-                \begin{align*}
-                    \nexists C \in P' \ \text{s.t.} \ d \in C \ \wedge \ l \in C 
-                \end{align*}
-                Thus we have 
-                \begin{align*}
-                    \exists C \in P' \ \text{s.t} \ e \in C \ \wedge \ l \in C
-                \end{align*}
-                giving us a new Candidate in $P'$ not in $P$. 
-                Irrespective of $e$ being a read or a write, there could be a new $\stck{_{rf}}$ relation be formed with some event$k$. Thus, we have a new observable behavior. 
-                By Prop \ref{CondB1}, we would have 
-                \begin{align*}
-                    \exists C \in P \ \text{s.t.} \ e \notin C  
-                \end{align*}
-                On reodering $e$ and $d$, we have 
-                \begin{align*}
-                    \exists C \in P' \ \text{s.t.} \ d \notin C  
-                \end{align*}
-                Thus we have 
-                \begin{align*}
-                    \nexists C \in P' \ \text{s.t} \ e \notin C 
-                \end{align*}
-                giving us a new Candidate in $P'$ not in $P$.
-                Irrespective of $e$ being a read or a write, there could be a new $\stck{_{rf}}$ relation be formed with some event$k$. Thus, we have a new observable behavior. 
-                
-                \critic{blue}{Finding no such event $k$ would involve gathering more information about other Agent events. Moreover,obtaining such information may be infeasible as the Compiler must ensure that there is No candidate which has such anevent $k$ given that there is event $e$ as per our condition. Thus, conservatively we can consider doing suchreordering to be unsafe.}
-        \end{itemize}
+            \end{itemize}
 
             Now that we have that the second condition must hold, we prove the first condition too must hold. Let $C_i$ and $C_i'$ be the candidates before and after reordering $e$ and $d$. From the first condition we have then for $C_i$
             \begin{align*}
@@ -148,22 +211,101 @@
             \end{align*}
             The above is Corollary 1 (tag properly), thus giving us that the observable behaviors of $C_i'$ is a subset of $C_i$. By property of unions of sets, we can conclude that the set of Observable Behaviors of $P'$ is a subset of that of $P$.
 
-            Hence proved.
+        \end{proof}
 
-            \critic{blue}{Perhaps we need to define a function Obs, that takes a candidate and gives us a set of rf / rbf relations. THat would help shaping the argument of observable behavior subset well written.}
-    \end{proof}
+        In addition to the above proof, we also show certain counter examples where reordering may not be safe to do. 
 
-    \critic{blue}{It has come to my notice that in general reordering may not be fine, if we end up removing something outside a conditional. To show this I have a simple counter example. However, the only way to show this, is to say that there is some candidate which suddenly has an agent order relation between two events which were not supposed to have any relation to them. Simply put, we can say that there is a candidate execution of the reordered program, where both the events exist, where as there isn't any candidate of the original program where such a thing can happen.}
+        \paragraph{Case when $e$ is not in any conditional branch but $d$ is.}
+
+            \critic{blue}{One example with two branches.}
+            \begin{figure}
+                \centering 
+                \includegraphics[scale=0.7]{InstructionReordering/CounterExamples1a(Conditionals).pdf}
+                \caption{}
+            \end{figure}
+
+            \begin{figure}
+                \centering 
+                \includegraphics[scale=0.7]{InstructionReordering/CounterExamples1b(Conditionals).pdf}
+                \caption{}
+            \end{figure}
+
+            \critic{blue}{One example with one branch.}
+
+            \begin{figure}
+                \centering 
+                \includegraphics[scale=0.7]{InstructionReordering/CounterExamples2a(Conditionals).pdf}
+                \caption{}
+            \end{figure}
+
+            \begin{figure}
+                \centering 
+                \includegraphics[scale=0.7]{InstructionReordering/CounterExamples2b(Conditionals).pdf}
+                \caption{}
+            \end{figure}
+
+        \paragraph{Case when $e$ and $d$ are part of different conditional branches. One not nested in the other.}
+
+            \critic{One example suffices, irrespective of 2 branch or one branch.}
+
+        \paragraph{Case when $e$ is part of a conditonal branch $B_e$ and $d$ is part of another conditonal branch $B_d$ nested within $B_e$.}
+
+            \critic{One example sufficies. It should relate the fact that $d$ is outside of its own conditional.}
+
+
+        \critic{purple}{Put figures here of counter examples based on its type.}
 
 %------------------------------------------------------------------------------------------------------------------------------------------
-    Next, we consider programs with loops. 
+    
+    \subsection{Addressing Programs with Loops}
+        
+        Addressing reordering of events in programs with loops is relatively straightforward, leaving one special case. 
+        For simplicity (and also Without loss of generality), let us consider our program has only one loop.
 
-    \critic{blue}{Programs with loops might have a little difficulty in defining constraints on Candidates. This is because if we couple them with conditionals then it may be that one iteration would have some events of the loop while the other set of iterations will not have. How then can we define the general case? Perhaps I can consider only programs with loops but no conditionals, then later consider programs having both. }
+        There will be one Candidate for each iteration of loop. For convenience, let us define $C^i$ to be a candidate of program with $i$ iterations of the same loop. Let us also define $e_l^i$ to be an event within the loop of the program which in a candidate signifies the $i^{th}$ iteration of the event. 
 
-    \begin{itemize}
-        \item A : 
-        \item B
-        \item C
-        \item D
-        \item E
-    \end{itemize}
+        Using the above notation, we have the following property for any consecutive events $e$ and $d$ belonging in a loop:
+        \begin{align*}
+            \forall i \neq j, \ Reord(e_l^i, d_l^i) \ \Rightarrow \ Reord(e_l^j, d_l^j)
+        \end{align*}
+
+        Using the above notation, we have the following corollary for reordering events $e$ and $d$ within a loop 
+        
+        \begin{corollary}
+            Consider a program $P$ with a loop and its candidates $C^1, C^2, ... , C^n$ in which events $e$ and $d$ are parts of the loop and present in all of them with $\reln{e}{ao}{d}$. Consider the set of corresponding candidates $C'^1, C'^2, ... , C'^n$ after reordering $e$ and $d$ in $P$ and its corresponding program $P'$. If the following two conditions hold:
+            \begin{gather*}
+                Reord(e, d) \\ 
+                \forall C^i \in P , \ \forall j \in [1,i], \forall k \ \text{s.t.} \ \reln{e^j}{ao}{k} \wedge \reln{e^j}{ao}{k} \ . \ Reord(e^j, k) \wedge Reord(k, d^j)  \\ 
+                \nexists C \in P \ s.t. \ 
+                    (e \in C \ \wedge \ d \notin C) \ \vee \ 
+                    (e \notin C \ \wedge \ d \in C) 
+            \end{gather*}
+            then the set of observable behaviors of Program $P'$ is a subset of program $P$.     
+        \end{corollary}
+
+        \begin{proof}
+        
+            The proof for this is fairly striaghtforward. 
+            
+            \begin{itemize}
+                \item Condition 1 corresponds to Theoerem 1 of reordering. 
+                \item For condition 2, we can for each iteration prove that the resultant candidate after reordering has observable behavior as a subset of the original. To simplify the argument, we can a set $K$ of all such events that can be between $e$ and $d$ in  any iteration. 
+                Then for each candidate and its loop iterations, the set of events $k$ will be a subset of $K$. Thus by Corollary 1, we can conclude that condition 3 indeed needs to hold. 
+                \item Condition 3 corresponds to Corollary 2 of reordering events in programs with conditionals., hence even that must hold. 
+            \end{itemize}
+            
+        \end{proof}
+
+
+        \paragraph{Loop invariant code motion}
+            What is not so obvious is the case when events are reordered out of the loop. We will not construct a proof for this, rather use a direct counterexample to show our point. 
+
+            \critic{blue}{Show figure here.}
+
+            \critic{blue}{Explain figure here.}
+
+            The problem is that we cannot use the notion of reordering of events in a Candidate to generate the candidate that is intended. Reordering at the Candidate level does not map directly to Reordering that is done to perform something like Loop invariant code motion. 
+
+            We will later show int he next chapter that we can infact define one of the forms of loop invariant code motion using both Reordering and Elimination at the Candidate level.
+             
+    
