@@ -224,8 +224,35 @@
             \end{itemize}
 
             Now we consider the case of reordering a write outside a loop:
-            
+             
             \begin{itemize}
-                \item 
+                \item We again have two subcases for this; one with reordering it before the loop and the one after. 
+                \item In each case, the common requirement is that irrespective of the iterations of the loop, only one write should exist in each candidate.
+                \item Note that when we have more than one iteration of the loop, we have two writes, out of which one must be eliminated. 
+                \item For instance, given candidate $C^2$, should we eliminate $w^1$ or $w^2$? 
+                \item We can from Corollary of write elimination assert when we can remove $w^1$. However, if we want to elimiante $w^2$, we would need information of the existance of some other write either within or outside the same loop, program ordered after $w^2$. 
+                \item Getting such information would require another flow analysis. But more importantly, suhc informaion is not alwyas required in the sequential programs to assert loop invariant code motion. Though the choice remains. 
+                \item Without having information of the existance of such a write, we can consider eliminating $w^1$, which would firstly require $Reord(w^1, k)$ where $\reln{w^1}{ao}{k} \wedge \reln{k}{ao}{w^2}$. 
+                \item We can extend the above requirement to incorporate elimination under conditionals using Corollary 2 for write elimination. 
+                \item Thus in general for any Candidate $C^i$, we require that all $w^{j<i}$ be eliminable. To prove this requirement Corollary 2 suffices.
+                \item We must also note that if $w^j$ in general is part of a conditonal branch, then we cannot eliminate it mainly because it also represents the same event $d$ using whose reference we can safely consider eliminating $w^j$. 
+                \item Doing such successive elimination leaves $w^i$ for every such $C^i$. 
+                \item Now based on each subcase, we require either $Reord(k, w^i)$ or $Reord(w^i, k)$ to hold for an event $k$ existing in the loop. Npte that for the first subcase, we need all the events within the loop to be considered reorderable with $w^i$. But for the second, we only need the events that are after $w$ in the loop. 
+                \item For both cases, we have the base argument that $k$ can be agent ordered with the wrtie $w^i$. So all such agent ordered events $k$ have to be considered if they need to be reorrdered with $w^i$. 
+                \item Proving this is again by Corollary 2 of write elimination. Though note that we will also need code motion corollaries from reordering for this.  
             \end{itemize}
 
+
+        \paragraph{Reordering two events accross loops} 
+            
+            Note that we still cannot assert when we can reorder events inside a loop. This would require a proof of redundancy introduction at the candidate level. While this can be done, this is outside the scope of this thesis and is kept as part of future work. But for now, we will show a counter example as to why such reordering is not always safe to do. 
+
+            \critic{blue}{One for reordering Reads}
+
+            \critic{blue}{One for reordering Write-Read}
+
+            \critic{blue}{One for reordering Read-Write}
+
+            \critic{blue}{One for reordering Write-Write}
+
+            For each of the above examples, we note that it is not safe to perform such reordering in general. 
