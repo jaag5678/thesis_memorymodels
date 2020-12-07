@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.8.29)  1 DEC 2020 19:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.8.29)  6 DEC 2020 16:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1382,6 +1382,14 @@ LaTeX Warning: Label `fig:my_label' multiply defined.
 LaTeX Warning: Label `fig:my_label' multiply defined.
 
 )
+Runaway argument?
+{\contentsline {paragraph}{Case when $e$ and $d$ are part of d 
+! File ended while scanning use of \@writefile.
+<inserted text> 
+                \par 
+l.91 \begin{document}
+                     
+? 
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
@@ -1397,7 +1405,7 @@ LaTeX Font Info:    ... okay on input line 91.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
 LaTeX Font Info:    ... okay on input line 91.
 LaTeX Font Info:    Try loading font information for OT1+lmr on input line 91.
- (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
+(/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 *geometry* driver: auto-detecting
@@ -1508,48 +1516,23 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 ] [3
 
-] (./main.toc
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 8.
- (/usr/share/texmf/tex/latex/lm/omllmm.fd
-File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 8.
-
-(/usr/share/texmf/tex/latex/lm/omxlmex.fd
-File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 8.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 8.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 8.
-LaTeX Font Info:    Try loading font information for U+msa on input line 8.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 8.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [4
-
-])
+] (./main.toc)
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [5] (./main.lof [6
+ [4
 
-] [7])
+] (./main.lof)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [8] (./main.lot)
+ [5
+
+] (./main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [9
+ [6
 
 ]
 Chapter 1.
@@ -1591,7 +1574,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--12
 pdfTeX warning: pdflatex (file ./ECMAScriptMemoryModel/ECMAScriptStdCoherentRea
 ds.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allo
 wed
-<ECMAScriptMemoryModel/ECMAScriptStdCoherentReads.pdf, id=58, 794.97pt x 614.29
+<ECMAScriptMemoryModel/ECMAScriptStdCoherentReads.pdf, id=42, 794.97pt x 614.29
 5pt>
 File: ECMAScriptMemoryModel/ECMAScriptStdCoherentReads.pdf Graphic file (type p
 df)
@@ -1607,6 +1590,32 @@ Overfull \hbox (46.98106pt too wide) in paragraph at lines 13--14
 [4
 
 ]
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 16.
+ (/usr/share/texmf/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 16.
+
+
+(/usr/share/texmf/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 16.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 16.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 16.
+LaTeX Font Info:    Try loading font information for U+msa on input line 16.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 16.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 Overfull \hbox (65.97311pt too wide) in paragraph at lines 16--17
 \OT1/lmr/m/n/12 der-stand-ing this re-quires one to know thedefin-tions of $\OM
 L/lmm/m/it/12 Ws$\OT1/lmr/m/n/12 , $\OML/lmm/m/it/12 execution$\OT1/lmr/m/n/12 
@@ -1619,7 +1628,7 @@ LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
 
 pdfTeX warning: pdflatex (file ./ECMAScriptMemoryModel/ECMAScriptStd.pdf): PDF 
 inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<ECMAScriptMemoryModel/ECMAScriptStd.pdf, id=67, 794.97pt x 614.295pt>
+<ECMAScriptMemoryModel/ECMAScriptStd.pdf, id=53, 794.97pt x 614.295pt>
 File: ECMAScriptMemoryModel/ECMAScriptStd.pdf Graphic file (type pdf)
 <use ECMAScriptMemoryModel/ECMAScriptStd.pdf>
 Package pdftex.def Info: ECMAScriptMemoryModel/ECMAScriptStd.pdf  used on input
@@ -1634,7 +1643,7 @@ Overfull \hbox (46.98106pt too wide) in paragraph at lines 29--30
 
 pdfTeX warning: pdflatex (file ./ECMAScriptMemoryModel/ECMAScriptStdSeqCnsAt.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<ECMAScriptMemoryModel/ECMAScriptStdSeqCnsAt.pdf, id=73, 794.97pt x 614.295pt>
+<ECMAScriptMemoryModel/ECMAScriptStdSeqCnsAt.pdf, id=60, 794.97pt x 614.295pt>
 File: ECMAScriptMemoryModel/ECMAScriptStdSeqCnsAt.pdf Graphic file (type pdf)
 <use ECMAScriptMemoryModel/ECMAScriptStdSeqCnsAt.pdf>
 Package pdftex.def Info: ECMAScriptMemoryModel/ECMAScriptStdSeqCnsAt.pdf  used 
@@ -1655,7 +1664,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 15.
 )
 (./ECMAScriptMemoryModel/2.Event_Sets.tex [8]
-<ECMAScriptMemoryModel/EventTypes.pdf, id=83, 387.36719pt x 175.61609pt>
+<ECMAScriptMemoryModel/EventTypes.pdf, id=72, 387.36719pt x 175.61609pt>
 File: ECMAScriptMemoryModel/EventTypes.pdf Graphic file (type pdf)
 <use ECMAScriptMemoryModel/EventTypes.pdf>
 Package pdftex.def Info: ECMAScriptMemoryModel/EventTypes.pdf  used on input li
@@ -1664,7 +1673,7 @@ ne 23.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <14.4> on input line 28.
  [9 <./ECMAScriptMemoryModel/EventTypes.pdf>]
-<ECMAScriptMemoryModel/AccessModes.pdf, id=103, 314.13359pt x 190.7928pt>
+<ECMAScriptMemoryModel/AccessModes.pdf, id=91, 314.13359pt x 190.7928pt>
 File: ECMAScriptMemoryModel/AccessModes.pdf Graphic file (type pdf)
 <use ECMAScriptMemoryModel/AccessModes.pdf>
 Package pdftex.def Info: ECMAScriptMemoryModel/AccessModes.pdf  used on input l
@@ -1672,14 +1681,14 @@ ine 67.
 (pdftex.def)             Requested size: 219.892pt x 133.55403pt.
  [10]) (./ECMAScriptMemoryModel/3.Event_Relations.tex [11 <./ECMAScriptMemoryMo
 del/AccessModes.pdf>]
-<ECMAScriptMemoryModel/ReadsFrom.pdf, id=126, 441.56969pt x 161.64389pt>
+<ECMAScriptMemoryModel/ReadsFrom.pdf, id=115, 441.56969pt x 161.64389pt>
 File: ECMAScriptMemoryModel/ReadsFrom.pdf Graphic file (type pdf)
 <use ECMAScriptMemoryModel/ReadsFrom.pdf>
 Package pdftex.def Info: ECMAScriptMemoryModel/ReadsFrom.pdf  used on input lin
 e 30.
 (pdftex.def)             Requested size: 309.09666pt x 113.14995pt.
  [12 <./ECMAScriptMemoryModel/ReadsFrom.pdf>]
-<ECMAScriptMemoryModel/AgentSyncWith.pdf, id=144, 441.56969pt x 161.64389pt>
+<ECMAScriptMemoryModel/AgentSyncWith.pdf, id=135, 441.56969pt x 161.64389pt>
 File: ECMAScriptMemoryModel/AgentSyncWith.pdf Graphic file (type pdf)
 <use ECMAScriptMemoryModel/AgentSyncWith.pdf>
 Package pdftex.def Info: ECMAScriptMemoryModel/AgentSyncWith.pdf  used on input
@@ -1687,7 +1696,7 @@ Package pdftex.def Info: ECMAScriptMemoryModel/AgentSyncWith.pdf  used on input
 (pdftex.def)             Requested size: 309.09666pt x 113.14995pt.
 )
 (./ECMAScriptMemoryModel/4.Ordering_Relations_On_Events.tex
-<ECMAScriptMemoryModel/AgentOrder.pdf, id=145, 434.58359pt x 161.64389pt>
+<ECMAScriptMemoryModel/AgentOrder.pdf, id=136, 434.58359pt x 161.64389pt>
 File: ECMAScriptMemoryModel/AgentOrder.pdf Graphic file (type pdf)
 <use ECMAScriptMemoryModel/AgentOrder.pdf>
 Package pdftex.def Info: ECMAScriptMemoryModel/AgentOrder.pdf  used on input li
@@ -1695,20 +1704,20 @@ ne 10.
 (pdftex.def)             Requested size: 304.20644pt x 113.14995pt.
  [13 <./ECMAScriptMemoryModel/AgentSyncWith.pdf> <./ECMAScriptMemoryModel/Agent
 Order.pdf>]
-<ECMAScriptMemoryModel/SynchronizeWith.pdf, id=177, 449.76028pt x 201.63329pt>
+<ECMAScriptMemoryModel/SynchronizeWith.pdf, id=168, 449.76028pt x 201.63329pt>
 File: ECMAScriptMemoryModel/SynchronizeWith.pdf Graphic file (type pdf)
 <use ECMAScriptMemoryModel/SynchronizeWith.pdf>
 Package pdftex.def Info: ECMAScriptMemoryModel/SynchronizeWith.pdf  used on inp
 ut line 33.
 (pdftex.def)             Requested size: 314.83003pt x 141.14232pt.
  [14 <./ECMAScriptMemoryModel/SynchronizeWith.pdf>]
-<ECMAScriptMemoryModel/Happens-before.pdf, id=196, 460.6008pt x 196.8153pt>
+<ECMAScriptMemoryModel/Happens-before.pdf, id=187, 460.6008pt x 196.8153pt>
 File: ECMAScriptMemoryModel/Happens-before.pdf Graphic file (type pdf)
 <use ECMAScriptMemoryModel/Happens-before.pdf>
 Package pdftex.def Info: ECMAScriptMemoryModel/Happens-before.pdf  used on inpu
 t line 66.
 (pdftex.def)             Requested size: 322.41835pt x 137.76976pt.
-<ECMAScriptMemoryModel/MemoryOrder.pdf, id=197, 434.58359pt x 161.64389pt>
+<ECMAScriptMemoryModel/MemoryOrder.pdf, id=188, 434.58359pt x 161.64389pt>
 File: ECMAScriptMemoryModel/MemoryOrder.pdf Graphic file (type pdf)
 <use ECMAScriptMemoryModel/MemoryOrder.pdf>
 Package pdftex.def Info: ECMAScriptMemoryModel/MemoryOrder.pdf  used on input l
@@ -1717,13 +1726,13 @@ ine 79.
 ) [15 <./ECMAScriptMemoryModel/Happens-before.pdf> <./ECMAScriptMemoryModel/Mem
 oryOrder.pdf>]
 (./ECMAScriptMemoryModel/5.PreliminaryDefinitions.tex
-<ECMAScriptMemoryModel/candidate.pdf, id=230, 232.9503pt x 146.4672pt>
+<ECMAScriptMemoryModel/candidate.pdf, id=220, 232.9503pt x 146.4672pt>
 File: ECMAScriptMemoryModel/candidate.pdf Graphic file (type pdf)
 <use ECMAScriptMemoryModel/candidate.pdf>
 Package pdftex.def Info: ECMAScriptMemoryModel/candidate.pdf  used on input lin
 e 19.
 (pdftex.def)             Requested size: 163.06409pt x 102.52632pt.
-<ECMAScriptMemoryModel/CandidateExecution.pdf, id=231, 284.02109pt x 204.765pt>
+<ECMAScriptMemoryModel/CandidateExecution.pdf, id=221, 284.02109pt x 204.765pt>
 
 File: ECMAScriptMemoryModel/CandidateExecution.pdf Graphic file (type pdf)
 <use ECMAScriptMemoryModel/CandidateExecution.pdf>
@@ -1731,7 +1740,7 @@ Package pdftex.def Info: ECMAScriptMemoryModel/CandidateExecution.pdf  used on
 input line 32.
 (pdftex.def)             Requested size: 198.8134pt x 143.3345pt.
  [16 <./ECMAScriptMemoryModel/candidate.pdf>]
-<ECMAScriptMemoryModel/Observables.pdf, id=244, 232.9503pt x 154.6578pt>
+<ECMAScriptMemoryModel/Observables.pdf, id=234, 232.9503pt x 154.6578pt>
 File: ECMAScriptMemoryModel/Observables.pdf Graphic file (type pdf)
 <use ECMAScriptMemoryModel/Observables.pdf>
 Package pdftex.def Info: ECMAScriptMemoryModel/Observables.pdf  used on input l
@@ -1742,20 +1751,20 @@ ine 47.
 bservables.pdf>]
 LaTeX Font Info:    Font shape `OMS/lmr/m/it' in size <12> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 22.
-<ECMAScriptMemoryModel/CoherentReads1.pdf, id=266, 389.5353pt x 103.3461pt>
+<ECMAScriptMemoryModel/CoherentReads1.pdf, id=256, 389.5353pt x 103.3461pt>
 File: ECMAScriptMemoryModel/CoherentReads1.pdf Graphic file (type pdf)
 <use ECMAScriptMemoryModel/CoherentReads1.pdf>
 Package pdftex.def Info: ECMAScriptMemoryModel/CoherentReads1.pdf  used on inpu
 t line 29.
 (pdftex.def)             Requested size: 272.67284pt x 72.34177pt.
-<ECMAScriptMemoryModel/CoherentReads2.pdf, id=267, 507.81718pt x 128.3997pt>
+<ECMAScriptMemoryModel/CoherentReads2.pdf, id=257, 507.81718pt x 128.3997pt>
 File: ECMAScriptMemoryModel/CoherentReads2.pdf Graphic file (type pdf)
 <use ECMAScriptMemoryModel/CoherentReads2.pdf>
 Package pdftex.def Info: ECMAScriptMemoryModel/CoherentReads2.pdf  used on inpu
 t line 44.
 (pdftex.def)             Requested size: 355.46959pt x 89.87917pt.
  [18 <./ECMAScriptMemoryModel/CoherentReads1.pdf>]
-<ECMAScriptMemoryModel/TearFreeReads.pdf, id=285, 535.03888pt x 139.4811pt>
+<ECMAScriptMemoryModel/TearFreeReads.pdf, id=276, 535.03888pt x 139.4811pt>
 File: ECMAScriptMemoryModel/TearFreeReads.pdf Graphic file (type pdf)
 <use ECMAScriptMemoryModel/TearFreeReads.pdf>
 Package pdftex.def Info: ECMAScriptMemoryModel/TearFreeReads.pdf  used on input
@@ -1763,21 +1772,21 @@ Package pdftex.def Info: ECMAScriptMemoryModel/TearFreeReads.pdf  used on input
 (pdftex.def)             Requested size: 374.52466pt x 97.6361pt.
  [19 <./ECMAScriptMemoryModel/CoherentReads2.pdf> <./ECMAScriptMemoryModel/Tear
 FreeReads.pdf>]
-<ECMAScriptMemoryModel/SequentialAtomics1.pdf, id=317, 528.05281pt x 128.3997pt
+<ECMAScriptMemoryModel/SequentialAtomics1.pdf, id=308, 528.05281pt x 128.3997pt
 >
 File: ECMAScriptMemoryModel/SequentialAtomics1.pdf Graphic file (type pdf)
 <use ECMAScriptMemoryModel/SequentialAtomics1.pdf>
 Package pdftex.def Info: ECMAScriptMemoryModel/SequentialAtomics1.pdf  used on 
 input line 102.
 (pdftex.def)             Requested size: 369.63445pt x 89.87917pt.
-<ECMAScriptMemoryModel/SequentialAtomics2.pdf, id=318, 542.98856pt x 139.4811pt
+<ECMAScriptMemoryModel/SequentialAtomics2.pdf, id=309, 542.98856pt x 139.4811pt
 >
 File: ECMAScriptMemoryModel/SequentialAtomics2.pdf Graphic file (type pdf)
 <use ECMAScriptMemoryModel/SequentialAtomics2.pdf>
 Package pdftex.def Info: ECMAScriptMemoryModel/SequentialAtomics2.pdf  used on 
 input line 119.
 (pdftex.def)             Requested size: 380.08939pt x 97.6361pt.
-<ECMAScriptMemoryModel/SequentialAtomics3.pdf, id=319, 539.1342pt x 133.45859pt
+<ECMAScriptMemoryModel/SequentialAtomics3.pdf, id=310, 539.1342pt x 133.45859pt
 >
 File: ECMAScriptMemoryModel/SequentialAtomics3.pdf Graphic file (type pdf)
 <use ECMAScriptMemoryModel/SequentialAtomics3.pdf>
@@ -1818,7 +1827,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--7
  []
 
 [26]
-<InstructionReordering/Lemmas/lemma_proof1_case1.pdf, id=386, 145.50359pt x 211
+<InstructionReordering/Lemmas/lemma_proof1_case1.pdf, id=377, 145.50359pt x 211
 .7511pt>
 File: InstructionReordering/Lemmas/lemma_proof1_case1.pdf Graphic file (type pd
 f)
@@ -1826,7 +1835,7 @@ f)
 Package pdftex.def Info: InstructionReordering/Lemmas/lemma_proof1_case1.pdf  u
 sed on input line 52.
 (pdftex.def)             Requested size: 101.8518pt x 148.22475pt.
-<InstructionReordering/Lemmas/lemma_proof1_case2.pdf, id=387, 217.77359pt x 211
+<InstructionReordering/Lemmas/lemma_proof1_case2.pdf, id=378, 217.77359pt x 211
 .7511pt>
 File: InstructionReordering/Lemmas/lemma_proof1_case2.pdf Graphic file (type pd
 f)
@@ -1840,7 +1849,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 92--93
  []
 
 [28 <./InstructionReordering/Lemmas/lemma_proof1_case2.pdf>]
-<InstructionReordering/Lemmas/lemma_proof2_case1.pdf, id=423, 145.50359pt x 204
+<InstructionReordering/Lemmas/lemma_proof2_case1.pdf, id=413, 145.50359pt x 204
 .765pt>
 File: InstructionReordering/Lemmas/lemma_proof2_case1.pdf Graphic file (type pd
 f)
@@ -1848,7 +1857,7 @@ f)
 Package pdftex.def Info: InstructionReordering/Lemmas/lemma_proof2_case1.pdf  u
 sed on input line 141.
 (pdftex.def)             Requested size: 101.8518pt x 143.3345pt.
-<InstructionReordering/Lemmas/lemma_proof2_case2.pdf, id=424, 232.9503pt x 204.
+<InstructionReordering/Lemmas/lemma_proof2_case2.pdf, id=414, 232.9503pt x 204.
 765pt>
 File: InstructionReordering/Lemmas/lemma_proof2_case2.pdf Graphic file (type pd
 f)
@@ -1863,7 +1872,7 @@ onReordering/Lemmas/lemma_proof2_case2.pdf>]
 (./InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1.tex
 [31]
 <InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1(a).pdf, id=4
-62, 405.43468pt x 154.6578pt>
+53, 405.43468pt x 154.6578pt>
 File: InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1(a).pdf 
 Graphic file (type pdf)
 <use InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1(a).pdf>
@@ -1871,7 +1880,7 @@ Package pdftex.def Info: InstructionReordering/ValidReorderingProof/ProofParts/
 Part1/part1(a).pdf  used on input line 27.
 (pdftex.def)             Requested size: 283.80234pt x 108.2597pt.
 <InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1(b).pdf, id=4
-63, 413.62529pt x 247.8861pt>
+54, 413.62529pt x 247.8861pt>
 File: InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1(b).pdf 
 Graphic file (type pdf)
 <use InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1(b).pdf>
@@ -1888,7 +1897,7 @@ re-order-ing, any $\OML/lmm/m/it/12 CandidateExecution$
 >] [33 <./InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1(b).
 pdf>]
 <InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1(d).pdf, id=4
-96, 608.2725pt x 139.4811pt>
+86, 608.2725pt x 139.4811pt>
 File: InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1(d).pdf 
 Graphic file (type pdf)
 <use InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1(d).pdf>
@@ -1901,7 +1910,7 @@ pdfTeX warning: pdflatex (file ./InstructionReordering/ValidReorderingProof/Pro
 ofParts/Part1/part1_table.pdf): PDF inclusion: found PDF version <1.7>, but at 
 most version <1.5> allowed
 <InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1_table.pdf, i
-d=497, 288.78792pt x 105.194pt>
+d=487, 288.78792pt x 105.194pt>
 File: InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1_table.p
 df Graphic file (type pdf)
 <use InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1_table.pd
@@ -1910,7 +1919,7 @@ Package pdftex.def Info: InstructionReordering/ValidReorderingProof/ProofParts/
 Part1/part1_table.pdf  used on input line 94.
 (pdftex.def)             Requested size: 202.15015pt x 73.63528pt.
 <InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1(e).pdf, id=4
-98, 608.2725pt x 309.07468pt>
+88, 608.2725pt x 309.07468pt>
 File: InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1(e).pdf 
 Graphic file (type pdf)
 <use InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1(e).pdf>
@@ -1921,7 +1930,7 @@ Part1/part1(e).pdf  used on input line 103.
 > <./InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1_table.pd
 f>]
 <InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1(f).pdf, id=5
-30, 596.2275pt x 377.49028pt>
+20, 596.2275pt x 377.49028pt>
 File: InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1(f).pdf 
 Graphic file (type pdf)
 <use InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1(f).pdf>
@@ -1932,7 +1941,7 @@ Part1/part1(f).pdf  used on input line 111.
 [35 <./InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1(e).pdf
 > <./InstructionReordering/ValidReorderingProof/ProofParts/Part1/part1(f).pdf>]
 <InstructionReordering/ValidReorderingProof/ProofParts/Part2/part2(c).pdf, id=5
-52, 387.36719pt x 175.61609pt>
+42, 387.36719pt x 175.61609pt>
 File: InstructionReordering/ValidReorderingProof/ProofParts/Part2/part2(c).pdf 
 Graphic file (type pdf)
 <use InstructionReordering/ValidReorderingProof/ProofParts/Part2/part2(c).pdf>
@@ -1940,7 +1949,7 @@ Package pdftex.def Info: InstructionReordering/ValidReorderingProof/ProofParts/
 Part2/part2(c).pdf  used on input line 21.
 (pdftex.def)             Requested size: 271.15518pt x 122.93042pt.
 <InstructionReordering/ValidReorderingProof/ProofParts/Part2/part2(d).pdf, id=5
-53, 377.49028pt x 196.8153pt>
+43, 377.49028pt x 196.8153pt>
 File: InstructionReordering/ValidReorderingProof/ProofParts/Part2/part2(d).pdf 
 Graphic file (type pdf)
 <use InstructionReordering/ValidReorderingProof/ProofParts/Part2/part2(d).pdf>
@@ -1954,7 +1963,7 @@ pdfTeX warning: pdflatex (file ./InstructionReordering/ValidReorderingProof/Pro
 ofParts/Part2/part2_table.pdf): PDF inclusion: found PDF version <1.7>, but at 
 most version <1.5> allowed
 <InstructionReordering/ValidReorderingProof/ProofParts/Part2/part2_table.pdf, i
-d=566, 279.85655pt x 92.2928pt>
+d=557, 279.85655pt x 92.2928pt>
 File: InstructionReordering/ValidReorderingProof/ProofParts/Part2/part2_table.p
 df Graphic file (type pdf)
 <use InstructionReordering/ValidReorderingProof/ProofParts/Part2/part2_table.pd
@@ -1964,7 +1973,7 @@ Part2/part2_table.pdf  used on input line 41.
 (pdftex.def)             Requested size: 195.89824pt x 64.6045pt.
 ) (./InstructionReordering/ValidReorderingProof/ProofParts/Part3/part3.tex
 <InstructionReordering/ValidReorderingProof/ProofParts/Part3/part3(a).pdf, id=5
-67, 175.61609pt x 117.3183pt>
+58, 175.61609pt x 117.3183pt>
 File: InstructionReordering/ValidReorderingProof/ProofParts/Part3/part3(a).pdf 
 Graphic file (type pdf)
 <use InstructionReordering/ValidReorderingProof/ProofParts/Part3/part3(a).pdf>
@@ -1976,7 +1985,7 @@ Part3/part3(a).pdf  used on input line 6.
 > <./InstructionReordering/ValidReorderingProof/ProofParts/Part2/part2_table.pd
 f>]
 <InstructionReordering/ValidReorderingProof/ProofParts/Part3/part3(b).pdf, id=5
-99, 405.43468pt x 151.5261pt>
+90, 405.43468pt x 151.5261pt>
 File: InstructionReordering/ValidReorderingProof/ProofParts/Part3/part3(b).pdf 
 Graphic file (type pdf)
 <use InstructionReordering/ValidReorderingProof/ProofParts/Part3/part3(b).pdf>
@@ -1986,7 +1995,7 @@ Part3/part3(b).pdf  used on input line 41.
  [38 <./InstructionReordering/ValidReorderingProof/ProofParts/Part3/part3(a).pd
 f>]
 <InstructionReordering/ValidReorderingProof/ProofParts/Part3/part3(c).pdf, id=6
-14, 456.74638pt x 151.5261pt>
+05, 456.74638pt x 151.5261pt>
 File: InstructionReordering/ValidReorderingProof/ProofParts/Part3/part3(c).pdf 
 Graphic file (type pdf)
 <use InstructionReordering/ValidReorderingProof/ProofParts/Part3/part3(c).pdf>
@@ -1994,7 +2003,7 @@ Package pdftex.def Info: InstructionReordering/ValidReorderingProof/ProofParts/
 Part3/part3(c).pdf  used on input line 62.
 (pdftex.def)             Requested size: 319.72029pt x 106.06752pt.
 <InstructionReordering/ValidReorderingProof/ProofParts/Part3/part3(d).pdf, id=6
-15, 187.66109pt x 151.5261pt>
+06, 187.66109pt x 151.5261pt>
 File: InstructionReordering/ValidReorderingProof/ProofParts/Part3/part3(d).pdf 
 Graphic file (type pdf)
 <use InstructionReordering/ValidReorderingProof/ProofParts/Part3/part3(d).pdf>
@@ -2010,7 +2019,7 @@ pdfTeX warning: pdflatex (file ./InstructionReordering/ValidReorderingProof/Pro
 ofParts/Part3/part3_table.pdf): PDF inclusion: found PDF version <1.7>, but at 
 most version <1.5> allowed
 <InstructionReordering/ValidReorderingProof/ProofParts/Part3/part3_table.pdf, i
-d=651, 291.76501pt x 105.194pt>
+d=641, 291.76501pt x 105.194pt>
 File: InstructionReordering/ValidReorderingProof/ProofParts/Part3/part3_table.p
 df Graphic file (type pdf)
 <use InstructionReordering/ValidReorderingProof/ProofParts/Part3/part3_table.pd
@@ -2022,7 +2031,7 @@ Part3/part3_table.pdf  used on input line 131.
 [41 <./InstructionReordering/ValidReorderingProof/ProofParts/Part3/part3_table.
 pdf>]
 <InstructionReordering/ValidReorderingProof/ProofParts/Part4/part4(a).pdf, id=6
-74, 795.93356pt x 399.41219pt>
+64, 795.93356pt x 399.41219pt>
 File: InstructionReordering/ValidReorderingProof/ProofParts/Part4/part4(a).pdf 
 Graphic file (type pdf)
 <use InstructionReordering/ValidReorderingProof/ProofParts/Part4/part4(a).pdf>
@@ -2036,7 +2045,7 @@ Overfull \hbox (47.5592pt too wide) in paragraph at lines 49--50
 
 [42]
 <InstructionReordering/ValidReorderingProof/ProofParts/Part4/part4(b).pdf, id=6
-78, 582.25531pt x 313.17pt>
+69, 582.25531pt x 313.17pt>
 File: InstructionReordering/ValidReorderingProof/ProofParts/Part4/part4(b).pdf 
 Graphic file (type pdf)
 <use InstructionReordering/ValidReorderingProof/ProofParts/Part4/part4(b).pdf>
@@ -2046,7 +2055,7 @@ Part4/part4(b).pdf  used on input line 65.
  [43 <./InstructionReordering/ValidReorderingProof/ProofParts/Part4/part4(a).pd
 f>]
 <InstructionReordering/ValidReorderingProof/ProofParts/Part4/part4(c).pdf, id=6
-97, 549.97469pt x 218.7372pt>
+88, 549.97469pt x 218.7372pt>
 File: InstructionReordering/ValidReorderingProof/ProofParts/Part4/part4(c).pdf 
 Graphic file (type pdf)
 <use InstructionReordering/ValidReorderingProof/ProofParts/Part4/part4(c).pdf>
@@ -2057,7 +2066,7 @@ Part4/part4(c).pdf  used on input line 80.
 f> <./InstructionReordering/ValidReorderingProof/ProofParts/Part4/part4(c).pdf>
 ]
 <InstructionReordering/ValidReorderingProof/ProofParts/Part4/part4(d).pdf, id=7
-31, 1135.3617pt x 493.845pt>
+22, 1135.3617pt x 493.845pt>
 File: InstructionReordering/ValidReorderingProof/ProofParts/Part4/part4(d).pdf 
 Graphic file (type pdf)
 <use InstructionReordering/ValidReorderingProof/ProofParts/Part4/part4(d).pdf>
@@ -2074,7 +2083,7 @@ Overfull \hbox (24.13202pt too wide) in paragraph at lines 95--96
 pdfTeX warning: pdflatex (file ./InstructionReordering/ValidReorderingProof/par
 t4_table.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5
 > allowed
-<InstructionReordering/ValidReorderingProof/part4_table.pdf, id=732, 273.27094p
+<InstructionReordering/ValidReorderingProof/part4_table.pdf, id=723, 273.27094p
 t x 93.40897pt>
 File: InstructionReordering/ValidReorderingProof/part4_table.pdf Graphic file (
 type pdf)
@@ -2093,7 +2102,7 @@ n/12 )$,
  []
 
 [47] [48]) (./InstructionReordering/counter_examples.tex
-<InstructionReordering/Example1(Rsc-Ruo,sc).pdf, id=781, 477.70468pt x 182.6022
+<InstructionReordering/Example1(Rsc-Ruo,sc).pdf, id=771, 477.70468pt x 182.6022
 pt>
 File: InstructionReordering/Example1(Rsc-Ruo,sc).pdf Graphic file (type pdf)
 <use InstructionReordering/Example1(Rsc-Ruo,sc).pdf>
@@ -2101,7 +2110,7 @@ Package pdftex.def Info: InstructionReordering/Example1(Rsc-Ruo,sc).pdf  used o
 n input line 16.
 (pdftex.def)             Requested size: 334.39099pt x 127.82066pt.
  [49]
-<InstructionReordering/Example1R(Rsc-Ruo,sc).pdf, id=785, 434.58359pt x 196.815
+<InstructionReordering/Example1R(Rsc-Ruo,sc).pdf, id=775, 434.58359pt x 196.815
 3pt>
 File: InstructionReordering/Example1R(Rsc-Ruo,sc).pdf Graphic file (type pdf)
 <use InstructionReordering/Example1R(Rsc-Ruo,sc).pdf>
@@ -2110,7 +2119,7 @@ on input line 31.
 (pdftex.def)             Requested size: 304.20644pt x 137.76976pt.
  [50 <./InstructionReordering/Example1(Rsc-Ruo,sc).pdf> <./InstructionReorderin
 g/Example1R(Rsc-Ruo,sc).pdf>]
-<InstructionReordering/Example3(Rsc-Wuo,sc).pdf, id=819, 490.71327pt x 161.6438
+<InstructionReordering/Example3(Rsc-Wuo,sc).pdf, id=810, 490.71327pt x 161.6438
 9pt>
 File: InstructionReordering/Example3(Rsc-Wuo,sc).pdf Graphic file (type pdf)
 <use InstructionReordering/Example3(Rsc-Wuo,sc).pdf>
@@ -2123,14 +2132,14 @@ Package pdftex.def Info: InstructionReordering/Example3(Rsc-Wuo,sc).pdf  used o
 n input line 68.
 (pdftex.def)             Requested size: 343.49695pt x 113.14995pt.
  [51 <./InstructionReordering/Example3(Rsc-Wuo,sc).pdf>]
-<InstructionReordering/Example4(Ruo-Wsc).pdf, id=839, 490.71327pt x 161.64389pt
+<InstructionReordering/Example4(Ruo-Wsc).pdf, id=829, 490.71327pt x 161.64389pt
 >
 File: InstructionReordering/Example4(Ruo-Wsc).pdf Graphic file (type pdf)
 <use InstructionReordering/Example4(Ruo-Wsc).pdf>
 Package pdftex.def Info: InstructionReordering/Example4(Ruo-Wsc).pdf  used on i
 nput line 85.
 (pdftex.def)             Requested size: 343.49695pt x 113.14995pt.
-<InstructionReordering/Example4R(Ruo-Wsc).pdf, id=840, 504.92638pt x 175.61609p
+<InstructionReordering/Example4R(Ruo-Wsc).pdf, id=830, 504.92638pt x 175.61609p
 t>
 File: InstructionReordering/Example4R(Ruo-Wsc).pdf Graphic file (type pdf)
 <use InstructionReordering/Example4R(Ruo-Wsc).pdf>
@@ -2138,13 +2147,13 @@ Package pdftex.def Info: InstructionReordering/Example4R(Ruo-Wsc).pdf  used on
 input line 91.
 (pdftex.def)             Requested size: 353.44604pt x 122.93042pt.
  [52 <./InstructionReordering/Example4(Ruo-Wsc).pdf>]
-<InstructionReordering/Example5(Wsc-Rsc).pdf, id=859, 469.755pt x 180.675pt>
+<InstructionReordering/Example5(Wsc-Rsc).pdf, id=849, 469.755pt x 180.675pt>
 File: InstructionReordering/Example5(Wsc-Rsc).pdf Graphic file (type pdf)
 <use InstructionReordering/Example5(Wsc-Rsc).pdf>
 Package pdftex.def Info: InstructionReordering/Example5(Wsc-Rsc).pdf  used on i
 nput line 102.
 (pdftex.def)             Requested size: 328.82626pt x 126.47162pt.
-<InstructionReordering/Example5R(Wsc-Rsc).pdf, id=860, 467.82779pt x 161.64389p
+<InstructionReordering/Example5R(Wsc-Rsc).pdf, id=850, 467.82779pt x 161.64389p
 t>
 File: InstructionReordering/Example5R(Wsc-Rsc).pdf Graphic file (type pdf)
 <use InstructionReordering/Example5R(Wsc-Rsc).pdf>
@@ -2153,7 +2162,7 @@ input line 110.
 (pdftex.def)             Requested size: 327.47722pt x 113.14995pt.
  [53 <./InstructionReordering/Example4R(Ruo-Wsc).pdf> <./InstructionReordering/
 Example5(Wsc-Rsc).pdf>]
-<InstructionReordering/Example7(Wuo,sc-Wsc).pdf, id=894, 474.81387pt x 161.6438
+<InstructionReordering/Example7(Wuo,sc-Wsc).pdf, id=884, 474.81387pt x 161.6438
 9pt>
 File: InstructionReordering/Example7(Wuo,sc-Wsc).pdf Graphic file (type pdf)
 <use InstructionReordering/Example7(Wuo,sc-Wsc).pdf>
@@ -2162,7 +2171,7 @@ n input line 128.
 (pdftex.def)             Requested size: 332.36745pt x 113.14995pt.
  [54 <./InstructionReordering/Example5R(Wsc-Rsc).pdf> <./InstructionReordering/
 Example7(Wuo,sc-Wsc).pdf>]
-<InstructionReordering/Example7R(Wuo,sc-Wsc).pdf, id=929, 473.85028pt x 161.643
+<InstructionReordering/Example7R(Wuo,sc-Wsc).pdf, id=919, 473.85028pt x 161.643
 89pt>
 File: InstructionReordering/Example7R(Wuo,sc-Wsc).pdf Graphic file (type pdf)
 <use InstructionReordering/Example7R(Wuo,sc-Wsc).pdf>
@@ -2171,48 +2180,84 @@ on input line 142.
 (pdftex.def)             Requested size: 331.69293pt x 113.14995pt.
 ) (./InstructionReordering/generalization.tex [55 <./InstructionReordering/Exam
 ple7R(Wuo,sc-Wsc).pdf>]
-<InstructionReordering/Conditionals2Form.pdf, id=948, 384.47638pt x 232.9503pt>
+<InstructionReordering/Conditionals2Form.pdf, id=939, 384.47638pt x 232.9503pt>
 
 File: InstructionReordering/Conditionals2Form.pdf Graphic file (type pdf)
 <use InstructionReordering/Conditionals2Form.pdf>
 Package pdftex.def Info: InstructionReordering/Conditionals2Form.pdf  used on i
-nput line 35.
+nput line 36.
 (pdftex.def)             Requested size: 269.13162pt x 163.06409pt.
  [56] [57 <./InstructionReordering/Conditionals2Form.pdf>]
-<InstructionReordering/ConditionalsProofFig1.pdf, id=965, 449.76028pt x 291.007
+<InstructionReordering/ConditionalsProofFig1.pdf, id=955, 449.76028pt x 291.007
 19pt>
 File: InstructionReordering/ConditionalsProofFig1.pdf Graphic file (type pdf)
 <use InstructionReordering/ConditionalsProofFig1.pdf>
 Package pdftex.def Info: InstructionReordering/ConditionalsProofFig1.pdf  used 
-on input line 85.
+on input line 79.
 (pdftex.def)             Requested size: 314.83003pt x 203.70363pt.
-<InstructionReordering/ConditionalsProofFig2.pdf, id=966, 516.00781pt x 407.602
+<InstructionReordering/ConditionalsProofFig2.pdf, id=956, 516.00781pt x 407.602
 78pt>
 File: InstructionReordering/ConditionalsProofFig2.pdf Graphic file (type pdf)
 <use InstructionReordering/ConditionalsProofFig2.pdf>
 Package pdftex.def Info: InstructionReordering/ConditionalsProofFig2.pdf  used 
-on input line 93.
+on input line 87.
 (pdftex.def)             Requested size: 361.203pt x 285.31999pt.
  [58 <./InstructionReordering/ConditionalsProofFig1.pdf>] [59 <./InstructionReo
 rdering/ConditionalsProofFig2.pdf>] [60] [61]
-<InstructionReordering/ConditionalsProofFig3.pdf, id=997, 384.47638pt x 305.220
+<InstructionReordering/ConditionalsProofFig3.pdf, id=988, 384.47638pt x 305.220
 29pt>
 File: InstructionReordering/ConditionalsProofFig3.pdf Graphic file (type pdf)
 <use InstructionReordering/ConditionalsProofFig3.pdf>
 Package pdftex.def Info: InstructionReordering/ConditionalsProofFig3.pdf  used 
-on input line 208.
+on input line 200.
 (pdftex.def)             Requested size: 269.13162pt x 213.65274pt.
- [62 <./InstructionReordering/ConditionalsProofFig3.pdf>])) [63]
+ [62 <./InstructionReordering/ConditionalsProofFig3.pdf>]
+<InstructionReordering/CounterExamples1a(Conditionals).pdf, id=1001, 586.10968p
+t x 349.305pt>
+File: InstructionReordering/CounterExamples1a(Conditionals).pdf Graphic file (t
+ype pdf)
+<use InstructionReordering/CounterExamples1a(Conditionals).pdf>
+Package pdftex.def Info: InstructionReordering/CounterExamples1a(Conditionals).
+pdf  used on input line 223.
+(pdftex.def)             Requested size: 410.27397pt x 244.51183pt.
+<InstructionReordering/CounterExamples1b(Conditionals).pdf, id=1002, 576.23282p
+t x 335.33278pt>
+File: InstructionReordering/CounterExamples1b(Conditionals).pdf Graphic file (t
+ype pdf)
+<use InstructionReordering/CounterExamples1b(Conditionals).pdf>
+Package pdftex.def Info: InstructionReordering/CounterExamples1b(Conditionals).
+pdf  used on input line 229.
+(pdftex.def)             Requested size: 403.36021pt x 234.73134pt.
+<InstructionReordering/CounterExamples2a(Conditionals).pdf, id=1003, 568.04218p
+t x 335.33278pt>
+File: InstructionReordering/CounterExamples2a(Conditionals).pdf Graphic file (t
+ype pdf)
+<use InstructionReordering/CounterExamples2a(Conditionals).pdf>
+Package pdftex.def Info: InstructionReordering/CounterExamples2a(Conditionals).
+pdf  used on input line 237.
+(pdftex.def)             Requested size: 397.62682pt x 234.73134pt.
+<InstructionReordering/CounterExamples2b(Conditionals).pdf, id=1004, 533.1117pt
+ x 335.33278pt>
+File: InstructionReordering/CounterExamples2b(Conditionals).pdf Graphic file (t
+ype pdf)
+<use InstructionReordering/CounterExamples2b(Conditionals).pdf>
+Package pdftex.def Info: InstructionReordering/CounterExamples2b(Conditionals).
+pdf  used on input line 243.
+(pdftex.def)             Requested size: 373.17563pt x 234.73134pt.
+ [63 <./InstructionReordering/CounterExamples1a(Conditionals).pdf>] [64 <./Inst
+ructionReordering/CounterExamples1b(Conditionals).pdf> <./InstructionReordering
+/CounterExamples2a(Conditionals).pdf>]
+[65 <./InstructionReordering/CounterExamples2b(Conditionals).pdf>])) [66]
 Chapter 6.
 (./Elimination/intro.tex (./Elimination/ReadElimProof/theorem.tex)
 (./Elimination/ReadElimProof/proof.tex
-(./Elimination/ReadElimProof/ProofParts/part1.tex [64
+(./Elimination/ReadElimProof/ProofParts/part1.tex [67
 
 ])
 (./Elimination/ReadElimProof/ProofParts/part2.tex)
 (./Elimination/ReadElimProof/ProofParts/part3.tex)
 (./Elimination/ReadElimProof/ProofParts/part4.tex
-<Elimination/ReadElimProof/ProofParts/Part4_Case1.pdf, id=1017, 752.8125pt x 36
+<Elimination/ReadElimProof/ProofParts/Part4_Case1.pdf, id=1082, 752.8125pt x 36
 3.27718pt>
 File: Elimination/ReadElimProof/ProofParts/Part4_Case1.pdf Graphic file (type p
 df)
@@ -2220,8 +2265,8 @@ df)
 Package pdftex.def Info: Elimination/ReadElimProof/ProofParts/Part4_Case1.pdf  
 used on input line 13.
 (pdftex.def)             Requested size: 376.40532pt x 181.63814pt.
- [65]
-<Elimination/ReadElimProof/ProofParts/Part4_Case2.pdf, id=1021, 549.97469pt x 2
+ [68]
+<Elimination/ReadElimProof/ProofParts/Part4_Case2.pdf, id=1086, 549.97469pt x 2
 18.7372pt>
 File: Elimination/ReadElimProof/ProofParts/Part4_Case2.pdf Graphic file (type p
 df)
@@ -2229,15 +2274,15 @@ df)
 Package pdftex.def Info: Elimination/ReadElimProof/ProofParts/Part4_Case2.pdf  
 used on input line 27.
 (pdftex.def)             Requested size: 274.98666pt x 109.36832pt.
- [66 <./Elimination/ReadElimProof/ProofParts/Part4_Case1.pdf> <./Elimination/Re
+ [69 <./Elimination/ReadElimProof/ProofParts/Part4_Case1.pdf> <./Elimination/Re
 adElimProof/ProofParts/Part4_Case2.pdf>])) (./Elimination/WriteElimProof/theore
 m.tex)
 (./Elimination/WriteElimProof/proof.tex
-(./Elimination/WriteElimProof/ProofParts/part1.tex [67])
+(./Elimination/WriteElimProof/ProofParts/part1.tex [70])
 (./Elimination/WriteElimProof/ProofParts/part2.tex)
 (./Elimination/WriteElimProof/ProofParts/part3.tex)
 (./Elimination/WriteElimProof/ProofParts/part4.tex
-<Elimination/WriteElimProof/ProofParts/Part4Case1.pdf, id=1058, 582.25531pt x 3
+<Elimination/WriteElimProof/ProofParts/Part4Case1.pdf, id=1123, 582.25531pt x 3
 13.17pt>
 File: Elimination/WriteElimProof/ProofParts/Part4Case1.pdf Graphic file (type p
 df)
@@ -2245,8 +2290,8 @@ df)
 Package pdftex.def Info: Elimination/WriteElimProof/ProofParts/Part4Case1.pdf  
 used on input line 12.
 (pdftex.def)             Requested size: 291.12694pt x 156.58461pt.
- [68]
-<Elimination/WriteElimProof/ProofParts/Part4Case2.pdf, id=1062, 1135.3617pt x 4
+ [71]
+<Elimination/WriteElimProof/ProofParts/Part4Case2.pdf, id=1127, 1135.3617pt x 4
 93.845pt>
 File: Elimination/WriteElimProof/ProofParts/Part4Case2.pdf Graphic file (type p
 df)
@@ -2254,16 +2299,54 @@ df)
 Package pdftex.def Info: Elimination/WriteElimProof/ProofParts/Part4Case2.pdf  
 used on input line 26.
 (pdftex.def)             Requested size: 340.61113pt x 148.15463pt.
- [69 <./Elimination/WriteElimProof/ProofParts/Part4Case1.pdf>]))
-(./Elimination/WriteElimProof/corollary.tex [70 <./Elimination/WriteElimProof/P
-roofParts/Part4Case2.pdf>]) (./Elimination/generalization.tex [71] [72]
-[73])) [74]
-Chapter 7.
-[75
+ [72 <./Elimination/WriteElimProof/ProofParts/Part4Case1.pdf>]))
+(./Elimination/WriteElimProof/corollary.tex [73 <./Elimination/WriteElimProof/P
+roofParts/Part4Case2.pdf>]) (./Elimination/generalization.tex [74] [75]
+<Elimination/ConditionalsProofFig1.pdf, id=1171, 251.9814pt x 407.60278pt>
+File: Elimination/ConditionalsProofFig1.pdf Graphic file (type pdf)
+<use Elimination/ConditionalsProofFig1.pdf>
+Package pdftex.def Info: Elimination/ConditionalsProofFig1.pdf  used on input l
+ine 51.
+(pdftex.def)             Requested size: 176.38577pt x 285.31999pt.
 
-]
-Chapter 8.
-[76
+[76 <./Elimination/ConditionalsProofFig1.pdf>]
+<Elimination/ConditionalsProofFig2.pdf, id=1184, 251.9814pt x 407.60278pt>
+File: Elimination/ConditionalsProofFig2.pdf Graphic file (type pdf)
+<use Elimination/ConditionalsProofFig2.pdf>
+Package pdftex.def Info: Elimination/ConditionalsProofFig2.pdf  used on input l
+ine 65.
+(pdftex.def)             Requested size: 176.38577pt x 285.31999pt.
+<Elimination/ConditionalsProofFig3.pdf, id=1185, 196.8153pt x 407.60278pt>
+File: Elimination/ConditionalsProofFig3.pdf Graphic file (type pdf)
+<use Elimination/ConditionalsProofFig3.pdf>
+Package pdftex.def Info: Elimination/ConditionalsProofFig3.pdf  used on input l
+ine 82.
+(pdftex.def)             Requested size: 137.76976pt x 285.31999pt.
+ [77 <./Elimination/ConditionalsProofFig2.pdf>]
+<Elimination/ConditionalsProofFig4.pdf, id=1198, 181.6386pt x 291.00719pt>
+File: Elimination/ConditionalsProofFig4.pdf Graphic file (type pdf)
+<use Elimination/ConditionalsProofFig4.pdf>
+Package pdftex.def Info: Elimination/ConditionalsProofFig4.pdf  used on input l
+ine 97.
+(pdftex.def)             Requested size: 127.14613pt x 203.70363pt.
+ [78 <./Elimination/ConditionalsProofFig3.pdf>]
+<Elimination/ConditionalsProofFig6.pdf, id=1212, 181.6386pt x 299.19778pt>
+File: Elimination/ConditionalsProofFig6.pdf Graphic file (type pdf)
+<use Elimination/ConditionalsProofFig6.pdf>
+Package pdftex.def Info: Elimination/ConditionalsProofFig6.pdf  used on input l
+ine 120.
+(pdftex.def)             Requested size: 127.14613pt x 209.43701pt.
+ [79 <./Elimination/ConditionalsProofFig4.pdf>]
+<Elimination/ConditionalsProofFig5.pdf, id=1225, 181.6386pt x 305.22029pt>
+File: Elimination/ConditionalsProofFig5.pdf Graphic file (type pdf)
+<use Elimination/ConditionalsProofFig5.pdf>
+Package pdftex.def Info: Elimination/ConditionalsProofFig5.pdf  used on input l
+ine 135.
+(pdftex.def)             Requested size: 127.14613pt x 213.65274pt.
+ [80 <./Elimination/ConditionalsProofFig6.pdf>]
+[81 <./Elimination/ConditionalsProofFig5.pdf>] [82] [83] [84] [85])) [86]
+Chapter 7.
+[87
 
 ] (./main.aux)
 
@@ -2271,13 +2354,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 23515 strings out of 494923
- 478272 string characters out of 6180742
+ 23562 strings out of 494923
+ 480729 string characters out of 6180742
  482531 words of memory out of 5000000
- 26284 multiletter control sequences out of 15000+600000
+ 26324 multiletter control sequences out of 15000+600000
  615291 words of font info for 76 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 55i,14n,54p,10355b,396s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,14n,54p,10355b,405s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
 c/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}</usr/s
 hare/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/publi
@@ -2292,10 +2375,10 @@ c/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmri8.pfb></usr/share/t
 exmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/l
 msy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (86 pages, 3830089 bytes).
+Output written on main.pdf (94 pages, 4079856 bytes).
 PDF statistics:
- 1184 PDF objects out of 1200 (max. 8388607)
- 808 compressed objects within 9 object streams
+ 1334 PDF objects out of 1440 (max. 8388607)
+ 911 compressed objects within 10 object streams
  0 named destinations out of 1000 (max. 500000)
- 313 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 363 words of extra memory for PDF output out of 10000 (max. 10000000)
 

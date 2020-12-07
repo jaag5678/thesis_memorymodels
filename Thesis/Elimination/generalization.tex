@@ -52,7 +52,7 @@
                                 \caption{Type 1:}    
                             \end{figure}
                         
-                            From the figure, we can infer by Prop \def{CondB1} that  
+                            From the figure, we can infer by Prop \ref{CondB1} that  
                             \begin{align*}
                                 \exists C \in P \ \text{s.t.} \ e \in C \ \wedge \ d \notin C
                             \end{align*}
@@ -66,7 +66,7 @@
                                 \caption{Type 2:}    
                             \end{figure}
                         
-                            From the figure, we can infer by Prop \def{CondB1} that
+                            From the figure, we can infer by Prop \ref{CondB1} that
                             \begin{align*}
                                 \exists C \in P \ \text{s.t.} \ e \notin C \ \wedge \ d \in C
                             \end{align*}
@@ -98,7 +98,7 @@
                                 \caption{Type 4:}    
                             \end{figure}
 
-                            From the figure, we can infer by Prop \def{CondB1} that
+                            From the figure, we can infer by Prop \ref{CondB1} that
                             \begin{align*}
                                 \exists C \in P \ \text{s.t.} \ e \notin C \ \wedge \ d \notin C
                             \end{align*}
@@ -188,7 +188,7 @@
         Next we consider the case of eliminating writes within a loop. 
         Eliminating such a read at a program level would imply in every candidate $C^i$ where $i$ denotes the number of iterations, the read $W$ within the loop can be eliminated.
 
-        For this, we need to have some write $d$ that can exist in all candidates where $e$ can exist. ($\nexist C \in P \ \text{s.t} \ e \in C \wedge d \notin C$). This condition corresponds to Corollary 2 of elimination, which handles the case of conditonals too. 
+        For this, we need to have some write $d$ that can exist in all candidates where $e$ can exist. ($\nexists C \in P \ \text{s.t} \ e \in C \wedge d \notin C$). This condition corresponds to Corollary 2 of elimination, which handles the case of conditonals too. 
         Next, we need to show that in each iteration the write $e$ can be eliminated. We once again have Corollary 2 to show when we can do this. 
         By transitive property of subsets, we can show that the resultant candidate has observable behaviors as a subset of original. 
         Doing this for all valid canddiates extends to program level.

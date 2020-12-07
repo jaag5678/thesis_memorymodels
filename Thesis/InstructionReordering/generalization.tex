@@ -213,22 +213,38 @@
 
         \end{proof}
 
-        In addition to the above proof, we also show certain counter examples where reordering may not be safe to do. 
+        In addition to the above proof, we also show certain counter examples where reordering may not be safe to do. This faciliates better understanding of the proof and its arguments.
 
         \paragraph{Case when $e$ is not in any conditional branch but $d$ is.}
 
             \critic{blue}{One example with two branches.}
+            The example below shows a case with a conditonal having two branches where reordering $e$ and $d$ is not safe. 
             \begin{figure}
                 \centering 
                 \includegraphics[scale=0.7]{InstructionReordering/CounterExamples1a(Conditionals).pdf}
                 \caption{}
             \end{figure}
 
+            The figure on the left above shows an example of such a program.  
+            The figure on the right shows the Candidate Execution where the red box outcome is not allowed when the left branch of the conditional is taken.
+            \begin{itemize}
+                \item From the Candidate Execution, we can infer $\reln{a=x;_{uo}}{hb}{\reln{y=1;_{sc}}{hb}{\reln{b=y;_{sc}}{hb}{\reln{y=3;_{uo}}{hb}{x=1;_{uo}}}}}$.
+                \item By Axiom \ref{CoRe}, the read $a$ cannot have value of $x$ read as $1$. 
+                \item This inference was due to $\reln{a=x;_{uo}}{hb}{x=1;_{uo}}$.
+            \end{itemize}
+
             \begin{figure}
                 \centering 
                 \includegraphics[scale=0.7]{InstructionReordering/CounterExamples1b(Conditionals).pdf}
                 \caption{}
             \end{figure}
+            The figure on the right above shows the program after reordering $e$ and $d$.  
+            The figure on the left shows a Candidate Execution where the yellow box outcome is allowed when the left branch of the conditional is taken.
+            \begin{itemize}
+                \item From the Candidate Execution, we can infer $\reln{a=x;_{uo}}{hb}{x=1;_{uo}}$. 
+                \item But there is no $\stck{_{hb}}$ relation with event $d$ and the read to $x$, i.e. $\neg \reln{a=x;_{uo}}{hb}{d:x=1;_{uo}}$
+                \item No Axiom restricts the read $a$ to have value of $x$ as $1$.
+            \end{itemize}
 
             \critic{blue}{One example with one branch.}
 
@@ -237,24 +253,54 @@
                 \includegraphics[scale=0.7]{InstructionReordering/CounterExamples2a(Conditionals).pdf}
                 \caption{}
             \end{figure}
+            The figure on the left above shows an example of such a program.  
+            The figure on the right shows the Candidate Execution where the red box outcome is not allowed when the conditional branch is not taken.
+            \begin{itemize}
+                \item From the Candidate Execution, we can infer $\reln{x=2;_{uo}}{hb}{\reln{x=1;_{uo}}{hb}{\reln{y=2;_{sc}}{hb}{\reln{b=y;_{sc}}{hb}{a=x;_{uo}}}}}$.
+                \item By Axiom \ref{CoRe}, the read $a$ cannot have the value of $x$ to be read as $2$.  
+                \item This inference was due to the realtion $\reln{x=2;_{uo}}{hb}{\reln{x=1;_{uo}}{hb}{a=x;_{uo}}}$.
+            \end{itemize}
 
             \begin{figure}
                 \centering 
                 \includegraphics[scale=0.7]{InstructionReordering/CounterExamples2b(Conditionals).pdf}
                 \caption{}
             \end{figure}
+            The figure on the right above shows the program after reordering $e$ and $d$.  
+            The figure on the left shows a Candidate Execution where the yellow box outcome is allowed when the conditional branch is not taken.
+            \begin{itemize}
+                \item From the Candidate Execution, we can infer $\reln{x=1;_{uo}}{hb}{a=x;_{uo}}$. 
+                \item But there is no $\stck{_{hb}}$ relation with event $e$ and the read to $x$, i.e. $\neg \reln{e:x=1;_{uo}}{hb}{a=x;_{uo}}$
+                \item No Axiom restricts the read $a$ to have value of $x$ as $2$.
+            \end{itemize}
 
-        \paragraph{Case when $e$ and $d$ are part of different conditional branches. One not nested in the other.}
-
-            \critic{One example suffices, irrespective of 2 branch or one branch.}
 
         \paragraph{Case when $e$ is part of a conditonal branch $B_e$ and $d$ is part of another conditonal branch $B_d$ nested within $B_e$.}
 
-            \critic{One example sufficies. It should relate the fact that $d$ is outside of its own conditional.}
+            This case is symmetric to the above. Hence, we do not show another counter example for it. (just consider the code of T1 above to be as a whole under a conditional.)
 
+        \paragraph{Case when $e$ and $d$ are part of different conditional branches. One not nested in the other.}
 
-        \critic{purple}{Put figures here of counter examples based on its type.}
+            \critic{blue}{One example suffices, irrespective of 2 branch or one branch.}
 
+            \begin{figure}
+                \centering 
+                \includegraphics[scale=0.7]{InstructionReordering/CounterExamples3a(Conditionals).pdf}
+                \caption{}
+            \end{figure}
+            The figure on the left above shows an example of such a program.  
+            The figure on the right shows the Candidate Execution where the red box outcome is not allowed when the left branch of the conditional is taken.
+            \begin{itemize}
+                \item From the Candidate Execution, we can infer "insert full hb relation"
+                \item Use an axiom to infer 
+                \item Mention the relation that resulted in it.
+            \end{itemize}
+
+            \begin{figure}
+                \centering 
+                \includegraphics[scale=0.7]{InstructionReordering/CounterExamples3b(Conditionals).pdf}
+                \caption{}
+            \end{figure}
 %------------------------------------------------------------------------------------------------------------------------------------------
     
     \subsection{Addressing Programs with Loops}
