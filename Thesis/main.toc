@@ -33,48 +33,50 @@
 \contentsline {section}{\numberline {4.8}Consistent Executions (Valid Observables)}{22}
 \contentsline {chapter}{\numberline {5}Instruction Reordering}{24}
 \contentsline {section}{\numberline {5.1}Introduction}{24}
-\contentsline {paragraph}{Simple reordering is not straightforward under shared memory semantics}{24}
-\contentsline {paragraph}{What can be done?}{24}
-\contentsline {paragraph}{Our approach}{25}
-\contentsline {paragraph}{Assumption}{25}
-\contentsline {subsection}{\numberline {5.1.1}Preliminaries}{25}
-\contentsline {subsection}{\numberline {5.1.2}Lemmas to assist our proof}{26}
-\contentsline {section}{\numberline {5.2}Valid reordering}{30}
-\contentsline {paragraph}{1. Preserving \textit {happens-before} relations}{32}
-\contentsline {paragraph}{2. Additional \textit {happens-before} relations}{36}
-\contentsline {paragraph}{3. Presence of cycles?}{37}
-\contentsline {paragraph}{4. Do new relations introduce new observable behaviors?}{41}
-\contentsline {paragraph}{Base Case: $n = 1.$}{47}
-\contentsline {paragraph}{2. Inductive Case $n > 1$}{48}
-\contentsline {subsection}{\numberline {5.2.1}Counter examples for the invalid cases}{49}
-\contentsline {paragraph}{Reads to same memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{49}
-\contentsline {paragraph}{Reads to non-equal range of memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{51}
-\contentsline {paragraph}{A Read $e$ of type $sc$ followed by a Write of either $uo/sc$}{51}
-\contentsline {paragraph}{A Read $e$ of type $uo$ followed by a write $d$ of type $sc$}{52}
-\contentsline {paragraph}{A Write $e$ followed by a Read $d$ both of type $sc$}{53}
-\contentsline {paragraph}{A Write $e$ of type $uo/sc$ followed by a Write $d$ of type $sc$}{54}
-\contentsline {section}{\numberline {5.3}From Candidates to Program}{55}
-\contentsline {subsection}{\numberline {5.3.1}Addressing programs with Conditionals}{56}
-\contentsline {paragraph}{Case when $e$ is not in any conditional branch but $d$ is.}{63}
-\contentsline {paragraph}{Case when $e$ and $d$ are part of different conditional branches. One not nested in the other.}{63}
-\contentsline {paragraph}{Case when $e$ is part of a conditonal branch $B_e$ and $d$ is part of another conditonal branch $B_d$ nested within $B_e$.}{63}
-\contentsline {subsection}{\numberline {5.3.2}Addressing Programs with Loops}{65}
-\contentsline {paragraph}{Loop invariant code motion}{66}
-\contentsline {chapter}{\numberline {6}Elimination}{67}
-\contentsline {section}{\numberline {6.1}Elimination}{67}
-\contentsline {paragraph}{1. Preserving \emph {happens-before} relations}{67}
-\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{68}
-\contentsline {paragraph}{3. Presence of Cycles?}{68}
-\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{68}
-\contentsline {paragraph}{Preserving Happens-before relations}{70}
-\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{71}
-\contentsline {paragraph}{3. Presence of Cycles?}{71}
-\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{71}
-\contentsline {paragraph}{Base Case : n = 1}{74}
-\contentsline {paragraph}{Inductive Case (n)}{74}
-\contentsline {section}{\numberline {6.2}From Candidates to Program}{75}
-\contentsline {subsection}{\numberline {6.2.1}Addressing Programs with Conditionals}{75}
-\contentsline {subsection}{\numberline {6.2.2}Addressing Programs with Loops}{82}
-\contentsline {paragraph}{Loop Invariant Code motion}{83}
-\contentsline {paragraph}{Reordering two events accross loops}{85}
-\contentsline {chapter}{\numberline {7}Conclusion, Summary, Future Work}{87}
+\contentsline {paragraph}{Simple reordering is not straightforward under shared memory semantics}{25}
+\contentsline {paragraph}{Some Examples}{25}
+\contentsline {section}{\numberline {5.2}Summary of Our Approach}{27}
+\contentsline {paragraph}{Assumption}{27}
+\contentsline {section}{\numberline {5.3}Preliminaries}{28}
+\contentsline {section}{\numberline {5.4}Useful Lemmas}{29}
+\contentsline {section}{\numberline {5.5}Valid reordering}{33}
+\contentsline {subsection}{\numberline {5.5.1}Reordering of Consecutive Events}{33}
+\contentsline {paragraph}{1. Preserving \textit {happens-before} relations}{34}
+\contentsline {paragraph}{2. Additional \textit {happens-before} relations}{38}
+\contentsline {paragraph}{3. Presence of cycles?}{40}
+\contentsline {paragraph}{4. Do new relations introduce new observable behaviors?}{44}
+\contentsline {subsection}{\numberline {5.5.2}Reordering Non-Consecutive Events}{49}
+\contentsline {paragraph}{Base Case: $n = 1.$}{50}
+\contentsline {paragraph}{2. Inductive Case $n > 1$}{50}
+\contentsline {subsection}{\numberline {5.5.3}Counter Examples for all the Invalid Cases}{52}
+\contentsline {paragraph}{Reads to same memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{52}
+\contentsline {paragraph}{Reads to non-equal range of memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{53}
+\contentsline {paragraph}{A Read $e$ of type $sc$ followed by a Write of either $uo/sc$}{53}
+\contentsline {paragraph}{A Read $e$ of type $uo$ followed by a write $d$ of type $sc$}{55}
+\contentsline {paragraph}{A Write $e$ followed by a Read $d$ both of type $sc$}{55}
+\contentsline {paragraph}{A Write $e$ of type $uo/sc$ followed by a Write $d$ of type $sc$}{57}
+\contentsline {section}{\numberline {5.6}From Candidates to Program}{58}
+\contentsline {subsection}{\numberline {5.6.1}Addressing programs with Conditionals}{58}
+\contentsline {paragraph}{Case when $e$ is not in any conditional branch but $d$ is.}{65}
+\contentsline {paragraph}{Case when $e$ is part of a conditonal branch $B_e$ and $d$ is part of another conditonal branch $B_d$ nested within $B_e$.}{68}
+\contentsline {paragraph}{Case when $e$ and $d$ are part of different conditional branches. One not nested in the other.}{68}
+\contentsline {subsection}{\numberline {5.6.2}Addressing Programs with Loops}{71}
+\contentsline {paragraph}{Loop invariant code motion}{72}
+\contentsline {chapter}{\numberline {6}Elimination}{73}
+\contentsline {section}{\numberline {6.1}Elimination}{73}
+\contentsline {paragraph}{1. Preserving \emph {happens-before} relations}{73}
+\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{74}
+\contentsline {paragraph}{3. Presence of Cycles?}{74}
+\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{74}
+\contentsline {paragraph}{Preserving Happens-before relations}{76}
+\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{77}
+\contentsline {paragraph}{3. Presence of Cycles?}{77}
+\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{77}
+\contentsline {paragraph}{Base Case : n = 1}{80}
+\contentsline {paragraph}{Inductive Case (n)}{80}
+\contentsline {section}{\numberline {6.2}From Candidates to Program}{81}
+\contentsline {subsection}{\numberline {6.2.1}Addressing Programs with Conditionals}{81}
+\contentsline {subsection}{\numberline {6.2.2}Addressing Programs with Loops}{88}
+\contentsline {paragraph}{Loop Invariant Code motion}{89}
+\contentsline {paragraph}{Reordering two events accross loops}{95}
+\contentsline {chapter}{\numberline {7}Conclusion, Summary, Future Work}{96}

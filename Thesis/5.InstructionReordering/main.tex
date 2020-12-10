@@ -1,0 +1,43 @@
+This chapter adddresses the validity of instruction reordering under the ECMAScript memory model.
+We first start by showing some examples of Candidate Executions where reordering, while sequentially sane to do, it not safe in the relaxed memory context.  
+We then summarize our approach towards a proof to identify when such a reordering is safe with respect to shared memory accesses. 
+Next, we introduce two more defintions for our purpose followed by two basic lemmas that will be instrumental for proofs in this chapter and the next. 
+Next, we formulate a theorem and a corresponding corollary to assess validity of reorderinng at a Candidate Execution level. 
+Lastly, we address conservatively at the program level (still abstracted to a set of shared memory events) involving loops and conditional branching.
+Throughout this chapter, we use counter examples to give a better intuitive understanding of the elements of the proof as well as the advantage of our formal model in Chapter 3.
+\ \newline
+\ \newline  
+\hrule 
+\ \newline 
+\ \newline 
+
+\input{5.InstructionReordering/0.Intro.tex}
+
+%Summary of Approach.
+\input{5.InstructionReordering/1.Approach.tex}
+
+%Key definitions 
+\input{5.InstructionReordering/2.Definitions.tex}
+
+%Key Lemmas 
+\input{5.InstructionReordering/3.Lemmas/main.tex}
+
+%Valid reordering at the Candidate Execution level
+\input{5.InstructionReordering/4.ValidReorderingCandidate/main.tex}
+
+%From Candidates to Programs
+\input{5.InstructionReordering/5.ValidReorderingProgram/main.tex}
+
+%Conclusion (write here itself. No need for a new .tex file)
+\ \newline
+\ \newline  
+\hrule 
+\ \newline 
+\ \newline 
+To summarize, this chapter addressed the validity of instruction reordering under the ECMAScript Memory Model. 
+We first built a conservative proof for reordering based on candidate executions.
+We later extended it to programs abstracted to the set of shared memory events. 
+We discussed throughout the limitation and advantages of our conservative approach. 
+We also presented examples throughout this chapter to get a fair intuitive understanding of the ideas behind the proof and the role of the axiomatic model in it.
+
+In the next chapter, we will address the validity of elmination udner the ECMAScript Memory Model.

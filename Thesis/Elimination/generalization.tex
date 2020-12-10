@@ -201,58 +201,296 @@
             This however can be done by coupling Reordering with Elimination. 
             
             We first consider the case of reordering a Read outside a loop.
-            \begin{itemize}          
-                  \item  We have two subcases of this; one with reordering it before the loop and the one after.
-                    For both subcases note that we need to have just one Read in the resultant candidate irrespective of the number of iterataions of the loop. 
-                \item Thus, we need to show that for any Candidate  $C^i$ of the original program, we can eliminate $i-1$ reads and reorder the remaining one to be outside the loop. 
-                \item The main question then comes is which read is to be chosen for this? Does it matter which iteration's read is chosen to be kept? It turns out that it matters when we do not choose the last read in every iteration.  
-                \item We can show that retaining the first iteration's read is not safe to do by constructing a simple counter example for it. 
-                \item We can show similarly a counterexample for retaining any read of some random iteration which is not the last. 
-                \item But how can we assert which is the last iteration? Since we place no bounds on the number of iterations a loop can have, this is not possible. 
-                \item However, we have the set of events that can occur between two reads of consecutive iterations. From the property of Reord under loops between events of different iterations, it suffices to show that if  $Reord(k, R)$ holds for every such event $k \in K$, no matter how many iterations, we can always reorder the last iteration's read $R$ to be above the loop. 
-                \item This helps us skip the complexity of dealing with deciding which iteration's read should be considered last, and skips the complexity of iterations entirely. 
-                \item Because we have $Reord(k, R)$, no matter what iteration it is, we can always reorder the last read. 
-            \end{itemize}
+            \begin{corollary}
+                \label{LoopInvCodeMotRead1}
+                Consider $K$ to be the set of events within a loop in program $P$. Consider $e$ to be a read within the loop. Consider program $P'$ with event $e$ agent ordered before the loop. If
+                \begin{gather*}
+                    \et{e}{uo} \\
+                    \forall k \neq e \in K, \ Reord(k, e) \\ 
+                    \nexists C^i \in P \ \text{s.t.} \ e^{j<=i} \notin C                      
+                \end{gather*}
+                then the set of observable behaviors of $P'$ is a subset of $P$.
+            \end{corollary}
+            
+            \begin{proof}
 
-            \begin{itemize}
-                \item An alternative way of proving this is to show that we can reorder each iterative read, to be consecutive to each other $cons(R^i, R^{i+i})$. In doing so we can ensure that we can safely eliminate the reads. 
-                \item Because the reads are of type $uo$, having them consecutive to each other will then play a role of it being representative of just one read. 
-                \item Hence, we can eliminate all but one read. 
-                \item This will help avoid dealing with which iteration's read to be chosen for elimination. 
-                \item Once again, we need to show that for any event $k \in K$ we have $Reord(k, R)$. This will ensure that irrespective of the iteration, we can always have reads between two consecutive iterations to be consecutive in a candidate due to successive reordering.
-                \item Corollary of code motion in candidates help us show this in terms of observable behaviors.
-            \end{itemize}
+                We first consider the program with just one iteration. Hence for Candidate $C^1$, we have just $e^1$. 
+                We need to ensure that the resultant candidate $C'^1$ such that 
+                \begin{align*}
+                    \forall k \in K, \ \reln{e}{ao}{k}
+                \end{align*}  
+                has observable behaviors as a subset of $C^1$
 
+                For every $k \in K$ such that $\reln{k}{ao}{e}$ we have from Condition 2 $Reord(k,e)$. 
+                Condition 3, from Prop \ref{CondB1} implies that $e$ is not part of any conditional branch.
+                Thus, from Corollary \ref{CorollCodeMotion1} and Corollary \ref{ReordCond}, we can infer that $C'^1$ has observable behaviors as a subset of $C^1$. 
+                
+                Next, we consider the program with more than one iteration of the loop. 
+                We prove this case using induction on the number of reads $e$ that exist due to multiple iterations of the loop. 
+
+                \begin{itemize}
+
+                    \item Base case : number of $e$ = 2
+                
+                    This case corresponds to candidates of the form $C^2$, thus giving us two reads $e^1$ and $e^2$.
+                    From Condition 2, we have
+                    \begin{align*}
+                        \forall k \in K, \ Reord(k,e^1) \wedge Reord(k, e^2)
+                    \end{align*} 
+                    From Corollary \ref{CorollCodeMotion1} and Corollary \ref{ReordCond}, we can infer that $C''^2$ has observable behaviors as a subset of $C^2$.
+                    To go from $C''^2$ to $C'^2$, note that in $C''^2$ we have $cons(e^1, e^2)$ after reordering them. 
+                    From Theorem \ref{ReadElim}, we can eliminate either $e^1$ or $e^2$, thus resulting in $C'^2$ whose observable behaviors is a subset of $C''^2$.
+                    
+                    By transitive property of subsets we can infer that $C'^2$ has observable behaviors as a subset of $C^2$.
+                    
+                    \item Inductive case : number of $e$ = n
+
+                    Assume that for all such candidates with $n$ iterations of the loop, the observable behaviors of $C'^n$ is a subset of $C^n$.
+
+                    We now prove using this that it can also hold for number $e$ as $n + 1$. 
+                    This case corresponds to candidates of the form $C^{n+1}$, thus giving us $n+1$ reads $e^1, e^2,...,e^{n+1}$.
+                    From Condition 2, we have
+                    \begin{align*}
+                        \forall k \in K, \ Reord(k,e^{n+1})
+                    \end{align*}
+                    using which we can infer 
+                    \begin{align*}
+                        \forall k \ \text{s.t.} \ \reln{e^n}{ao}{k} \wedge \reln{k}{ao}{e^{n+1}}, \ Reord(k,e^{n+1})
+                    \end{align*}
+                    From Corollary \ref{CorollCodeMotion1} and Corollary \ref{ReordCond}, we can infer that $C''^{n+1}$ with $cons(e^n, e^{n+1})$ due to reordering $e^{n+1}$ has observable behaviors as a subset of $C^{n+1}$. 
+                    By Theorem \ref{ReadElim}, we can eliminate $e^{n+1}$, thus giving us candidate of the form $C^n$ whose observable behaviors is a subset of $C''^{n+1}$.
+
+                    From our inductive assumption, we can then conclude that $C'^{n+1}$ has observable behaviors as a subset of $C^n$. 
+                    By transitive property of subsets, we can infer that $C'^{n+1}$ has observable behaviors as a subset of $C^{n+1}$.
+
+                    \critic{blue}{Mind the notations. Perhaps have another reivew of it to avoid confusion of the reader.}
+
+                    \critic{red}{The argument using Theorem of Read elimination is somewhat cheeky, since we have $cons(e^i, e^{i+1})$ where the two reads are to the same local variable. This additional condition may have to be put in Read Elimination. But let us discuss that with Clark later. }
+
+                \end{itemize}
+                
+            \end{proof}
+
+
+            \begin{corollary}
+                \label{LoopInvCodeMotRead2}
+                Consider $K$ to be the set of events within a loop in program $P$. Consider $e$ to be a read within the loop. Consider program $P'$ with event $e$ agent ordered before the loop. If
+                \begin{gather*}
+                    \et{e}{uo} \\
+                    \forall k \neq e \in K, \ Reord(e, k) \\ 
+                    \nexists C^i \in P \ \text{s.t.} \ e^{j<=i} \notin C                      
+                \end{gather*}
+                then the set of observable behaviors of $P'$ is a subset of $P$.
+            \end{corollary}
+            
+            \begin{proof}
+
+                We first consider the program with just one iteration. Hence for Candidate $C^1$, we have just $e^1$. 
+                We need to ensure that the resultant candidate $C'^1$ such that 
+                \begin{align*}
+                    \forall k \in K, \ \reln{k}{ao}{e}
+                \end{align*}  
+                has observable behaviors as a subset of $C^1$
+
+                For every $k \in K$ such that $\reln{e}{ao}{k}$ we have from Condition 2 $Reord(e,k)$. 
+                Condition 3, from Prop \ref{CondB1} implies that $e$ is not part of any conditional branch.
+                Thus, from Corollary \ref{CorollCodeMotion2} and Corollary \ref{ReordCond}, we can infer that $C'^1$ has observable behaviors as a subset of $C^1$. 
+                
+                Next, we consider the program with more than one iteration of the loop. 
+                We prove this case using induction on the number of reads $e$ that exist due to multiple iterations of the loop. 
+
+                \begin{itemize}
+                    
+                    \item Base case : number of $e$ = 2
+                
+                    This case corresponds to candidates of the form $C^2$, thus giving us two reads $e^1$ and $e^2$.
+                    From Condition 2, we have
+                    \begin{align*}
+                        \forall k \in K, \ Reord(e^1, k) \wedge Reord(e^2, k)
+                    \end{align*} 
+                    From Corollary \ref{CorollCodeMotion1} and Corollary \ref{ReordCond}, we can infer that $C''^2$ has observable behaviors as a subset of $C^2$.
+                    To go from $C''^2$ to $C'^2$, note that in $C''^2$ we have $cons(e^1, e^2)$ after reordering them. 
+                    From Theorem \ref{ReadElim}, we can eliminate either $e^1$ or $e^2$, thus resulting in $C'^2$ whose observable behaviors is a subset of $C''^2$.
+                    
+                    By transitive property of subsets we can infer that $C'^2$ has observable behaviors as a subset of $C^2$.
+                    
+                    \item Inductive case : number of $e$ = n
+
+                    Assume that for all such candidates with $n$ iterations of the loop, the observable behaviors of $C'^n$ is a subset of $C^n$.
+
+                    We now prove using this that it can also hold for number $e$ as $n + 1$. 
+                    This case corresponds to candidates of the form $C^{n+1}$, thus giving us $n+1$ reads $e^1, e^2,...,e^{n+1}$.
+                    From Condition 2, we have
+                    \begin{align*}
+                        \forall k \in K, \ Reord(e^{n}, k)
+                    \end{align*}
+                    using which we can infer 
+                    \begin{align*}
+                        \forall k \ \text{s.t.} \ \reln{e^n}{ao}{k} \wedge \reln{k}{ao}{e^{n+1}}, \ Reord(e^{n}, k)
+                    \end{align*}
+                    From Corollary \ref{CorollCodeMotion1} and Corollary \ref{ReordCond}, we can infer that $C''^{n+1}$ with $cons(e^n, e^{n+1})$ due to reordering $e^{n+1}$ has observable behaviors as a subset of $C^{n+1}$. 
+                    By Theorem \ref{ReadElim}, we can eliminate $e^{n+1}$, thus giving us candidate of the form $C^n$ whose observable behaviors is a subset of $C''^{n+1}$.
+
+                    From our inductive assumption, we can then conclude that $C'^{n+1}$ has observable behaviors as a subset of $C^n$. 
+                    By transitive property of subsets, we can infer that $C'^{n+1}$ has observable behaviors as a subset of $C^{n+1}$.
+
+                    \critic{blue}{Mind the notations. Perhaps have another reivew of it to avoid confusion of the reader.}
+
+                    \critic{red}{The argument using Theorem of Read elimination is somewhat cheeky, since we have $cons(e^i, e^{i+1})$ where the two reads are to the same local variable. This additional condition may have to be put in Read Elimination. But let us discuss that with Clark later. }
+
+                \end{itemize}
+                
+            \end{proof}
+            
             Now we consider the case of reordering a write outside a loop:
-             
-            \begin{itemize}
-                \item We again have two subcases for this; one with reordering it before the loop and the one after. 
-                \item In each case, the common requirement is that irrespective of the iterations of the loop, only one write should exist in each candidate.
-                \item Note that when we have more than one iteration of the loop, we have two writes, out of which one must be eliminated. 
-                \item For instance, given candidate $C^2$, should we eliminate $w^1$ or $w^2$? 
-                \item We can from Corollary of write elimination assert when we can remove $w^1$. However, if we want to elimiante $w^2$, we would need information of the existance of some other write either within or outside the same loop, program ordered after $w^2$. 
-                \item Getting such information would require another flow analysis. But more importantly, suhc informaion is not alwyas required in the sequential programs to assert loop invariant code motion. Though the choice remains. 
-                \item Without having information of the existance of such a write, we can consider eliminating $w^1$, which would firstly require $Reord(w^1, k)$ where $\reln{w^1}{ao}{k} \wedge \reln{k}{ao}{w^2}$. 
-                \item We can extend the above requirement to incorporate elimination under conditionals using Corollary 2 for write elimination. 
-                \item Thus in general for any Candidate $C^i$, we require that all $w^{j<i}$ be eliminable. To prove this requirement Corollary 2 suffices.
-                \item We must also note that if $w^j$ in general is part of a conditonal branch, then we cannot eliminate it mainly because it also represents the same event $d$ using whose reference we can safely consider eliminating $w^j$. 
-                \item Doing such successive elimination leaves $w^i$ for every such $C^i$. 
-                \item Now based on each subcase, we require either $Reord(k, w^i)$ or $Reord(w^i, k)$ to hold for an event $k$ existing in the loop. Npte that for the first subcase, we need all the events within the loop to be considered reorderable with $w^i$. But for the second, we only need the events that are after $w$ in the loop. 
-                \item For both cases, we have the base argument that $k$ can be agent ordered with the wrtie $w^i$. So all such agent ordered events $k$ have to be considered if they need to be reorrdered with $w^i$. 
-                \item Proving this is again by Corollary 2 of write elimination. Though note that we will also need code motion corollaries from reordering for this.  
-            \end{itemize}
+            \begin{corollary}
+                \label{LoopInvCodeMotWrite1}
+                Consider $K$ to be the set of events within a loop in program $P$. Consider $e$ to be a read within the loop. Consider program $P'$ with event $e$ agent ordered before the loop. If
+                \begin{gather*}
+                    \et{e}{uo} \\
+                    \forall k \neq e \in K, \ Reord(k, e) \\ 
+                    \nexists C^i \in P \ \text{s.t.} \ e^{j<=i} \notin C                      
+                \end{gather*}
+                then the set of observable behaviors of $P'$ is a subset of $P$.
+
+                \critic{red}{It is interesting to note that we do not need $Reord(e,k)$ which was originally our plan because we needed to eliminate every $e^j$ w.r.t $e^{j+1}$. Because we have $Reord(k,e)$, we can get all the writes to be consecutive to each other. Thus by Theorem 1 directly, we can eliminate them all. We do not require Corollary of Elimination here.}
+            \end{corollary}             
+            
+            \begin{proof}
 
 
+                We first consider the program with just one iteration. Hence for Candidate $C^1$, we have just $e^1$. 
+                We need to ensure that the resultant candidate $C'^1$ such that 
+                \begin{align*}
+                    \forall k \in K, \ \reln{e}{ao}{k}
+                \end{align*}  
+                has observable behaviors as a subset of $C^1$
+
+                For every $k \in K$ such that $\reln{k}{ao}{e}$ we have from Condition 2 $Reord(k,e)$. 
+                Condition 3, from Prop \ref{CondB1} implies that $e$ is not part of any conditional branch.
+                Thus, from Corollary \ref{CorollCodeMotion1} and Corollary \ref{ReordCond}, we can infer that $C'^1$ has observable behaviors as a subset of $C^1$. 
+                
+                Next, we consider the program with more than one iteration of the loop. 
+                We prove this case using induction on the number of reads $e$ that exist due to multiple iterations of the loop. 
+
+
+                \begin{itemize}
+
+                    \item Base case : number of $e$ = 2
+                
+                    This case corresponds to candidates of the form $C^2$, thus giving us two reads $e^1$ and $e^2$.
+                    From Condition 2, we have
+                    \begin{align*}
+                        \forall k \in K, \ Reord(k,e^1) \wedge Reord(k, e^2)
+                    \end{align*} 
+                    From Corollary \ref{CorollCodeMotion1} and Corollary \ref{ReordCond}, we can infer that $C''^2$ has observable behaviors as a subset of $C^2$.
+                    To go from $C''^2$ to $C'^2$, note that in $C''^2$ we have $cons(e^1, e^2)$ after reordering them. 
+                    From Theorem \ref{WriteElim}, we can eliminate $e^1$, thus resulting in $C'^2$ whose observable behaviors is a subset of $C''^2$.
+                    
+                    By transitive property of subsets we can infer that $C'^2$ has observable behaviors as a subset of $C^2$.
+                    
+                    \item Inductive case : number of $e$ = n
+
+                    Assume that for all such candidates with $n$ iterations of the loop, the observable behaviors of $C'^n$ is a subset of $C^n$.
+
+                    We now prove using this that it can also hold for number $e$ as $n + 1$. 
+                    This case corresponds to candidates of the form $C^{n+1}$, thus giving us $n+1$ reads $e^1, e^2,...,e^{n+1}$.
+                    From Condition 2, we have
+                    \begin{align*}
+                        \forall k \in K, \ Reord(k,e^{n+1})
+                    \end{align*}
+                    using which we can infer 
+                    \begin{align*}
+                        \forall k \ \text{s.t.} \ \reln{e^n}{ao}{k} \wedge \reln{k}{ao}{e^{n+1}}, \ Reord(k,e^{n+1})
+                    \end{align*}
+                    From Corollary \ref{CorollCodeMotion1} and Corollary \ref{ReordCond}, we can infer that $C''^{n+1}$ with $cons(e^n, e^{n+1})$ due to reordering $e^{n+1}$ has observable behaviors as a subset of $C^{n+1}$. 
+                    By Theorem \ref{WriteElim}, we can eliminate $e^{n+1}$, thus giving us candidate of the form $C^n$ whose observable behaviors is a subset of $C''^{n+1}$.
+
+                    From our inductive assumption, we can then conclude that $C'^{n+1}$ has observable behaviors as a subset of $C^n$. 
+                    By transitive property of subsets, we can infer that $C'^{n+1}$ has observable behaviors as a subset of $C^{n+1}$.
+
+                    \critic{blue}{Mind the notations. Perhaps have another reivew of it to avoid confusion of the reader.}
+
+                \end{itemize}
+
+            \end{proof}
+
+
+            \begin{corollary}
+                \label{LoopInvCodeMotWrite2}
+                Consider $K$ to be the set of events within a loop in program $P$. Consider $e$ to be a read within the loop. Consider program $P'$ with event $e$ agent ordered before the loop. If
+                \begin{gather*}
+                    \et{e}{uo} \\
+                    \forall k \neq e \in K, \ Reord(e, k) \\ 
+                    \nexists C^i \in P \ \text{s.t.} \ e^{j<=i} \notin C                      
+                \end{gather*}
+                then the set of observable behaviors of $P'$ is a subset of $P$.
+
+                \critic{red}{It is interesting to note that we do not need $Reord(e,k)$ which was originally our plan because we needed to eliminate every $e^j$ w.r.t $e^{j+1}$. Because we have $Reord(k,e)$, we can get all the writes to be consecutive to each other. Thus by Theorem 1 directly, we can eliminate them all. We do not require Corollary of Elimination here.}
+            \end{corollary}             
+            
+            \begin{proof}
+
+
+                We first consider the program with just one iteration. Hence for Candidate $C^1$, we have just $e^1$. 
+                We need to ensure that the resultant candidate $C'^1$ such that 
+                \begin{align*}
+                    \forall k \in K, \ \reln{k}{ao}{e}
+                \end{align*}  
+                has observable behaviors as a subset of $C^1$
+
+                For every $k \in K$ such that $\reln{k}{ao}{e}$ we have from Condition 2 $Reord(e, k)$. 
+                Condition 3, from Prop \ref{CondB1} implies that $e$ is not part of any conditional branch.
+                Thus, from Corollary \ref{CorollCodeMotion1} and Corollary \ref{ReordCond}, we can infer that $C'^1$ has observable behaviors as a subset of $C^1$. 
+                
+                Next, we consider the program with more than one iteration of the loop. 
+                We prove this case using induction on the number of reads $e$ that exist due to multiple iterations of the loop. 
+
+
+                \begin{itemize}
+
+                    \item Base case : number of $e$ = 2
+                
+                    This case corresponds to candidates of the form $C^2$, thus giving us two reads $e^1$ and $e^2$.
+                    From Condition 2, we have
+                    \begin{align*}
+                        \forall k \in K, \ Reord(e^1, k) \wedge Reord(e^2, k)
+                    \end{align*} 
+                    We also have from property of loops that $\reln{e^1}{ao}{e^2}$.
+                    From Corollary \ref{CorolWriteElim}, we can eliminate $e^1$, giving us $C''^2$ whose observable behaviors as a subset of $C^2$.  
+                    From Corollary \ref{CorollCodeMotion2} and Corollary \ref{ReordCond}, we can reorder $e^2$ outside the loop thus giving us $C'^2$ whose observable behaviors as a subset of $C''^2$.
+                    
+                    By transitive property of subsets we can infer that $C'^2$ has observable behaviors as a subset of $C^2$.
+                    
+                    \item Inductive case : number of $e$ = n
+
+                    Assume that for all such candidates with $n$ iterations of the loop, the observable behaviors of $C'^n$ is a subset of $C^n$.
+
+                    We now prove using this that it can also hold for number $e$ as $n + 1$. 
+                    This case corresponds to candidates of the form $C^{n+1}$, thus giving us $n+1$ reads $e^1, e^2,...,e^{n+1}$.
+                    From Condition 2, we have
+                    \begin{align*}
+                        \forall k \in K, \ Reord(e^{n}, k)
+                    \end{align*}
+                    using which we can infer 
+                    \begin{align*}
+                        \forall k \ \text{s.t.} \ \reln{e^n}{ao}{k} \wedge \reln{k}{ao}{e^{n+1}}, \ Reord(e^{n}, k)
+                    \end{align*}
+                    From Corollart \ref{CorolWriteElim}, we can eliminate $e^{n}$, thus giving us candidate $C^{n}$ whose observable beahviors are a subset of $C^{n+1}$
+
+                    From our inductive assumption, we can then conclude that $C'^{n+1}$ has observable behaviors as a subset of $C^n$. 
+                    By transitive property of subsets, we can infer that $C'^{n+1}$ has observable behaviors as a subset of $C^{n+1}$.
+
+                    \critic{blue}{Mind the notations. Perhaps have another reivew of it to avoid confusion of the reader.}
+
+                    \critic{red}{Proof read later.}
+
+                \end{itemize}
+
+            \end{proof}
+            
         \paragraph{Reordering two events accross loops} 
             
-            Note that we still cannot assert when we can reorder events inside a loop. This would require a proof of redundancy introduction at the candidate level. While this can be done, this is outside the scope of this thesis and is kept as part of future work. But for now, we will show a counter example as to why such reordering is not always safe to do. 
+            Note that we still cannot assert when we can reorder events inside a loop. This would require a proof of redundancy introduction at the candidate level. This is beyond the scope of this thesis. 
 
-            \critic{blue}{One for reordering Reads}
-
-            \critic{blue}{One for reordering Write-Read}
-
-            \critic{blue}{One for reordering Read-Write}
-
-            \critic{blue}{One for reordering Write-Write}
-
-            For each of the above examples, we note that it is not safe to perform such reordering in general. 
+            \critic{blue}{Perhaps you can elaborate a bit more on this.}

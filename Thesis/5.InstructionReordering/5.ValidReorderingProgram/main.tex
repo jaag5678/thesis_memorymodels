@@ -1,0 +1,12 @@
+\section{From Candidates to Program}
+
+    So far we have only addressed reordering at the Candidate level. In practice, a program can have many Candidates. This is due to the program having several conditional branches and loops. To analyze when we can reordering two events at the program level, we must also address the involvement of conditionals and loops that may be between these two events.
+    
+    The way we approach this is to not have any assumptions as to why the compiler chooses to do a particular reordering in the program. 
+    We instead only check if the reoredered program can have its observable behaviors as a subset of the original. This ensures that the algorithm for the compiler optimization need not change, but that our set of conditions will just be additional checks that can be done before actually doing the reordering. Such an approach makes reordering parametric to the memory model. 
+
+    The downside is that this approach will be conservative as we use no information as to why a particular set of events are reordered. We do not compare and contrast in details the perks of both approaches. This is beyond the scope of this thesis.
+    
+    \input{5.InstructionReordering/5.ValidReorderingProgram/conditionals.tex}
+
+    \input{5.InstructionReordering/5.ValidReorderingProgram/loops.tex}
