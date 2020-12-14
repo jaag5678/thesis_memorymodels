@@ -1,82 +1,107 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}
-\contentsline {chapter}{\numberline {2}Background}{2}
-\contentsline {chapter}{\numberline {3}Related Work}{3}
-\contentsline {chapter}{\numberline {4}The Memory Model}{4}
-\contentsline {paragraph}{The Model is Quite Algorithmic}{4}
-\contentsline {paragraph}{Certain Unnecessary Definitions}{6}
-\contentsline {paragraph}{Still a bit verbose}{7}
-\contentsline {section}{\numberline {4.1}Agents, Events and their Types}{8}
-\contentsline {paragraph}{Agents}{8}
-\contentsline {paragraph}{Agent Cluster}{8}
-\contentsline {paragraph}{Agent Event List $(ael)$}{8}
-\contentsline {section}{\numberline {4.2}Events}{8}
-\contentsline {subsection}{\numberline {4.2.1}Event Types}{8}
-\contentsline {subsection}{\numberline {4.2.2}Range ($\Re $)}{9}
-\contentsline {subsection}{\numberline {4.2.3}Event Order / Event Access Mode}{10}
-\contentsline {subsection}{\numberline {4.2.4}Tear Free ($tf$) or Tearing $!tf$)}{11}
-\contentsline {section}{\numberline {4.3}Relation among events}{11}
-\contentsline {subsection}{\numberline {4.3.1}Read-Write event relations}{12}
-\contentsline {paragraph}{Read-Bytes-From $(\mathrel {\mathop {_{rbf}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }})$}{12}
-\contentsline {paragraph}{Reads-From $(\mathrel {\mathop {_{rf}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }})$}{12}
-\contentsline {subsection}{\numberline {4.3.2}Agent-Synchronizes With (\textbf {\textit {ASW}})}{12}
-\contentsline {section}{\numberline {4.4}Ordering Relations among Events}{13}
-\contentsline {subsection}{\numberline {4.4.1}Agent Order ($\mathrel {\mathop {_{ao}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}$)}{13}
-\contentsline {subsection}{\numberline {4.4.2}Synchronize-With Order ($\mathrel {\mathop {_{sw}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }} $)}{14}
-\contentsline {subsection}{\numberline {4.4.3}Happens Before Order ($\mathrel {\mathop {_{hb}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}$)}{14}
-\contentsline {subsection}{\numberline {4.4.4}Memory Order ($\mathrel {\mathop {_{mo}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}$)}{15}
-\contentsline {section}{\numberline {4.5}Helper Definitions}{16}
-\contentsline {section}{\numberline {4.6}Valid Execution Rules (the Axioms)}{18}
-\contentsline {section}{\numberline {4.7}Race}{21}
-\contentsline {subsection}{\numberline {4.7.1}Race Condition $RC$}{21}
-\contentsline {subsection}{\numberline {4.7.2}Data Race $DR$}{21}
-\contentsline {paragraph}{Data-Race-Free (DRF) Programs}{22}
-\contentsline {section}{\numberline {4.8}Consistent Executions (Valid Observables)}{22}
-\contentsline {chapter}{\numberline {5}Instruction Reordering}{24}
-\contentsline {section}{\numberline {5.1}Introduction}{24}
-\contentsline {paragraph}{Simple reordering is not straightforward under shared memory semantics}{25}
-\contentsline {paragraph}{Some Examples}{25}
-\contentsline {section}{\numberline {5.2}Summary of Our Approach}{27}
-\contentsline {paragraph}{Assumption}{27}
-\contentsline {section}{\numberline {5.3}Preliminaries}{28}
-\contentsline {section}{\numberline {5.4}Useful Lemmas}{29}
-\contentsline {section}{\numberline {5.5}Valid reordering}{33}
-\contentsline {subsection}{\numberline {5.5.1}Reordering of Consecutive Events}{33}
-\contentsline {paragraph}{1. Preserving \textit {happens-before} relations}{34}
-\contentsline {paragraph}{2. Additional \textit {happens-before} relations}{38}
-\contentsline {paragraph}{3. Presence of cycles?}{40}
-\contentsline {paragraph}{4. Do new relations introduce new observable behaviors?}{44}
-\contentsline {subsection}{\numberline {5.5.2}Reordering Non-Consecutive Events}{49}
-\contentsline {paragraph}{Base Case: $n = 1.$}{50}
-\contentsline {paragraph}{2. Inductive Case $n > 1$}{50}
-\contentsline {subsection}{\numberline {5.5.3}Counter Examples for all the Invalid Cases}{52}
-\contentsline {paragraph}{Reads to same memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{52}
-\contentsline {paragraph}{Reads to non-equal range of memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{53}
-\contentsline {paragraph}{A Read $e$ of type $sc$ followed by a Write of either $uo/sc$}{53}
-\contentsline {paragraph}{A Read $e$ of type $uo$ followed by a write $d$ of type $sc$}{55}
-\contentsline {paragraph}{A Write $e$ followed by a Read $d$ both of type $sc$}{55}
-\contentsline {paragraph}{A Write $e$ of type $uo/sc$ followed by a Write $d$ of type $sc$}{57}
-\contentsline {section}{\numberline {5.6}From Candidates to Program}{58}
-\contentsline {subsection}{\numberline {5.6.1}Addressing programs with Conditionals}{58}
-\contentsline {paragraph}{Case when $e$ is not in any conditional branch but $d$ is.}{65}
-\contentsline {paragraph}{Case when $e$ is part of a conditonal branch $B_e$ and $d$ is part of another conditonal branch $B_d$ nested within $B_e$.}{68}
-\contentsline {paragraph}{Case when $e$ and $d$ are part of different conditional branches. One not nested in the other.}{68}
-\contentsline {subsection}{\numberline {5.6.2}Addressing Programs with Loops}{71}
-\contentsline {paragraph}{Loop invariant code motion}{72}
-\contentsline {chapter}{\numberline {6}Elimination}{73}
-\contentsline {section}{\numberline {6.1}Elimination}{73}
-\contentsline {paragraph}{1. Preserving \emph {happens-before} relations}{73}
-\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{74}
-\contentsline {paragraph}{3. Presence of Cycles?}{74}
-\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{74}
-\contentsline {paragraph}{Preserving Happens-before relations}{76}
-\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{77}
-\contentsline {paragraph}{3. Presence of Cycles?}{77}
-\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{77}
-\contentsline {paragraph}{Base Case : n = 1}{80}
-\contentsline {paragraph}{Inductive Case (n)}{80}
-\contentsline {section}{\numberline {6.2}From Candidates to Program}{81}
-\contentsline {subsection}{\numberline {6.2.1}Addressing Programs with Conditionals}{81}
-\contentsline {subsection}{\numberline {6.2.2}Addressing Programs with Loops}{88}
-\contentsline {paragraph}{Loop Invariant Code motion}{89}
-\contentsline {paragraph}{Reordering two events accross loops}{95}
-\contentsline {chapter}{\numberline {7}Conclusion, Summary, Future Work}{96}
+\contentsline {section}{\numberline {1.1}Introduction}{1}
+\contentsline {chapter}{\numberline {2}Background}{3}
+\contentsline {chapter}{\numberline {3}Related Work}{4}
+\contentsline {chapter}{\numberline {4}The Memory Model}{5}
+\contentsline {paragraph}{The Model is Quite Algorithmic}{5}
+\contentsline {paragraph}{Certain Unnecessary Definitions}{7}
+\contentsline {paragraph}{Still a bit verbose}{8}
+\contentsline {section}{\numberline {4.1}Agents, Events and their Types}{9}
+\contentsline {paragraph}{Agents}{9}
+\contentsline {paragraph}{Agent Cluster}{9}
+\contentsline {paragraph}{Agent Event List $(ael)$}{9}
+\contentsline {section}{\numberline {4.2}Events}{9}
+\contentsline {subsection}{\numberline {4.2.1}Event Types}{9}
+\contentsline {subsection}{\numberline {4.2.2}Range ($\Re $)}{10}
+\contentsline {subsection}{\numberline {4.2.3}Event Order / Event Access Mode}{11}
+\contentsline {subsection}{\numberline {4.2.4}Tear Free ($tf$) or Tearing $!tf$)}{12}
+\contentsline {section}{\numberline {4.3}Relation among events}{12}
+\contentsline {subsection}{\numberline {4.3.1}Read-Write event relations}{13}
+\contentsline {paragraph}{Read-Bytes-From $(\mathrel {\mathop {_{rbf}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }})$}{13}
+\contentsline {paragraph}{Reads-From $(\mathrel {\mathop {_{rf}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }})$}{13}
+\contentsline {subsection}{\numberline {4.3.2}Agent-Synchronizes With (\textbf {\textit {ASW}})}{13}
+\contentsline {section}{\numberline {4.4}Ordering Relations among Events}{14}
+\contentsline {subsection}{\numberline {4.4.1}Agent Order ($\mathrel {\mathop {_{ao}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}$)}{14}
+\contentsline {subsection}{\numberline {4.4.2}Synchronize-With Order ($\mathrel {\mathop {_{sw}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }} $)}{15}
+\contentsline {subsection}{\numberline {4.4.3}Happens Before Order ($\mathrel {\mathop {_{hb}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}$)}{15}
+\contentsline {subsection}{\numberline {4.4.4}Memory Order ($\mathrel {\mathop {_{mo}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}$)}{16}
+\contentsline {section}{\numberline {4.5}Helper Definitions}{17}
+\contentsline {section}{\numberline {4.6}Valid Execution Rules (the Axioms)}{19}
+\contentsline {section}{\numberline {4.7}Race}{22}
+\contentsline {subsection}{\numberline {4.7.1}Race Condition $RC$}{22}
+\contentsline {subsection}{\numberline {4.7.2}Data Race $DR$}{22}
+\contentsline {paragraph}{Data-Race-Free (DRF) Programs}{23}
+\contentsline {section}{\numberline {4.8}Consistent Executions (Valid Observables)}{23}
+\contentsline {chapter}{\numberline {5}Instruction Reordering}{25}
+\contentsline {section}{\numberline {5.1}Introduction}{25}
+\contentsline {paragraph}{Simple reordering is not straightforward under shared memory semantics}{26}
+\contentsline {paragraph}{Some Examples}{26}
+\contentsline {section}{\numberline {5.2}Summary of Our Approach}{28}
+\contentsline {paragraph}{Assumption}{28}
+\contentsline {section}{\numberline {5.3}Preliminaries}{29}
+\contentsline {section}{\numberline {5.4}Useful Lemmas}{30}
+\contentsline {section}{\numberline {5.5}Valid reordering}{34}
+\contentsline {subsection}{\numberline {5.5.1}Reordering of Consecutive Events}{34}
+\contentsline {paragraph}{1. Preserving \textit {happens-before} relations}{35}
+\contentsline {paragraph}{2. Additional \textit {happens-before} relations}{39}
+\contentsline {paragraph}{3. Presence of cycles?}{41}
+\contentsline {paragraph}{4. Do new relations introduce new observable behaviors?}{45}
+\contentsline {subsection}{\numberline {5.5.2}Reordering Non-Consecutive Events}{50}
+\contentsline {paragraph}{Base Case: $n = 1.$}{51}
+\contentsline {paragraph}{2. Inductive Case $n > 1$}{51}
+\contentsline {subsection}{\numberline {5.5.3}Counter Examples for all the Invalid Cases}{53}
+\contentsline {paragraph}{Reads to same memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{53}
+\contentsline {paragraph}{Reads to non-equal range of memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}{54}
+\contentsline {paragraph}{A Read $e$ of type $sc$ followed by a Write of either $uo/sc$}{54}
+\contentsline {paragraph}{A Read $e$ of type $uo$ followed by a write $d$ of type $sc$}{56}
+\contentsline {paragraph}{A Write $e$ followed by a Read $d$ both of type $sc$}{56}
+\contentsline {paragraph}{A Write $e$ of type $uo/sc$ followed by a Write $d$ of type $sc$}{58}
+\contentsline {section}{\numberline {5.6}From Candidates to Program}{59}
+\contentsline {subsection}{\numberline {5.6.1}Addressing programs with Conditionals}{59}
+\contentsline {paragraph}{Case when $e$ is not in any conditional branch but $d$ is.}{66}
+\contentsline {paragraph}{Case when $e$ is part of a conditonal branch $B_e$ and $d$ is part of another conditonal branch $B_d$ nested within $B_e$.}{69}
+\contentsline {paragraph}{Case when $e$ and $d$ are part of different conditional branches. One not nested in the other.}{69}
+\contentsline {subsection}{\numberline {5.6.2}Addressing Programs with Loops}{72}
+\contentsline {paragraph}{Loop invariant code motion}{73}
+\contentsline {chapter}{\numberline {6}Elimination}{74}
+\contentsline {section}{\numberline {6.1}Elimination}{74}
+\contentsline {paragraph}{1. Preserving \emph {happens-before} relations}{74}
+\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{75}
+\contentsline {paragraph}{3. Presence of Cycles?}{75}
+\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{75}
+\contentsline {paragraph}{Preserving Happens-before relations}{77}
+\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{78}
+\contentsline {paragraph}{3. Presence of Cycles?}{78}
+\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{78}
+\contentsline {paragraph}{Base Case : n = 1}{81}
+\contentsline {paragraph}{Inductive Case (n)}{81}
+\contentsline {section}{\numberline {6.2}From Candidates to Program}{82}
+\contentsline {subsection}{\numberline {6.2.1}Addressing Programs with Conditionals}{82}
+\contentsline {subsection}{\numberline {6.2.2}Addressing Programs with Loops}{89}
+\contentsline {paragraph}{Loop Invariant Code motion}{90}
+\contentsline {paragraph}{Reordering two events accross loops}{96}
+\contentsline {chapter}{\numberline {7}Conclusion, Summary, Future Work}{97}
+\contentsline {section}{\numberline {7.1}Limitations/Advantages}{97}
+\contentsline {subsection}{\numberline {7.1.1}Separation of Concerns}{97}
+\contentsline {subsection}{\numberline {7.1.2}Validity of Transformations is Sound but not Complete}{98}
+\contentsline {subsection}{\numberline {7.1.3}Lack of Practical Results}{99}
+\contentsline {subsection}{\numberline {7.1.4}Mapping from Programming Constructs to Abstract events}{99}
+\contentsline {section}{\numberline {7.2}Steps Further}{100}
+\contentsline {subsection}{\numberline {7.2.1}Addressing Read-Modify-Write}{100}
+\contentsline {subsection}{\numberline {7.2.2}Incorporating Tearing Factor}{100}
+\contentsline {subsection}{\numberline {7.2.3}Role of synchronize/host-specific events}{100}
+\contentsline {subsection}{\numberline {7.2.4}Addressing other basic program transformations}{101}
+\contentsline {section}{\numberline {7.3}Critique of the Model itself}{102}
+\contentsline {subsection}{\numberline {7.3.1}Range of Initialize events uncertain}{102}
+\contentsline {subsection}{\numberline {7.3.2}Unordered events do not respect Coherence}{102}
+\contentsline {subsection}{\numberline {7.3.3}Out of Thin air values}{102}
+\contentsline {subsection}{\numberline {7.3.4}Sequentially Consistent events can be in a data race}{102}
+\contentsline {section}{\numberline {7.4}Takeaway from this work}{102}
+\contentsline {subsection}{\numberline {7.4.1}Addressing Concurrency Problems}{102}
+\contentsline {subsection}{\numberline {7.4.2}Separation of Concerns}{102}
+\contentsline {subsection}{\numberline {7.4.3}Weak Memory Models still ill understood}{102}
+\contentsline {subsection}{\numberline {7.4.4}Addressing validity of Program Transformations in Concurrent Context}{102}
+\contentsline {section}{\numberline {7.5}Future Directions in Weak Memory Consistency}{102}
+\contentsline {subsection}{\numberline {7.5.1}Specification of Mixed-Size memory models}{102}
+\contentsline {subsection}{\numberline {7.5.2}Transformational Specification of Memory Models}{103}
+\contentsline {subsection}{\numberline {7.5.3}Automation of Specification of Weak Memory Models}{103}

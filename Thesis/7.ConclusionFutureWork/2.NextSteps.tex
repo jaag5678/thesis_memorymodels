@@ -1,0 +1,39 @@
+\section{Steps Further}
+
+    \subsection{Addressing Read-Modify-Write}
+    \begin{enumerate}
+        \item So far we have assumed that no read modify write events exist in programs.
+        \item However, this assumption is too strong in general.
+        \item Analysis of the validity of reordering/elimination when RMW events are involved should  be done to have a complete analysis of these two transformations as far as shared memory accesses are concerned.
+    \end{enumerate}
+
+    \subsection{Incorporating Tearing Factor}
+    \begin{enumerate}
+        \item The role of tearing is still not clear to us.
+        \item Axiom \ref{TfRe} does not rely on any partial order relations other than reads-from. 
+        \item Since our approach is mainly reliant on preserving happens-before, our intuition is that our results should ideally be independant of the tearing factor.
+        \item However, a proof including tearing aspect for each event is still needed.   
+    \end{enumerate}
+
+    \subsection{Role of synchronize/host-specific events}
+    \begin{enumerate}
+        \item We have not yet considered the role of synchronize events. 
+        \item Though for a programmer this is equivalent to wait and notify, reordering and elimination under their presence is something we have not conisdered. 
+        \item This we suspect would require understanding the operational aspect of wait / notify procedures.
+    \end{enumerate}
+
+    \begin{enumerate}
+        \item We do not yet know how Host Specific synchronize events work with relaxed memory acceses.
+        \item Strictly speaking, the semantics from a consistency model perspective is same as that of synchronize events. 
+        \item However, a detailed analysis must be done before incorporating its role. 
+    \end{enumerate}
+
+    \subsection{Addressing other basic program transformations}
+    \begin{enumerate}
+        \item Addressing redundancy introduction as an immediate next step would prove useful.
+        \item Using it, we can analyze reordering of events accross loops. 
+        \item This will also give an interesting equivalence to instruction reordering. 
+        \item Other program transformations we find important to consider are strengthening/ weakening access modes (fence optimizations), gathering optimization, changing tearing factor of accesess. 
+    \end{enumerate}
+
+    

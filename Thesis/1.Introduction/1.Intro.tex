@@ -25,20 +25,23 @@
         \caption{Left program is when the two reads in T1 are reordered, whereas the right program is when the two writes of T2 are reordered.}
         \label{intro:Example2}
     \end{figure}
+
+    Yet another example can be that of elimination. (show an example where elimination could result in problems. Refer your presentation.)
     
     %Should I also state here that we cannot use the hardware features??
     
-    Weaker consistency models have been introduced to concurrent, shared-memory languages to leverage more of the \textit{}{out-of-order} notion. 
-    For instance,  under the ECMAScript consistency model semantics, if all the accesses are of type \textit{unordered}, the above invalid outcome is allowed, which implies a reordering of such events is valid in the above case. 
+    Weaker consistency models have been introduced to concurrent, shared-memory languages to leverage more of the \textit{out-of-order} notion. 
+    For instance, under the ECMAScript consistency model semantics, if all the accesses are of type \textit{unordered}, the above invalid outcome is allowed, which implies a reordering of such events is valid in the above case. 
     The problem though is that semantics of such weak consistency can be easily misunderstood, and is sometimes defined in informal prose format, thus leading to misinterpretation of intended semantics, which leads to implementation issues. 
     The lack of clear semantics also makes it difficult to assert when a particular program transformation is valid / safe (in our case, instruction reordering).
     
-    Our focus in this work is to offer a clarified, more concise rendition of the core ECMAScript memory model that allows for better abstract reasoning over allowed and disallowed behaviours (outcomes). 
-    We use our model to provide a straightforward, conservative proof of when reordering of independent instructions is permitted, addressing optimization in terms of its impact on observable program behaviours. 
-    Our approach can be extended to address additional optimization effects, such as redundancy removal. Specific contributions of our work include the following:
+    Our focus in this thesis is to offer a clarified, more concise rendition of the core ECMAScript memory model that allows for better abstract reasoning over allowed and disallowed behaviours (outcomes). 
+    We use our model to provide a straightforward, conservative proof of when reordering and elimination of independent instructions is permitted, addressing optimization in terms of its impact on observable program behaviours. 
+    Specific contributions of our work include the following:
     
     \begin{enumerate}
         \item We provide a concise \textit{declarative style} model of the core ECMAScript memory consistency semantics. This clarifies the existing draft presentation~\cite{ECMA} in a manner useful for validating optimizations.
-        \item Using our model we show when basic reordering of independent instructions is allowed. Although conservative, this represents a formal proof that this fundamental optimization is permitted. Similar proof designs can be used to validate other basic optimization behaviours,such as removing redundant reads or writes.
+        \item Using our model we show when basic reordering of independent instructions is allowed. Although conservative, this represents a formal proof when the fundamental optimization is permitted. 
+        \item Similar proof designs are used to validate other basic optimization behaviours such as removing redundant reads or writes.
     \end{enumerate}
   

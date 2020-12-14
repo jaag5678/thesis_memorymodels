@@ -1,0 +1,44 @@
+\section{Limitations/Advantages}
+
+    \subsection{Separation of Concerns}
+    \begin{enumerate}
+        \item While our approach to program transformations avoids the operational complexity of the language, it also takes no information about the reason certain program transformations are done by the compiler/ hardware. 
+        \item The compiler might have more information about the validity of a program transformation sequentially, which we do not take into account, while proving whether it is valid under weak memory. 
+        \item As a simple example, it might turn out to be that sequentially, a conditional will always return true. Hence the compiler might choose to reorder the events within the $true$ branch outside. 
+        \item But as per our corollaries, we do not allow any reordering outside the loop, simply because we have no such information about the fact that a conditional always returns the same value. Having such information can give us more fine grained analysis of when reordering is valid. 
+        \item The reason we did not consider the reasons why the compiler would do such a thing is only due to the sheer complexity of whole program analysis. There might be information which comes due to inter/intra-procedural analysis of programs, which may account for a very large number of cases to address the validity of reordering. 
+        \item Hence, in our approach, we assume that the compiler knows what it is doing sequentially and do not assert any implicit assumption as to why the compiler would do a program transformation. 
+        \item This results in a clear separation of concerns, and though our results may not be directly applied in practice, we believe it gives the compiler writer enough information from a relaxed memory perspective to carefully design the algorithms for program transformations.  
+    \end{enumerate}
+
+    \subsection{Validity of Transformations is Sound but not Complete}
+    \begin{enumerate}
+        \item It is paramount to note that our approach to validity of elimination and reordering is conservative. 
+        \item We do not assume anything about events that belong to other agents/threads. Rather, we only use information on the events involved in the program transformation and those that are \textit{agent-ordered} between them. 
+        \item Such a conservative approach gave us the situation when reordering is safe, hence our approach is sound. But it is not optimal, in the sesne, it is not complete while considering the entire program. There are several cases where one could reorder or eliminate events that we prohibit, but are still safe to do. 
+        \item This, however, as mentioned before, is to specific programs. To keep track of such information while doing program transformation in practice is infeasible as the program size increases.
+        \item We wanted to ensure that the compiler can use minimal local information to assert validity of doing a program transformation, while also allowing most cases where it is in general safe to do. (rephrase)
+        \item This by chance turned out to be a good approach as we could use lemmas over partial order relations (like happens-before) to reason about validity of transformations at a  global level using jsut some local information. 
+        \item This exemplifies the power of reasoning about relaxed memory semantics using an axiomatic specification.      
+    \end{enumerate}
+    
+    \subsection{Lack of Practical Results}
+    \begin{enumerate}
+        \item This work is purely theoretical. There is yet much more to be done to extend our results into practice. 
+        \item Literature has shown that mere empirical testing of results on concurrent programs is insufficient. 
+        \item One must have a theoretical proof as to why certain results hold in a concurrent setting.
+        \item The same is for the case of relaxed memory. 
+        \item Extending our results into practice is beyond the scope of a Master's thesis. 
+    \end{enumerate}
+
+
+    \subsection{Mapping from Programming Constructs to Abstract events}
+    \begin{enumerate}
+        \item The specification and the results on program transformations are purely at the abstract set of shared memroy accesess. 
+        \item The concise mapping from ECMAScript's Read/Write to these abstract events is somethign that must be done. 
+        \item This mapping however, is not required for our results, meaning, they do not influence it in any way.
+        \item However, to apply our results in practice, such a mapping would be required. (for example Atomics.load or Atomics.store, based on their size of read/write would imply)
+        \item As an example, we might have to perform aliasing analysis to identify which shared memory accesses are of same range. 
+    \end{enumerate}
+
+   
