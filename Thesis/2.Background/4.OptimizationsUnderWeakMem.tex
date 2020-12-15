@@ -1,0 +1,9 @@
+%Start by mentioning Compiler optimziations exist.
+%A lot of old work done in making sequential analysis for program transformaitons good.
+%For concucrrent context, relatively less work has been done. (perhaps cite something? Ask Clark)
+%Mention also for weak memory, this is the case.
+
+
+Apart from the problems of ill defined / informal specifications, these models also have an impact on the safety of program transformations which were considered safe to do in a sequential program. \u{S}ev\u{c}\'{i}k et al.~\cite{SevcikJ} showed that standard compiler optimizations were rendered invalid under the respective memory model of Java. Vafeiadis et al.~\cite{VafeiadisV} showed that common compiler optimizations under C11 memory model are also invalid, followed by proposing some changes to allow them. 
+   
+With respect to instruction reordering in shared memory programs, \u{S}ev\u{c}\'{i}k et al.~\cite{Sevcik2} recently gave a proof design on how to show such optimizations are valid. However, this approach relies on the idea of reconstructing the original execution of a program given the optimized one, while also showing the well known SC-DRF guarantee holds---programs that are \textit{data race free} (DRF) must exhibit SC semantics. Our approach is in fact the other way round; we show that the optimized program does not introduce new behaviours, by explicitly using the consistency rules to show that relevant ordering relations are preserved.
