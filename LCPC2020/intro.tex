@@ -14,7 +14,7 @@
     \end{figure}
     
     
-    However, the above program under SC cannot have the outcome $a=2\ \wedge\ y=0$. 
+    However, the above program under SC cannot have the outcome $a=2\ \wedge\ b=0$. 
     From a program transformation standpoint, such an outcome should be possible: we can simply reorder either both the reads or both writes to $x$ and $y$, as they are computations on disjoint memory. 
     But from a consistency rule standpoint, since the outcome is not valid, it also brings with it the conclusion that such simple program transformations may not be safe or even invalid.
     Figure~\ref{intro:Example2} shows how after doing either one of these reorderings, an outcome invalid under SC is possible. 
