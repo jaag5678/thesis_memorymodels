@@ -1,0 +1,41 @@
+%Events----------------------------------------------------------------------------------------------------------------------------------
+    
+    %Useful command syntax
+    \newcommand{\rmw}{\textit{rmw}\,}
+    \newcommand{\set}[1]{\textbf{\textit{#1}}}
+
+%Events------------------------------------------------------------------
+    \subsection{Events}
+    Agent execution is modelled in terms of events. 
+    An event, in our context, is either an operation that involves (shared) Read/Write memory access or Synchronize events that constrains the order of execution of multiple events. 
+    We define \set{E} as the set of events involved in an agent cluster. 
+    We refer to \set{SM}, \set{R}, \set{W}, \set{S} as sets of Shared Memory, Read, Write and Synchronize events respectively. Shared Memory events are composed of Read and Write event sets. Read-Modify-Write events belong to both \set{R} and \set{W}. 
+       
+        \subsubsection{Range ($\Re$)}
+            Each of the \textit{shared memory events} are associated with a contiguous range of memory on which it operates. $\Re$ is a function that maps a shared memory event to the range of memory indices it operates on which we represent as a starting index $i$ and a size $s$. As an example, the range of event $e$ would be like: 
+                    
+                    \[\Re(w) = (i, s) \]
+           
+            %\critic{red}{The range as per the ECMAScript standard denotes only the set of contiguous byte indices. The starting byte index is kept separate. We find this to be unnecessary. Hence we define range to have starting index and size.}
+           
+            We define two binary operators $\cap_\Re$ and $\cup_\Re$ to give the intersection and union respectively of the set of the byte indices, in order to describe disjoint, overlapping and equal ranges.  
+            
+%Types of Events Based on Order--------------------------------------------------------------------------------------------------------------------
+    \subsubsection{Types of events based on Order} 
+        There are 3 types (or access modes) which play a role in the sequence in which event actions are visible to different agents
+        \begin{enumerate}
+            \item \textbf{Sequentially Consistent ($sc$)} - Events of this type are $atomic$ in nature. There is a strict global total ordering of such events which is agreed upon by all agents in the agent cluster. 
+            
+            \item \textbf{Unordered ($uo$)} - Events of this type are considered non-atomic and can occur in different orders for each agent.
+            
+            \item \textbf{Initialize ($init$)} - Events of this type are used to initialize the values in memory ordered before events in an agent cluster.
+        \end{enumerate}
+        
+        All events of type \textit{init} are writes and all read modify write events are of type \textit{sc}.
+        We represent the type of events in the memory consistency rules in the format ``$\textit{event} : \textit{type}$''. 
+        When representing events in a figure, the type would be represented as a subscript: $\textit{event}_\textit{type}$.
+   
+%Tearing factor of events
+    \subsubsection{Tearing (or not)}
+        Additionally, each shared-memory event is also associated with a tearing factor. 
+        Events that tear are non-aligned accesses requiring more than one memory access. Events that are tear-free are aligned and should appear to be serviced in one memory access. The implication of tearing is better understood with the consistency rule that will later be shown.

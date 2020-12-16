@@ -1,0 +1,39 @@
+%Ordering Relation among Events----------------------------------------------------------------------------------------------------------------------       
+        \subsection{Ordering Relations among Events}
+        
+        %Agent Order
+        \subsubsection{Agent Order ($\stck{_\textit{ao}}$)}
+            A total order among events belonging to the same agent event list. It is analogous to intra-thread ordering. For example, if two events $e$ and $d$ belong to the same agent event list , then either $\reln{e}{\textit{ao}}{d}$ or $\reln{d}{\textit{ao}}{e}$. 
+            
+           % \critic{blue}{Note that the relations are only with respect to events belonging to the same agent. A collection of such relations together form the agent order. This is analogous and meant to be equivalent to what we call as intra-thread sequential order. It is the same as what \textbf{sequenced-before} is defined to be in C++}
+        
+        %Synchronize With Order
+        \subsubsection{Synchronize-With Order ($\stck{_\textit{sw}} $)}
+           Represents the synchronizations among different agents through relations between their events. It is a composition of two sets as below: 
+                \begin{gather*}
+                            \forall{i, j > 0}, \ \langle s_i, s_j \rangle \in ASW\ \Rightarrow{}\ s_i \stck{_\textit{sw}} s_j 
+                            \\
+                            (\reln{e}{rf}{d}) \ \wedge \ \et{e}{sc} \ \wedge \ \et{d}{sc} \ \wedge \ (\Re(e)\!=\!\Re(d)) \ \Rightarrow{} \ (d \stck{_\textit{sw}} e)
+                \end{gather*}
+  
+       %Happens Before order 
+        \subsubsection{Happens Before Order ($\stck{_\textit{hb}}$)}
+            A transitive order on events, composed of the following:
+                \begin{gather*}
+                    \reln{e}{ao}{d} \ \Rightarrow{} \ \reln{e}{hb}{d}
+                    \\
+                    \reln{e}{sw}{d} \ \Rightarrow{} \ \reln{e}{hb}{d}
+                    \\
+                    \forall e, d \in SM,\ 
+                    \et{e}{init} \ \wedge \ 
+                    (\Re(e) \cap_\Re \Re(d) \neq \phi)
+                    \ \Rightarrow{} \ 
+                    \reln{e}{hb}{d}
+                \end{gather*}
+        %Memory Order
+        
+        \subsubsection{Memory Order ($\stck{_\textit{mo}}$)}
+            This is a total order on all events which respects happens-before
+                \begin{align*}
+                    \reln{e}{hb}{d} \ \Rightarrow{} \ \reln{e}{mo}{d}
+                \end{align*}

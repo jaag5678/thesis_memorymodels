@@ -1,0 +1,41 @@
+    \subsection{Preliminaries}
+    Before we go about proving when reordering is valid, we would like to have two additional definitions which would prove useful.
+    
+    %Something we need to define for sake of proofs
+    \begin{definition}{Consecutive pair of events (\emph{cons})}
+        
+        We define \emph{cons} as a function, which takes two events as input, and gives us a boolean indicating if they are consecutive pairs. Two events $e$ and $d$ are consecutive if they have an $\stck{_\textit{ao}}$ relation among them and are 'next to each other' in the same agent (thread), which can be defined formally as 
+            \begin{align*}
+                (
+                e \stck{_\textit{ao}} d  \ \wedge \ 
+                \nexists k \ \textit{s.t.} \ 
+                e \stck{_\textit{ao}} k  \ \wedge \
+                k \stck{_\textit{ao}} d 
+                )
+                \ \vee \
+                (
+                    d \stck{_\textit{ao}} e  \ \wedge \ 
+                    \nexists k \ \textit{s.t.} \ 
+                    d \stck{_\textit{ao}} k  \ \wedge \
+                    k \stck{_\textit{ao}} e  
+                )
+            \end{align*}
+    \end{definition}
+
+    \begin{definition}{Direct happens-before relation (dir)}
+        
+        We define \emph{dir} to take an ordered pair of events $(e,d)$ such that $\reln{e}{hb}{d}$ and gives a boolean value to indicate whether this relation is \textit{direct} which can be defined formally as
+        \begin{align*}
+            \nexists \ g. \ \reln{e}{hb}{g} \ \wedge \ \reln{g}{hb}{d}
+        \end{align*}
+
+        We can infer certain relations/conditions that must hold using this function based on some information on events $e$ and $d$. 
+        \begin{itemize}
+            \item If $\et{e}{uo}$, then $dir(e,d) \ \Rightarrow \ cons(e,d)$
+            \item If $\et{d}{uo}$, then $dir(e,d) \ \Rightarrow \ cons(e,d)$
+            \item If $\et{e}{sc}\ \wedge\ e\!\in\!R$, then $dir(e,d) \ \Rightarrow \ cons(e,d)$
+            \item If $\et{e}{sc}\ \wedge\ e\!\in\!W$, then $dir(e,d) \ \Rightarrow \ cons(e,d)\ \vee\ \reln{e}{sw}{d}$
+            \item If $\et{d}{sc}\ \wedge\ d\!\in\!W$, then $dir(e,d) \ \Rightarrow \ cons(e,d)$
+            \item If $\et{d}{sc}\ \wedge\ e\!\in\!R$, then $dir(e,d) \ \Rightarrow \ cons(e,d)\ \vee\ \reln{e}{sw}{d}$
+        \end{itemize}
+    \end{definition}

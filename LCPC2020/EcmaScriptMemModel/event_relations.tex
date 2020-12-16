@@ -1,0 +1,33 @@
+%Relation among events----------------------------------------------------------------------------------------------------------------------------
+    \subsection{Relation among events}
+    
+        We now describe a set of relations between events. These relations help us describe the consistency rules.
+        
+        \subsubsection{Read-Write event relations}
+        There are two basic relations that assist us in reasoning about read and write events.
+        
+        %Read bytes from relation 
+            \paragraph{Read-Bytes-From $(\stck{_\textit{rbf}})$}
+        
+            This relation maps every read event to a list of tuples consisting of a write event and the corresponding byte index that is read. For instance, consider a read event $e$ and corresponding write events $d1$, $d2$ all of whose ranges have byte index $i$ and size 3. One possible $\stck{_\textit{rbf}}$ relation could be represented as  
+                \[\reln{e}{\textit{rbf}}{\{(d1, i), (d2, i\!+\!1), (d2, i\!+\!2)\}} \]
+            or having individual binary relation with each write-index pair as 
+                \begin{align*}
+                    \reln{e}{rbf}{(d1, i)},\ \reln{e}{rbf}{(d2, i\!+\!1)}  \text{ and } \reln{e}{rbf}{(d2, i\!+\!2)}.
+                \end{align*}
+                
+            %Reads from relation
+            \paragraph{Reads-From $(\stck{_\textit{rf}})$}
+            
+            This relation, is similar to the above relation, except that the byte index details are not involved in the composed list. So for the above example, the \textit{rf} relation would be represented either as   
+                $\reln{e}{rf}{(d1, d2)}$
+            or individual binary read-write relation as 
+                $\reln{e}{rf}{d1}$ and $\reln{e}{rf}{d2}$.
+        
+        %Agent sync with relation
+        \subsubsection{Agent-Synchronizes With (\set{ASW})}
+        %%%%% May want to reduce this 
+        A list for each agent that consist of ordered tuples of synchronize events. These tuples specify ordering constraints among agents at different points of execution. We represent such a list for an agent $k$ as 
+            \begin{align*}
+                \textit{\set{ASW}}_k = \{ \langle s_1, s_2 \rangle, \langle s_3, s_4 \rangle ...\}    
+            \end{align*}

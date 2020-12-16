@@ -1,0 +1,77 @@
+%Valid Execution Rules---------------------------------------------------------------------------------------------------------------------------------
+    %MAKE SURE TO PLACE DEFINITONS ON PROGRAM, CANDIDATE, CANDIDATE EXECUTION and OBSERVABLE BEHAVIOURS        
+
+    \subsection{Valid Execution Rules (the Axioms)}
+        We now state the memory consistency rules. The rules are on \textit{Candidate Executions} which will place constraints on the possible \textit{Observable behaviors} that may result from it.
+         
+        %Coherent Reads   
+        \subsubsection{Coherent Reads} 
+        
+            There are certain restrictions of what a read event cannot see in an execution based on $\stck{_\textit{hb}}$ relation with write events.
+            
+            Consider a read event $e$ and a write event $d$ having at least overlapping ranges:
+            \begin{align*}
+                \event{e}{R} \ \wedge \ 
+                \event{d}{W} \ \wedge \
+                (\Re(e) \cap_\Re \Re(d) \neq \phi).
+            \end{align*}
+            
+            A read ($e$) value cannot come from a write ($d$) that has happened after it or if there is a write ($g$) that happens between them, writing to the same memory:     
+                \begin{gather*}
+                    \reln{e}{hb}{d}\ \Rightarrow{}\ \neg \ \reln{e}{rf}{d}. \\
+                    \reln{d}{hb}{e}
+                    \ \wedge \ 
+                    \reln{d}{hb}{g} \ \wedge \  \reln{g}{hb}{e}
+                    \ \Rightarrow{} \
+                    \forall x \in (\Re(d) \cap_\Re \Re(g) \cap_\Re \Re(e)), \ \neg \ \reln{e}{rbf}{(d,x)}.
+                \end{gather*}
+     
+      \subsubsection{Tear-Free Reads} 
+               If two tear free writes ($d$ and $g$) and a tear free read ($e$) all with equal ranges exist, then $e$ can read only from one of them
+                \begin{align*}
+                      \et{d}{tf}\ \wedge\ \et{g}{tf} \ \wedge \ \et{e}{tf} 
+                        \ \wedge \ 
+                        (\Re(d) \!=\! \Re(g) \!=\! \Re(e)) 
+                        \ \Rightarrow{} \ 
+                            ((\reln{e}{rf}{d}) 
+                            \ \wedge \ 
+                            (\neg \ \reln{e}{rf}{g})) 
+                        \ \vee \  
+                            ((\reln{e}{rf}{g}) 
+                            \ \wedge \
+                            (\neg \ \reln{e}{rf}{d})).
+                \end{align*}
+                    
+        \subsubsection{Sequentially Consistent Atomics} 
+            To specifically define how events that are sequentially consistent affects what values a read cannot see, we assume the following memory order among writes $d$ and $g$ and a read $e$ to be the premise for all the rules: 
+                \begin{align*}
+                    d \stck{_{mo}} g \stck{_{mo}} e.
+                \end{align*}
+            There are three separate cases that restrict $e$ to read from $d$, which are as below:
+            \begin{itemize}
+                \item If all events are sequentially consistent with equal ranges.
+                \item If both $g$ and $d$ are sequentially consistent with equal ranges and they happen before $e$.
+                \item If both $e$ and $g$ are sequentially consistent with equal ranges and $d$ happens before them. 
+            \end{itemize}
+            The above cases can be summarized concisely by the rules below:
+                \begin{gather*}
+                        \et{d}{sc}\ \wedge\ \et{g}{sc}\ \wedge\ \et{e}{sc} 
+                        \ \wedge \ (\Re(d) \!=\! \Re(g) \!=\! \Re(e))
+                        \ \Rightarrow{} \ 
+                        \neg \ \reln{e}{rf}{d}.
+                    \\    
+                        \et{d}{sc}\ \wedge\ \et{g}{sc}  
+                        \ \wedge \ (\Re(d) \!=\! \Re(g)) 
+                        \ \wedge \ \reln{d}{hb}{e}
+                        \ \wedge \ \reln{g}{hb}{e}
+                        \ \Rightarrow{}\  
+                        \neg \ \reln{e}{rf}{d}.
+                    \\
+                        \et{g}{sc}\ \wedge\ \et{e}{sc}  
+                        \ \wedge \ (\Re(g) \!= \!\Re(e)) 
+                        \ \wedge \ \reln{d}{hb}{g} 
+                        \ \wedge \ \reln{d}{hb}{e}
+                        \ \Rightarrow \ 
+                        \neg \ \reln{e}{rf}{d}.
+                \end{gather*}
+  
