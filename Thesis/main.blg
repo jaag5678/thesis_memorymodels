@@ -1,0 +1,19 @@
+[0] Config.pm:302> INFO - This is Biber 2.9
+[1] Config.pm:305> INFO - Logfile is 'main.blg'
+[18] biber:313> INFO - === Tue Dec 15, 2020, 16:08:20
+[36] Biber.pm:371> INFO - Reading 'main.bcf'
+[77] Biber.pm:857> INFO - Found 21 citekeys in bib section 0
+[87] Biber.pm:3981> INFO - Processing section 0
+[98] Biber.pm:4154> INFO - Looking for bibtex format file 'references.bib' for section 0
+[102] bibtex.pm:1468> INFO - LaTeX decoding ...
+[117] bibtex.pm:1294> INFO - Found BibTeX data source 'references.bib'
+[210] Utils.pm:169> WARN - BibTeX subsystem: /tmp/8MddS26Sfk/references.bib_102.utf8, line 238, warning: 20 characters of junk seen at toplevel
+[212] Utils.pm:169> WARN - I didn't find a database entry for 'DBLP:conf/popl/FlurSPNMGSBS17' (section 0)
+[212] Utils.pm:169> WARN - I didn't find a database entry for 'DBLP:conf/fm/LahavV16' (section 0)
+[232] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[232] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[233] Biber.pm:3809> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[233] Biber.pm:3815> INFO - No sort tailoring available for locale 'en-US'
+[251] bbl.pm:617> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[260] bbl.pm:720> INFO - Output to main.bbl
+[262] Biber.pm:110> INFO - WARNINGS: 3

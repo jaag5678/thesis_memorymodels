@@ -1,0 +1,12 @@
+\section{Program Transformations under Weak Memory}
+
+Although programmers usually are responsible to write efficient programs, their performance during execution does not always depend on how well the program is written. 
+Several compiler optimizations done, coupled with run-time optimizations by hardware play a big role in the end performance of programs.
+For sequential programs, a lot of well established ideas exist to enhance the performance of programs, but they do not map well to that of concurrent programs. 
+With the introduction of relaxed memory accesses, quite a few critical program transformations responsible for huge performance gains may be unsound. 
+
+\u{S}ev\u{c}\'{i}k et al.~\cite{SevcikJ} showed that standard compiler optimizations were rendered invalid under the respective memory model of Java. Simple transformations such read-after-wrtie elimination or redundant read introduction which play a role in major performance based transformations such as common sub expression eliminations were unsound. 
+
+Vafeiadis et al.~\cite{VafeiadisV} showed that common compiler optimizations under C11 memory model are also invalid, followed by proposing some changes to allow them. Transformations such as sequentialization, strengthening access modes, and even roach-motel reorderings were unsound. Their proposed changes to the model have been incorporated by the standard committe for C11. 
+   
+With respect to instruction reordering in shared memory programs, \u{S}ev\u{c}\'{i}k et al.~\cite{Sevcik2} gave a proof design on how to show such optimizations are valid. However, this approach relies on the idea of reconstructing the original execution of a program given the optimized one, while also showing the well known SC-DRF guarantee holds---programs that are \textit{data race free} (DRF) must exhibit SC semantics. Our approach is in fact the other way round; we show that the optimized program does not introduce new behaviours, by explicitly using the consistency rules to show that relevant ordering relations are preserved.

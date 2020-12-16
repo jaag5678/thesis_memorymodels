@@ -1,4 +1,5 @@
 %Start by an intuitive explaination of memory models. What it means for us and why was it introduced.
+\section{Memory Consistency Models}
 
 Sequential Consistency, which was first formulated by Lamport et al.~\cite{Lamport79}, gives programmers a very intuitive way to reason about their programs running in a multiprocessor environment.
 However, in the practical sense, Sequential Consistency is too ``strict,'' in the sense that it may impede possible performance benefits of using low level optimization features, such as instruction reordering, or read/write buffers provided by the hardware.
@@ -7,16 +8,19 @@ What this tutorial also exposed is the difficulty in formalizing such features i
 Unsurprisingly, relaxed memory model specifications for different hardware / high level programming languages are still sometimes written in informal prose format, which lead to a number of problems in implementation~\cite{Sewell}. 
 
 %x86 memory model
+Thsi  informal specifications led to a number of inconsistencies in intention of the designer and how the programs behaved.
 Sarkar et al.~\cite{SarkarS} showed that the original x86-CC memory model was fairly informal, which they then formalized in their work. This also exposed inconsistencies between the specification and the implementation in hardware. This was shown in their subsequent work done by Owens et al.~\cite{OwensS}, wherein they proposed a new memory model x86-TSO as a remedy. 
 %Java Memory model
-Manson et al.~\cite{JeremyM}, showed that the initial specifications of the Java memory model were quite informal and ill defined, and offered a more precise formalization. Recent works such as that done by Bender et al.~\cite{BenderJ}, also shows us that the recent updates to the java Memory model is still relatively unclear, which they again formalize. 
+Manson et al.~\cite{JeremyM}, showed that the initial specifications of the Java memory model were quite informal and ill defined, and offered a more precise formalization. Recent works such as that done by Bender et al.~\cite{BenderJ}, also shows us that the recent updates to the java Memory model are still relatively unclear, which they again formalize. 
 %C++ memory model
-%Foundations of C++ memory model. Followed by Batty, then followed by Kyndlain, then conclude by RC11
-Similarly, Batty et al.~\cite{BattyM}, clarified the specification of the C11 memory model. 
+Boehm et al.~\cite{Boehm} exposed that the earlier version of C++ concurrency semantics was unsound, followed by proposing a new semantics for the same.
+Batty et al.~\cite{BattyM} exposed the lack of clear specifications of the then version of C11 memory model, giving a clarified, mathe,matical yet seemingly readable specification of the model.
+Nienhuis et al.~\cite{Nienhuis} gave an operational semantics of the then C11 memory model, exposing certain limitations in terms of execution of such concurrent programs.
+Lahav et al.~\cite{Lahav} exposed that the current compilation scheme of C11 concurrent programs to POWER unsound, thus proposing fixes to the memory model of C11 itself, which they call $RC11$.
 
 %Mixed size memory models
+The above memory models were all based on the assumption that memory accesses are of equal sizes. But in practice this may not always be the case. Hardware can have from 8-bit to 64-bit or event 128-bit memory accesses that can be done either atomically or split accross different subsequent memory accesses. 
+Investigation of semantics in this direction is fairly recent.
+Flur et al.~\cite{Flur} investigated mixed-size behaviors in Arm and POWER architechtures, also exposing new problems to address in the semantics. They also extend the current C11 memory model with some mixed-size semantics.
+ECMAScript, being a relatively simpler mixed-size model has also had some attention in this respect. Watt et al~\cite{WattC} uncovered and fixed a deficiency in the previous version of the model, repairing the model to guarantee SC-DRF.
 
-ECMAScript has also had some attention in this respect. Watt et al~\cite{WattC} uncovered and fixed a deficiency in the previous version of the model, repairing the model to guarantee SC-DRF.
-
-%Cite that one paper. thats it.
-%Also cite perhaps ECMAScript.

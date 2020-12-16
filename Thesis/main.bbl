@@ -1,0 +1,683 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{AdveG}{article}{}
+      \name{author}{2}{}{%
+        {{hash=fd4da5bd223b287369f2357b87ce4e22}{%
+           family={Adve},
+           familyi={A\bibinitperiod},
+           given={Sarita\bibnamedelima V.},
+           giveni={S\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=e762cb57ed6d194410566c60ea80d867}{%
+           family={Gharachorloo},
+           familyi={G\bibinitperiod},
+           given={Kourosh},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{e39c86aaa6a839a623e0217121907d1c}
+      \strng{fullhash}{e39c86aaa6a839a623e0217121907d1c}
+      \strng{bibnamehash}{e39c86aaa6a839a623e0217121907d1c}
+      \strng{authorbibnamehash}{e39c86aaa6a839a623e0217121907d1c}
+      \strng{authornamehash}{e39c86aaa6a839a623e0217121907d1c}
+      \strng{authorfullhash}{e39c86aaa6a839a623e0217121907d1c}
+      \field{sortinit}{A}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{IEEE} Computer}
+      \field{title}{Shared Memory Consistency Models: A Tutorial}
+      \field{year}{1996}
+    \endentry
+    \entry{Alglave}{article}{}
+      \name{author}{3}{}{%
+        {{hash=ab3c145de719fd61234960cc55b23c27}{%
+           family={Alglave},
+           familyi={A\bibinitperiod},
+           given={Jade},
+           giveni={J\bibinitperiod}}}%
+        {{hash=6e290efab614501d57bc84c863ce21ab}{%
+           family={Maranget},
+           familyi={M\bibinitperiod},
+           given={Luc},
+           giveni={L\bibinitperiod}}}%
+        {{hash=be0cf212fa97eb5a6ca43eefedfc56a5}{%
+           family={Tautschnig},
+           familyi={T\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \strng{namehash}{fa47c8fc5fc069b9635a744557645055}
+      \strng{fullhash}{fa47c8fc5fc069b9635a744557645055}
+      \strng{bibnamehash}{fa47c8fc5fc069b9635a744557645055}
+      \strng{authorbibnamehash}{fa47c8fc5fc069b9635a744557645055}
+      \strng{authornamehash}{fa47c8fc5fc069b9635a744557645055}
+      \strng{authorfullhash}{fa47c8fc5fc069b9635a744557645055}
+      \field{sortinit}{A}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM Trans. Program. Lang. Syst.}
+      \field{title}{Herding Cats: Modelling, Simulation, Testing, and Data Mining for Weak Memory}
+      \field{year}{2014}
+    \endentry
+    \entry{BattyM}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=e83596eadc67cebb7a1f938398f17918}{%
+           family={Batty},
+           familyi={B\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=04b670f6d1f73db0f24b85e5b4562755}{%
+           family={Owens},
+           familyi={O\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod}}}%
+        {{hash=05af72045565493cd85f8d5167330aa2}{%
+           family={Sarkar},
+           familyi={S\bibinitperiod},
+           given={Susmit},
+           giveni={S\bibinitperiod}}}%
+        {{hash=36aa14ea12e51326290dd02c24f754c2}{%
+           family={Sewell},
+           familyi={S\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=a7452baee6a0ea25f307c6b754eb06d5}{%
+           family={Weber},
+           familyi={W\bibinitperiod},
+           given={Tjark},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{b0847519fe8c88ef9169da7f5cf6f99d}
+      \strng{fullhash}{ed67f4db97e1da7367b8a5a76c3b7070}
+      \strng{bibnamehash}{b0847519fe8c88ef9169da7f5cf6f99d}
+      \strng{authorbibnamehash}{b0847519fe8c88ef9169da7f5cf6f99d}
+      \strng{authornamehash}{b0847519fe8c88ef9169da7f5cf6f99d}
+      \strng{authorfullhash}{ed67f4db97e1da7367b8a5a76c3b7070}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{POPL}, Austin, TX, USA}
+      \field{title}{Mathematizing {C++} concurrency}
+      \field{year}{2011}
+    \endentry
+    \entry{BenderJ}{article}{}
+      \name{author}{2}{}{%
+        {{hash=46e84b7f9609fd79ed2f72398b9e5a73}{%
+           family={Bender},
+           familyi={B\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=1684412f847ca2768dd69ca981ed8458}{%
+           family={Palsberg},
+           familyi={P\bibinitperiod},
+           given={Jens},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{252995c003aadd763fdb20506c88714f}
+      \strng{fullhash}{252995c003aadd763fdb20506c88714f}
+      \strng{bibnamehash}{252995c003aadd763fdb20506c88714f}
+      \strng{authorbibnamehash}{252995c003aadd763fdb20506c88714f}
+      \strng{authornamehash}{252995c003aadd763fdb20506c88714f}
+      \strng{authorfullhash}{252995c003aadd763fdb20506c88714f}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{OOPSLA}
+      \field{title}{A formalization of Java's concurrent access modes}
+      \field{year}{2019}
+    \endentry
+    \entry{Boehm}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=33d6000d2ca7dc176d23611e06c9dc8a}{%
+           family={Boehm},
+           familyi={B\bibinitperiod},
+           given={Hans{-}Juergen},
+           giveni={H\bibinitperiod}}}%
+        {{hash=fd4da5bd223b287369f2357b87ce4e22}{%
+           family={Adve},
+           familyi={A\bibinitperiod},
+           given={Sarita\bibnamedelima V.},
+           giveni={S\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6d1d6ae79a6e92895281ac3ec164654}
+      \strng{fullhash}{b6d1d6ae79a6e92895281ac3ec164654}
+      \strng{bibnamehash}{b6d1d6ae79a6e92895281ac3ec164654}
+      \strng{authorbibnamehash}{b6d1d6ae79a6e92895281ac3ec164654}
+      \strng{authornamehash}{b6d1d6ae79a6e92895281ac3ec164654}
+      \strng{authorfullhash}{b6d1d6ae79a6e92895281ac3ec164654}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{PLDI, Tucson, AZ, USA}
+      \field{title}{Foundations of the {C++} concurrency memory model}
+      \field{year}{2008}
+    \endentry
+    \entry{ECMA}{article}{}
+      \name{author}{1}{}{%
+        {{hash=f03ab16cd58372c77ba45a3d9a5a1cb9}{%
+           family={Draft},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{f03ab16cd58372c77ba45a3d9a5a1cb9}
+      \strng{fullhash}{f03ab16cd58372c77ba45a3d9a5a1cb9}
+      \strng{bibnamehash}{f03ab16cd58372c77ba45a3d9a5a1cb9}
+      \strng{authorbibnamehash}{f03ab16cd58372c77ba45a3d9a5a1cb9}
+      \strng{authornamehash}{f03ab16cd58372c77ba45a3d9a5a1cb9}
+      \strng{authorfullhash}{f03ab16cd58372c77ba45a3d9a5a1cb9}
+      \field{sortinit}{D}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{ECMAScript} Language Specification}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://tc39.es/ecma262/#sec-memory-model
+      \endverb
+      \verb{url}
+      \verb https://tc39.es/ecma262/#sec-memory-model
+      \endverb
+    \endentry
+    \entry{Flur}{inproceedings}{}
+      \name{author}{9}{}{%
+        {{hash=b63998d5ec15e70377b38cb4f4b1fd25}{%
+           family={Flur},
+           familyi={F\bibinitperiod},
+           given={Shaked},
+           giveni={S\bibinitperiod}}}%
+        {{hash=05af72045565493cd85f8d5167330aa2}{%
+           family={Sarkar},
+           familyi={S\bibinitperiod},
+           given={Susmit},
+           giveni={S\bibinitperiod}}}%
+        {{hash=54c9916745c5072eb31b390ff1e7cecf}{%
+           family={Pulte},
+           familyi={P\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod}}}%
+        {{hash=5ba05b778f1eb0c2c7660d2ebca9cc0b}{%
+           family={Nienhuis},
+           familyi={N\bibinitperiod},
+           given={Kyndylan},
+           giveni={K\bibinitperiod}}}%
+        {{hash=6e290efab614501d57bc84c863ce21ab}{%
+           family={Maranget},
+           familyi={M\bibinitperiod},
+           given={Luc},
+           giveni={L\bibinitperiod}}}%
+        {{hash=674748b3ca09055b8785e9cd69bcf6f5}{%
+           family={Gray},
+           familyi={G\bibinitperiod},
+           given={Kathryn\bibnamedelima E.},
+           giveni={K\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=44fe7408de51d2b1c90ffbb22d7954d0}{%
+           family={Sezgin},
+           familyi={S\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e83596eadc67cebb7a1f938398f17918}{%
+           family={Batty},
+           familyi={B\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=36aa14ea12e51326290dd02c24f754c2}{%
+           family={Sewell},
+           familyi={S\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{eb5db15fb34b0b13189c75a702f82199}
+      \strng{fullhash}{689f41c61b80428f4a3632f142895e1a}
+      \strng{bibnamehash}{eb5db15fb34b0b13189c75a702f82199}
+      \strng{authorbibnamehash}{eb5db15fb34b0b13189c75a702f82199}
+      \strng{authornamehash}{eb5db15fb34b0b13189c75a702f82199}
+      \strng{authorfullhash}{689f41c61b80428f4a3632f142895e1a}
+      \field{sortinit}{F}
+      \field{sortinithash}{669c706c6f1fbf3b5a83d26f1d9e9e72}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{POPL},Paris, France}
+      \field{title}{Mixed-size concurrency: ARM, POWER, C/C++11, and {SC}}
+      \field{year}{2017}
+    \endentry
+    \entry{Lahav}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=fc5d6b0cddd3c8957316a2ead6fcc46e}{%
+           family={Lahav},
+           familyi={L\bibinitperiod},
+           given={Ori},
+           giveni={O\bibinitperiod}}}%
+        {{hash=63c94d1b9a9e52fc0ce7d6a4e66393e3}{%
+           family={Vafeiadis},
+           familyi={V\bibinitperiod},
+           given={Viktor},
+           giveni={V\bibinitperiod}}}%
+        {{hash=59224bce9041f1949b743667f14623f5}{%
+           family={Kang},
+           familyi={K\bibinitperiod},
+           given={Jeehoon},
+           giveni={J\bibinitperiod}}}%
+        {{hash=48b2312c403ab1b6615b8ebd1c4f7d31}{%
+           family={Hur},
+           familyi={H\bibinitperiod},
+           given={Chung{-}Kil},
+           giveni={C\bibinitperiod}}}%
+        {{hash=3c61a075f82133ed00b1cf07a5b5c194}{%
+           family={Dreyer},
+           familyi={D\bibinitperiod},
+           given={Derek},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{23ac06894ac8a918ca82b721d099a894}
+      \strng{fullhash}{b17be38ca43e9972443d7d37f88dc309}
+      \strng{bibnamehash}{23ac06894ac8a918ca82b721d099a894}
+      \strng{authorbibnamehash}{23ac06894ac8a918ca82b721d099a894}
+      \strng{authornamehash}{23ac06894ac8a918ca82b721d099a894}
+      \strng{authorfullhash}{b17be38ca43e9972443d7d37f88dc309}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{PLDI}, Barcelona, Spain}
+      \field{title}{Repairing sequential consistency in {C/C++11}}
+      \field{year}{2017}
+    \endentry
+    \entry{Lamport79}{article}{}
+      \name{author}{1}{}{%
+        {{hash=5d77435450d10a850a5b58577b9a456b}{%
+           family={Lamport},
+           familyi={L\bibinitperiod},
+           given={Leslie},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{fullhash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{bibnamehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{authorbibnamehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{authornamehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{authorfullhash}{5d77435450d10a850a5b58577b9a456b}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{IEEE} Trans. Computers}
+      \field{title}{How to Make a Multiprocessor Computer That Correctly Executes Multiprocess Programs}
+      \field{year}{1979}
+    \endentry
+    \entry{JeremyM}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=d8cc654d153f03471f499a2351b8bb7e}{%
+           family={Manson},
+           familyi={M\bibinitperiod},
+           given={Jeremy},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{d8cc654d153f03471f499a2351b8bb7e}
+      \strng{fullhash}{d8cc654d153f03471f499a2351b8bb7e}
+      \strng{bibnamehash}{d8cc654d153f03471f499a2351b8bb7e}
+      \strng{authorbibnamehash}{d8cc654d153f03471f499a2351b8bb7e}
+      \strng{authornamehash}{d8cc654d153f03471f499a2351b8bb7e}
+      \strng{authorfullhash}{d8cc654d153f03471f499a2351b8bb7e}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{OOPSLA}
+      \field{title}{The Design and Verification of Java’s Memory Model}
+      \field{year}{2002}
+    \endentry
+    \entry{Nienhuis}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=5ba05b778f1eb0c2c7660d2ebca9cc0b}{%
+           family={Nienhuis},
+           familyi={N\bibinitperiod},
+           given={Kyndylan},
+           giveni={K\bibinitperiod}}}%
+        {{hash=da68bfdcde880a684127c28d19fbd83a}{%
+           family={Memarian},
+           familyi={M\bibinitperiod},
+           given={Kayvan},
+           giveni={K\bibinitperiod}}}%
+        {{hash=36aa14ea12e51326290dd02c24f754c2}{%
+           family={Sewell},
+           familyi={S\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{7bf8b243abda21c3060ffc959691681c}
+      \strng{fullhash}{7bf8b243abda21c3060ffc959691681c}
+      \strng{bibnamehash}{7bf8b243abda21c3060ffc959691681c}
+      \strng{authorbibnamehash}{7bf8b243abda21c3060ffc959691681c}
+      \strng{authornamehash}{7bf8b243abda21c3060ffc959691681c}
+      \strng{authorfullhash}{7bf8b243abda21c3060ffc959691681c}
+      \field{sortinit}{N}
+      \field{sortinithash}{f7242c3ed3dc50029fca1be76c497c7c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{SPLASH}, Amsterdam, The Netherlands}
+      \field{title}{An operational semantics for {C/C++11} concurrency}
+      \field{year}{2016}
+    \endentry
+    \entry{OwensS}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=04b670f6d1f73db0f24b85e5b4562755}{%
+           family={Owens},
+           familyi={O\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod}}}%
+        {{hash=05af72045565493cd85f8d5167330aa2}{%
+           family={Sarkar},
+           familyi={S\bibinitperiod},
+           given={Susmit},
+           giveni={S\bibinitperiod}}}%
+        {{hash=36aa14ea12e51326290dd02c24f754c2}{%
+           family={Sewell},
+           familyi={S\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{e40d6212027ca2fe056e3158331d8223}
+      \strng{fullhash}{e40d6212027ca2fe056e3158331d8223}
+      \strng{bibnamehash}{e40d6212027ca2fe056e3158331d8223}
+      \strng{authorbibnamehash}{e40d6212027ca2fe056e3158331d8223}
+      \strng{authornamehash}{e40d6212027ca2fe056e3158331d8223}
+      \strng{authorfullhash}{e40d6212027ca2fe056e3158331d8223}
+      \field{sortinit}{O}
+      \field{sortinithash}{dad3efd0836470093a7b4a7bb756eb8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{TPHOLs, Munich, Germany}
+      \field{title}{A Better x86 Memory Model: x86-TSO}
+      \field{year}{2009}
+    \endentry
+    \entry{SarkarS}{inproceedings}{}
+      \name{author}{8}{}{%
+        {{hash=05af72045565493cd85f8d5167330aa2}{%
+           family={Sarkar},
+           familyi={S\bibinitperiod},
+           given={Susmit},
+           giveni={S\bibinitperiod}}}%
+        {{hash=36aa14ea12e51326290dd02c24f754c2}{%
+           family={Sewell},
+           familyi={S\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=1b9c13cfc63007dc7993fab4809e96ae}{%
+           family={Nardelli},
+           familyi={N\bibinitperiod},
+           given={Francesco\bibnamedelima Zappa},
+           giveni={F\bibinitperiod\bibinitdelim Z\bibinitperiod}}}%
+        {{hash=04b670f6d1f73db0f24b85e5b4562755}{%
+           family={Owens},
+           familyi={O\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod}}}%
+        {{hash=7334a3a78358d1cbdf3c7d9401743ea8}{%
+           family={Ridge},
+           familyi={R\bibinitperiod},
+           given={Tom},
+           giveni={T\bibinitperiod}}}%
+        {{hash=27163b803b77a6332377651432127f87}{%
+           family={Braibant},
+           familyi={B\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=08c71c0f1ca654a7644926adabe3ea30}{%
+           family={Myreen},
+           familyi={M\bibinitperiod},
+           given={Magnus\bibnamedelima O.},
+           giveni={M\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+        {{hash=ab3c145de719fd61234960cc55b23c27}{%
+           family={Alglave},
+           familyi={A\bibinitperiod},
+           given={Jade},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{ee483ba1b155e6c95b20d27917b3f20e}
+      \strng{fullhash}{c9345f60ae408923add080d36215613d}
+      \strng{bibnamehash}{ee483ba1b155e6c95b20d27917b3f20e}
+      \strng{authorbibnamehash}{ee483ba1b155e6c95b20d27917b3f20e}
+      \strng{authornamehash}{ee483ba1b155e6c95b20d27917b3f20e}
+      \strng{authorfullhash}{c9345f60ae408923add080d36215613d}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{POPL}, Savannah, GA, USA}
+      \field{title}{The semantics of x86-CC multiprocessor machine code}
+      \field{year}{2009}
+    \endentry
+    \entry{Sevcik2}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=00094cd0ddcf0747644066112ebb6594}{%
+           family={{S̆}ev{c̆}{í}k},
+           familyi={S̆\bibinitperiod},
+           given={Jaroslav},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{00094cd0ddcf0747644066112ebb6594}
+      \strng{fullhash}{00094cd0ddcf0747644066112ebb6594}
+      \strng{bibnamehash}{00094cd0ddcf0747644066112ebb6594}
+      \strng{authorbibnamehash}{00094cd0ddcf0747644066112ebb6594}
+      \strng{authornamehash}{00094cd0ddcf0747644066112ebb6594}
+      \strng{authorfullhash}{00094cd0ddcf0747644066112ebb6594}
+      \field{sortinit}{S̆}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{PLDI}, San Jose, USA}
+      \field{title}{Safe optimisations for shared-memory concurrent programs}
+      \field{year}{2011}
+    \endentry
+    \entry{SevcikJ}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=00094cd0ddcf0747644066112ebb6594}{%
+           family={{S̆}ev{c̆}{í}k},
+           familyi={S̆\bibinitperiod},
+           given={Jaroslav},
+           giveni={J\bibinitperiod}}}%
+        {{hash=206f4507bb958ee956f7d9994b55c172}{%
+           family={Aspinall},
+           familyi={A\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{6ec225cfa73fe28d2bcc168a34101bcb}
+      \strng{fullhash}{6ec225cfa73fe28d2bcc168a34101bcb}
+      \strng{bibnamehash}{6ec225cfa73fe28d2bcc168a34101bcb}
+      \strng{authorbibnamehash}{6ec225cfa73fe28d2bcc168a34101bcb}
+      \strng{authornamehash}{6ec225cfa73fe28d2bcc168a34101bcb}
+      \strng{authorfullhash}{6ec225cfa73fe28d2bcc168a34101bcb}
+      \field{sortinit}{S̆}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{ECOOP}, Paphos, Cyprus}
+      \field{title}{On Validity of Program Transformations in the Java Memory Model}
+      \field{year}{2008}
+    \endentry
+    \entry{Sewell}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=36aa14ea12e51326290dd02c24f754c2}{%
+           family={Sewell},
+           familyi={S\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{36aa14ea12e51326290dd02c24f754c2}
+      \strng{fullhash}{36aa14ea12e51326290dd02c24f754c2}
+      \strng{bibnamehash}{36aa14ea12e51326290dd02c24f754c2}
+      \strng{authorbibnamehash}{36aa14ea12e51326290dd02c24f754c2}
+      \strng{authornamehash}{36aa14ea12e51326290dd02c24f754c2}
+      \strng{authorfullhash}{36aa14ea12e51326290dd02c24f754c2}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{ISMM}, Toronto, Ontario, Canada}
+      \field{title}{Memory, an elusive abstraction}
+      \field{year}{2010}
+    \endentry
+    \entry{Sindhu}{inbook}{}
+      \name{author}{3}{}{%
+        {{hash=3fb09c21cfbebd84d4b2669133bff784}{%
+           family={Sindhu},
+           familyi={S\bibinitperiod},
+           given={Pradeep\bibnamedelima S.},
+           giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=536c78ac5ddc43a2eeb1e8d4d03beca6}{%
+           family={Frailong},
+           familyi={F\bibinitperiod},
+           given={Jean-Marc},
+           giveni={J\bibinithyphendelim M\bibinitperiod}}}%
+        {{hash=f3ebf3b8b64da53a718c1a475771a030}{%
+           family={Cekleov},
+           familyi={C\bibinitperiod},
+           given={Michel},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boston, MA}%
+      }
+      \strng{namehash}{3b766cb0fcd6790b25b22cdbb757585e}
+      \strng{fullhash}{3b766cb0fcd6790b25b22cdbb757585e}
+      \strng{bibnamehash}{3b766cb0fcd6790b25b22cdbb757585e}
+      \strng{authorbibnamehash}{3b766cb0fcd6790b25b22cdbb757585e}
+      \strng{authornamehash}{3b766cb0fcd6790b25b22cdbb757585e}
+      \strng{authorfullhash}{3b766cb0fcd6790b25b22cdbb757585e}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Formal Specification of Memory Models}
+      \field{year}{1992}
+    \endentry
+    \entry{VafeiadisV}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=63c94d1b9a9e52fc0ce7d6a4e66393e3}{%
+           family={Vafeiadis},
+           familyi={V\bibinitperiod},
+           given={Viktor},
+           giveni={V\bibinitperiod}}}%
+        {{hash=b8b935f4fe83f5874d608f5ee31ba81f}{%
+           family={Balabonski},
+           familyi={B\bibinitperiod},
+           given={Thibaut},
+           giveni={T\bibinitperiod}}}%
+        {{hash=9cf9533a23656278f2836462e55084c8}{%
+           family={Chakraborty},
+           familyi={C\bibinitperiod},
+           given={Soham},
+           giveni={S\bibinitperiod}}}%
+        {{hash=87c0f757beab38bec0bf93e1f15fe1e3}{%
+           family={Morisset},
+           familyi={M\bibinitperiod},
+           given={Robin},
+           giveni={R\bibinitperiod}}}%
+        {{hash=1b9c13cfc63007dc7993fab4809e96ae}{%
+           family={Nardelli},
+           familyi={N\bibinitperiod},
+           given={Francesco\bibnamedelima Zappa},
+           giveni={F\bibinitperiod\bibinitdelim Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{02f192bfa99c536fbafc82854e4b782c}
+      \strng{fullhash}{483a1ec11cf8811f12fde0f11dc4e4d1}
+      \strng{bibnamehash}{02f192bfa99c536fbafc82854e4b782c}
+      \strng{authorbibnamehash}{02f192bfa99c536fbafc82854e4b782c}
+      \strng{authornamehash}{02f192bfa99c536fbafc82854e4b782c}
+      \strng{authorfullhash}{483a1ec11cf8811f12fde0f11dc4e4d1}
+      \field{sortinit}{V}
+      \field{sortinithash}{75dd7385c90b2252c3ae853a80ca853b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{POPL}, Mumbai, India}
+      \field{title}{Common Compiler Optimisations are Invalid in the {C11} Memory Model and what we can do about it}
+      \field{year}{2015}
+    \endentry
+    \entry{WattC}{inproceedings}{}
+      \name{author}{8}{}{%
+        {{hash=09ed415e8f98a84ecbfd0002660d3fe5}{%
+           family={Watt},
+           familyi={W\bibinitperiod},
+           given={Conrad},
+           giveni={C\bibinitperiod}}}%
+        {{hash=54c9916745c5072eb31b390ff1e7cecf}{%
+           family={Pulte},
+           familyi={P\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod}}}%
+        {{hash=bc8a1dd4ef79d7e26005ad370f38bf2d}{%
+           family={Podkopaev},
+           familyi={P\bibinitperiod},
+           given={Anton},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d4a88f63f5e6b91841e6cc83d097f9d6}{%
+           family={Barbier},
+           familyi={B\bibinitperiod},
+           given={Guillaume},
+           giveni={G\bibinitperiod}}}%
+        {{hash=42a6f0b44e2dde8beb799920b9b884fb}{%
+           family={Dolan},
+           familyi={D\bibinitperiod},
+           given={Stephen},
+           giveni={S\bibinitperiod}}}%
+        {{hash=b63998d5ec15e70377b38cb4f4b1fd25}{%
+           family={Flur},
+           familyi={F\bibinitperiod},
+           given={Shaked},
+           giveni={S\bibinitperiod}}}%
+        {{hash=051b996386c115bc5fa5ac7df216d602}{%
+           family={Pichon{-}Pharabod},
+           familyi={P\bibinitperiod},
+           given={Jean},
+           giveni={J\bibinitperiod}}}%
+        {{hash=a806f2f7e82ff843c4ddd18dd00ae78d}{%
+           family={Guo},
+           familyi={G\bibinitperiod},
+           given={Shu{-}yu},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{88c89d4791f24c321a3409b0003fa1d6}
+      \strng{fullhash}{b812e34a72d7357541e66ca65e70e8f3}
+      \strng{bibnamehash}{88c89d4791f24c321a3409b0003fa1d6}
+      \strng{authorbibnamehash}{88c89d4791f24c321a3409b0003fa1d6}
+      \strng{authornamehash}{88c89d4791f24c321a3409b0003fa1d6}
+      \strng{authorfullhash}{b812e34a72d7357541e66ca65e70e8f3}
+      \field{sortinit}{W}
+      \field{sortinithash}{ecb89ff85896a47dc313960773ac311d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{PLDI}, London, UK}
+      \field{title}{Repairing and mechanising the JavaScript relaxed memory model}
+      \field{year}{2020}
+    \endentry
+  \enddatalist
+  \missing{DBLP:conf/fm/LahavV16}
+  \missing{DBLP:conf/popl/FlurSPNMGSBS17}
+\endrefsection
+\endinput
+

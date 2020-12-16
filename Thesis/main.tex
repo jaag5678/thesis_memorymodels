@@ -15,6 +15,10 @@
 \usepackage{fancyhdr}
 \usepackage{lmodern}
 
+\usepackage[backend=biber]{biblatex}
+
+\addbibresource{references.bib}
+
 
 % Overwrite the plain page style with a red line and page numbering
 \fancypagestyle{plain}{%
@@ -161,22 +165,25 @@
     \input{1.Introduction/main.tex}
 
     \chapter{Background}
+    \input{2.Background/main.tex}
 
-    \chapter{Related Work}
+    %\chapter{Related Work}
 
-    \chapter{The Memory Model}
+    %\chapter{The Memory Model}
     %The ECMAScript Memory Model
-    \input{4.ECMAScriptMemoryModel/main.tex}
+    %\input{4.ECMAScriptMemoryModel/main.tex}
 
     %Instruction reordering
-    \chapter{Instruction Reordering}
-    \input{5.InstructionReordering/main.tex}
+    %\chapter{Instruction Reordering}
+    %\input{5.InstructionReordering/main.tex}
 
     %Elimination
-    \chapter{Elimination} 
-    \input{Elimination/intro.tex}
+    %\chapter{Elimination} 
+    %\input{Elimination/intro.tex}
 
-    \chapter{Conclusion, Summary, Future Work}
-    \input{7.ConclusionFutureWork/main.tex}
+    %\chapter{Conclusion, Summary, Future Work}
+    %\input{7.ConclusionFutureWork/main.tex}
+    
+    \printbibliography
 
 \end{document}
