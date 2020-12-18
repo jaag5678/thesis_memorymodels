@@ -3,11 +3,5 @@ Our more declarative approach to the ECMAScript memory consistency model results
 This better facilitates mathematical reasoning, which we have used to investigate the conditions on basic optimization operations such as instruction reordering.
 
 Future work is aimed at extending our analysis to validate the conditions for redundancy elimination.
-%and to consider non-trivial atomic and synchronization events, such as RMW.  
-We are also interested in further exploring the constraints implied by the potential for multi-byte (non-atomic) accesses.  The current standard imposes only very weak conditions on overlapping accesses, but stronger conditions are likely necessary to reflect actual programming practice.
-%Addressing partially overlapping or tearing reads and writes introduces significant complexity in memory consistency models, and while the current standard imposes only very weak conditions on overlapping accesses, stronger conditions are likely necessary to reflect actual programming and optimization practice.
 
-    %Clark I am leaving this to you as I can clearly see, I do not know how to conclude things properly   
-%    We have given a concise description of the semantics of the ECMAScript memory consistency model that helps us address instruction reordering. We give a fairly intuitive proof showing when such reordering is possible among two relaxed memory events. We also discussed the problems/advantages of our approach in terms of incorporating this into practice. 
-    
- %   We are currently working on address reordering among Read Modify Write events, Redundancy elimination using similar proof design as those showed in this paper. 
+We are also interested in further exploring the constraints implied by the potential for multi-byte (non-atomic) accesses.  The current standard imposes only very weak conditions on overlapping accesses, but stronger conditions are likely necessary to reflect actual programming practice.

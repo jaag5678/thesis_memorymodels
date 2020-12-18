@@ -2,7 +2,7 @@
     Concurrent programs take advantage of \textit{out-of-order} execution. Intuitively, this means more than one unrelated computations can be done ``simultaneously'' without having any fixed order in which they should happen. 
     This results in concurrent programs having multiple different outcomes, the possible outcomes of which are described by
     a \textit{memory consistency model}. 
-    The most intuitive and commonly relied upon model is that of \textit{Sequential Consistency} (SC), which guarantees that every outcome of a program must be equivalent to a sequential interleaving of each thread's individual actions. 
+    The most intuitive and commonly relied upon model is that of \textit{Sequential Consistency} (SC), which guarantees that every outcome of a program must be equivalent to a sequential interleaving of each thread's actions. 
     For example, consider the program in Figure~\ref{intro:Example} with two threads, which share memory denoted by $x$, $y$ initialized to 0, where $a$, $b$ are local variables. The right-hand-side are the possible values that $a$ and $b$ can read under sequential consistency.
     
     %Show program 
@@ -29,9 +29,9 @@
     %Should I also state here that we cannot use the hardware features??
     
     Weaker consistency models have been introduced to concurrent, shared-memory languages to leverage more of the \textit{}{out-of-order} notion. 
-    For instance,  under the ECMAScript consistency model semantics, if all the accesses are of type \textit{unordered}, the above invalid outcome is allowed, which implies a reordering of such events is valid in the above case. 
-    The problem though is that semantics of such weak consistency can be easily misunderstood, and is sometimes defined in informal prose format, thus leading to misinterpretation of intended semantics, which leads to implementation issues. 
-    The lack of clear semantics also makes it difficult to assert when a particular program transformation is valid / safe (in our case, instruction reordering).
+    For instance, under the ECMAScript consistency model semantics, if all the accesses are of type \textit{unordered}, the above invalid outcome is allowed, which implies a reordering of such events is valid in the above case. 
+    The problem though is that semantics of such weak consistency can be easily misunderstood, and are sometimes defined in informal prose format, thus leading to misinterpretation of intended semantics, which leads to implementation issues. 
+    The lack of clear semantics also makes it difficult to assert when a particular program transformation is valid/safe (in our case, instruction reordering).
     
     Our focus in this work is to offer a clarified, more concise rendition of the core ECMAScript memory model that allows for better abstract reasoning over allowed and disallowed behaviours (outcomes). 
     We use our model to provide a straightforward, conservative proof of when reordering of independent instructions is permitted, addressing optimization in terms of its impact on observable program behaviours. 

@@ -35,7 +35,7 @@
 %        \ \longmapsto\ 
 %        d \stck{_\textit{ao}} e 
 %    \]
-    What implications this change has on the other ordering relations depends what events $e$ and $d$ are and would require an analysis on each Candidate Execution. We begin by first defining a reorderable pair of events. We then formulate a theorem (with a proof) on the set of observable behaviors of a Candidate before and after reordering a pair of consecutive events which are reorderable. We consider reordering valid if the set of observable behaviours after reordering are a subset of the original. 
+    What implications this change has on the other ordering relations depends what events $e$ and $d$ are and would require an analysis of each Candidate Execution. We begin by first defining a reorderable pair of events. We then formulate a theorem (with proof) on the set of observable behaviors of a Candidate before and after reordering a pair of consecutive events that are reorderable. We consider reordering valid if the set of observable behaviours after reordering are a subset of the original. 
     
     \begin{definition}{Reorderable Pair (Reord)} \label{def:reord}
         We define a boolean function \emph{Reord} that takes two ordered pair of events $e$ and $d$ such that $\reln{e}{ao}{d}$ and gives a boolean value indicating if they are a reorderable pair:
@@ -173,7 +173,7 @@
         In any candidate execution, reordering events $e$ and $d$ eliminates the relation $\reln{e}{hb}{d}$ and introduces the new relation $\reln{d}{hb}{e}$.  New behaviours created by the latter directly, if any, are 
         of course intentional (and should normally be avoided by ensuring $e$ and $d$ are independent), but we need to ensure that this does not also result in new behaviours indirectly.
 
-        On observing the role on the axioms on this relation, notice that if both $e$ and $d$ are read events then the range does not matter. For all other cases, if events $e$ and $d$ have overlapping ranges, one could introduce a new observable behavior after reordering them (a simple use of Coherent Reads / Sequentially Consistent Atomics).        
+        On observing the role of the axioms on this relation, notice that if both $e$ and $d$ are read events then the range does not matter. For all other cases, if events $e$ and $d$ have overlapping ranges, one could introduce a new observable behavior after reordering them (a simple use of Coherent Reads / Sequentially Consistent Atomics).        
         Any other new relations that are introduced can be divided into 4 cases, in terms of our events $e$ and $d$ and the new relation with some event $k$:
         \begin{tasks}(2)
             \task  $\et{e}{uo} \ \wedge \ \event{e}{R} \ \wedge \ \reln{k}{hb}{e}$.
