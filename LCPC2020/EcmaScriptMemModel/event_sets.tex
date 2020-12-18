@@ -24,7 +24,7 @@
     \subsubsection{Types of events based on Order} 
         There are 3 types (or access modes) which play a role in the sequence in which event actions are visible to different agents
         \begin{enumerate}
-            \item \textbf{Sequentially Consistent ($sc$)} - Events of this type are $atomic$ in nature. There is a strict global total ordering of such events which is agreed upon by all agents in the agent cluster. 
+            \item \textbf{Sequentially Consistent ($sc$)} - Events of this type are $atomic$ in nature. There is a strict global total ordering of such events which is agreed upon by all agents in an execution. 
             
             \item \textbf{Unordered ($uo$)} - Events of this type are considered non-atomic and can occur in different orders for each agent.
             
@@ -38,4 +38,4 @@
 %Tearing factor of events
     \subsubsection{Tearing (or not)}
         Additionally, each shared-memory event is also associated with a tearing factor. 
-        Events that tear are non-aligned accesses requiring more than one memory access. Events that are tear-free are aligned and should appear to be serviced in one memory access. The implication of tearing is better understood with the consistency rule that will later be shown.
+        Events that tear are non-aligned accesses requiring more than one memory access. Events that are tear-free are aligned and should \textit{appear} to be serviced in one memory access. The implication of tearing is better understood with the consistency rule that will later be shown.

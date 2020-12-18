@@ -1,9 +1,9 @@
 \section{Introduction} 
-    Concurrent programs take advantage of \textit{out-of-order} execution. Intuitively, this means that more than one unrelated computations can be done ``simultaneously'' without having any fixed order in which they should happen. 
+    Concurrent programs take advantage of \textit{out-of-order} execution. Intuitively, this means more than one unrelated computations can be done ``simultaneously'' without having any fixed order in which they should happen. 
     This results in concurrent programs having multiple different outcomes, the possible outcomes of which are described by
     a \textit{memory consistency model}. 
     The most intuitive and commonly relied upon model is that of \textit{Sequential Consistency} (SC), which guarantees that every outcome of a program must be equivalent to a sequential interleaving of each thread's individual actions. 
-    For example, consider the program in Figure~\ref{intro:Example} with two threads, which share memory denoted by $x$, $y$ initialized to 0, where $a$, $b$ are local variables. The right-hand-side are the possible values that $a$ and $b$ can read under sequential consistency rules.
+    For example, consider the program in Figure~\ref{intro:Example} with two threads, which share memory denoted by $x$, $y$ initialized to 0, where $a$, $b$ are local variables. The right-hand-side are the possible values that $a$ and $b$ can read under sequential consistency.
     
     %Show program 
     \begin{figure}[H]

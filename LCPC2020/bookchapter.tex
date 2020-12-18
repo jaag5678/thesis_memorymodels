@@ -121,12 +121,12 @@
 
 \begin{abstract}
 Relaxed memory accesses are used to gain substantial improvement in the performance of concurrent programs.
-A relaxed consistency model specifically describes the semantics of such memory accesses for a particular programming language. 
+A relaxed memory consistency model specifically describes the semantics of such memory accesses for a particular programming language. 
 Historically, such semantics are often ill defined or misunderstood, and have been shown to 
 conflict with common compiler optimizations essential for the performance of programs overall.
 In this paper, we give a formal description of the ECMAScript relaxed memory consistency model. 
 We then analyze the impact of this model on one of the most common compiler optimizations, viz. \textit{instruction reordering}. We give a conservative proof under which such optimization is allowed for relaxed memory accesses. 
-Finally, we discuss the advantage of our conservative approach and the gaps needed to be filled in order to incorporate such analysis while doing such optimizations at the program level.  
+Finally, we discuss the advantage of our conservative approach and the gaps needed to be filled in order to incorporate our results while doing such optimizations at the program level.  
 %\emph{abstract} environment.
 \keywords{relaxed memory consistency, optimization, ECMAScript}
 \end{abstract}
