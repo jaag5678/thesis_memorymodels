@@ -1,12 +1,56 @@
 \section{Program Transformations under Weak Memory}
 
-Although programmers usually are responsible to write efficient programs, their performance during execution does not always depend on how well the program is written. 
-Several compiler optimizations done, coupled with run-time optimizations by hardware play a big role in the end performance of programs.
-For sequential programs, a lot of well established ideas exist to enhance the performance of programs, but they do not map well to that of concurrent programs. 
-With the introduction of relaxed memory accesses, quite a few critical program transformations responsible for huge performance gains may be unsound. 
+    Although programmers usually are responsible to write efficient programs, their performance during execution does not always depend on how well the program is written. 
+    Several compiler optimizations done, coupled with run-time optimizations by hardware play a big role in the end performance of programs.
+    For sequential programs, a lot of well established ideas exist to enhance the performance of programs, but they do not map well to that of concurrent programs. 
+    With the introduction of relaxed memory accesses, quite a few critical program transformations responsible for huge performance gains may be unsound. 
 
-\u{S}ev\u{c}\'{i}k et al.~\cite{SevcikJ} showed that standard compiler optimizations were rendered invalid under the respective memory model of Java. Simple transformations such read-after-wrtie elimination or redundant read introduction which play a role in major performance based transformations such as common sub expression eliminations were unsound. 
+    For instance, from a program transformation standpoint, the disallowed outcome in Figure \ref{intro:Example} should be possible; we can simply reorder either the two events in $T1$ or that in $T2$ as they are disjoint memory operations. 
+    But from a sequential consistency standpoint, since the outcome is not valid, it also brings with it the question whether such simple program transformations are even valid to perform.
+    Figure~\ref{intro:Example2} shows how after doing either one of these reorderings, an outcome invalid under SC is possible. 
+    %Show program 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.7]{2.Background/SC_Example1(b).pdf}
+        \caption{The original program above with its allowed and disallowed outcomes in SC, followed by the program with the two reads reordered below, justifying the disallowed outcome under SC.}
+        \label{intro:Example2}
+    \end{figure}
 
-Vafeiadis et al.~\cite{VafeiadisV} showed that common compiler optimizations under C11 memory model are also invalid, followed by proposing some changes to allow them. Transformations such as sequentialization, strengthening access modes, and even roach-motel reorderings were unsound. Their proposed changes to the model have been incorporated by the standard committe for C11. 
-   
-With respect to instruction reordering in shared memory programs, \u{S}ev\u{c}\'{i}k et al.~\cite{Sevcik2} gave a proof design on how to show such optimizations are valid. However, this approach relies on the idea of reconstructing the original execution of a program given the optimized one, while also showing the well known SC-DRF guarantee holds---programs that are \textit{data race free} (DRF) must exhibit SC semantics. Our approach is in fact the other way round; we show that the optimized program does not introduce new behaviours, by explicitly using the consistency rules to show that relevant ordering relations are preserved.
+    The reordered program can justify a sequential interleaving of events to have the disallowed outcome in the original program. 
+
+    Such concerns are not only related to simple reordering, but also something such as elimination. 
+    Yet another example can be that of elimination. Consider the program in Figure \ref{intro:Example3} below
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.7]{2.Background/SC_Example2(a).pdf}
+        \caption{Another program above with its allowed and disallowed outcomes under SC.}
+        \label{intro:Example3(a)}
+    \end{figure}
+
+    In this example, the red box outcome is still not allowed under SC. We can notice though that the write to $y$ in $T2$ is done twice. 
+    Naturally, the compiler might think of eliminating one of them under the context of redundant code elimination. 
+    Suppose it eliminates the first write $y=2$. 
+    Then the resulting program as shown below in Figure \ref{intro:Example3(b)}, can justify the outcome under SC whcih was disallowed in the original program.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.7]{2.Background/SC_Example2(a).pdf}
+        \caption{Program after elimination of $y=2$, justifying disallowed outcome under SC.}
+        \label{intro:Example3(b)}
+    \end{figure}
+
+    The above examples show that even simple transformations can be unsound under SC. Complex program transformations such as register allocation, common-sub-expression elimination, loop invariant code motion are some examples which use the above two basic transformations heavily. 
+    Having them unsound under SC also implies the compiler is not allowed to do a varying class of optimization without breaking the consistency rules udner which the concurrent program is supposed to behave / execute. 
+
+    In addition, the performance of programs executing under SC, but coupled with program transformations, many of which are disallowed in most programs without locks, did not seem to be an effective choice for programming. 
+    In addition, hardware at that time had come up with several features such as buffers and cache systems, which in principle could be used effectively for performance, but were not so useful for programs respective SC semantics. 
+
+    %Java
+    \u{S}ev\u{c}\'{i}k et al.~\cite{SevcikJ} showed that standard compiler optimizations were rendered invalid under the respective memory model of Java. Simple transformations such read-after-wrtie elimination or redundant read introduction which play a role in major performance based transformations such as common sub expression eliminations were unsound. 
+    %C11
+    Morisset et.al~\cite{Morisset} showed the soundness of optimizations with non-atomic memory accesses in the C11 memory model. (ALSO FILL THE REST HERE) 
+    Vafeiadis et al.~\cite{VafeiadisV} showed that common compiler optimizations (including those with atomic memory accesses) under C11 memory model were invalid, followed by proposing some changes to allow them. Transformations such as sequentialization, strengthening access modes, and even roach-motel reorderings were unsound. Their proposed changes to the model have been incorporated by the standard committe for C11. 
+
+    %General Prog Transformations
+    With respect to instruction reordering and redundancy elimination in shared memory programs, \u{S}ev\u{c}\'{i}k et al.~\cite{Sevcik2} gave a proof design on how to show such optimizations are valid. However, this approach relies on the idea of reconstructing the original execution of a program given the optimized one, while also showing the well known SC-DRF guarantee holds---programs that are \textit{data-race-free} (DRF) must exhibit SC semantics. 
+    Our approach is in fact the other way round; we show that the optimized program does not introduce new behaviours, by explicitly using the consistency rules to show that relevant ordering relations are preserved. 
+    We do not show it specifically only for \textit{data-race-free} programs as the model that we refer to also requires that programs with race have a defined behavior. 

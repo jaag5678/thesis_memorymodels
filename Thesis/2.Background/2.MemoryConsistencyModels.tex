@@ -1,17 +1,40 @@
 %Start by an intuitive explaination of memory models. What it means for us and why was it introduced.
 \section{Memory Consistency Models}
 
+Concurrent programs take advantage of \textit{out-of-order} execution. Intuitively, this means that more than one unrelated computations can be done ``simultaneously'' without having any fixed order in which they should happen. 
+This results in concurrent programs having multiple different outcomes, the possible outcomes of which are described by
+a \textit{memory consistency model}. 
+
 Sequential Consistency, which was first formulated by Lamport et al.~\cite{Lamport79}, gives programmers a very intuitive way to reason about their programs running in a multiprocessor environment.
-However, in the practical sense, Sequential Consistency is too ``strict,'' in the sense that it may impede possible performance benefits of using low level optimization features, such as instruction reordering, or read/write buffers provided by the hardware.
+\textit{Sequential Consistency} (SC) guarantees that every outcome of a program must be equivalent to a sequential interleaving of each thread's individual actions. 
+For example, consider the program in Figure~\ref{intro:Example} with two threads, which share memory denoted by $x$, $y$ initialized to 0, where $a$, $b$ are local variables. The right-hand-side are the possible values that $a$ and $b$ can read under sequential consistency rules.
+
+%Show program 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{2.Background/SC_Example1(a).pdf}
+    \caption{Example program with its possible outcomes under sequential consistency.}
+    \label{intro:Example}
+\end{figure}
+
+However, the above program under SC cannot have the outcome $a=0\ \wedge\ b=0$ as given in the red box to the right. To show that it is indeed not possible, assume that $a=0$. This means $x=1$ has not been done while $y=1$ has been done. This also means $b=y$ has not been done yet. Hence, if now the read to $y$ occurs, it cannot be $0$. The case is similar for when $b=0$. 
+Such sequential reasoning though easy to understand and follow while writing concurrent programs, may not be that advantageous from a performance perspective.
+
+In the practical sense, \textit{Sequential Consistency} is too ``strict,'' in the sense that it may impede possible performance benefits of using low level optimization features, such as instruction reordering, or read/write buffers provided by the hardware.
 A tutorial by Adve et al.~\cite{AdveG}, summarizes the most common hardware features for relaxed memory that are now available in most hardware. 
 What this tutorial also exposed is the difficulty in formalizing such features in a way that we can reason about our programs sanely without getting caught up in the complexity of multiple executions of our programs. 
 Unsurprisingly, relaxed memory model specifications for different hardware / high level programming languages are still sometimes written in informal prose format, which lead to a number of problems in implementation~\cite{Sewell}. 
 
 %x86 memory model
-Thsi  informal specifications led to a number of inconsistencies in intention of the designer and how the programs behaved.
-Sarkar et al.~\cite{SarkarS} showed that the original x86-CC memory model was fairly informal, which they then formalized in their work. This also exposed inconsistencies between the specification and the implementation in hardware. This was shown in their subsequent work done by Owens et al.~\cite{OwensS}, wherein they proposed a new memory model x86-TSO as a remedy. 
+This informal specifications led to a number of inconsistencies in intention of the designer and how the programs behaved.
+Sarkar et al.~\cite{SarkarS} showed that the then x86 model was fairly informal, which they formalize in their x86-CC memory model. Owens et al.~\cite{OwensS} later showed that the x86-CC model did not reflect precisely what x86 harware intended, followed by exposing more problems in the latest specification of the x86 model given in the white paper of intel \ref{CITE HERE PROEPR LINK}. They then propose a new model, x86-TSO as a remedy to this. The series of work in this exposed repeated inconsistencies between the specification and the implementation in hardware. 
+
 %Java Memory model
-Manson et al.~\cite{JeremyM}, showed that the initial specifications of the Java memory model were quite informal and ill defined, and offered a more precise formalization. Recent works such as that done by Bender et al.~\cite{BenderJ}, also shows us that the recent updates to the java Memory model are still relatively unclear, which they again formalize. 
+Pugh et al.~\cite{Pugh} showed the complexity of the initial versions of Java memory model, exposing with seemingly simplistic examples that even those involved in its inception were not sure about its specifcation. 
+Later, Manson et al.~\cite{JeremyM} also exposed many limitations and underspecified semantics within the model, for which they proposed a new model with concise semantics. 
+Manson et.al~\cite{Manson2} also concisely described the later version of the model, which had complex semantics to have \textit{out-of-thin-air} guarantees for programs with data-races. 
+Recent works such as that done by Bender et al.~\cite{BenderJ}, also showed us that the recent updates to the Java Memory model are still relatively unclear, which they again formalize. 
+
 %C++ memory model
 Boehm et al.~\cite{Boehm} exposed that the earlier version of C++ concurrency semantics was unsound, followed by proposing a new semantics for the same.
 Batty et al.~\cite{BattyM} exposed the lack of clear specifications of the then version of C11 memory model, giving a clarified, mathe,matical yet seemingly readable specification of the model.

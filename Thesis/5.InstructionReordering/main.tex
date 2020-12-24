@@ -1,10 +1,10 @@
-This chapter adddresses the validity of instruction reordering under the ECMAScript memory model.
-We first start by showing some examples of Candidate Executions where reordering, while sequentially sane to do, it not safe in the relaxed memory context.  
-We then summarize our approach towards a proof to identify when such a reordering is safe with respect to shared memory accesses. 
-Next, we introduce two more defintions for our purpose followed by two basic lemmas that will be instrumental for proofs in this chapter and the next. 
-Next, we formulate a theorem and a corresponding corollary to assess validity of reorderinng at a Candidate Execution level. 
-Lastly, we address conservatively at the program level (still abstracted to a set of shared memory events) involving loops and conditional branching.
-Throughout this chapter, we use counter examples to give a better intuitive understanding of the elements of the proof as well as the advantage of our formal model in Chapter 3.
+This chapter addresses the validity of instruction reordering under the ECMAScript memory model.
+We first start by showing some examples of Candidate Executions where reordering is not safe in the relaxed memory context.  
+We give a brief summary of our approach towards a proof to identify when such a reordering is safe.
+Next, we introduce few more defintions for our purpose followed by two basic lemmas that will be instrumental for proofs in this chapter and the next. 
+We then formulate a theorem and a corresponding corollary that covers validity of reorderinng at a Candidate Execution level. 
+Lastly, we address reordering at the program level (still abstracted to a set of shared memory events) involving loops and conditional branching.
+We use counter examples to give a better intuitive understanding of the elements of the proof as well as the advantage of our formal model in Chapter 3.
 \ \newline
 \ \newline  
 \hrule 

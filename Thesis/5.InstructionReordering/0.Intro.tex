@@ -57,16 +57,10 @@
         The above figure has two sets of relations. The first justifies that such an outcome is not possible for the original program candidate due to Axiom \ref{CoRe}. While the second justifies that this outcome is possible for the reordered program.
         
         Note that we cannnot infer in the reordered candidate the set of relations for any candidate execution to have $\reln{a=x;_{uo}}{hb}{x=1;_{uo}}$. 
-        
 
         The point of the above two examples is to show that we have to be careful while reordering two events in the same thread. By example case analysis, for each observable behavior, one must check all possible candidate executions and assert whether such an observable is possible or not. 
         This method of checking validity of reordering will scale exponentially as the program size increases. 
         It is often also the case that the compiler may not have information on which exact events would be executed in other threads to assert such reordering is valid or not. 
-
-    %-------------------------------------
-    \critic{purple}{Show an example or multiple examples here that enforces visibility due to having sequentially consistent events involved in a Candidate Execution.}
-    %-------------------------------------
-    
 
     
     
