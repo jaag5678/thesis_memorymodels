@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.8.29)  24 DEC 2020 10:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.8.29)  24 DEC 2020 11:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2164,46 +2164,46 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--13
 
  []
 
-(./5.InstructionReordering/0.Intro.tex [32
+(./5.InstructionReordering/0.Intro/intro.tex [32
 
 ]
-<5.InstructionReordering/ReorderingExample1(a).pdf, id=454, 449.76028pt x 82.38
-78pt>
-File: 5.InstructionReordering/ReorderingExample1(a).pdf Graphic file (type pdf)
-
-<use 5.InstructionReordering/ReorderingExample1(a).pdf>
-Package pdftex.def Info: 5.InstructionReordering/ReorderingExample1(a).pdf  use
-d on input line 19.
+<5.InstructionReordering/0.Intro/ReorderingExample1(a).pdf, id=454, 449.76028pt
+ x 82.3878pt>
+File: 5.InstructionReordering/0.Intro/ReorderingExample1(a).pdf Graphic file (t
+ype pdf)
+<use 5.InstructionReordering/0.Intro/ReorderingExample1(a).pdf>
+Package pdftex.def Info: 5.InstructionReordering/0.Intro/ReorderingExample1(a).
+pdf  used on input line 19.
 (pdftex.def)             Requested size: 314.83003pt x 57.67104pt.
-<5.InstructionReordering/ReorderingExample1(b).pdf, id=455, 413.62529pt x 202.8
-378pt>
-File: 5.InstructionReordering/ReorderingExample1(b).pdf Graphic file (type pdf)
-
-<use 5.InstructionReordering/ReorderingExample1(b).pdf>
-Package pdftex.def Info: 5.InstructionReordering/ReorderingExample1(b).pdf  use
-d on input line 29.
+<5.InstructionReordering/0.Intro/ReorderingExample1(b).pdf, id=455, 413.62529pt
+ x 202.8378pt>
+File: 5.InstructionReordering/0.Intro/ReorderingExample1(b).pdf Graphic file (t
+ype pdf)
+<use 5.InstructionReordering/0.Intro/ReorderingExample1(b).pdf>
+Package pdftex.def Info: 5.InstructionReordering/0.Intro/ReorderingExample1(b).
+pdf  used on input line 29.
 (pdftex.def)             Requested size: 289.53572pt x 141.98547pt.
- [33 <./5.InstructionReordering/ReorderingExample1(a).pdf> <./5.InstructionReor
-dering/ReorderingExample1(b).pdf>]
-<5.InstructionReordering/ReorderingExample2(a).pdf, id=487, 391.4625pt x 82.387
-8pt>
-File: 5.InstructionReordering/ReorderingExample2(a).pdf Graphic file (type pdf)
-
-<use 5.InstructionReordering/ReorderingExample2(a).pdf>
-Package pdftex.def Info: 5.InstructionReordering/ReorderingExample2(a).pdf  use
-d on input line 43.
+ [33 <./5.InstructionReordering/0.Intro/ReorderingExample1(a).pdf> <./5.Instruc
+tionReordering/0.Intro/ReorderingExample1(b).pdf>]
+<5.InstructionReordering/0.Intro/ReorderingExample2(a).pdf, id=487, 391.4625pt 
+x 82.3878pt>
+File: 5.InstructionReordering/0.Intro/ReorderingExample2(a).pdf Graphic file (t
+ype pdf)
+<use 5.InstructionReordering/0.Intro/ReorderingExample2(a).pdf>
+Package pdftex.def Info: 5.InstructionReordering/0.Intro/ReorderingExample2(a).
+pdf  used on input line 43.
 (pdftex.def)             Requested size: 274.02187pt x 57.67104pt.
-<5.InstructionReordering/ReorderingExample2(b).pdf, id=488, 326.17859pt x 199.7
-0609pt>
-File: 5.InstructionReordering/ReorderingExample2(b).pdf Graphic file (type pdf)
-
-<use 5.InstructionReordering/ReorderingExample2(b).pdf>
-Package pdftex.def Info: 5.InstructionReordering/ReorderingExample2(b).pdf  use
-d on input line 53.
+<5.InstructionReordering/0.Intro/ReorderingExample2(b).pdf, id=488, 326.17859pt
+ x 199.70609pt>
+File: 5.InstructionReordering/0.Intro/ReorderingExample2(b).pdf Graphic file (t
+ype pdf)
+<use 5.InstructionReordering/0.Intro/ReorderingExample2(b).pdf>
+Package pdftex.def Info: 5.InstructionReordering/0.Intro/ReorderingExample2(b).
+pdf  used on input line 53.
 (pdftex.def)             Requested size: 228.32344pt x 139.7933pt.
-)
-(./5.InstructionReordering/1.Approach.tex [34 <./5.InstructionReordering/Reorde
-ringExample2(a).pdf> <./5.InstructionReordering/ReorderingExample2(b).pdf>])
+) (./5.InstructionReordering/1.Approach.tex [34 <./5.InstructionReordering/0.In
+tro/ReorderingExample2(a).pdf> <./5.InstructionReordering/0.Intro/ReorderingExa
+mple2(b).pdf>])
 (./5.InstructionReordering/2.Definitions.tex [35] [36])
 (./5.InstructionReordering/3.Lemmas/main.tex
 (./5.InstructionReordering/3.Lemmas/stmtproof.tex
@@ -2904,8 +2904,8 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30099 strings out of 494923
- 608082 string characters out of 6180742
+ 30101 strings out of 494923
+ 608259 string characters out of 6180742
  948309 words of memory out of 5000000
  32730 multiletter control sequences out of 15000+600000
  618349 words of font info for 78 fonts, out of 8000000 for 9000
@@ -2928,7 +2928,7 @@ ts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb
 ></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type
 1/public/lm/lmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/symbols/msbm10.pfb>
-Output written on main.pdf (121 pages, 4318752 bytes).
+Output written on main.pdf (121 pages, 4318778 bytes).
 PDF statistics:
  1486 PDF objects out of 1728 (max. 8388607)
  1013 compressed objects within 11 object streams
