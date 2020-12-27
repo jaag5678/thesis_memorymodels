@@ -5,6 +5,19 @@
     For sequential programs, a lot of well established ideas exist to enhance the performance of programs, but they do not map well to that of concurrent programs. 
     With the introduction of relaxed memory accesses, quite a few critical program transformations responsible for huge performance gains may be unsound. 
 
+    %New IR. 
+    This demanded for a fundamental change in which we employ data-flow analysis to optimize programs in a concurrent context. Naumovich et.al~\cite{NaumovichA} proposed one such analysis which is today commonly known as May-Happen-In-Parallel analysis. 
+    Midkiff et.al~\cite{Midkiff} proposed a unified compiler for several memory models, wherein they proposed a new Concurrent Control Flow graph with new edges to perform powerful transformations such as Common Sub-Expression Elimination. 
+    These models however, demanded us to have more of a whole program analysis to even do basic local program transformations. 
+    The data flow graph as the number of threads increase will be infeasible to be implemented and used in common practice. 
+    (I AM UNSURE IF ANY RECENT PROPOSED MODELS HAVE ANYTHING TO SAY IN THIS RESPECT.)
+    Another way to go about this is to go one step below and observe the transformations in terms of more basic code transformations such as instruction reordering, elimination and introduction. 
+    Since our objective in this thesis is not in terms of implementing program transformations, but checking the validity, we do not investigate further in this direction. 
+    
+    We start by showing using counter examples how one can show basic transformations are invalidated under a consistency model.
+
+    \cite{red}{PErhaps cite Jade's work here on Data FLow analysis for Weak memory.}
+
     For instance, from a program transformation standpoint, the disallowed outcome in Figure \ref{intro:Example} should be possible; we can simply reorder either the two events in $T1$ or that in $T2$ as they are disjoint memory operations. 
     But from a sequential consistency standpoint, since the outcome is not valid, it also brings with it the question whether such simple program transformations are even valid to perform.
     Figure~\ref{intro:Example2} shows how after doing either one of these reorderings, an outcome invalid under SC is possible. 
@@ -40,9 +53,9 @@
 
     The above examples show that even simple transformations can be unsound under SC. Complex program transformations such as register allocation, common-sub-expression elimination, loop invariant code motion are some examples which use the above two basic transformations heavily. 
     Having them unsound under SC also implies the compiler is not allowed to do a varying class of optimization without breaking the consistency rules udner which the concurrent program is supposed to behave / execute. 
-
-    In addition, the performance of programs executing under SC, but coupled with program transformations, many of which are disallowed in most programs without locks, did not seem to be an effective choice for programming. 
     In addition, hardware at that time had come up with several features such as buffers and cache systems, which in principle could be used effectively for performance, but were not so useful for programs respective SC semantics. 
+    In order to effectively critique a model in terms of program transformations, it is quite impractical to come up with exhaustive examples of program to justify their validity.
+    A proof in this sense would be required.  
 
     %Java
     \u{S}ev\u{c}\'{i}k et al.~\cite{SevcikJ} showed that standard compiler optimizations were rendered invalid under the respective memory model of Java. Simple transformations such read-after-wrtie elimination or redundant read introduction which play a role in major performance based transformations such as common sub expression eliminations were unsound. 
@@ -51,6 +64,6 @@
     Vafeiadis et al.~\cite{VafeiadisV} showed that common compiler optimizations (including those with atomic memory accesses) under C11 memory model were invalid, followed by proposing some changes to allow them. Transformations such as sequentialization, strengthening access modes, and even roach-motel reorderings were unsound. Their proposed changes to the model have been incorporated by the standard committe for C11. 
 
     %General Prog Transformations
-    With respect to instruction reordering and redundancy elimination in shared memory programs, \u{S}ev\u{c}\'{i}k et al.~\cite{Sevcik2} gave a proof design on how to show such optimizations are valid. However, this approach relies on the idea of reconstructing the original execution of a program given the optimized one, while also showing the well known SC-DRF guarantee holds---programs that are \textit{data-race-free} (DRF) must exhibit SC semantics. 
+    With respect to instruction reordering and redundancy elimination in shared memory programs, \u{S}ev\u{c}\'{i}k et al.~\cite{Sevcik2} gave a proof design on how to show such optimizations are valid. This approach relies on the idea of reconstructing the original execution of a program given the optimized one, while also showing the well known SC-DRF guarantee holds---programs that are \textit{data-race-free} (DRF) must exhibit SC semantics. 
     Our approach is in fact the other way round; we show that the optimized program does not introduce new behaviours, by explicitly using the consistency rules to show that relevant ordering relations are preserved. 
     We do not show it specifically only for \textit{data-race-free} programs as the model that we refer to also requires that programs with race have a defined behavior. 

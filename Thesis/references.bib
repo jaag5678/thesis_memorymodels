@@ -244,6 +244,14 @@
     url = {https://tc39.es/ecma262/#sec-memory-model}
 }
 
+@article {C11MM,
+    author = {C11},
+    title = {Memory Model},
+    year = {},
+    url = {https://en.cppreference.com/w/c/language/memory_model}
+}
+
+
 %------------------------------------------------
 @inproceedings{NaumovichA,
   author    = {Gleb Naumovich and
@@ -326,7 +334,7 @@ numpages = {74},
 keywords = {software verification, weak memory models, Concurrency}
 }
 
-%Relaxed Memory Models must be rigorous---------------------------------
+%Relaxed Memory Models must be rigorous
 @MISC{Nardelli,
     author = {Nardelli and  
               Peter Sewell and 
@@ -514,7 +522,7 @@ Mixed Size concurrency
   bibsource = {dblp computer science bibliography, https://dblp.org}
 }
 
-%%A compiler for Multiple Memory Models---------------------------------------------------------
+%%A compiler for Multiple Memory Models
 @article{Midkiff,
   author    = {Samuel P. Midkiff and
                Jaejin Lee and
@@ -532,7 +540,7 @@ Mixed Size concurrency
   bibsource = {dblp computer science bibliography, https://dblp.org}
 }
 
-%---------------------------------------------------
+%C11 memory model position paper.
 @inproceedings{Vafeiadis2,
 author = {Vafeiadis, Viktor},
 title = {Formal Reasoning about the C11 Weak Memory Model},
@@ -653,3 +661,68 @@ series = {CPP '15}
   bibsource = {dblp computer science bibliography, https://dblp.org}
 }
 
+%Mutual Exclusion Problem
+@article{Djikstra,
+  author = {Dijkstra, E. W.},
+  title = {Solution of a Problem in Concurrent Programming Control},
+  year = {1965},
+  issue_date = {Sept. 1965},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  volume = {8},
+  number = {9},
+  issn = {0001-0782},
+  url = {https://doi.org/10.1145/365559.365617},
+  doi = {10.1145/365559.365617},
+  journal = {Commun. ACM},
+  month = sep,
+  pages = {569},
+  numpages = {1}
+}
+
+%RCMC
+@article{Michalis1,
+  author = {Kokologiannakis, Michalis and Lahav, Ori and Sagonas, Konstantinos and Vafeiadis, Viktor},
+  title = {Effective Stateless Model Checking for C/C++ Concurrency},
+  year = {2017},
+  issue_date = {January 2018},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  volume = {2},
+  number = {POPL},
+  url = {https://doi.org/10.1145/3158105},
+  doi = {10.1145/3158105},
+  abstract = {We present a stateless model checking algorithm for verifying concurrent programs running under RC11, a repaired version of the C/C++11 memory model without dependency cycles. Unlike most previous approaches, which enumerate thread interleavings up to some partial order reduction improvements, our approach works directly on execution graphs and (in the absence of RMW instructions and SC atomics) avoids redundant exploration by construction. We have implemented a model checker, called RCMC, based on this approach and applied it to a number of challenging concurrent programs. Our experiments confirm that RCMC is significantly faster, scales better than other model checking tools, and is also more resilient to small changes in the benchmarks.},
+  journal = {Proc. ACM Program. Lang.},
+  month = dec,
+  articleno = {17},
+  numpages = {32},
+  keywords = {software model checking, weak memory models, C/C++11, RC11}
+}
+
+%GenMC
+@inproceedings{Michalis2,
+  author = {Kokologiannakis, Michalis and Raad, Azalea and Vafeiadis, Viktor},
+  title = {Model Checking for Weakly Consistent Libraries},
+  year = {2019},
+  isbn = {9781450367127},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/3314221.3314609},
+  doi = {10.1145/3314221.3314609},
+  abstract = {We present GenMC, a model checking algorithm for concurrent programs that is parametric in the choice of memory model and can be used for verifying clients of concurrent libraries. Subject to a few basic conditions about the memory model, our algorithm is sound, complete and optimal, in that it explores each consistent execution of the program according to the model exactly once, and does not explore inconsistent executions or embark on futile exploration paths. We implement GenMC as a tool for verifying C programs. Despite the generality of the algorithm, its performance is comparable to the state-of-art specialized model checkers for specific memory models, and in certain cases exponentially faster thanks to its coarse partitioning of executions.},
+  booktitle = {Proceedings of the 40th ACM SIGPLAN Conference on Programming Language Design and Implementation},
+  pages = {96–110},
+  numpages = {15},
+  keywords = {weak memory models, Model checking},
+  location = {Phoenix, AZ, USA},
+  series = {PLDI 2019}
+}
+
+%Intel White paper
+@article{IntelW, 
+  author = {Intel}, 
+  title = {Intel 64 Architecture Memory Ordering White Paper},
+  year = {2007},
+  url = {http://www.cs.cmu.edu/~410-f10/doc/Intel_Reordering_318147.pdf}
+}

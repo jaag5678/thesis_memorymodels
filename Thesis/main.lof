@@ -6,154 +6,154 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Example program with its possible outcomes under sequential consistency.}}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.2}{\ignorespaces The original program above with its allowed and disallowed outcomes in SC, followed by the program with the two reads reordered below, justifying the disallowed outcome under SC.}}{6}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces The original program above with its allowed and disallowed outcomes in SC, followed by the program with the two reads reordered below, justifying the disallowed outcome under SC.}}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Another program above with its allowed and disallowed outcomes under SC.}}{6}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Another program above with its allowed and disallowed outcomes under SC.}}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Program after elimination of $y=2$, justifying disallowed outcome under SC.}}{7}
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Program after elimination of $y=2$, justifying disallowed outcome under SC.}}{8}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.1}{\ignorespaces The definition for Coherent Reads}}{13}
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.2}{\ignorespaces The definition for Compose Write Event Bytes}}{14}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The definition for Coherent Reads}}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.3}{\ignorespaces The Axiom of Sequentially Consistent Atomics}}{15}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces The definition for Compose Write Event Bytes}}{15}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.4}{\ignorespaces The hierarchical categories of different sets of events.}}{17}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces The Axiom of Sequentially Consistent Atomics}}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Access Modes}}{19}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces The hierarchical categories of different sets of events.}}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.6}{\ignorespaces An example to show the reads-from relations that are drawn for the example program between read and write events.}}{20}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Access Modes}}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.7}{\ignorespaces An example to show the reads-from relations that are drawn for the example program between read and write events.}}{21}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces An example to show the reads-from relations that are drawn for the example program between read and write events.}}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.8}{\ignorespaces An example with agent order among the events.}}{21}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces An example to show the reads-from relations that are drawn for the example program between read and write events.}}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.9}{\ignorespaces An example with synchronize with relations among the events.}}{22}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces An example with agent order among the events.}}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.10}{\ignorespaces An example with all the types of happens-before relations between events.}}{23}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces An example with synchronize with relations among the events.}}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.11}{\ignorespaces An example with a memory order (total) among all events.}}{23}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces An example with all the types of happens-before relations between events.}}{24}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.12}{\ignorespaces An example of a Candidate}}{24}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces An example with a memory order (total) among all events.}}{24}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.13}{\ignorespaces An example of an Execution based on Candidate above}}{25}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces An example of a Candidate}}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Observable Behavior}}{25}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces An example of an Execution based on Candidate above}}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.15}{\ignorespaces A read value cannot come from a write that has happened after it}}{26}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Observable Behavior}}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.16}{\ignorespaces A read value cannot come from a write if there is a write that happens between them, writing to the same memory:}}{27}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces A read value cannot come from a write that has happened after it}}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Pattern of Tear-free reads}}{27}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces A read value cannot come from a write if there is a write that happens between them, writing to the same memory:}}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.18}{\ignorespaces A read value cannot come from a write, if there exists a write memory ordered between them and all 3 events are sequentially consistent with equal ranges.}}{28}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Pattern of Tear-free reads}}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.19}{\ignorespaces A read value cannot come from a write, if there exists a write memory ordered between them and both writes are sequentially consistent with equal ranges.}}{28}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces A read value cannot come from a write, if there exists a write memory ordered between them and all 3 events are sequentially consistent with equal ranges.}}{29}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.20}{\ignorespaces A read value cannot come from a write, if there exists a write memory ordered between them and both this write and the read are sequentially consistent with equal ranges.}}{29}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces A read value cannot come from a write, if there exists a write memory ordered between them and both writes are sequentially consistent with equal ranges.}}{29}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.20}{\ignorespaces A read value cannot come from a write, if there exists a write memory ordered between them and both this write and the read are sequentially consistent with equal ranges.}}{30}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Ex1(a)}}{33}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Ex1(a)}}{34}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Ex1(b)}}{33}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Ex1(b)}}{34}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Ex2(a)}}{34}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Ex2(a)}}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Ex2(b)}}{34}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Ex2(b)}}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Left figure is for first case and right one for the second}}{38}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Left figure is for first case and right one for the second}}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Left figure is for first case and right one for the second}}{40}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Left figure is for first case and right one for the second}}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.7}{\ignorespaces For any Candidate Execution of $C$, the set $K_e$ and $K_d$}}{42}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces For any Candidate Execution of $C$, the set $K_e$ and $K_d$}}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.8}{\ignorespaces The direct relation changes that can be observed while reordering events $e$ and $d$}}{42}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces The direct relation changes that can be observed while reordering events $e$ and $d$}}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Table summarizing whether we have valid pair of pivots based on $e$ and $d$}}{43}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Table summarizing whether we have valid pair of pivots based on $e$ and $d$}}{44}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.10}{\ignorespaces A Candidate Execution where p1 is not a valid pivot}}{44}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces A Candidate Execution where p1 is not a valid pivot}}{45}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.11}{\ignorespaces The resultant Candidate Execution after reordering, exposing the relations with $p_x$, $K_{e2}$ and $d$ that arelost}}{44}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces The resultant Candidate Execution after reordering, exposing the relations with $p_x$, $K_{e2}$ and $d$ that arelost}}{45}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.12}{\ignorespaces A Candidate Execution where $d$ is a sequentially consistent read}}{45}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces A Candidate Execution where $d$ is a sequentially consistent read}}{46}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.13}{\ignorespaces The Candidate Execution after reordering, exposing the new relations established with $e$, $p3$ and set $k$}}{46}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces The Candidate Execution after reordering, exposing the new relations established with $e$, $p3$ and set $k$}}{47}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Table summarizing when new \textit {happens-before} relations could be introduced based on having valid pair of pivots }}{46}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Table summarizing when new \textit {happens-before} relations could be introduced based on having valid pair of pivots }}{47}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.15}{\ignorespaces If k belongs to one of the sets $K_e$ or $K_d$}}{47}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces If k belongs to one of the sets $K_e$ or $K_d$}}{48}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.16}{\ignorespaces If $k\mathrel {\mathop {_{hb}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}e$ or $d\mathrel {\mathop {_{hb}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}k$ are new sets of relations}}{47}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces If $k\mathrel {\mathop {_{hb}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}e$ or $d\mathrel {\mathop {_{hb}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}k$ are new sets of relations}}{48}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.17}{\ignorespaces A cycle exists in the case where we have two new sets of relations ($k\mathrel {\mathop {_{hb}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}e$ and $d\mathrel {\mathop {_{hb}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}k$) }}{48}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces A cycle exists in the case where we have two new sets of relations ($k\mathrel {\mathop {_{hb}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}e$ and $d\mathrel {\mathop {_{hb}}\limits ^{\DOTSB \relbar \joinrel \rightarrow }}k$) }}{49}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.18}{\ignorespaces The role of the axioms on introducing a new relation between an unordered Read and some event $k$}}{51}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces The role of the axioms on introducing a new relation between an unordered Read and some event $k$}}{52}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.19}{\ignorespaces (i) and (ii(b)) satisfy the axiom of Coherent Reads}}{52}
+\contentsline {figure}{\numberline {5.19}{\ignorespaces (i) and (ii(b)) satisfy the axiom of Coherent Reads}}{53}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.20}{\ignorespaces (ii) satisfies the axiom of Coherent Reads}}{52}
+\contentsline {figure}{\numberline {5.20}{\ignorespaces (ii) satisfies the axiom of Coherent Reads}}{53}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.21}{\ignorespaces (i(a)), (ii(a)) satisfy the axiom of Coherent Reads, whereas (i(b)), (ii(b)) satisfy the axiom of SequentiallyConsistent Atomics}}{53}
+\contentsline {figure}{\numberline {5.21}{\ignorespaces (i(a)), (ii(a)) satisfy the axiom of Coherent Reads, whereas (i(b)), (ii(b)) satisfy the axiom of SequentiallyConsistent Atomics}}{54}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.22}{\ignorespaces The final table summarizing the valid cases where observable behaviors will only be a subset after reordering.}}{54}
+\contentsline {figure}{\numberline {5.22}{\ignorespaces The final table summarizing the valid cases where observable behaviors will only be a subset after reordering.}}{55}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.23}{\ignorespaces Case where a = 2 , b = 2, c = 1 is invalid due to Sequentially Consistent Atomics}}{58}
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Case where a = 2 , b = 2, c = 1 is invalid due to Sequentially Consistent Atomics}}{59}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.24}{\ignorespaces Case where the reads are reordered and a = 2 , b = 2, c = 1 is valid}}{59}
+\contentsline {figure}{\numberline {5.24}{\ignorespaces Case where the reads are reordered and a = 2 , b = 2, c = 1 is valid}}{60}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.25}{\ignorespaces Case where a = 1 and b = 1 is invalid due to Coherent Reads.}}{60}
+\contentsline {figure}{\numberline {5.25}{\ignorespaces Case where a = 1 and b = 1 is invalid due to Coherent Reads.}}{61}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.26}{\ignorespaces Case where events of T1 are reordered, resulting in a = 1 and b = 1 to be valid.}}{60}
+\contentsline {figure}{\numberline {5.26}{\ignorespaces Case where events of T1 are reordered, resulting in a = 1 and b = 1 to be valid.}}{61}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.27}{\ignorespaces Case where a = 1 and b = 1 is invalid due to Coherent Reads.}}{61}
+\contentsline {figure}{\numberline {5.27}{\ignorespaces Case where a = 1 and b = 1 is invalid due to Coherent Reads.}}{62}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.28}{\ignorespaces Case where events of T2 are reordered, resulting in a = 1 and b = 1 to be valid.}}{61}
+\contentsline {figure}{\numberline {5.28}{\ignorespaces Case where events of T2 are reordered, resulting in a = 1 and b = 1 to be valid.}}{62}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.29}{\ignorespaces Case where a = 1 and b = 1 is valid and no happens-before cycles}}{62}
+\contentsline {figure}{\numberline {5.29}{\ignorespaces Case where a = 1 and b = 1 is valid and no happens-before cycles}}{63}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.30}{\ignorespaces Case where a = 1 and b = 1 is creates a happens-before cycle}}{62}
+\contentsline {figure}{\numberline {5.30}{\ignorespaces Case where a = 1 and b = 1 is creates a happens-before cycle}}{63}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.31}{\ignorespaces Case where a = 0 and b = 1 is invalid due to Coherent Reads.}}{63}
+\contentsline {figure}{\numberline {5.31}{\ignorespaces Case where a = 0 and b = 1 is invalid due to Coherent Reads.}}{64}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.32}{\ignorespaces Case where events of T1 are reordered, resulting in a = 0 and b = 1 to be valid.}}{63}
+\contentsline {figure}{\numberline {5.32}{\ignorespaces Case where events of T1 are reordered, resulting in a = 0 and b = 1 to be valid.}}{64}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.33}{\ignorespaces Two forms of conditonals}}{65}
+\contentsline {figure}{\numberline {5.33}{\ignorespaces Two forms of conditonals}}{66}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.34}{\ignorespaces Four cases where $e$ or $d$ could be part of some conditional branch.}}{67}
+\contentsline {figure}{\numberline {5.34}{\ignorespaces Four cases where $e$ or $d$ could be part of some conditional branch.}}{68}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.35}{\ignorespaces }}{69}
+\contentsline {figure}{\numberline {5.35}{\ignorespaces }}{70}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.36}{\ignorespaces }}{70}
+\contentsline {figure}{\numberline {5.36}{\ignorespaces }}{71}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.37}{\ignorespaces }}{71}
+\contentsline {figure}{\numberline {5.37}{\ignorespaces }}{72}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.38}{\ignorespaces }}{72}
+\contentsline {figure}{\numberline {5.38}{\ignorespaces }}{73}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.1}{\ignorespaces The first type of relations removed and the various patterns forbidden by them.}}{77}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces The first type of relations removed and the various patterns forbidden by them.}}{78}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.2}{\ignorespaces The second type of relations removed and the various patterns forbidden by them.}}{77}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces The second type of relations removed and the various patterns forbidden by them.}}{78}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.3}{\ignorespaces First case possibilities (change caption stimiar to that for read elim)}}{79}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces First case possibilities (change caption stimiar to that for read elim)}}{80}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Second case possibilities (change caption stimiar to that for read elim)}}{80}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Second case possibilities (change caption stimiar to that for read elim)}}{81}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Type 1:}}{84}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Type 1:}}{85}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Type 2:}}{85}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Type 2:}}{86}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Type 3:}}{86}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Type 3:}}{87}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Type 4:}}{87}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Type 4:}}{88}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.9}{\ignorespaces }}{88}
+\contentsline {figure}{\numberline {6.9}{\ignorespaces }}{89}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.10}{\ignorespaces 4:}}{89}
+\contentsline {figure}{\numberline {6.10}{\ignorespaces 4:}}{90}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
