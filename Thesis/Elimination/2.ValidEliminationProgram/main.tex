@@ -1,0 +1,78 @@
+\section{From Candidates to Program}
+
+
+    \critic{red}{Write a better introduction}
+
+    \input{Elimination/2.ValidEliminationProgram/Conditionals/conditionals.tex}
+
+    \subsection{Addressing Programs with Loops}
+    
+        Similar to reordering, for the sake of elimination, we consider programs with just one loop. 
+        
+        %Corollary proof for read elimination within a loop
+        We first consider the simpler case of read elimination within a loop. 
+        Eliminating such a read at a program level would imply in every candidate $C^i$ where $i$ denotes the number of iterations, the read $R$ within the loop can be eliminated.
+        
+        By Thereom \ref{ReadElim}, we only need the read $R$ to have the type $uo$ to perform such an elimination.
+        Thus we can eliminate for each iteration of the loop our intended read. 
+        By transitive property of subsets, the resultant candidate will have observable behaviors as a subset of the original. 
+        Doing this for all valid canddiates extends to program level.
+
+        Next we consider the case of eliminating writes within a loop. 
+        Eliminating such a write at a program level would imply in every candidate $C^i$ where $i$ denotes the number of iterations, the read $W$ within the loop can be eliminated.
+        For this we state the following corollary.
+        \begin{corollary}
+            Consider a program $P$ having one loop with $K$ representing the set of events within the loop. Consider appropriately candidates $C^1, C^2, ... , C^n$ each of which contain events $e$ and $d$ such that:
+            \begin{align*}
+                \event{e}{W} \ \wedge \ \event{d}{W} \ \wedge \ \reln{e}{ao}{d} \ \wedge \ \Re(e)\!=\!\Re(d) \ \wedge \ \et{e}{uo}
+            \end{align*}
+            Consider program $P'$ after eliminating $e$. 
+            If
+            \begin{align*}
+                  \forall C^{i \ in [1,n]} \ \forall k \in C^i \ \text{s.t.} \ \reln{e}{ao}{k} \wedge \reln{k}{ao}{d}, \ Reord(e,k). \\ 
+                  \nexists C \in P \ \text{s.t.} \event{e}{C} \ \wedge \  d \notin C.
+            \end{align*}
+            then the observable behaviors of $P'$ is a subset of that of $P$. 
+        \end{corollary}
+
+
+        \begin{proof}
+            
+            We need to show that in each iteration of some $C^i$ the write $e$ can be eliminated. 
+            For this, we need to have some write $d$ that can exist in all candidates where $e$ can exist. 
+            This condition corresponds to Corollary \ref{WriteElimCond}, which handles the case of conditonals too. 
+            The set of conditions for observable behaviors of the resultant program to be a subset is Corollary \ref{CorolWriteElim} being applied successively for each candidate $C^i$ and all its iterations where $e$ and $d$ exist. 
+            By transitive property of subsets, we can infer that the resultant candidate $C'^i$ has observable behaviors as a subset of original $C^i$. 
+            Doing this for all valid canddiates extends to program level by property of union of sets and subset relations\footnotemark.
+    
+            \footnotetext{One might ideally think based on Theorem \ref{WriteElim} that we could relax the constraint on the existence of $d$ as there is another write $e$ that would exist in the subsequent loop. This however, would rely on the fact that the last iteration of the loop in any execution of the program is guaranteed to have such an event $d$. This is not possible to ascertain as we do not have any information about the number of iterations of the loop. It may also be the case that the loop may never end.}
+                
+        \end{proof}
+         
+
+        \subsubsection{Loop Invariant Code motion}  
+
+            In the previous chapter, we showed that loop invariant code motion cannot be validated by just reordering at the Candidate level. 
+            This was because reordering was insufficient to generate the resultant candidate from the original. 
+            Because a loop can have any number of iterations, we may have equal number of reads/writes as the iterations. 
+            The crux is that now we have proven when elimination is valid under the relaxed memory model. 
+            This in conjunction with reordering helps us determine the conditions under which loop invariant code motion can be valid.
+            For each case, we use the same property that the resultant candidate execution, and hence candidate to program, the observable behaviors are a subset. 
+
+            We first consider the case of reordering a Read outside a loop. There are two subcases for this, viz. one reordering the read before and one after the loop. 
+            \input{Elimination/2.ValidEliminationProgram/Loops/licm_read.tex}            
+
+            Now we consider the case of reordering a write outside a loop, similar two sub-cases as for reads.           
+            \input{Elimination/2.ValidEliminationProgram/Loops/licm_write.tex}
+
+            
+
+            \paragraph{Reordering two events accross loops} 
+            
+            The above corollaries are defined for programs with one loop. 
+            However, they are valid for whenever loop invariant code motion is just involving removing an event outside one loop. 
+            In practice programs can have multiple loops, even those nested within each other and the compiler is free to reorder events accross nesting as well as from one loop to another.
+            We cannot prove when we can reorder events accross two different loops or reordering events to be within a loop.
+            At the Candidate level, this would imply reordering, elimination as well as \textbf{introduction} of events. 
+            Hence, this would require a proof of redundancy introduction right from the candidate execution level and then be extended to candidates and then to programs. 
+            This is beyond the scope of this thesis. We consider this as a part of future work. 

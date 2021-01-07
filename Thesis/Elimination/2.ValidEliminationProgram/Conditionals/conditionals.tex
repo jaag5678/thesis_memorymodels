@@ -1,0 +1,61 @@
+\subsection{Addressing Programs with Conditionals}
+    We first consider the elimination of write in programs with conditional branches. The following corollary states when doing such an elimination is safe: 
+
+    \begin{corollary}
+        \label{WriteElimCond}
+        Consider a program $P$ and its candidates $C_1, C_2, ... , C_n$ in which events $e$ and $d$ present such that 
+        \begin{align*}
+            \event{e}{W} \ \wedge \ \event{d}{W} \ \wedge \ \et{e}{uo} \ \wedge \ \reln{e}{ao}{d} \ \wedge \ \Re(e)\!=\!\Re(d)
+        \end{align*} . 
+        Consider the set of corresponding candidates $C'_1, C'_2, ... , C'_n$ after eliminating $e$ and its corresponding program $P'$. If the following two conditions hold
+        \begin{gather*}
+            \forall C_{i \in [1,n]}, \forall k \in C_i \ \text{s.t.} \ \reln{e}{ao}{k} \wedge \reln{k}{ao}{d}, \    
+            Reord(e,k). \\   
+            \nexists C \in P \ \text{s.t.} \ \event{e}{C} \wedge d \notin C.
+        \end{gather*}
+        then the set of observable behaviors of $P'$ is a subset of that of $P$.
+    \end{corollary}
+
+    \begin{proof}
+    
+        From the first condition we have then for $C_i$
+        \begin{align*}
+            \forall \ k \ \textit{s.t.} \ 
+            \reln{e}{ao}{k} \ \wedge \ \reln{k}{ao}{d} \ . \ 
+            Reord(e,k).
+        \end{align*}
+        The above is Corollary \ref{CorolWriteElim}, thus giving us that the observable behaviors of $C_i'$ is a subset of $C_i$. Hence this condition must hold for all candidates from which we eliminate $e$. 
+    
+        Suppose the second condition does not hold, then we have 
+        \begin{align*}
+            \exists C \in P \ \text{s.t.} \  \event{e}{C} \wedge d \notin C
+        \end{align*}
+    
+        This would mean, for such a candidate and its Candidate Executions, by Corollary \ref{CorolWriteElim} the observable behaviors of $C'$ may not be a subset of $C$. 
+        Hence observable behaviors of $P'$ may not be a subset of $P$.
+        Hence, by contradiction, the second condition must hold. 
+    
+        Note that the second condition, by Prop \ref{CondB1} implies $e$ and $d$ cannot be part of different conditional branches.
+        
+        We elicit the cases of conditionals that are allowed by the second condition below.
+    
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{Elimination/ConditionalsCases.pdf}
+            \caption{Cases where elimination of $e$ is safe.}
+        \end{figure}
+    
+    \end{proof}
+    
+    As far as read elimination goes, since we only need the information of read event that is to be eliminated, we do not need additional conditions to hold at the program level when conditionals exist. 
+    There is however, one case, in which the read itself is the conditional check. 
+    But what is the resultant code after elimination depends on the intention of the compiler, which can be either of the following:
+    \begin{itemize}
+        \item It could be plain dead code elimination, wherein both brnaches of code are eliminated entirely. 
+        \item It could also be that the conditonal check always returns the same value, which makes the branch taken to be the same. 
+        \item It could also be that the choice of branch does not affect the outcome of the program itself. 
+    \end{itemize}
+    
+    Since we do not assume why the compiler would do such elimination, it is difficult to identify the target code and hence the resultant Candidate and its Candidate Executions that are intended after such an elminiation. 
+    Hence we do not address this case and simply state that as long as the read to be eliminated is \textbf{not} a conditional check, it is safe to eliminate under the conditions of Theorem \ref{ReadElim}. 
+    
