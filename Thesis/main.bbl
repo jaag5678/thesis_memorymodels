@@ -426,6 +426,31 @@
       \verb https://doi.org/10.1007/978-3-642-03359-9%5C_27
       \endverb
     \endentry
+    \entry{IntelW}{article}{}
+      \name{author}{1}{}{%
+        {{hash=ff97a9fdede09eaf6e1c8ec9f6a61dd5}{%
+           family={Intel},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
+      \strng{fullhash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
+      \strng{bibnamehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
+      \strng{authorbibnamehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
+      \strng{authornamehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
+      \strng{authorfullhash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Intel 64 Architecture Memory Ordering White Paper}
+      \field{year}{2007}
+      \verb{urlraw}
+      \verb http://www.cs.cmu.edu/~410-f10/doc/Intel_Reordering_318147.pdf
+      \endverb
+      \verb{url}
+      \verb http://www.cs.cmu.edu/~410-f10/doc/Intel_Reordering_318147.pdf
+      \endverb
+    \endentry
     \entry{Pugh}{inproceedings}{}
       \name{author}{1}{}{%
         {{hash=d2e8bd4544451d3ad099f420ff11a3ed}{%
@@ -463,8 +488,8 @@
       \strng{editorbibnamehash}{c4fa23c8ee58be55176c772236c20258}
       \strng{editornamehash}{c4fa23c8ee58be55176c772236c20258}
       \strng{editorfullhash}{c4fa23c8ee58be55176c772236c20258}
-      \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the {ACM} 1999 Conference on Java Grande, {JAVA} '99, San Francisco, CA, USA, June 12-14, 1999}
@@ -1086,8 +1111,8 @@
       \strng{editorbibnamehash}{591551c7d68c659a7a8268829a90bbc3}
       \strng{editornamehash}{591551c7d68c659a7a8268829a90bbc3}
       \strng{editorfullhash}{591551c7d68c659a7a8268829a90bbc3}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the 41st {ACM} {SIGPLAN} International Conference on Programming Language Design and Implementation, {PLDI} 2020, London, UK, June 15-20, 2020}
@@ -1906,8 +1931,8 @@
       \strng{editorbibnamehash}{d248d7d204d64a63e5e10d29cd1f3166}
       \strng{editornamehash}{d248d7d204d64a63e5e10d29cd1f3166}
       \strng{editorfullhash}{d248d7d204d64a63e5e10d29cd1f3166}
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the 44th {ACM} {SIGPLAN} Symposium on Principles of Programming Languages, {POPL} 2017, Paris, France, January 18-20, 2017}

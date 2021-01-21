@@ -1,22 +1,45 @@
 \section{Future Directions in Weak Memory Consistency}
 
-    \subsection{Specification of Mixed-Size memory models}
+    We elicit certain problems that we consider to be foundational with respect to relaxed memory models.
+    Having a concrete progress in any of these directions would in our eyes help solve problems concerning the specification of such models, compiler correctness and verification of programs with relaxed memory accesses.
 
-        Most of the work done towards addressing concerns of memory model relied on the assumption that shared memory accesses are all of the same size. However, hardware does allow accesses of multiple sizes and while looking at this from a relaxed memory access standpoint, the semantics of such accesses is still quite unclear. Part of it is due to hardware vendors not able to decide on what kind of behaviors they want to allow for programs using such accesses, which brings another concern for high-level programming languages; describing semantics to use mixed size accesses becomes difficult. 
+    \paragraph{Specification of Mixed-Size memory models}
 
-        THis thesis is based on one such model and its impact on program transformations. But this model was quite simple in that the aspect of mixed-size and their behavior for accesses such as atomic were semantically not defined. This may not be the case for hardware models such as ARMv8. In my literature review in this direction, there is still not a well understood memory model, let alone much work done on impact of such models on program transformations. 
+        Most of the work done towards addressing concerns of memory model relied on the assumption that shared memory accesses are all of the same size. 
+        However, hardware does allow accesses of multiple sizes. 
+        Looking at this from a relaxed memory access standpoint, the semantics of such accesses is still quite unclear. 
+        Part of it is due to hardware vendors not able to decide on what kind of behaviors they want to allow for programs using such accesses, which brings the same concern for high-level programming languages. 
 
-        One direction to go is to have a concise analysis of the validity of program transformation under mixed-size models such as ARMv8 and the new possible transformations that come along with them (like merging two accesses or splitting an access into multiple accesses.) To do this would also require formally describing the mixed size model (if haven't already, for example check \cite{Flur} for an older version of ARM model), which I also consider worthwhile.  
+        This thesis is based on one such model and its impact on program transformations. 
+        But this model was quite simple in that the aspect of mixed-size and their behavior for atomic accesses were semantically not defined. This may not be the case for hardware models such as ARMv8. 
+        Flur et.al~\cite{Flur} give their insights on having tested and observed mixed-size behaviors in hardwares.
 
-    \subsection{Transformational Specification of Memory Models}
+        One direction to go is to have a concise analysis of the validity of program transformation under mixed-size models such as ARMv8 and the new possible transformations that come along with them (like merging two accesses or splitting an access into multiple accesses.) To do this would also require formally describing the mixed size model (\cite{Flur} is for an older version of ARM model).  
 
-        Using relaxed memory accesses certainly has a good impact on performance. However, as we see in this thesis, their semantics shown to be often not so suitable for program transformations done by the compiler or the hardware. This work addressed a small part of this problem, by formalizing one such weak memory model and constructing a proof to show when a few basic program transformations are valid to perform. 
+    \paragraph{Transformational Specification of Memory Models}
 
-        However, over reading literature on work done in this way, it has come to my knowledge that the validity of program transformations still remain a problem. As new concurrent languages come, new memory models are introduced and the validity of program transformations have to be addressed for each such model separately. Instead, one way to consider going about is by describing them formally using program transformations. In a very preliminary literature survey in this direction, only one reserch paper \cite{Lahav2} that tries to do this. However, it is still quite limited. Given the different memory models that exist today for many concurrent languages and hardware, having a formal model for the well known memory models would in our perspective be a good start. It would prove useful for designing new memory models, compilers as well as understanding them from a programmer's standpoint. 
+        Using relaxed memory accesses certainly has a good impact on performance. 
+        Their semantics, however, are shown to be often not so suitable for quickly assessiing their impact on program transformations done by the compiler or the hardware. 
+        This thesis addressed a small part of this problem, by formalizing one such weak memory model and constructing a proof to show when a few basic program transformations are valid to perform. 
 
-    \subsection{Automation of Specification of Weak Memory Models}
+        However, over reading literature on work done in this way, it has come to our knowledge that the validity of program transformations still remains a problem. 
+        As new concurrent languages come, new memory models are introduced and the validity of program transformations have to be addressed for each such model separately. 
+        Instead, one way to consider going about is by describing them using program transformations. 
+        Lahav et.al~\cite{Lahav2} try to do this for Total-Store-Order (TSO) and a fraction of Power memory model. They do this by describing transformationally over SC. 
+        However, it is still quite limited. 
+        Given the different memory models that exist today for many concurrent languages and hardware, having a formal model for the well known memory models would in our perspective be a good start. 
+        It would prove useful for designing new memory models, compilers as well as understanding them from a programmer's standpoint. 
+        Given the increasing use of Heterogenous hardware, it would also be useful to have an automated process of constructing a memory model parametric to the choice of program transformations we would want to do.
 
-        This thesis also showcased some counter-examples to show that some transformations may not be safe. In standard literature, such an approach is also used to explain or identify loopholes in specification of memory models. Known as litmus tests, they prove useful to identify which features of weak-memory consistency does a given model have. 
+    \paragraph{Automation of Specification of Weak Memory Models}
 
-        However, there is little work done in inferring specifications themselves using such litmus tests. The problem is that most often it becomes difficult to concisely describe a model as a set of litmus tests. While a lot of work has been done in identifying key examples as litmus, the work in direction of mixed-size models has just begun. 
-        %Find some citation of this
+        This thesis also showcased counter-examples to show that some transformations may not be safe. 
+        In standard literature, such an approach is also used to explain or identify loopholes in specification of memory models. 
+        Known as litmus tests, they prove useful to identify which features of weak-memory consistency does a given model have. 
+
+        However, there is little work done in inferring specifications themselves using such litmus tests. 
+        The problem is that most often it becomes difficult to concisely describe a model as a set of litmus tests.
+        While a lot of work has been done in identifying key examples as litmus, the work in direction of mixed-size models has just begun. 
+        Lustig et.al~\cite{Lustig} do the reverse; they construct litmus tests parametric to memory consistency models. 
+        One could gain some insights from this work to do the reverse. 
+        

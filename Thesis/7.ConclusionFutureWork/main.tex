@@ -1,8 +1,9 @@
 The previous chapter addressed the validity of elimination of relaxed memory accesses. 
 We also showed how validity of loop invariant code motion can be done using reordering coupled with elimination of events. 
 In this concluding chapter, we discuss the limitations of our approach from a practical standpoint.
-We later chart out further steps that can be taken from our work that we find important to address. 
-We elicit takeaway from this thesis work and conclude with possible future work in the domain of relaxed memory models.
+We later chart out further steps that can be taken from our work that we find important to address.
+We then give our critique of the model itself in terms of mixed size and tear-free factor of accesses. 
+We finally conclude with possible future work in the domain of relaxed memory models.
 \ \newline
 \ \newline  
 \hrule 
@@ -24,3 +25,9 @@ We elicit takeaway from this thesis work and conclude with possible future work 
 \hrule 
 \ \newline 
 \ \newline 
+The advent of concurrent computation called upon a major change in how we view our programs execute, forcing us to move away from sequential reasoning.
+With the introduction of relaxed memory consistency, this sequential reasoning became more of a problem.
+The need for non-sequential reasoning is still not something that is appreciated by many, which is why we still have problems that come up with the specification of weak memory models.
+This thesis is a minor contribution towards having an intuitve non-sequential reasoning about concurrent programs, in a way that also in our eyes facilitates one to quickly identify potential problems with respect to program transformations. 
+A major change at the educational as well as industrial level has to come, in order to propel the transformation towards user's view of their programs not as a sequential computation machines, but as a collection of partial orders with dependencies established between program components.
+We hope that this work helps in paving way towards that direction.

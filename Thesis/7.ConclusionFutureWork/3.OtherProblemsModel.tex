@@ -1,9 +1,77 @@
 \section{Critique of the Model itself}
 
+    Through the process of formalizing the memory model, we also critiqued the model in a few aspects. 
+    We here elicit mainly three of them which we consider to be due to underspecified semantics.
+
+    \subsection{Tearing Factor and the Tear-free reads Axiom}
+
+        The model states that all integer aligned accesses are tear-free.  
+        In terms of hardware, whether a memory access is tear free depends also on the bus-size.
+        But if we still want to declare an access at the ECMAScript langauge level tear-free, the hardware must adopt some way to ensure that the access is indeed tear-free, meaning they respect the tear-free axiom.
+        Alternatively, if at the ECMAscipt langauge level, we declare an access to tear despite the hardware having it to be tear-free, this wuold mean the compiler can perform certain aggressive optimizations to leverage this relaxation. 
+
+        If we are using tear memory accesses, the set of observable behaviors becomes slightly non-trivial to decipher.
+        For instance, consider the program below, where we assume that $x$ represents an 8-byte memory which is initialized to zero. 
+        Suppose that all the memory accesses are tearing (meaning they are not aligned).
+        
+        %Insert the program here
+
+
+        For the above program, it is not clear what exactly is the value of the 8-byte read, as a candidate execution can exist where the read reads from two writes writing to thge same 4-byte piece.
+        Whether this is left to the hardware or program transformations is uncertain. 
+
+        Consider another example where we have a 12-byte memory initialized to zero. 
+        But here, consider only the read to memory to tear, while the writes are tear-free.
+
+        %Insert the other program here 
+
+        Here, the two outcomes based on the reads-from relations of a candidate execution may be possble. 
+        But how can one explain this? 
+        If both the writes are tear-free, how is it that the read can read them as if they are teared?
+       
+        Consider the same last program above but with all accesses of type $sc$. 
+        Yet the above two behaviors having those read values are allowed.,
+        Even Axiom \ref{SeqCsAt} does not restrict such an observable behavior.
+
+        We believe this to be a problem with the tear-free reads axiom.
+        A possible direction towards resolving this is to define the notion of tear-free / tearing using read-bytes-from relation. 
+
+        Here's another example for the avid reader to think on. 
+
+        %Show the last program using tearing reads.
+
     \subsection{Range of Initialize events uncertain}
 
-    \subsection{Unordered events do not respect Coherence}
+        Whether the range of init events is the entire shared memory buffer or is it byte level granularity is uncertain.
+        This affects the way we can reason with our programs and their corresponding observable behaviors.
 
-    \subsection{Out of Thin air values}
+        Consider the two candidates below, each representing the same program, one where the initialize event is to the whole 8-byte and one where its split into two events of type $init$ writing 4 bytes each.
 
-    \subsection{Sequentially Consistent events can be in a data race}
+        %Show both thwe programs here
+
+        For the first program, the outcome in question is not possible due to Axiom \ref{TfRe}.
+        But for the second program, the outcome is possible.
+        Which one must correspond to the original program is unclear and is not specificed in the semantics of the model.
+
+
+    \subsection{Mixed-size events do not respect Coherence irrespective of access mode}
+
+        Events that are unordered need not respect Coherence, unless constrained by happens-before relation.
+        These accesses, mixed with sequentially consistent ones, give non-trivial behaviors.
+
+        For instance  consider the program below.
+
+        %Show program with a candidate exeution justifying an observable behavior in question.
+
+        The above program can have the observable behavior under question.
+        But this would imply that the value of write to $x$ as $2$, though local to the subsequent read, vanishes. 
+        The keen reader will note that such a behavior cannot even be explained by reordering or elimination of events.
+        Note also that this observable is possible even if the write $x=2$ has an access mode of $sc$. 
+
+        Sequentially consistent accesses which are mixed size also need not respect coherence.
+        Consider another example with a few mixed size accesses, where the writes are of type $sc$.
+
+        %Show the same above program but with write to $x$ by first thread an 8-byte one.
+
+        Here the value of read $a=x[0...4]$, despite being $1$ does not restrict the outcome of the read $b=x[5...8]$ to be $0$. 
+        Again, we do not know how to justify this outcome using either reordering or elimination. 

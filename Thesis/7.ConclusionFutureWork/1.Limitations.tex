@@ -1,38 +1,46 @@
 \section{Limitations/Advantages}
 
-    We discuss the limitations of our approach coupled with relevant gaps that need to be filled to extend our results in practice. 
-    It is important to note that these limitations are also in a way an advantage which makes our approach quite intuitive and easy to understand. 
+    Throughout this thesis, we dealt with program transformations using abstract set of events and partial order relations. 
+    Additionally, contrast to relying on operational semantics for our reasoning, we relied in a relatively simple and clear axiomatic semantics. 
+    This approach however, is not without its limitations. 
+    We elicit the key ones we think are important. 
 
-    \subsection{Separation of Concerns}
+    \paragraph{Separation of Concerns}
 
-    While our approach to program transformations avoids the operational complexity of the language, we also do not assume why the compiler would perform such a transformation.
+    Our approach to program transformations avoids the complexity of the algorithmic complexity of program transformations. 
+    We also do not assume why the compiler would perform such a transformation.
     While this benefits our analysis to be independant of any particular optimization, it may pose as a bottleneck while trying to incorporate our results in practice. 
     As a simple example, it might turn out to be that sequentially, a conditional will always return $true$. This would mean that no candidate execution can have events from the $false$ branch. Hence the compiler might choose to reorder the events within the $true$ branch outside. 
-    But as per our Corollart (REFER THEM CORRECTLY), we do not allow any reordering outside the loop, simply because we have no such information about the fact that a conditional always returns the same value. 
+    But as per Corollary (REORDERING CONDITIONALS), we do not allow any reordering outside the conditional, simply because we have no such information about the fact that a conditional always returns the same value. 
     Having such information can give us more fine grained analysis of when reordering is valid. 
+    On the other hand, having such a separation can help compiler writers see the impact of the model on the basic program transformations clearly, thus allowing them to write relatively correct program transformation algorithms. 
 
-    \subsection{Validity of Transformations is Sound but not Complete}
+    \paragraph{Validity of Transformations is a conservative}
+
+    \critic{red}{Discuss with Clark what does it mean for our approach to be sound but not complete. Or is it that conservative analysis is not about soundness of completeness at all?}
 
     It is important to note that our approach to validity of elimination and reordering is conservative.
     We do not assume anything about events that belong to other agents/threads. 
     We only use information on the events involved in the program transformation and those that are \textit{agent-ordered} between them.
     Hence, there could be several cases where one could reorder or eliminate events that we prohibit, but are still safe to do. 
-    From the perspective of the semantics of the memory model, this is possible because certain \textit{happens-before} relations are not relevant; they do not "trigger" any of the axioms of the model, if removed. 
-    Hence such a transformation can be valid. 
-    This, however, as mentioned before, is to specific programs. To keep track of such information while doing program transformation in practice is infeasible as the program size increases.
+    From the perspective of the semantics of the memory model, this is possible because certain \textit{happens-before} relations may not be relevant; they do not "trigger" any of the axioms of the model, if removed. 
+    Hence, such a transformation can be valid. 
+    This, however, as mentioned before, specific to certain programs. 
+    To keep track of such information while doing program transformation in practice would be infeasible as the program size increases.
     
-    \subsection{Lack of Practical Results}
+    \paragraph{Lack of Practical Results}
 
-    This work is purely theoretical. There is yet much more to be done to extend our results into practice. 
-    The main reason we resorted to first a theoretical guarantee about validity is because literature has shown that mere empirical testing of results on concurrent programs is insufficient. 
-    Methods such as model checking, only work reasonably well for small programs. While this is another approach to identify counter examples to program transformatiosn, it is infeasible in practice due to the sheer magnitude of possible candidate executions.
+    This work is purely theoretical. 
+    There is yet much more to be done to extend our results into practice. 
+    The main reason we resorted to first a theoretical guarantee is because literature has shown that mere empirical testing of results on concurrent programs is insufficient. 
+    Methods such as model checking, only work reasonably well for small programs. While this is another approach to identify counter examples to program transformations, it is infeasible in practice due to the sheer magnitude of possible candidate executions.
 
-    \subsection{Mapping from Programming Constructs to Abstract events}
+    \paragraph{Mapping from Programming Constructs to Abstract events}
 
     The specification and the results on program transformations are purely at the abstract set of shared memroy accesess.
-    The concise mapping from ECMAScript's Read/Write to these abstract events is somethign that must be done to extend our results in practice.
+    The concise mapping from ECMAScript's Read/Write(s) to these abstract events is something that must be done to extend our results in practice.
     As an example, we might have to perform aliasing analysis to identify which shared memory accesses are of same range. 
-    This mapping however, is not required for our results, meaning, they do not influence it in any way.
+    Such mappings however, are not required for our results; they do not influence it in any way.
   
  
 
