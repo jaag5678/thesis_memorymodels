@@ -10,49 +10,52 @@
         But if we still want to declare an access at the ECMAScript langauge level tear-free, the hardware must adopt some way to ensure that the access is indeed tear-free, meaning they respect the tear-free axiom.
         Alternatively, if at the ECMAscipt langauge level, we declare an access to tear despite the hardware having it to be tear-free, this wuold mean the compiler can perform certain aggressive optimizations to leverage this relaxation. 
 
-        If we are using tear memory accesses, the set of observable behaviors becomes slightly non-trivial to decipher.
-        For instance, consider the program below, where we assume that $x$ represents an 8-byte memory which is initialized to zero. 
-        Suppose that all the memory accesses are tearing (meaning they are not aligned).
+        If we are using teared memory accesses, the set of observable behaviors becomes slightly non-trivial to justify.
+        For instance, consider the program below, where we assume that $x$ represents an 12-byte memory which is initialized to zero. 
+        Suppose that read to $x$ is tearing but the writes are tear-free.
         
         %Insert the program here
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{7.ConclusionFutureWork/TearingExample.pdf}
+            \caption{Mixed-size Tearing reads example}
+        \end{figure}
 
+        The green box represents the outcomes that we can quite intuitively justfiy.
+        But the model also allows the outcomes in the orange box. 
+        This is because of the read that tears, which implies that Axiom \ref{TfRe} does not constrain $stck{_{rf}}$ to be functional with respect to the read and the writes to the same 8-byte memory. 
+        Whether this is left to the hardware or program transformations is uncertain.
+        If so, how could one justify any of the outcomes in the orange box is yet to be understood by us. 
 
-        For the above program, it is not clear what exactly is the value of the 8-byte read, as a candidate execution can exist where the read reads from two writes writing to thge same 4-byte piece.
-        Whether this is left to the hardware or program transformations is uncertain. 
-
-        Consider another example where we have a 12-byte memory initialized to zero. 
-        But here, consider only the read to memory to tear, while the writes are tear-free.
-
-        %Insert the other program here 
-
-        Here, the two outcomes based on the reads-from relations of a candidate execution may be possble. 
-        But how can one explain this? 
-        If both the writes are tear-free, how is it that the read can read them as if they are teared?
+        The main concern is that if both the writes are tear-free as well as sequentially consistent, how is it that the read can read them as if they are teared?
+        Does this mean that the tearing factor of SC events depends on the existance of reads that tear or do not tear? 
+        If this is so, it would be non-trivial to reason about programs locally.
        
-        Consider the same last program above but with all accesses of type $sc$. 
+        Consider the same last program above but with the read also of type $sc$. 
         Yet the above two behaviors having those read values are allowed.,
         Even Axiom \ref{SeqCsAt} does not restrict such an observable behavior.
 
         We believe this to be a problem with the tear-free reads axiom.
         A possible direction towards resolving this is to define the notion of tear-free / tearing using read-bytes-from relation. 
 
-        Here's another example for the avid reader to think on. 
-
-        %Show the last program using tearing reads.
-
     \subsection{Range of Initialize events uncertain}
 
         Whether the range of init events is the entire shared memory buffer or is it byte level granularity is uncertain.
         This affects the way we can reason with our programs and their corresponding observable behaviors.
 
-        Consider the two candidates below, each representing the same program, one where the initialize event is to the whole 8-byte and one where its split into two events of type $init$ writing 4 bytes each.
+        Consider the two candidates below, each of which could represent the same program, one where the initialize event is to the whole 8-byte and one where its split into two events of type $init$ writing 4 bytes each.
+        The orange box below is an observable behavior in question.
 
         %Show both thwe programs here
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{7.ConclusionFutureWork/InitExample.pdf}
+            \caption{Mixed-size Init events example}
+        \end{figure}
 
-        For the first program, the outcome in question is not possible due to Axiom \ref{TfRe}.
-        But for the second program, the outcome is possible.
-        Which one must correspond to the original program is unclear and is not specificed in the semantics of the model.
-
+        For the first candidate, the outcome in question is possible.
+        But for the second program, the outcome is not possible due to Axiom \ref{TfRe}.
+        Which one must correspond to the original program is unclear and is not specificed by the semantics of the model specified in the standard.
 
     \subsection{Mixed-size events do not respect Coherence irrespective of access mode}
 
@@ -62,16 +65,28 @@
         For instance  consider the program below.
 
         %Show program with a candidate exeution justifying an observable behavior in question.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{7.ConclusionFutureWork/CoherenceNormal.pdf}
+            \caption{Coherence violation Example.}
+        \end{figure}
+
 
         The above program can have the observable behavior under question.
         But this would imply that the value of write to $x$ as $2$, though local to the subsequent read, vanishes. 
         The keen reader will note that such a behavior cannot even be explained by reordering or elimination of events.
         Note also that this observable is possible even if the write $x=2$ has an access mode of $sc$. 
 
-        Sequentially consistent accesses which are mixed size also need not respect coherence.
+        Suppose we do have standard coherence respected. 
+        In this case too, sequentially consistent accesses which are mixed size give non-trivial behaviors.
         Consider another example with a few mixed size accesses, where the writes are of type $sc$.
 
         %Show the same above program but with write to $x$ by first thread an 8-byte one.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{7.ConclusionFutureWork/CoherenceMixed.pdf}
+            \caption{Mixed-size events example where coherence is assumed to be held.}
+        \end{figure}
 
         Here the value of read $a=x[0...4]$, despite being $1$ does not restrict the outcome of the read $b=x[5...8]$ to be $0$. 
         Again, we do not know how to justify this outcome using either reordering or elimination. 
