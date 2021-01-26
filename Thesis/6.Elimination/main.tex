@@ -1,12 +1,35 @@
+This chapter addresses the validity of elimination under the ECMAScript memory model.
+We first start by showing some examples of Candidate Executions where write elimination is not safe in the relaxed memory context.
+We then give an explaination of why read elimination may not be safe to do.   
+We then formulate two theorems, one for read elmination and one for write with a corresponding corollary for write elimination. 
+Similar to reordering, we address elimination at the program level (still abstracted to a set of shared memory events) involving loops and conditional branching.
+We lastly formulate theorems and their corresponding proof which shows how loop invariant code motion can be described as a combination of elimination and reordering at the Candidate execution level. 
+We conclude by mentioning those cases of code motion that cannot be explained yet using our two program transformations.
+\ \newline
+\ \newline  
+\hrule 
+\ \newline 
+\ \newline 
 
-    %Change later 
-    \input{6.Elimination/0.Intro.tex}
+%Change later 
+\input{6.Elimination/0.Intro.tex}
 
-    %Read Elimination 
-    \input{6.Elimination/1.ValidEliminationCandidate/ReadElimProof/approach.tex}
+%Read Elimination 
+\input{6.Elimination/1.ValidEliminationCandidate/ReadElimProof/approach.tex}
 
-    %Write elimination
-    \input{6.Elimination/1.ValidEliminationCandidate/WriteElimProof/approach.tex}
+%Write elimination
+\input{6.Elimination/1.ValidEliminationCandidate/WriteElimProof/approach.tex}
     
-    %Going towards program level
-    \input{6.Elimination/2.ValidEliminationProgram/main.tex}
+%Going towards program level
+\input{6.Elimination/2.ValidEliminationProgram/main.tex}
+
+\ \newline
+\ \newline  
+\hrule 
+\ \newline 
+\ \newline 
+To summarize, this chapter addressed the validity of elimination under the ECMAScript Memory Model. 
+We first built a conservative proof for elimination of read, followed by write based on candidate executions.
+We later extended it to programs abstracted to the set of shared memory events. 
+We then proved when loop invariant code motion is valid using both elimination and reordering at a candidate execution level. 
+In the next chapter, we conclude this thesis, by discussing limitations, next steps, critique of the semantics of the model and ending with general foundational problems that need to be addressed in this domain of research. 
