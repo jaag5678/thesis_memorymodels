@@ -1,0 +1,19 @@
+#Things we want to ignore in git
+#Mostly writing tex things. 
+
+*.aux
+*.log
+*.gz
+*.bak
+*.bbl
+*.bcf
+*.aux
+*.log
+*.ps
+*.blg
+*.dvi
+*.lof
+*.lot
+*.toc
+*.run.xml
+*~
