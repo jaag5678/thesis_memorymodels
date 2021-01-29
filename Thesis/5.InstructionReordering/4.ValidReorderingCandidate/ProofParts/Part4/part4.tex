@@ -34,14 +34,14 @@
     \end{tasks}
     
     %Addressing the first case. 
-    Figure below shows a breakdown of sub-cases for the first case (a), varying based
+    Figure~\ref{reord:case1} shows a breakdown of sub-cases for case (a), varying based
     on the nature of event $k$.
     %Show all cases here for different k
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.6]{5.InstructionReordering/4.ValidReorderingCandidate/ProofParts/Part4/part4(a).pdf}
-        \caption{The role of the axioms on introducing a new relation between an unordered Read and some event $k$}
-        \label{fig:my_label}
+        \caption{The impact of new relation $\reln{k}{hb}{e}$ where $\event{e}{R} \wedge \et{e}{uo}$ on observable behaviors.}
+        \label{reord:case1}
     \end{figure}
     
     %Might have to elaborate this more
@@ -51,13 +51,13 @@
         \item For (ii), when $k$ is a write, Axiom \ref{CoRe} (ii(a)) or Axiom \ref{SeqCsAt} (ii(b)) could restrict the read ($e$) from reading overlapping ranges of $W'$ with $W$.
     \end{itemize}
     
-    Figure below shows a breakdown of sub-cases for the case (b), varying based
+    Figure~\ref{reord:case2} shows a breakdown of sub-cases for case (b), varying based
     on the nature of event $k$.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.6]{5.InstructionReordering/4.ValidReorderingCandidate/ProofParts/Part4/part4(b).pdf}
-        \caption{(i) and (ii(b)) satisfy the axiom of Coherent Reads}
-        \label{fig:my_label}
+        \caption{The impact of new relation $\reln{k}{hb}{e}$ where $\event{e}{W} \wedge \et{e}{uo}$ on observable behaviors.}
+        \label{reord:case2}
     \end{figure}
           
     For case (b) we can observe the following from the above figure 
@@ -66,13 +66,13 @@
         \item For (ii), when $k$ is a write, Axiom \ref{CoRe} restricts some read from reading parts of $k$ due to the write $e$.   
     \end{itemize}
 
-    Figure below shows a breakdown of sub-cases for the first case (c), varying based
+    Figure~\ref{reord:case3} shows a breakdown of sub-cases for case (c), varying based
     on the nature of event $k$.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.6]{5.InstructionReordering/4.ValidReorderingCandidate/ProofParts/Part4/part4(c).pdf}
-        \caption{(ii) satisfies the axiom of Coherent Reads}
-        \label{fig:my_label}
+        \caption{The impact of new relation $\reln{d}{hb}{k}$ where $\event{d}{R} \wedge \et{d}{uo}$ on observable behaviors.}
+        \label{reord:case3}
     \end{figure}
     
     For case (c), we can observe the following from the above figure
@@ -81,13 +81,13 @@
         \item For (ii), when $k$ is a write, Axiom \ref{CoRe} restricts the read $d$ from reading values of write $k$. 
     \end{itemize}
 
-    Figure below shows a breakdown of sub-cases for the first case (d), varying based
+    Figure~\ref{reord:case4} shows a breakdown of sub-cases for case (d), varying based
     on the nature of event $k$.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.4]{5.InstructionReordering/4.ValidReorderingCandidate/ProofParts/Part4/part4(d).pdf}
-        \caption{(i(a)), (ii(a)) satisfy the axiom of Coherent Reads, whereas (i(b)), (ii(b)) satisfy the axiom of SequentiallyConsistent Atomics}
-        \label{fig:my_label}
+        \caption{The impact of new relation $\reln{d}{hb}{k}$ where $\event{d}{W} \wedge \et{d}{uo}$ on observable behaviors.}
+        \label{reord:case4}
     \end{figure}
 
     For case (d) we can observe the following 
@@ -98,12 +98,10 @@
   
     The above case wise analysis showed us that any new relation (apart from $\reln{d}{hb}{e}$), matching the patterns of the axioms, only enables in restricting possible observable behaviors, which are $\stck{_{rf}}$ relations. Thus, we can infer that no new observable behavior is introduced due to the new set of $\stck{_{hb}}$ relations. 
     
-    In summary, the table below summarizes the valid cases where, we have a pair of valid pivots, where new relations do not introduce new observable behaviors and do not have cycles. 
-    %Show the table here
-
+    In summary, Figure~\ref{reord:final_table} summarizes the valid cases where, we have a pair of valid pivots, where new relations do not introduce new observable behaviors and do not have cycles. 
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/part4_table.pdf}
         \caption{The final table summarizing the valid cases where observable behaviors will only be a subset after reordering.}
-        \label{fig:my_label}
+        \label{reord:final_table}
     \end{figure}

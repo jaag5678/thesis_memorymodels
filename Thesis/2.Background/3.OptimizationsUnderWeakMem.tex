@@ -10,44 +10,52 @@
     Midkiff et.al~\cite{Midkiff} proposed a unified compiler for several memory models, wherein they proposed a new Concurrent Control Flow graph with new edges to perform powerful transformations such as Common Sub-Expression Elimination. 
     These models however, demanded us to have more of a whole program analysis to even do basic local program transformations. 
     The data flow graph as the number of threads increase will be infeasible to be implemented and used in common practice. 
-    (I AM UNSURE IF ANY RECENT PROPOSED MODELS HAVE ANYTHING TO SAY IN THIS RESPECT.)
+    (I AM UNSURE IF ANY RECENT PROPOSED MODELS HAVE ANYTHING TO SAY IN THIS RESPECT. JADE ALGLAVE'S WORK CAN BE CITED, BUT I HAVE NOT READ IT AS OF NOW.)
     Another way to go about this is to go one step below and observe the transformations in terms of more basic code transformations such as instruction reordering, elimination and introduction. 
     Since our objective in this thesis is not in terms of implementing program transformations, but checking the validity, we do not investigate further in this direction. 
     
-    We start by showing using counter examples how one can show basic transformations are invalidated under a consistency model.
+    We start by showing using counter examples how one can show basic transformations are invalidated under SC.
 
-    \cite{red}{PErhaps cite Jade's work here on Data FLow analysis for Weak memory.}
-
-    For instance, from a program transformation standpoint, the disallowed outcome in Figure \ref{intro:Example} should be possible; we can simply reorder either the two events in $T1$ or that in $T2$ as they are disjoint memory operations. 
+    For instance, from a program transformation standpoint, the disallowed outcome in Figure~\ref{intro:Example} should be possible; we can simply reorder either the two events in $T1$ or that in $T2$ as they are disjoint memory operations. 
     But from a sequential consistency standpoint, since the outcome is not valid, it also brings with it the question whether such simple program transformations are even valid to perform.
-    Figure~\ref{intro:Example2} shows how after doing either one of these reorderings, an outcome invalid under SC is possible. 
+    Figure~\ref{intro:Example2} is an example below where we would think it is okay to reorder two independant reads. 
     %Show program 
     \begin{figure}[H]
         \centering
-        \includegraphics[scale=0.7]{2.Background/SC_Example1(b).pdf}
-        \caption{The original program above with its allowed and disallowed outcomes in SC, followed by the program with the two reads reordered below, justifying the disallowed outcome under SC.}
-        \label{intro:Example2}
+        \includegraphics[scale=1]{2.Background/SC_Reordering(a).pdf}
+        \caption{Program where reordering of indpendant reads seems possible with its allowed and disallowed outcomes in SC.}
+        \label{intro:Example2(a)}
     \end{figure}
 
     The reordered program can justify a sequential interleaving of events to have the disallowed outcome in the original program. 
+    THis is shown in Figure~\ref{intro:Example2(b)} below.
 
-    Such concerns are not only related to simple reordering, but also something such as elimination. 
-    Yet another example can be that of elimination. Consider the program in Figure \ref{intro:Example3} below
     \begin{figure}[H]
         \centering
-        \includegraphics[scale=0.7]{2.Background/SC_Example2(a).pdf}
-        \caption{Another program above with its allowed and disallowed outcomes under SC.}
+        \includegraphics[scale=1]{2.Background/SC_Reordering(b).pdf}
+        \caption{The transformed program reordering two reads, with a trace justifying the disallowed outcome under SC.}
+        \label{intro:Example2(b)}
+    \end{figure}
+
+
+
+    Such concerns are not only related to simple reordering, but also something such as elimination. 
+    Yet another example can be that of elimination. Consider the program in Figure~\ref{intro:Example3(a)} below
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=1]{2.Background/SC_Example2(a).pdf}
+        \caption{Program with a redundant write to $y$ with its allowed and disallowed outcomes under SC.}
         \label{intro:Example3(a)}
     \end{figure}
 
     In this example, the red box outcome is still not allowed under SC. We can notice though that the write to $y$ in $T2$ is done twice. 
     Naturally, the compiler might think of eliminating one of them under the context of redundant code elimination. 
     Suppose it eliminates the first write $y=2$. 
-    Then the resulting program as shown below in Figure \ref{intro:Example3(b)}, can justify the outcome under SC whcih was disallowed in the original program.
+    Then the resulting program as shown below in Figure~\ref{intro:Example3(b)}, can justify the outcome under SC whcih was disallowed in the original program.
     \begin{figure}[H]
         \centering
-        \includegraphics[scale=0.7]{2.Background/SC_Example2(a).pdf}
-        \caption{Program after elimination of $y=2$, justifying disallowed outcome under SC.}
+        \includegraphics[scale=1]{2.Background/SC_Example2(b).pdf}
+        \caption{The transformed program eliminating the first $y=2$, with a trace justifying the disallowed outcome under SC.}
         \label{intro:Example3(b)}
     \end{figure}
 

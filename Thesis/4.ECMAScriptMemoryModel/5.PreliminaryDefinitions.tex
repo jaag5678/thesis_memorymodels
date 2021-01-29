@@ -12,26 +12,26 @@
 %-----------------------------------------------------------------------------------------------------------------------------------------    
     %What is one run of a program to us?
     \begin{definition}{Candidate}
-        A a collection of abstracted set of shared memory events of a program involved in one possible execution, with the $\stck{_\textit{ao}}$ relations. We can think of this as each thread having a set of shared memory events to run in a given intra-thread ordering. An example of a candidate is shown in figure~\ref{fig:candidate}.
+        A a collection of abstracted set of shared memory events of a program involved in one possible execution, with the $\stck{_\textit{ao}}$ relations. We can think of this as each thread having a set of shared memory events to run in a given intra-thread ordering. An example of a candidate is shown in Figure~\ref{model:candidate}.
         
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/candidate.pdf}
-            \caption{An example of a Candidate}
-            \label{fig:candidate}
+            \caption{An example of a Candidate.}
+            \label{model:candidate}
         \end{figure}
         
     \end{definition}
 
 %-----------------------------------------------------------------------------------------------------------------------------------------  
     \begin{definition}{Candidate Execution}
-        A Candidate with the addition of $\stck{_\textit{sw}}$, $\stck{_\textit{hb}}$ and $\stck{_\textit{mo}}$ relations. This can be viewed as the witness/justification of an actual execution of a Program. Note that there can be many Candidate Executions for a given Candidate. The following figure shows an example of a candidate execution. 
+        A Candidate with the addition of $\stck{_\textit{sw}}$, $\stck{_\textit{hb}}$ and $\stck{_\textit{mo}}$ relations. This can be viewed as the witness/justification of an actual execution of a Program. Note that there can be many Candidate Executions for a given Candidate. Figure~\ref{model:candexec} shows an example of a candidate execution. 
         
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/CandidateExecution.pdf}
-            \caption{An example of an Execution based on Candidate above}
-            \label{fig:my_label}
+            \caption{An example of a Candidate Execution based on Candidate above.}
+            \label{model:candexec}
         \end{figure}
         
     \end{definition}
@@ -41,28 +41,15 @@
     \begin{definition}{Observable Behavior}
     
         The set of pairwise $\stck{_\textit{rf}}$/$\stck{_\textit{rbf}}$ relations that result in one execution of the program. Think of this as our outcome of a program execution.
+        Figure~\ref{model:observable} shows an example of an observable behavior.
     
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/Observables.pdf}
-            \caption{Observable Behavior}
-            \label{fig:my_label}
+            \caption{An example of Observable Behavior.}
+            \label{model:observable}
         \end{figure}
         
-    \end{definition}
-
-%-----------------------------------------------------------------------------------------------------------------------------------------
-    
-    \begin{definition}{Obs}
-        We define $Obs_P, Obs_C, Obs_{CE}$ as functions that take a program, candidate and candidate execution respectively and give the set of observable behaviors possible by them. We are not concerned with the specific elements in this set, but the relation between the output of each of these functions among each other. 
-
-        Consider a program $P$ whose candidates are $C_1, C_2, ... , C_n$. Consider for each candidate $C_i$, the candidate executions $CE_1, CE_2, ... CE_m$\footnotemark. Then, we have the following properties that hold:
-        \begin{align*}
-            Obs_P(P) = \cup_{i=1}^{n}Obs_C(C_i) \\ 
-            Obs_C(C_i) = \cup_{j=1}^{m}Obs_C(CE_j)
-        \end{align*}
-
-        \footnotetext{Note that the variables $n$ and $m$ need not be finite.}
     \end{definition}
 
 %-----------------------------------------------------------------------------------------------------------------------------------------

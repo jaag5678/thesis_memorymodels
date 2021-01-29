@@ -11,54 +11,54 @@
 
         We show a couple of examples to showcase why reordering may not be that straightforward. 
 
-        Consider the first example below of a Candidate and the resultant candidate after reordering two events:
-        
-        %Put figure here
+        Consider the first example in Figure~\ref{reord:example1(a)} below of a Candidate and the resultant candidate after reordering two events.
+        The figure on the left is the original candidate and that on the right is after reordering the two reads of $T2$.
+        The observable behavior in question is written in the middle. 
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{5.InstructionReordering/0.Intro/ReorderingExample1(a).pdf}
-            \caption{Ex1(a)} 
+            \caption{First example for reordering with candidates of the original program and its reordered counterpart.}
+            \label{reord:example1(a)} 
         \end{figure}
-
-        The figure on the left is the original candidate and that on the right is after reordering the two reads of $T2$.
-        The observable behavior in question is written in the middle. 
-
-        %Put figure of explaination below
-        \begin{figure}[H]
-            \centering
-            \includegraphics[scale=0.7]{5.InstructionReordering/0.Intro/ReorderingExample1(b).pdf}
-            \caption{Ex1(b)} 
-        \end{figure}
-
-        The above figure has two sets of relations. The first justifies the outcome for the reordered candidate. While the second justifies the first. 
+        
+        Figure~\ref{reord:example1(b)} has two sets of relations. 
+        The first justifies the outcome for the reordered candidate. 
+        While the second justifies the original candidate. 
         Notice that for the second, one may have a read memory ordered before a write that it reads from. 
         This is quite counter intuitive to understand at first. 
         But strictly from the semantics of the model, this justification of the observable behavior is completely valid. 
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{5.InstructionReordering/0.Intro/ReorderingExample1(b).pdf}
+            \caption{The set of partial order relations justifying the observable behavor in question for both the candidates in Figure~\ref{reord:example1(a)}.} 
+            \label{reord:example1(b)}
+        \end{figure}
 
-        Consider another example below:
-
-        %Put figure here 
+        
+        Consider another example in Figure~\ref{reord:example2(a)}.
+        The figure on the left is the original candidate and that on the right is after reordering the two events of $T1$.
+        The observable behavior in question is written in the middle. 
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{5.InstructionReordering/0.Intro/ReorderingExample2(a).pdf}
-            \caption{Ex2(a)} 
+            \caption{Second example for reordering with candidates of the original program and its reordered counterpart.} 
+            \label{reord:example2(a)}
         \end{figure}
 
-        The figure on the left is the original candidate and that on the right is after reordering the two events of $T1$.
-        The observable behavior in question is written in the middle. 
-
-        %Put figure here
+        
+        Figure~\ref{reord:example2(b)} has two sets of relations. 
+        The first justifies that such an outcome is not possible for the original program candidate due to Axiom \ref{CoRe}. 
+        While the second justifies that this outcome is possible for the reordered program.
+        Note that we cannnot infer in the reordered candidate the set of relations for any candidate execution to have $\reln{a=x;_{uo}}{hb}{x=1;_{uo}}$. 
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{5.InstructionReordering/0.Intro/ReorderingExample2(b).pdf}
-            \caption{Ex2(b)} 
+            \caption{The set of partial order relations justifying the observable behavor in question for both the candidates in Figure~\ref{reord:example2(a)}.} 
+            \label{reord:example2(b)}
         \end{figure}
 
-        The above figure has two sets of relations. The first justifies that such an outcome is not possible for the original program candidate due to Axiom \ref{CoRe}. While the second justifies that this outcome is possible for the reordered program.
-        
-        Note that we cannnot infer in the reordered candidate the set of relations for any candidate execution to have $\reln{a=x;_{uo}}{hb}{x=1;_{uo}}$. 
-
-        The point of the above two examples is to show that we have to be careful while reordering two events in the same thread. By example case analysis, for each observable behavior, one must check all possible candidate executions and assert whether such an observable is possible or not. 
+        The above two examples show that we have to be careful while reordering two events in the same thread. 
+        By example case analysis, for each observable behavior, one must check all possible candidate executions and assert whether such an observable is possible or not. 
         This method of checking validity of reordering will scale exponentially as the program size increases. 
         It is often also the case that the compiler may not have information on which exact events would be executed in other threads to assert such reordering is valid or not. 
 

@@ -21,11 +21,12 @@
             There cannot exist any candidate of the program such that events from both sets can be part of it. 
         \end{property}
 
-        The figure below summarizes the two forms of conditionals we can have in any program. 
+        Figure~\ref{reord:conditionals} summarizes the two forms of conditionals we can have in any program. 
         \begin{figure}[H]
             \centering 
             \includegraphics[scale=0.7]{5.InstructionReordering/5.ValidReorderingProgram/Conditionals2Form.pdf}
-            \caption{Two forms of conditonals}
+            \caption{Two forms of conditonals.}
+            \label{reord:conditionals}
         \end{figure}
 
         \footnotetext{While the property for 1 branch may not always hold (it can be the case that the branch is always taken in any execution) we are defining it for any program.}
@@ -69,7 +70,6 @@
 
         The above lemma's proof also lets us infer that on reordering an event outside a conditional, there are $new$ Candidates exist with a new event belonging to it. 
         We use this insight to state the following corollary for reordering under conditionals. 
-
         \begin{corollary}
             \label{ReordCond}
             Consider a program $P$ with conditional branches and its candidates $C_1, C_2, ... , C_n$ in which events $e$ and $d$ present in all of them with $\reln{e}{ao}{d}$. Consider the set of corresponding candidates $C'_1, C'_2, ... , C'_n$ after reordering $e$ and $d$ and its corresponding program $P'$. If the following two conditions hold:
@@ -104,13 +104,14 @@
                 \exists C \in P \ s.t. \ 
                 (e \in C \ \wedge \ d \notin C).
             \end{align*}
-            The cases for the above can be summarized in the figure below:
-            
+
+            The cases for the above can be summarized in the Figure~\ref{reord:cond_branch_cases}: 
             \begin{figure}[H]
                 \label{CondCases}
                 \centering 
                 \includegraphics[scale=0.5]{5.InstructionReordering/5.ValidReorderingProgram/ConditionalCases.pdf}
-                \caption{Four cases where $e$ or $d$ could be part of some conditional branch.}
+                \caption{Four base cases where $e$ or $d$ are part of some conditional branch.}
+                \label{reord:cond_branch_cases}
             \end{figure}
 
             For cases (i) and (ii), by Lemma \ref{CondBranchLemma}, a new Candidate with event $e$ or $d$ exists without their respective conditional branches being taken.

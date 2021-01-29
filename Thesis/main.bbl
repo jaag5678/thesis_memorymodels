@@ -44,6 +44,34 @@
       \verb https://tc39.es/ecma262/#sec-memory-model
       \endverb
     \endentry
+    \entry{Akshay}{article}{}
+      \name{author}{2}{}{%
+        {{hash=d700b43bee18028a131740cf9e16af36}{%
+           family={Gopalakrishnan},
+           familyi={G\bibinitperiod},
+           given={Akshay},
+           giveni={A\bibinitperiod}}}%
+        {{hash=3c45a28e37e915fb5b0cc8623267ade9}{%
+           family={Verbrugge},
+           familyi={V\bibinitperiod},
+           given={Clark},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{e8177beeabcddd8f633bfd0ad040fc4d}
+      \strng{fullhash}{e8177beeabcddd8f633bfd0ad040fc4d}
+      \strng{bibnamehash}{e8177beeabcddd8f633bfd0ad040fc4d}
+      \strng{authorbibnamehash}{e8177beeabcddd8f633bfd0ad040fc4d}
+      \strng{authornamehash}{e8177beeabcddd8f633bfd0ad040fc4d}
+      \strng{authorfullhash}{e8177beeabcddd8f633bfd0ad040fc4d}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Workshop on Languages and Compilers for Parallel Computing (LCPC)}
+      \field{title}{Reordering under the ECMAScript Memory Consistency Model}
+      \field{volume}{(In Press)}
+      \field{year}{2020}
+    \endentry
     \entry{Djikstra}{article}{}
       \name{author}{1}{}{%
         {{hash=99a7d0b49206197cf954694018ef524b}{%
@@ -64,8 +92,8 @@
       \strng{authorbibnamehash}{99a7d0b49206197cf954694018ef524b}
       \strng{authornamehash}{99a7d0b49206197cf954694018ef524b}
       \strng{authorfullhash}{99a7d0b49206197cf954694018ef524b}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0001-0782}
@@ -101,8 +129,8 @@
       \strng{authorbibnamehash}{5d77435450d10a850a5b58577b9a456b}
       \strng{authornamehash}{5d77435450d10a850a5b58577b9a456b}
       \strng{authorfullhash}{5d77435450d10a850a5b58577b9a456b}
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{{IEEE} Trans. Computers}
@@ -141,8 +169,8 @@
       \strng{authorbibnamehash}{e39c86aaa6a839a623e0217121907d1c}
       \strng{authornamehash}{e39c86aaa6a839a623e0217121907d1c}
       \strng{authorfullhash}{e39c86aaa6a839a623e0217121907d1c}
-      \field{sortinit}{4}
-      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Computer}
@@ -194,8 +222,8 @@
       \strng{editorbibnamehash}{eea9cd6dfce533d0cf633b0423b024a3}
       \strng{editornamehash}{eea9cd6dfce533d0cf633b0423b024a3}
       \strng{editorfullhash}{eea9cd6dfce533d0cf633b0423b024a3}
-      \field{sortinit}{5}
-      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the 9th International Symposium on Memory Management, {ISMM} 2010, Toronto, Ontario, Canada, June 5-6, 2010}
@@ -260,8 +288,8 @@
       \strng{authorbibnamehash}{fe09f188725fb72a8acd33840a9b68d5}
       \strng{authornamehash}{5e39a46f8e986c747392a7fa01e8a66e}
       \strng{authorfullhash}{fe09f188725fb72a8acd33840a9b68d5}
-      \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Relaxed memory models must be rigorous}
@@ -334,8 +362,8 @@
       \strng{editorbibnamehash}{cf56078e01bca5a341e2650b4ece71ce}
       \strng{editornamehash}{cf56078e01bca5a341e2650b4ece71ce}
       \strng{editorfullhash}{cf56078e01bca5a341e2650b4ece71ce}
-      \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the 36th {ACM} {SIGPLAN-SIGACT} Symposium on Principles of Programming Languages, {POPL} 2009, Savannah, GA, USA, January 21-23, 2009}
@@ -405,8 +433,8 @@
       \strng{editorbibnamehash}{7bfa11f525fa70f52e300bde45475a3f}
       \strng{editornamehash}{836ad29190f8300fb1412e803c4057c2}
       \strng{editorfullhash}{7bfa11f525fa70f52e300bde45475a3f}
-      \field{sortinit}{8}
-      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Theorem Proving in Higher Order Logics, 22nd International Conference, TPHOLs 2009, Munich, Germany, August 17-20, 2009. Proceedings}
@@ -438,8 +466,8 @@
       \strng{authorbibnamehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
       \strng{authornamehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
       \strng{authorfullhash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
-      \field{sortinit}{9}
-      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Intel 64 Architecture Memory Ordering White Paper}
@@ -1028,8 +1056,8 @@
       \strng{editorbibnamehash}{d248d7d204d64a63e5e10d29cd1f3166}
       \strng{editornamehash}{d248d7d204d64a63e5e10d29cd1f3166}
       \strng{editorfullhash}{d248d7d204d64a63e5e10d29cd1f3166}
-      \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the 44th {ACM} {SIGPLAN} Symposium on Principles of Programming Languages, {POPL} 2017, Paris, France, January 18-20, 2017}
@@ -1569,6 +1597,51 @@
       \verb https://doi.org/10.1007/978-1-4615-3604-8_2
       \endverb
     \endentry
+    \entry{Anton}{article}{}
+      \name{author}{3}{}{%
+        {{hash=bc8a1dd4ef79d7e26005ad370f38bf2d}{%
+           family={Podkopaev},
+           familyi={P\bibinitperiod},
+           given={Anton},
+           giveni={A\bibinitperiod}}}%
+        {{hash=fc5d6b0cddd3c8957316a2ead6fcc46e}{%
+           family={Lahav},
+           familyi={L\bibinitperiod},
+           given={Ori},
+           giveni={O\bibinitperiod}}}%
+        {{hash=63c94d1b9a9e52fc0ce7d6a4e66393e3}{%
+           family={Vafeiadis},
+           familyi={V\bibinitperiod},
+           given={Viktor},
+           giveni={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{4e284cd1baa89a4513303aab2fd5e220}
+      \strng{fullhash}{4e284cd1baa89a4513303aab2fd5e220}
+      \strng{bibnamehash}{4e284cd1baa89a4513303aab2fd5e220}
+      \strng{authorbibnamehash}{4e284cd1baa89a4513303aab2fd5e220}
+      \strng{authornamehash}{4e284cd1baa89a4513303aab2fd5e220}
+      \strng{authorfullhash}{4e284cd1baa89a4513303aab2fd5e220}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proc. {ACM} Program. Lang.}
+      \field{number}{{POPL}}
+      \field{title}{Bridging the gap between programming languages and hardware weak memory models}
+      \field{volume}{3}
+      \field{year}{2019}
+      \field{pages}{69:1\bibrangedash 69:31}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1145/3290382
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3290382
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3290382
+      \endverb
+    \endentry
     \entry{Michalis1}{article}{}
       \name{author}{4}{}{%
         {{hash=77d7b6ac4cc3d8e15046fe0ea0d91e22}{%
@@ -1860,8 +1933,8 @@
       \strng{editorbibnamehash}{0f0b41ef5c3fbd3c4f5c95dee34555eb}
       \strng{editornamehash}{0f0b41ef5c3fbd3c4f5c95dee34555eb}
       \strng{editorfullhash}{0f0b41ef5c3fbd3c4f5c95dee34555eb}
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the 2010 {ACM} {SIGPLAN} Conference on Programming Language Design and Implementation, {PLDI} 2010, Toronto, Ontario, Canada, June 5-10, 2010}
@@ -2012,9 +2085,78 @@
       \verb https://doi.org/10.1007/978-3-319-48989-6%5C_29
       \endverb
     \endentry
+    \entry{Lustig}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=20968e734c5a5049a7ccd44698cc7b6c}{%
+           family={Lustig},
+           familyi={L\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=b0d9a37f2e0d2c0de3151b5efac260b1}{%
+           family={Wright},
+           familyi={W\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a1bf374aae4933d65d2d07241e33e19f}{%
+           family={Papakonstantinou},
+           familyi={P\bibinitperiod},
+           given={Alexandros},
+           giveni={A\bibinitperiod}}}%
+        {{hash=f3f85bd9d3ad4a8d3f8a1fadb0bf9523}{%
+           family={Giroux},
+           familyi={G\bibinitperiod},
+           given={Olivier},
+           giveni={O\bibinitperiod}}}%
+      }
+      \name{editor}{3}{}{%
+        {{hash=4c292d30bee8609dcb1af7d2d37b8457}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Yunji},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=d9ff79867ff8e573205244b2b0f8e531}{%
+           family={Temam},
+           familyi={T\bibinitperiod},
+           given={Olivier},
+           giveni={O\bibinitperiod}}}%
+        {{hash=abdd9ad1eb92af4ac27eda8caad32697}{%
+           family={Carter},
+           familyi={C\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{5a6f58f3be8d1dc1230f60d0b702892a}
+      \strng{fullhash}{2703271c5cc77c25f9fee5a776274001}
+      \strng{bibnamehash}{2703271c5cc77c25f9fee5a776274001}
+      \strng{authorbibnamehash}{2703271c5cc77c25f9fee5a776274001}
+      \strng{authornamehash}{5a6f58f3be8d1dc1230f60d0b702892a}
+      \strng{authorfullhash}{2703271c5cc77c25f9fee5a776274001}
+      \strng{editorbibnamehash}{db04446a29823bb9079b9b3d20678549}
+      \strng{editornamehash}{db04446a29823bb9079b9b3d20678549}
+      \strng{editorfullhash}{db04446a29823bb9079b9b3d20678549}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the Twenty-Second International Conference on Architectural Support for Programming Languages and Operating Systems, {ASPLOS} 2017, Xi'an, China, April 8-12, 2017}
+      \field{title}{Automated Synthesis of Comprehensive Memory Model Litmus Test Suites}
+      \field{year}{2017}
+      \field{pages}{661\bibrangedash 675}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1145/3037697.3037723
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3037697.3037723
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3037697.3037723
+      \endverb
+    \endentry
   \enddatalist
-  \missing{Watt}
-  \missing{red}
 \endrefsection
 \endinput
 

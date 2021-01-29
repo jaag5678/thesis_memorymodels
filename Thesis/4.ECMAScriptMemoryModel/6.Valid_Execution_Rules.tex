@@ -23,11 +23,12 @@
                     \begin{align*}
                         \reln{e}{hb}{d}\ \Rightarrow{}\ \neg \ \reln{e}{rf}{d}.
                     \end{align*}
-                    The figure below pictorially depicts the pattern above hwere $e$ cannot read from $d$.
+                    Figure~\ref{model:coherent_reads(1)} pictorially depicts the pattern above hwere $e$ cannot read from $d$.
                     \begin{figure}[H]
                         \centering
                         \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/CoherentReads1.pdf}
-                        \caption{A read value cannot come from a write that has happened after it}
+                        \caption{First axiom of Coherent Reads.}
+                        \label{model:coherent_reads(1)}
                     \end{figure}
                 %Rule #2    
                 \item A read cannot read a specific byte address value from write if there is a write $g$ that happens between them which modifies the exact byte address. Note that this rule would be on the $rbf$ relation among two events. 
@@ -38,12 +39,12 @@
                         \ \Rightarrow{} \
                         \forall x \in (\Re(d) \cap_\Re \Re(g) \cap_\Re \Re(e)), \ \neg \ \reln{e}{rbf}{(d,x)}.
                     \end{align*}
-                    The figure below pictorially depicts the pattern where $e$ cannot read certain bytes from $d$. 
+                    Figure~\ref{model:coherent_reads(2)} pictorially depicts the pattern where $e$ cannot read certain bytes from $d$. 
                     \begin{figure}[H]
                         \centering 
                         \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/CoherentReads2.pdf}
-                        \caption{A read value cannot come from a write if
-                        there is a write that happens between them, writing to the same memory:}
+                        \caption{Second axiom of Coherent Reads.}
+                        \label{model:coherent_reads(2)}
                     \end{figure}
                             
             \end{itemize}
@@ -69,11 +70,12 @@
                       (\neg \ \reln{e}{rf}{d})).
             \end{align*}
                     
-            The following figure shows the pattern that is disallowed among all tear-free events. 
+            Figure~\ref{model:tear_free_reads(1)} shows the pattern that is disallowed among all tear-free events. 
             \begin{figure}[H]
                 \centering
                 \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/TearFreeReads.pdf}
-                \caption{Pattern of Tear-free reads}
+                \caption{Axiom of Tear-free reads.}
+                \label{model:tear_free_reads}
             \end{figure}
 
             \footnotetext{To recap a tear-free event cannot be separated into multiple small events that do the same operation. However, considering different hardware architectures, the notion of tear-free need not necessarily mean this. (eg: A 64bit tear-free write to be done in a 32bit system). In a more abstract sense, we need an event to appear 'tear-free'.}    
@@ -88,7 +90,7 @@
                 \end{align*}
                
             \begin{itemize}
-                \item If all three events are of type $sc$ with equal ranges, then $e$ cannot read from $d$
+                \item If all three events are of type $sc$ with equal ranges, then $e$ cannot read from $d$.
                     \begin{align*}
                         \et{d}{sc}\ \wedge\ \et{g}{sc}\ \wedge\ \et{e}{sc} 
                         \ \wedge \ (\Re(d) \!=\! \Re(g) \!=\! \Re(e))
@@ -96,14 +98,15 @@
                         \neg \ \reln{e}{rf}{d}.
                     \end{align*} 
                         
-                    The figure below depicts pictorially the pattern that is not allowed by this rule.
+                    Figure~\ref{model:sc_atomics(1)} depicts pictorially the pattern that is not allowed by this rule.
                     \begin{figure}[H]
                         \centering 
                         \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/SequentialAtomics1.pdf}
-                        \caption{A read value cannot come from a write, if there exists a write memory ordered between them and all  3 events are sequentially consistent with equal ranges.}
+                        \caption{First Axiom of SC-Atomics.}
+                        \label{model:sc_atomics(1)}
                     \end{figure}
                     
-                \item If both writes are of type $sc$ having equal ranges and the read is bound to happen after them, then $e$ cannot read from $d$ 
+                \item If both writes are of type $sc$ having equal ranges and the read is bound to happen after them, then $e$ cannot read from $d$. 
                     \begin{align*}
                         \et{d}{sc}\ \wedge\ \et{g}{sc}  
                         \ \wedge \ (\Re(d) \!=\! \Re(g)) 
@@ -113,14 +116,15 @@
                         \neg \ \reln{e}{rf}{d}.
                     \end{align*}
                         
-                    The figure below depicts pictorially the pattern that is not allowed by this rule.
+                    Figure~\ref{model:sc_atomics(2)} depicts pictorially the pattern that is not allowed by this rule.
                     \begin{figure}[H]
                         \centering 
                         \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/SequentialAtomics2.pdf}
-                        \caption{A read value cannot come from a write, if there exists a write memory ordered between them and both writes are sequentially consistent with equal ranges.}
+                        \caption{Second Axiom of SC-Atomics.}
+                        \label{model:sc_atomics(2)}
                     \end{figure}
                 
-                \item If $g$ and $e$ are sequentially consistent, having equal ranges, and $d$ is bound to happen before them, then $e$ cannot read from $d$
+                \item If $g$ and $e$ are sequentially consistent, having equal ranges, and $d$ is bound to happen before them, then $e$ cannot read from $d$.
                     \begin{align*}
                         \et{g}{sc}\ \wedge\ \et{e}{sc}  
                         \ \wedge \ (\Re(g) \!= \!\Re(e)) 
@@ -130,11 +134,12 @@
                         \neg \ \reln{e}{rf}{d}.
                     \end{align*}
 
-                    The figure below depicts pictorially the pattern that is not allowed by this rule.
+                    Figure~\ref{model:sc_atomics(3)} depicts pictorially the pattern that is not allowed by this rule.
                     \begin{figure}[H]
                         \centering 
                         \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/SequentialAtomics3.pdf}
-                        \caption{A read value cannot come from a write, if there exists a write memory ordered between them and both this write and the read are sequentially consistent with equal ranges.}
+                        \caption{First Axiom of SC-Atomics.}
+                        \label{model:sc_atomics(3)}
                     \end{figure}
                         
             \end{itemize}

@@ -21,7 +21,7 @@
         \begin{figure}[H]
             \centering 
             \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/EventTypes.pdf}
-            \caption{The hierarchical categories of different sets of events.}
+            \caption{Different sets of events.}
         \end{figure}
 
     %Range of events
@@ -65,7 +65,7 @@
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/AccessModes.pdf}
-            \caption{Access Modes}
+            \caption{Event access modes with its restriction for some events.}
         \end{figure}
 
         \footnotetext{The word \textit{atomic} does not imply the events are evaluated using just one instruction. For example, a 64-bit sequentially consistent write on a 32-bit system has to be done with two subsequent memory actions. But its intermediate state of write must not be seen by any other agent. In an abstract sense, this event must appear '\textit{atomic}'.The \textit{atomic} here also refers to implications of whether an event's consequence is visible to all other agents in the same global total order or not. The compiler must ensure that for each specific target hardware, such guarantees are satisfied.}

@@ -2,15 +2,17 @@
 
     To address this, we divide our cases into two parts; one for each type of relation lost:
     \begin{tasks}(2)
-        \task $\reln{k}{hb}{e}$
-        \task $\reln{e}{hb}{k}$
+        \task $\reln{k}{hb}{W_{uo}}$
+        \task $\reln{W_{uo}}{hb}{k}$
     \end{tasks}
 
-    For the first case, we have the following possibilities:
+    Figure~\ref{elim_write:case1} shows a breakdown of sub-cases for case (a), varying based
+    on the nature of event $k$.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.5]{6.Elimination/1.ValidEliminationCandidate/WriteElimProof/ProofParts/Part4Case1.pdf}
-        \caption{First case possibilities (change caption stimiar to that for read elim)}
+        \caption{The impact of lost relation $\reln{k}{hb}{W_{uo}}$ on observable behaviors.}
+        \label{elim_write:case1}
     \end{figure}
 
     We can observe the following:
@@ -23,11 +25,13 @@
         Since $R$ or $W'$ can be arbitary, we would need the ranges of $e$ and $d$ to be same.
     \end{itemize}
 
-    For the first case, we have the following possibilities:
+    Figure~\ref{elim_write:case2} shows a breakdown of sub-cases for case (b), varying based
+    on the nature of event $k$.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.3]{6.Elimination/1.ValidEliminationCandidate/WriteElimProof/ProofParts/Part4Case2.pdf}
-        \caption{Second case possibilities (change caption stimiar to that for read elim)}
+        \caption{The impact of lost relation $\reln{W_{uo}}{hb}{k}$ on observable behaviors.}
+        \label{elim_write:case1}
     \end{figure}
 
     We make the following observations:

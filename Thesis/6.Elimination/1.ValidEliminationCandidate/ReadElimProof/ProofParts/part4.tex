@@ -3,15 +3,17 @@
         To answer this, we need to see whether the relations removed had an impact on $\stck{_{rf}}$ relations other than those with $e$. To prove that it does not have any impact, we divide our argument into two parts, viz. into the two types of relations removed:
 
         \begin{tasks}(2)
-            \task $\reln{k}{hb}{R_uo}$ 
-            \task $\reln{R_uo}{hb}{k}$ 
+            \task $\reln{k}{hb}{R_{uo}}$ 
+            \task $\reln{R_{uo}}{hb}{k}$ 
         \end{tasks}
 
-        In the first case, we have the following possibilities. 
+        Figure~\ref{elim_read:case1} shows a breakdown of sub-cases for case (a), varying based
+        on the nature of event $k$.
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.5]{6.Elimination/1.ValidEliminationCandidate/ReadElimProof/ProofParts/Part4_Case1.pdf}
-            \caption{The first type of relations removed and the various patterns forbidden by them.}
+            \caption{The impact of lost relation $\reln{k}{hb}{R_{uo}}$ on observable behaviors.}
+            \label{elim_read:case1}
         \end{figure}
 
         Observations:
@@ -21,11 +23,13 @@
             \item (ii)(b) is a pattern of Axiom \ref{SeqCsAt}, however, once again, only restricting $\stck{_{rf}}$ relation with $R$ and $W'$. 
         \end{itemize}
 
-        In the second case, we have the following possibilites.
+        Figure~\ref{elim_read:case2} shows a breakdown of sub-cases for case (b), varying based
+        on the nature of event $k$.
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.5]{6.Elimination/1.ValidEliminationCandidate/ReadElimProof/ProofParts/Part4_Case2.pdf}
-            \caption{The second type of relations removed and the various patterns forbidden by them.}
+            \caption{The impact of lost relation $\reln{R_{uo}}{hb}{k}$ on observable behaviors.}
+            \label{elim_read:case2}
         \end{figure}
 
         Observations:

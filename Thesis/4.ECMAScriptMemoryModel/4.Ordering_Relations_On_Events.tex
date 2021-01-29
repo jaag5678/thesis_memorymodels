@@ -8,7 +8,7 @@
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/AgentOrder.pdf}
-            \caption{An example with agent order among the events.}
+            \caption{An example with \textit{agent-order} among events.}
         \end{figure}
     
         %Synchronize With Order
@@ -31,7 +31,7 @@
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/SynchronizeWith.pdf}
-            \caption{An example with synchronize with relations among the events.}
+            \caption{An example with \textit{synchronize-with} relations among events.}
         \end{figure}
 
         \footnotetext{Note that for the second condition, both ranges of events have to be equal. This however, does not mean thatthe read cannot read from multiple write events. (the read-from relation here is not functional.)}
@@ -64,7 +64,7 @@
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/Happens-before.pdf}
-            \caption{An example with all the types of happens-before relations between events.}
+            \caption{An example with all the variants of \textit{happens-before} relations between events.}
         \end{figure}
     
     %Memory Order
@@ -77,7 +77,7 @@
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/MemoryOrder.pdf}
-            \caption{An example with a memory order (total) among all events.}
+            \caption{An example with \textit{memory-order} (total) among all events.}
         \end{figure}
 
     \critic{blue}{An interesting part is that memory order, though total, is a bit undefined as to how it weaves together this total order given different init events. One can certainly make init events weaved among events that occur in each agent, thus making it sort of subjective as to when certain memory fragments are initialized. Discuss with Clark.}

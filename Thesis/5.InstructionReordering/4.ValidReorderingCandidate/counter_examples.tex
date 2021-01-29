@@ -10,15 +10,14 @@
     \paragraph{Reads to same memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}
 
         The following example illustrates when reordering two reads to $x$ as per the specification of their access orders and range results in an observable behavior disallowed.
-
+        Figure~\ref{reord_counter:example1(a)} shows an example of a candidate along with with its candidate execution where the case of outcome in the red box is not possible. 
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/Example0(Rsc-Ruo,sc).pdf}
-            \caption{Case where a = 2 , b = 2, c = 1 is invalid due to Sequentially Consistent Atomics}
+            \caption{Case where $a = 2, b = 2, c = 1$ is invalid due to Sequentially Consistent Atomics}
+            \label{reord_counter:example1(a)}
         \end{figure}
         
-        The figure on the left above shows an example of a candidate where the case of outcome in the red box is not possible. 
-        The figure on the right shows the Candidate Execution of such a case.
         Observations:
         \begin{itemize}
             \item We can infer from the Candidate Execution that $\reln{x=1;_{sc}}{hb}{b=x;_{sc}}$.
@@ -28,14 +27,14 @@
             \item By Axiom \ref{SeqCsAt} pattern 1 and 3, the read value for $c$ cannot be $1$.
         \end{itemize}
 
+        Figure~\ref{reord_counter:example1(b)} shows the program after reordering the two reads in $T2$ along with its candidate execution where the case of reads in the orange box is possible. 
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/Example0R(Rsc-Ruo,sc).pdf}
-            \caption{Case where the reads are reordered and a = 2 , b = 2, c = 1 is valid}
+            \caption{Case where the reads are reordered and $a = 2 , b = 2, c = 1$ is valid.}
+            \label{reord_counter:example1(b)}
         \end{figure}
 
-        The figure on the right shows the program after reordering the two reads in $T2$, where the case of reads in the orange box is possible. 
-        The figure on the left shows the Candidate Execution of such a case.
         Observations
         \begin{itemize}
             \item We can infer from the Candidate Execution that $\reln{\{x=1;_{sc}\}}{hb}{\{c=x;_{uo/sc}\}}$.
@@ -51,14 +50,14 @@
     
     \paragraph{A Read $e$ of type $sc$ followed by a Write of either $uo/sc$}
         
-        The following is an example of a program with a sequentially consistent read followed by a write of any type. 
+        Figure~\ref{reord_counter:example2(a)} shows an example of a candidate along with with its candidate execution where the case of outcome in the red box is not possible. 
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/Example3(Rsc-Wuo,sc).pdf}
-            \caption{Case where a = 1 and b = 1 is invalid due to Coherent Reads.}
+            \caption{Case where $a = 1, b = 1$ is invalid due to Coherent Reads.}
+            \label{reord_counter:example2(a)}
         \end{figure}
-        The figure on the left above shows an example of a candidate where the case of reads in the red box is not possible. 
-        The figure on the right shows the Candidate Execution of such a case. 
+
         Observations:
         \begin{itemize}
             \item From the Candidate Execution, we can infer $\reln{\{b=y_{uo/sc}\}}{hb}{\{y=1_{uo/sc}\}}$
@@ -66,13 +65,14 @@
             \item This inference was due to $\reln{\{x=1_{sc}\}}{hb}{\{a=x{sc}\}}$
         \end{itemize}
 
+        Figure~\ref{reord_counter:example2(b)} shows the program after reordering a read and write in $T1$ along with its candidate execution where the case of reads in the orange box is possible. 
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/Example3R(Rsc-Wuo,sc).pdf}
-            \caption{Case where events of T1 are reordered, resulting in  a = 1 and b = 1 to be valid.}
+            \caption{Case where events of T1 are reordered, resulting in $a = 1, b = 1$ to be valid.}
+            \label{reord_counter:example2(b)}
         \end{figure}
-        The figure on the right above shows the program after reordering the two events in $T1$ where case of reads in the orange box is possible. 
-        The figure on the left shows the Candidate Execution of such a case. 
+        
         Observations:
         \begin{itemize}
             \item From the Candidate Execution, we can infer $\neg\reln{\{b=y_{uo/sc}\}}{hb}{\{y=1_{uo/sc}\}}$
@@ -82,19 +82,9 @@
 %--------------------------------------------------------------------------------------------------------------------------------------        
     \paragraph{A Read $e$ of type $uo$ followed by a write $d$ of type $sc$}
 
-        For this we can use the same example for the previous part (tag figure of example), where we just reorder $T2$'s events.
-        \begin{figure}[H]
-            \centering
-            \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/Example4(Ruo-Wsc).pdf}
-            \caption{Case where a = 1 and b = 1 is invalid due to Coherent Reads.}
-        \end{figure}
-
-        \begin{figure}[H]
-            \centering
-            \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/Example4R(Ruo-Wsc).pdf}
-            \caption{Case where events of T2 are reordered, resulting in  a = 1 and b = 1 to be valid.}
-        \end{figure}
-
+        For this we can use the same example in Figure~\ref{reord_counter:example2(a)} where we just reorder $T2$'s events.
+        We leave justifying the new observable behavior introduced as an exercise for the reader.
+    
 %---------------------------------------------------------------------------------------------------------------------------------------
         
     \paragraph{A Write $e$ followed by a Read $d$ both of type $sc$}
@@ -103,7 +93,8 @@
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/Example5(Wsc-Rsc).pdf}
-            \caption{Case where a = 1 and b = 1 is valid and no happens-before cycles}
+            \caption{Case where $a = 1, b = 1$ is valid and no happens-before cycles}
+            \label{reord_counter:example3(a)}
         \end{figure}
 
         After reordering the two events of $T1$ in the above example, the same observable behavior holds, but has a cycle introduced. One might think that simply discarding that execution would do. But this would mean discarding $\stck{_{hb}}$ relations also, which would require more information to infer which relations are going to create such cycles and which are not. Since we place no assumptions on these relations, but that any happens-before relation other than the one we remove explicitly be reordering are all possible. Hence, the following reordered program outcome is something we do not risk to allow.
@@ -111,7 +102,8 @@
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/Example5R(Wsc-Rsc).pdf}
-            \caption{Case where a = 1 and b = 1 is creates a happens-before cycle}
+            \caption{Case where $a = 1, b = 1$ is creates a happens-before cycle}
+            \label{reord_counter:example3(b)}
         \end{figure}
 
         Observation:
@@ -125,14 +117,14 @@
 
     \paragraph{A Write $e$ of type $uo/sc$ followed by a Write $d$ of type $sc$}
         
-        The following example shows a program with a thread having a write of any access mode($uo/sc$) followed by a write of type $sc$.
+        Figure~\ref{reord_counter:example4(a)} shows an example of a candidate along with with its candidate execution where the case of outcome in the red box is not possible. 
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/Example7(Wuo,sc-Wsc).pdf}
-            \caption{Case where a = 0 and b = 1 is invalid due to Coherent Reads.}
+            \caption{Case where $a = 0, b = 1$ is invalid due to Coherent Reads.}
+            \label{reord_counter:example4(a)}
         \end{figure}
-        The figure on the left above shows an example of a candidate where the case of reads in the red box is not possible. 
-        The figure on the right shows the Candidate Execution of such a case. 
+        
         Observations:
         \begin{itemize}
             \item From the Candidate Execution, we can infer $\reln{\{x=0_{init}\}}{hb}{\reln{\{x=1_{uo/sc}\}}{hb}{\{a=x_{uo/sc}\}}}$
@@ -140,14 +132,14 @@
             \item This inference was due to $\reln{\{y=1_{sc}\}}{hb}{\{b=y_{sc}\}}$.
         \end{itemize}
 
+        Figure~\ref{reord_counter:example4(b)} shows the program after reordering the two writes in $T1$ along with its candidate execution where the case of reads in the orange box is possible. 
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/Example7R(Wuo,sc-Wsc).pdf}
-            \caption{Case where events of T1 are reordered, resulting in  a = 0 and b = 1 to be valid.}
+            \caption{Case where events of T1 are reordered, resulting in $a = 0,  b = 1$ to be valid.}
+            \label{reord_counter:example4(b)}
         \end{figure}
         
-        The figure on the right above shows the program after reordering the two events in $T1$ where case of reads in the orange box is possible. 
-        The figure on the left shows the Candidate Execution that explains the orange box case. 
         Observations:
         \begin{itemize}
             \item From the Candidate Execution, we can infer $\neg\reln{\{x=1_{uo/sc}\}}{hb}{\{a=x_{uo/sc}\}}$

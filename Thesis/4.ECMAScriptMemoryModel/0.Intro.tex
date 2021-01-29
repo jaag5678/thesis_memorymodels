@@ -11,7 +11,7 @@ However, as we noted, there were quite some concerns with it:
     \begin{figure}[H]
         \centering 
         \includegraphics[scale=0.6]{4.ECMAScriptMemoryModel/ECMAScriptStdCoherentReads.pdf}
-        \caption{The definition for Coherent Reads}
+        \caption{The ECMAScript specification for Coherent Reads.}
     \end{figure}
     The above axiom is specified as a return value to an abstract operation. While understanding this requires one to know thedefintions of $Ws$, $execution$, $SharedDataBlockEventSet$ abstract operation, etc. we believe this is not needed as to understandwhat the axiom is about, which informally can be stated as below in two points:
     \begin{itemize}
@@ -27,7 +27,7 @@ However, as we noted, there were quite some concerns with it:
     \begin{figure}[H]
         \centering 
         \includegraphics[scale=0.6]{4.ECMAScriptMemoryModel/ECMAScriptStd.pdf}
-        \caption{The definition for Compose Write Event Bytes}
+        \caption{The ECMAScript specification for Compose Write Event Bytes.}
     \end{figure}
     The above figure is the definition of an abstract operation. To understand what this operation does, one must know the meaning ofthe terms $ModifyOp$, $Payload$, the list $Ws$, and also know what the argument $ByteIndex$ signifies. 
     In its essence, the above operation gives the read-values read by a single write by collecting the values from their correspondingwrites. 
@@ -41,7 +41,7 @@ However, as we noted, there were quite some concerns with it:
     \begin{figure}[H]
         \centering 
         \includegraphics[scale=0.6]{4.ECMAScriptMemoryModel/ECMAScriptStdSeqCnsAt.pdf}
-        \caption{The Axiom of Sequentially Consistent Atomics}
+        \caption{The ECMAScript specification for Sequentially Consistent Atomics axiom.}
     \end{figure}
     The above figure, though written concisely, in our view still makes it difficult to understand. 
     We reduced the above entire axiom into three main patterns using binary relations that should not exist in any execution of aprogram. 

@@ -10,8 +10,7 @@
                 (\et{d}{uo}) \ \vee \
                 (\et{d}{sc} \ \wedge \ \event{d}{W})
             )
-        \]
-        
+        \]        
     then,
         \[
             \reln{k}{hb}{d} \Rightarrow \reln{k}{hb}{e}.
@@ -25,7 +24,6 @@
 \begin{proof}
     
     We will divide the proof for this into two cases, based on what event $d$ is. For both cases, we have the following to be true :
-    
     \begin{align*}
         cons(e,d) \ \wedge \ \reln{e}{ao}{d}.
         \tag{0}
@@ -63,13 +61,12 @@
         \reln{k}{hb}{d} \Rightarrow \reln{k}{hb}{d}.
     \]
     
-    The following figure summarizes the intuition behind both cases: 
-    
+    Figure~\ref{lemma:first} summarizes the intuition behind both cases: 
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.7]{5.InstructionReordering/3.Lemmas/Lemma1.pdf}
-        \caption{Left figure is for first case and right one for the second}
-        \label{fig:my_label}
+        \caption{Two cases of lemma 1 proof.}
+        \label{lemma:first}
     \end{figure}
     
 \end{proof}
@@ -82,21 +79,19 @@
     Consider three events $e$, $d$ and $k$ \\
 
     If
-        
         \[
             \cons{e}{d} \ \wedge \ \reln{e}{ao}{d} \ \wedge \
             (
                 (\et{e}{uo}) \ \vee \
                 (\et{e}{sc} \ \wedge \ \event{e}{R})
             )
-        \]
-        
+        \]   
     then,
         \[
             \reln{e}{hb}{k} \Rightarrow \reln{d}{hb}{k}.
         \]
 
- When we have two consecutive events \textit{e} and \textit{d} which are one after the other (i.e. $\reln{e}{ao}{d}$), we can use \textit{transitive property} of $\stck{_{hb}}$ to infer that any event \textit{k} that \textit{happens after} \textit{d}, also \textit{happens after} \textit{e}. However, is it possible to derive that the event \textit{k happens after d} using the evidence that \textit{k happens after e} ? This lemma states the condition when this is true.
+    When we have two consecutive events \textit{e} and \textit{d} which are one after the other (i.e. $\reln{e}{ao}{d}$), we can use \textit{transitive property} of $\stck{_{hb}}$ to infer that any event \textit{k} that \textit{happens after} \textit{d}, also \textit{happens after} \textit{e}. However, is it possible to derive that the event \textit{k happens after d} using the evidence that \textit{k happens after e} ? This lemma states the condition when this is true.
 
 \end{lemma}
 
@@ -143,13 +138,12 @@
         \reln{e}{hb}{k} \Rightarrow \reln{d}{hb}{k}.
     \]
     
-    The following figure summarizes the intuition behind both cases: 
-    
+    Figure~\ref{lemma:second} summarizes the intuition behind both cases: 
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.7]{5.InstructionReordering/3.Lemmas/Lemma2.pdf}
-        \caption{Left figure is for first case and right one for the second}
-        \label{fig:my_label}
+        \caption{Two cases of lemma 2 proof.}
+        \label{lemma:second}
     \end{figure}
 
 \end{proof}
