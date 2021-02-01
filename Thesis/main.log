@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.8.29)  29 JAN 2021 19:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.8.29)  1 FEB 2021 12:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1679,7 +1679,7 @@ LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 131.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./abstract.tex)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1820,7 +1820,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--23
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 24--170
+Underfull \hbox (badness 10000) in paragraph at lines 24--171
 
  []
 
@@ -2067,7 +2067,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 31--33
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 34--174
+Underfull \hbox (badness 10000) in paragraph at lines 34--175
 
  []
 
@@ -2613,18 +2613,17 @@ Package pdftex.def Info: 6.Elimination/EliminationExample1(b).pdf  used on inpu
 t line 28.
 (pdftex.def)             Requested size: 329.50076pt x 179.92697pt.
  [78 <./6.Elimination/EliminationExample1(a).pdf>]) (./6.Elimination/1.ValidEli
-minationCandidate/ReadElimProof/approach.tex
-(./6.Elimination/1.ValidEliminationCandidate/ReadElimProof/theorem.tex [79 <./6
-.Elimination/EliminationExample1(b).pdf>])
+minationCandidate/main.tex [79 <./6.Elimination/EliminationExample1(b).pdf>]
+(./6.Elimination/1.ValidEliminationCandidate/ReadElimProof/approach.tex
+(./6.Elimination/1.ValidEliminationCandidate/ReadElimProof/theorem.tex)
 (./6.Elimination/1.ValidEliminationCandidate/ReadElimProof/proof.tex
 (./6.Elimination/1.ValidEliminationCandidate/ReadElimProof/ProofParts/part1.tex
-)
+[80])
 (./6.Elimination/1.ValidEliminationCandidate/ReadElimProof/ProofParts/part2.tex
 )
 (./6.Elimination/1.ValidEliminationCandidate/ReadElimProof/ProofParts/part3.tex
 )
 (./6.Elimination/1.ValidEliminationCandidate/ReadElimProof/ProofParts/part4.tex
-[80]
 <6.Elimination/1.ValidEliminationCandidate/ReadElimProof/ProofParts/Part4_Case1
 .pdf, id=1212, 752.8125pt x 363.27718pt>
 File: 6.Elimination/1.ValidEliminationCandidate/ReadElimProof/ProofParts/Part4_
@@ -2634,8 +2633,10 @@ ase1.pdf>
 Package pdftex.def Info: 6.Elimination/1.ValidEliminationCandidate/ReadElimProo
 f/ProofParts/Part4_Case1.pdf  used on input line 14.
 (pdftex.def)             Requested size: 376.40532pt x 181.63814pt.
+[81 <./6.Elimination/1.ValidEliminationCandidate/ReadElimProof/ProofParts/Part4
+_Case1.pdf>]
 <6.Elimination/1.ValidEliminationCandidate/ReadElimProof/ProofParts/Part4_Case2
-.pdf, id=1213, 549.97469pt x 218.7372pt>
+.pdf, id=1232, 549.97469pt x 218.7372pt>
 File: 6.Elimination/1.ValidEliminationCandidate/ReadElimProof/ProofParts/Part4_
 Case2.pdf Graphic file (type pdf)
 <use 6.Elimination/1.ValidEliminationCandidate/ReadElimProof/ProofParts/Part4_C
@@ -2643,22 +2644,22 @@ ase2.pdf>
 Package pdftex.def Info: 6.Elimination/1.ValidEliminationCandidate/ReadElimProo
 f/ProofParts/Part4_Case2.pdf  used on input line 30.
 (pdftex.def)             Requested size: 274.98666pt x 109.36832pt.
- [81 <./6.Elimination/1.ValidEliminationCandidate/ReadElimProof/ProofParts/Part
-4_Case1.pdf>])))
+)))
 (./6.Elimination/1.ValidEliminationCandidate/WriteElimProof/approach.tex
-(./6.Elimination/1.ValidEliminationCandidate/WriteElimProof/theorem.tex)
+(./6.Elimination/1.ValidEliminationCandidate/WriteElimProof/theorem.tex
+[82 <./6.Elimination/1.ValidEliminationCandidate/ReadElimProof/ProofParts/Part4
+_Case2.pdf>])
 (./6.Elimination/1.ValidEliminationCandidate/WriteElimProof/proof.tex
 (./6.Elimination/1.ValidEliminationCandidate/WriteElimProof/ProofParts/part1.te
-x [82 <./6.Elimination/1.ValidEliminationCandidate/ReadElimProof/ProofParts/Par
-t4_Case2.pdf>])
+x)
 (./6.Elimination/1.ValidEliminationCandidate/WriteElimProof/ProofParts/part2.te
 x)
 (./6.Elimination/1.ValidEliminationCandidate/WriteElimProof/ProofParts/part3.te
-x)
+x [83])
 (./6.Elimination/1.ValidEliminationCandidate/WriteElimProof/ProofParts/part4.te
 x
 <6.Elimination/1.ValidEliminationCandidate/WriteElimProof/ProofParts/Part4Case1
-.pdf, id=1252, 582.25531pt x 313.17pt>
+.pdf, id=1255, 582.25531pt x 313.17pt>
 File: 6.Elimination/1.ValidEliminationCandidate/WriteElimProof/ProofParts/Part4
 Case1.pdf Graphic file (type pdf)
 <use 6.Elimination/1.ValidEliminationCandidate/WriteElimProof/ProofParts/Part4C
@@ -2666,7 +2667,7 @@ ase1.pdf>
 Package pdftex.def Info: 6.Elimination/1.ValidEliminationCandidate/WriteElimPro
 of/ProofParts/Part4Case1.pdf  used on input line 13.
 (pdftex.def)             Requested size: 291.12694pt x 156.58461pt.
- [83]
+
 
 LaTeX Warning: Reference `elim_write:case2' on page 84 undefined on input line 
 28.
@@ -2684,7 +2685,7 @@ of/ProofParts/Part4Case2.pdf  used on input line 32.
 4Case1.pdf>]))
 (./6.Elimination/1.ValidEliminationCandidate/WriteElimProof/corollary.tex
 [85 <./6.Elimination/1.ValidEliminationCandidate/WriteElimProof/ProofParts/Part
-4Case2.pdf>] [86])) (./6.Elimination/2.ValidEliminationProgram/main.tex
+4Case2.pdf>] [86]))) (./6.Elimination/2.ValidEliminationProgram/main.tex
 (./6.Elimination/2.ValidEliminationProgram/Conditionals/conditionals.tex
 [87]
 <6.Elimination/2.ValidEliminationProgram/Conditionals/ConditionalsCases.pdf, id
@@ -2701,17 +2702,17 @@ pdf>]) (./6.Elimination/2.ValidEliminationProgram/Loops/loops.tex [89]
 (./6.Elimination/2.ValidEliminationProgram/Loops/licm_read.tex [90] [91]
 [92] [93]) (./6.Elimination/2.ValidEliminationProgram/Loops/licm_write.tex
 [94] [95] [96])))
-Underfull \hbox (badness 10000) in paragraph at lines 26--28
+Underfull \hbox (badness 10000) in paragraph at lines 23--25
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 26--28
+Underfull \hbox (badness 10000) in paragraph at lines 23--25
 
  []
 
 [97])
-Underfull \hbox (badness 10000) in paragraph at lines 29--182
+Underfull \hbox (badness 10000) in paragraph at lines 26--183
 
  []
 
@@ -2786,25 +2787,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--25
  []
 
 [106])
-Underfull \hbox (badness 10000) in paragraph at lines 26--185
+Underfull \hbox (badness 10000) in paragraph at lines 26--186
 
  []
 
 [107]
-LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 186
+LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 187
 .
  (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [108
 
 ]
-Overfull \hbox (11.89494pt too wide) in paragraph at lines 187--187
+Overfull \hbox (11.89494pt too wide) in paragraph at lines 188--188
 \OT1/lmr/m/it/12 TPHOLs 2009, Mu-nich, Ger-many, Au-gust 17-20, 2009. Pro-ceed-
 ings\OT1/lmr/m/n/12 , S. Berghofer,
  []
 
 [109]
-Overfull \hbox (15.53735pt too wide) in paragraph at lines 187--187
+Overfull \hbox (15.53735pt too wide) in paragraph at lines 188--188
 []\OT1/lmr/m/n/12 K. Nien-huis, K. Memar-ian, and P. Sewell, ``An op-er-a-tiona
 l se-man-tics for C/C++11
  []
@@ -2818,7 +2819,7 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.187 
+l.188 
       
 ? 
 [111]
@@ -2830,11 +2831,11 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.187 
+l.188 
       
 ? 
 
-Overfull \hbox (47.25693pt too wide) in paragraph at lines 187--187
+Overfull \hbox (47.25693pt too wide) in paragraph at lines 188--188
 \OT1/lmr/m/n/12 AZ, USA: As-so-ci-a-tion for Com-put-ing Ma-chin-ery, 2019, pp.
  96{110, \OT1/lmr/m/sc/12 isbn\OT1/lmr/m/n/12 : 9781450367127.
  []
@@ -2851,8 +2852,8 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30215 strings out of 494923
- 613064 string characters out of 6180742
+ 30220 strings out of 494923
+ 613234 string characters out of 6180742
  949599 words of memory out of 5000000
  32827 multiletter control sequences out of 15000+600000
  618349 words of font info for 78 fonts, out of 8000000 for 9000
@@ -2875,7 +2876,7 @@ ts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb
 ></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type
 1/public/lm/lmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/symbols/msbm10.pfb>
-Output written on main.pdf (124 pages, 4417099 bytes).
+Output written on main.pdf (124 pages, 4418858 bytes).
 PDF statistics:
  1527 PDF objects out of 1728 (max. 8388607)
  1036 compressed objects within 11 object streams

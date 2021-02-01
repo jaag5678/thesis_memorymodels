@@ -1,0 +1,10 @@
+Concurrent memory accesses have been shown to give us tremendous performance benefits compared to its sequential counterparts.
+WIth the recent addition of several hardware features such as read/write buffers, speculation, etc., more efficient forms of concurrent memory accesss are introduced.
+Called relaxed memory accesses, they are used to gain substantial improvement in the performance of concurrent programs. 
+A relaxed memory consistency model specifically describes the semantics of such memory accesses for a particular programming language. 
+Historically, such semantics are often ill-defined or misunderstood, and have been shown to conflict with common program transformations essential for the performance of programs overall. 
+In this thesis, we give a formal declarative(axiomatic) style description of the ECMAScript relaxed memory consistency model. 
+We analyze the impact of this model on two of the most common program transformations, viz. instruction reordering and elimination. 
+We give a conservative proof under which such optimization is allowed for relaxed memory accesses. 
+We use this result to reason about the validity of loop invariant code motion under the same model. 
+We conclude this thesis by eliciting the limitations of our approach, critique on the semantics of the model, possible future work using our results and pending foundational questions that we discovered while working on this thesis.

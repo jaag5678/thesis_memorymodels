@@ -146,33 +146,39 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {5}Elimination}{77}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Elimination}{77}
+\contentsline {section}{\numberline {5.1}Introduction}{77}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.2}Valid Elimination at the Candidate level}{80}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2.1}Elimination of Reads}{80}
 \defcounter {refsection}{0}\relax 
 \contentsline {paragraph}{1. Preserving \emph {happens-before} relations}{80}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{80}
+\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{81}
 \defcounter {refsection}{0}\relax 
 \contentsline {paragraph}{3. Presence of Cycles?}{81}
 \defcounter {refsection}{0}\relax 
 \contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{81}
 \defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2.2}Elimination of Writes}{82}
+\defcounter {refsection}{0}\relax 
 \contentsline {paragraph}{Preserving Happens-before relations}{83}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{83}
+\contentsline {paragraph}{2. The \emph {happens-before} relations lost}{84}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{3. Presence of Cycles?}{83}
+\contentsline {paragraph}{3. Presence of Cycles?}{84}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{83}
+\contentsline {paragraph}{4. Do the lost relations result in New Observable Behaviors?}{84}
 \defcounter {refsection}{0}\relax 
 \contentsline {paragraph}{Base Case : n = 1}{86}
 \defcounter {refsection}{0}\relax 
 \contentsline {paragraph}{Inductive Case (n)}{86}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}From Candidates to Program}{87}
+\contentsline {section}{\numberline {5.3}From Candidates to Program}{87}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.1}Addressing Programs with Conditionals}{87}
+\contentsline {subsection}{\numberline {5.3.1}Addressing Programs with Conditionals}{87}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.2}Addressing Programs with Loops}{89}
+\contentsline {subsection}{\numberline {5.3.2}Addressing Programs with Loops}{89}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Loop Invariant Code motion}{90}
 \defcounter {refsection}{0}\relax 
