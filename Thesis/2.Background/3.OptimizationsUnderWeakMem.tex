@@ -10,7 +10,10 @@
     Midkiff et.al~\cite{Midkiff} proposed a unified compiler for several memory models, wherein they proposed a new Concurrent Control Flow graph with new edges to perform powerful transformations such as Common Sub-Expression Elimination. 
     These models however, demanded us to have more of a whole program analysis to even do basic local program transformations. 
     The data flow graph as the number of threads increase will be infeasible to be implemented and used in common practice. 
-    (I AM UNSURE IF ANY RECENT PROPOSED MODELS HAVE ANYTHING TO SAY IN THIS RESPECT. JADE ALGLAVE'S WORK CAN BE CITED, BUT I HAVE NOT READ IT AS OF NOW.)
+   
+    With respect to data-flow analysis, a recent work by Alglave et.al~\cite{Alglave2} show that non-relational data-flow analysis are sound under a category of relaxed memory models. 
+    But code transformations are themselves not yet investigated with each one in its own respect, which entail a number of data-flow information and code motions.
+    
     Another way to go about this is to go one step below and observe the transformations in terms of more basic code transformations such as instruction reordering, elimination and introduction. 
     Since our objective in this thesis is not in terms of implementing program transformations, but checking the validity, we do not investigate further in this direction. 
     
@@ -36,8 +39,6 @@
         \caption{The transformed program reordering two reads, with a trace justifying the disallowed outcome under SC.}
         \label{intro:Example2(b)}
     \end{figure}
-
-
 
     Such concerns are not only related to simple reordering, but also something such as elimination. 
     Yet another example can be that of elimination. Consider the program in Figure~\ref{intro:Example3(a)} below
