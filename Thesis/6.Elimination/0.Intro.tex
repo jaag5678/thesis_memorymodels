@@ -46,11 +46,7 @@
     %But otherwise, one can still eliminate. 
     %I am not sure which other case can be taken. How about showing when two reads are memory ordered without happens-before? Then elimination will not have any use.
     %We can skip this part for now and just refine the previous chapter first.
-    An example where reads is unsafe to be eliminated is not quite easy to construct.
-    This is because the semantics of the model does not really have any read-read dependance; one read value does not affect any subsequent(agent ordered) read value to same memory unless constrained by happens-before.
-    So one might assume that we can freely eliminate reads: this however would not be safe to do, due to other reasons such as forward progress.
-    If for instance, a loop repeatedly checks the value of some memory (say $x$) and will terminate only if the memory reads some fixed value, each candidate execution representing each iteration of the loop would represent also the minimum iterations before the read is of fixed value. 
-    And this value would be of the read in the last iteration. 
-
-    For addressing the validity of eliminations under our memory model, we separately address first Read elimination, followed by Write elimination, both at the candidate level. 
-    We finally address them at the program level with conditionals and loops involved. 
+    In the case of read elimination, we clearly would lose observable behaviors w.r.t. to the read eliminated.
+    In addition to this, it becomes difficult to assert whether such an elimination would impact other observable behaviors. 
+    For instance, if the reads at the program level represent loop termination checks, then elimination the reads would not be safe as it not only would affect termination, but would also involve elimination of other events at the candidate level.
+    
