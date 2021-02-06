@@ -1,56 +1,56 @@
 \section{Program Transformations under Weak Memory}
 
     Although programmers usually are responsible to write efficient programs, their performance during execution does not always depend on how well the program is written. 
-    Several compiler optimizations done, coupled with run-time optimizations by hardware play a big role in the end performance of programs.
+    Several compiler optimizations, coupled with run-time optimizations by hardware play a big role in the end performance of programs.
     For sequential programs, a lot of well-established ideas exist to enhance the performance of programs, but they do not map well to that of concurrent programs. 
-    With the introduction of relaxed memory accesses, quite a few critical program transformations responsible for huge performance gains may be unsound. 
+    A large class of optimizations are unsound under concurrent programs employing a memory model such as SC.
+    With the introduction of constraints on relaxed memory accesses, quite a few critical program transformations responsible for huge performance gains became possible, but were hard to prove it valid in general. 
 
     %New IR. 
-    This demanded for a fundamental change in which we employ data-flow analysis to optimize programs in a concurrent context. Naumovich et al.~\cite{NaumovichA} proposed one such analysis which is today commonly known as May-Happen-In-Parallel analysis. 
+    This situation necessitates for a fundamental change in how we employ data-flow analysis to optimize programs in a concurrent context. Naumovich et al.~\cite{NaumovichA} proposed one such analysis which is today commonly known as May-Happen-In-Parallel analysis. 
     Midkiff et al.~\cite{Midkiff} proposed a unified compiler for several memory models, wherein they proposed a new Concurrent Control Flow graph with new edges to perform powerful transformations such as Common Sub-Expression Elimination. 
-    These models however, demanded us to have more of a whole-program-analysis to even do basic local program transformations. 
+    These models however, required more of a whole-program-analysis to even do basic local program transformations. 
     The data flow graph as the number of threads increase will be infeasible to be implemented and used in common practice. 
    
     For data-flow analysis, a recent work by Alglave et al.~\cite{Alglave2} show that non-relational data-flow analysis are sound under a category of relaxed memory models. 
     But code transformations are themselves not yet investigated with each one in its own respect, which entail a number of data-flow information and code motions.
     
     Another way to go about this is to go one step below and observe the transformations in terms of more basic code transformations such as instruction reordering, elimination and introduction.   
-    We start by showing using counterexamples how one can show basic transformations are invalidated under SC.
+    We start by showing how using counterexamples one can show basic transformations are invalidated under SC.
 
-    For instance, from a program transformation standpoint, the disallowed outcome in Figure~\ref{intro:Example} should be possible; we can simply reorder either the two events in $T1$ or that in $T2$ as they are disjoint memory operations. 
+    For instance, the disallowed outcome in Figure~\ref{intro:Example} should be possible; we can simply reorder either the two events in $T1$ or those in $T2$ as they are disjoint memory operations. 
     But from a sequential consistency standpoint, since the outcome is not valid, it also brings with it the question whether such simple program transformations are even valid to perform.
-    Figure~\ref{intro:Example2(a)} is an example below where we would think it is okay to reorder two independent reads. 
+    Figure~\ref{intro:Example2(a)} is an example where we would think it is okay to reorder two independent reads. 
     %Show program 
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.7]{2.Background/SC_Reordering(a).pdf}
-        \caption{Program where reordering of independent reads seems possible with its allowed and disallowed outcomes in SC.}
+        \caption{Program where reordering of independent reads seems possible with its allowed(green box) and disallowed(red box) outcomes in SC.}
         \label{intro:Example2(a)}
     \end{figure}
 
     The reordered program can justify a sequential interleaving of events to have the disallowed outcome in the original program. 
-    This is shown in Figure~\ref{intro:Example2(b)} below.
-
+    This is shown in Figure~\ref{intro:Example2(b)}.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.7]{2.Background/SC_Reordering(b).pdf}
-        \caption{The transformed program reordering two reads, with a trace justifying the disallowed outcome under SC.}
+        \caption{The transformed program reordering two reads in T1, with a trace justifying the disallowed outcome under SC.}
         \label{intro:Example2(b)}
     \end{figure}
 
     Such concerns are not only related to reordering, but also elimination. 
-    Consider the program in Figure~\ref{intro:Example3(a)} below
+    Consider the program in Figure~\ref{intro:Example3(a)}.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.7]{2.Background/SC_Example2(a).pdf}
-        \caption{Program with a redundant write to $y$ with its allowed and disallowed outcomes under SC.}
+        \caption{Program with a redundant write to $y$ with its allowed(green box) and disallowed(red box) outcomes under SC.}
         \label{intro:Example3(a)}
     \end{figure}
 
     In this example, the red box outcome is still not allowed under SC. We can notice though that the write to $y$ in $T2$ is done twice. 
     Naturally, the compiler might think of eliminating one of them under the context of redundant code-elimination. 
     Suppose it eliminates the first write $y=2$. 
-    Then the resulting program as shown below in Figure~\ref{intro:Example3(b)}, can justify the outcome under SC whcih was disallowed in the original program.
+    Then the resulting program as shown below in Figure~\ref{intro:Example3(b)}, can justify the outcome under SC which is disallowed in the original program.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.7]{2.Background/SC_Example2(b).pdf}
@@ -59,7 +59,7 @@
     \end{figure}
 
     The above examples show that even simple transformations can be unsound under SC. Complex program transformations such as register allocation, common-sub-expression-elimination, loop-invariant code-motion are some examples which use the above two basic transformations heavily. 
-    Having them unsound under SC also implies the compiler is not allowed to do a varying class of optimizations without breaking the consistency rules under which the concurrent program is supposed to behave/execute. 
+    Having them unsound under SC also implies the compiler is not allowed to do a variety of optimizations without breaking the consistency rules under which the concurrent program is supposed to behave/execute. 
     In addition, hardware at that time had come up with several features as mentioned above, which in principle could be used effectively for performance, but were not so useful for programs respecting SC semantics. 
     In order to effectively critique a model in terms of program transformations, it is quite impractical to come up with exhaustive examples of program to justify their validity.
     A proof in this sense would be required.  
@@ -73,6 +73,6 @@
 
     %General Prog Transformations
     With respect to instruction reordering and redundancy elimination in shared memory programs, \u{S}ev\u{c}\'{i}k et al.~\cite{Sevcik2} gave a proof design on how to show such optimizations are valid. 
-    This approach relies on the idea of reconstructing the original execution of a program given the optimized one, while also showing the well known SC-DRF guarantee holds---programs that are \textit{data-race-free} (DRF) must exhibit SC semantics. 
+    This approach relies on the idea of reconstructing the original execution of a program given the optimized one, while also showing the well known SC-DRF guarantee holds---programs that are \textit{data-race-free} (DRF) must exhibit SC behavior. 
     Our approach is in fact the other way round; we show that the optimized program does not introduce new behaviors, by explicitly using the consistency rules to show that relevant ordering relations are preserved. 
-    We do not show it specifically only for \textit{data-race-free} programs as the model that we refer to also requires that programs with race have a defined behavior. 
+    We do not show it specifically only for \textit{data-race-free} programs as the model that we refer to also requires that programs with races have a defined behavior. 

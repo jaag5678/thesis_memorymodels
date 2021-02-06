@@ -8,6 +8,15 @@ Finally, we end with a list of tutorial works done in the axiomatic style specif
 \ \newline 
 \ \newline 
 
+A lot of problems emerged with the introduction of concurrent computing. 
+Starting with the famously known mutual exclusion problem way back in the 1960s introduced and solved by Djikstra et al.~\cite{Djikstra}, from it stemmed the ideas of semaphores and monitors that we all know today.  
+Since then, a lot of well-known problems in concurrency such as The Producer Consumer Problem, Dining Philosopher's problem, Reader-Writer problem have come up, along with different algorithms to implement these in a practical sense, especially in Operating Systems. 
+
+However, the above concerns in concurrency only revolves around the so-called ``critical section''; which requires that every thread trying to do something in a shared memory region must have exclusive access to it before doing anything. 
+In recent decades, the need for more performance has increased; multiple hardwares having different features such as read-write buffers, caches, etc exist. 
+Reliance solely on critical sections to perform operations on shared memory is today observed as a bottleneck. 
+Without its use, however, the possible outcomes of a concurrent program increases and complicates the notion of \textit{atomicity} in actions done on shared memory.
+
 \input{2.Background/2.MemoryConsistencyModels.tex}
 
 \input{2.Background/3.OptimizationsUnderWeakMem.tex}
@@ -15,8 +24,6 @@ Finally, we end with a list of tutorial works done in the axiomatic style specif
 \input{2.Background/4.AxiomaticSpecWeakMem.tex}
   
 \input{2.Background/5.OtherConcernsWithModel.tex}
-   
-  
 
 \ \newline
 \ \newline  
