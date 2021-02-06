@@ -1,8 +1,8 @@
 This chapter addresses the validity of instruction reordering under the ECMAScript memory model.
 We first start by showing some examples of Candidate Executions where reordering is not safe in the relaxed memory context.  
 We give a brief summary of our approach towards a proof to identify when such a reordering is safe.
-Next, we introduce few more defintions for our purpose followed by two basic lemmas that will be instrumental for proofs in this chapter and the next. 
-We then formulate a theorem and a corresponding corollary that covers validity of reorderinng at a Candidate Execution level. 
+Next, we introduce few more definitions for our purpose followed by two basic lemmas that will be instrumental for proofs in this chapter and the next. 
+We then formulate a theorem and a corresponding corollary that covers validity of reordering at a Candidate Execution level. 
 Lastly, we address reordering at the program level (still abstracted to a set of shared memory events) involving loops and conditional branching.
 We use counter examples to give a better intuitive understanding of the elements of the proof as well as the advantage of our formal model in Chapter 3.
 \ \newline
@@ -39,5 +39,4 @@ We first built a conservative proof for reordering based on candidate executions
 We later extended it to programs abstracted to the set of shared memory events. 
 We discussed throughout the limitation and advantages of our conservative approach. 
 We also presented examples throughout this chapter to get a fair intuitive understanding of the ideas behind the proof and the role of the axiomatic model in it.
-
-In the next chapter, we will address the validity of elmination udner the ECMAScript Memory Model.
+In the next chapter, we will address the validity of elimination under the ECMAScript Memory Model.

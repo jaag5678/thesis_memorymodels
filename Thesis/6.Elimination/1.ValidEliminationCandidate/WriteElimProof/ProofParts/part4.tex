@@ -22,7 +22,7 @@
         This will remain the case after elimination of $e$ if firstly we have $\reln{d}{hb}{R}$ and $\reln{W}{hb}{d}$.
         By Lemma \ref{Lemma2}, the first relation holds and by Def of happens-before the second holds. 
         Secondly, we need to ensure that after elimination, Axiom \ref{CoRe} now restricts the exact set of $\stck{_{rbf}}$ relations with $W'$ and $R$ as before. 
-        Since $R$ or $W'$ can be arbitary, we would need the ranges of $e$ and $d$ to be same.
+        Since $R$ or $W'$ can be arbitrary, we would need the ranges of $e$ and $d$ to be same.
     \end{itemize}
 
     Figure~\ref{elim_write:case2} shows a breakdown of sub-cases for case (b), varying based
@@ -37,11 +37,11 @@
     We make the following observations:
     \begin{itemize}
         \item (i)(a) has the similar argument to the previous case's (ii)(a), requiring $e$ and $d$ to have equal ranges.
-        \item (i)(b) is a pattern from Axiom \ref{SeqCsAt}, which restricts $R$ from reading anything of $W$. This will reamin the case after $W$ is eliminated. 
+        \item (i)(b) is a pattern from Axiom \ref{SeqCsAt}, which restricts $R$ from reading anything of $W$. This will remain the case after $W$ is eliminated. 
         \item (ii)(a) is a pattern from Axiom \ref{CoRe}, restricting $R$ from reading $W$. This will remain the case after eliminating $W$.
         \item (ii)(b) is the same as (i)(b), hence the argument remains the same.  
     \end{itemize}
 
-    In all the above cases, observe that on keeping range of $e$ and $d$ equal, none of the patterns introduce any new observable behavior. Hence, if we have two consecutive writes of equal ranges, of which the first one has access mode unorderd, the set of Observable Behaviors without the write is a subset of that with it present. 
+    In all the above cases, observe that on keeping range of $e$ and $d$ equal, none of the patterns introduce any new observable behavior. Hence, if we have two consecutive writes of equal ranges, of which the first one has access mode unordered, the set of Observable Behaviors without the write is a subset of that with it present. 
 
     \critic{purple}{This can be slightly modified to show that the range of $e$ can even just be contained in $d$. This would ensure we can eliminate writes in more other cases.}

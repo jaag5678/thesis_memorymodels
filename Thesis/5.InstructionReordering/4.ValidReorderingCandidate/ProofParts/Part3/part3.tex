@@ -1,6 +1,6 @@
 
 \paragraph{3. Presence of cycles?}
-    Before we go into analyzing whether new relations introduce observable behaviours, we first ensure there are no $\stck{_\textit{hb}}$ cycles introduced in the process. This is because the model requires that $\stck{_{hb}}$ is a strict partial order. 
+    Before we go into analyzing whether new relations introduce observable behaviors, we first ensure there are no $\stck{_\textit{hb}}$ cycles introduced in the process. This is because the model requires that $\stck{_{hb}}$ is a strict partial order. 
     
     Note that if a cycle exists after reordering, then 
     \begin{enumerate}
@@ -8,11 +8,11 @@
         \item Additional new relations may introduce cycles
     \end{enumerate}
 
-    The first part is straightforward as we assume we can only do reordering on Candidate Exectuions of $C$ not having happens-before cycles. 
+    The first part is straightforward as we assume we can only do reordering on Candidate Executions of $C$ not having happens-before cycles. 
     For the second part, we first address the cases where $\reln{d}{hb}{e}$ may be part of the cycle. 
     The other event $k$, may be either from the set $K_e$, $K_d$ or a new relation that is formed\footnotemark.
 
-    \footnotetext{$K_e$ and $K_d$ only apart from the new relation because these are the only valid cases where happens-before relations are preserved after reordering. So we need not consider cases such thta $\reln{e}{hb}{k}$ or $\reln{k}{hb}{d}$ as the old relations they are covered by $K_e$ and $K_d$.}
+    \footnotetext{$K_e$ and $K_d$ only apart from the new relation because these are the only valid cases where happens-before relations are preserved after reordering. So we need not consider cases such that $\reln{e}{hb}{k}$ or $\reln{k}{hb}{d}$ as the old relations they are covered by $K_e$ and $K_d$.}
     
     Figure~\ref{reord:cycle(a)} shows that $k$ cannot belong to either of the sets, as their relations with $e$ and $d$ will not result in a cycle. 
     \begin{figure}[H]
@@ -73,7 +73,9 @@
         \reln{k'}{hb}{k}
     \]
 
-    But these relations already exist in the original Candidate Execution, which implies a cycle existed before reordering. This contradicts our assumption that we only reorder when the Candidate Executions of $C$ have no cycles. Thus, by contradiction such a cycle cannot exist.
+    But these relations already exist in the original Candidate Execution, which implies a cycle existed before reordering. 
+    This contradicts our assumption that we only reorder when the Candidate Executions of $C$ have no cycles. 
+    Thus, by contradiction such a cycle cannot exist.
 
     In similar lines for the cases where the set of new relations are of the form $\reln{d}{hb}{k}$,  Suppose a cycle exists with another event $k'$. Then 
     \begin{align*}
@@ -101,6 +103,6 @@
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/ProofParts/Part3/part3_table.pdf}
-        \caption{Table summarizing \textit{happens-bfore} cycles that may be introduced after reordernig candidates with valid pivots.}
+        \caption{Table summarizing \textit{happens-before} cycles that may be introduced after reordering candidates with valid pivots.}
         \label{reord:cycle_table}
     \end{figure}

@@ -6,10 +6,10 @@
         We first consider the simpler case of read elimination within a loop. 
         Eliminating such a read at a program level would imply in every candidate $C^i$ where $i$ denotes the number of iterations, the read $R$ within the loop can be eliminated.
         
-        By Thereom \ref{ReadElim}, we only need the read $R$ to have the type $uo$ to perform such an elimination.
+        By Theorem \ref{ReadElim}, we only need the read $R$ to have the type $uo$ to perform such an elimination.
         Thus we can eliminate for each iteration of the loop our intended read. 
         By transitive property of subsets, the resultant candidate will have observable behaviors as a subset of the original. 
-        Doing this for all valid canddiates extends to program level.
+        Doing this for all valid candidates extends to program level.
 
         Next we consider the case of eliminating writes within a loop. 
         Eliminating such a write at a program level would imply in every candidate $C^i$ where $i$ denotes the number of iterations, the read $W$ within the loop can be eliminated.
@@ -32,10 +32,10 @@
             
             We need to show that in each iteration of some $C^i$ the write $e$ can be eliminated. 
             For this, we need to have some write $d$ that can exist in all candidates where $e$ can exist. 
-            This condition corresponds to Corollary \ref{WriteElimCond}, which handles the case of conditonals too. 
+            This condition corresponds to Corollary \ref{WriteElimCond}, which handles the case of conditionals too. 
             The set of conditions for observable behaviors of the resultant program to be a subset is Corollary \ref{CorolWriteElim} being applied successively for each candidate $C^i$ and all its iterations where $e$ and $d$ exist. 
             By transitive property of subsets, we can infer that the resultant candidate $C'^i$ has observable behaviors as a subset of original $C^i$. 
-            Doing this for all valid canddiates extends to program level by property of union of sets and subset relations\footnotemark.
+            Doing this for all valid candidates extends to program level by property of union of sets and subset relations\footnotemark.
     
             \footnotetext{One might ideally think based on Theorem \ref{WriteElim} that we could relax the constraint on the existence of $d$ as there is another write $e$ that would exist in the subsequent loop. This however, would rely on the fact that the last iteration of the loop in any execution of the program is guaranteed to have such an event $d$. This is not possible to ascertain as we do not have any information about the number of iterations of the loop. It may also be the case that the loop may never end.}
                 
@@ -51,20 +51,18 @@
             This in conjunction with reordering helps us determine the conditions under which loop invariant code motion can be valid.
             For each case, we use the same property that the resultant candidate execution, and hence candidate to program, the observable behaviors are a subset. 
 
-            We first consider the case of reordering a Read outside a loop. There are two subcases for this, viz. one reordering the read before and one after the loop. 
+            We first consider the case of reordering a Read outside a loop. There are two sub-cases for this, viz. one reordering the read before and one after the loop. 
             \input{6.Elimination/2.ValidEliminationProgram/Loops/licm_read.tex}            
 
             Now we consider the case of reordering a write outside a loop, similar two sub-cases as for reads.           
-            \input{6.Elimination/2.ValidEliminationProgram/Loops/licm_write.tex}
-
-            
+            \input{6.Elimination/2.ValidEliminationProgram/Loops/licm_write.tex}   
 
             \paragraph{Reordering two events accross loops} 
             
             The above corollaries are defined for programs with one loop. 
             However, they are valid for whenever loop invariant code motion is just involving removing an event outside one loop. 
-            In practice programs can have multiple loops, even those nested within each other and the compiler is free to reorder events accross nesting as well as from one loop to another.
-            We cannot prove when we can reorder events accross two different loops or reordering events to be within a loop.
+            In practice programs can have multiple loops, even those nested within each other and the compiler is free to reorder events across nesting as well as from one loop to another.
+            We cannot prove when we can reorder events across two different loops or reordering events to be within a loop.
             At the Candidate level, this would imply reordering, elimination as well as \textbf{introduction} of events. 
             Hence, this would require a proof of redundancy introduction right from the candidate execution level and then be extended to candidates and then to programs. 
             This is beyond the scope of this thesis. We consider this as a part of future work. 

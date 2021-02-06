@@ -1,7 +1,7 @@
 %Events------------------------------------------------------------------
 \section{Events}
         
-    Agent execution is modelled in terms of events. An event is either an operation that involves (shared) memory access or that constrains the order of execution of multiple events.
+    Agent execution is modeled in terms of events. An event is either an operation that involves (shared) memory access or that constrains the order of execution of multiple events.
 
     \subsection{Event Types}
     
@@ -15,7 +15,7 @@
             \item \textbf{Synchronize (\set{S}) Events} 
                 These events only restrict the ordering of execution of events by agents. For instance $lock$ and $unlock$ type of events can be categorized under Synchronize events. However, this is not stated in the specification\footnotemark. 
     
-                \footnotetext{The features of $Lock$ and $Unlock$ events is actually not something given to the programmer to use in Javascript. They areused to implement the feature $wait$ and  $notify$ that the programmer can use which adhere to the semantics of $futexes$ inLinux. Hence, in the original standard of the model, the distinction between lock and unlock is not made, and it is simplystated as Synchronize Event.}
+                \footnotetext{The features of $Lock$ and $Unlock$ events is actually not something given to the programmer to use in Javascript. They areused to implement the feature $wait$ and  $notify$ that the programmer can use which adheres to the semantics of $futexes$ inLinux. Hence, in the original standard of the model, the distinction between lock and unlock is not made, and it is simplystated as Synchronize Event.}
         \end{itemize}
         
         \begin{figure}[H]
@@ -26,11 +26,11 @@
 
     %Range of events
     \subsection{Range ($\Re$)}
-        Each of the \textit{shared memory events} are associated with a contiguous range of memory on which it operates. Range is afunction that maps a shared memory event to the range\footnotemark it operates on. This we represent as a starting index $i$ and a size$s$. So we could represent the range of a write event $w$ as 
+        Each of the \textit{shared memory events} are associated with a contiguous range of memory on which it operates. Range is a function that maps a shared memory event to the range\footnotemark it operates on. This we represent as a starting index $i$ and a size$s$. So we could represent the range of a write event $w$ as 
                 
                 \[\Re(w) = (i, s) \]
     
-        \footnotetext{The range as per the ECMAScript standard denotes only the set of contiguous byte indices. The starting byte indexis kept separate. We find this to be unnecessary. Hence we define range to have starting index and size.}
+        \footnotetext{The range as per the ECMAScript standard denotes only the set of contiguous byte indices. The starting byte index is kept separate. We find this to be unnecessary. Hence we define range to have starting index and size.}
         
         We define the two binary operators below on ranges: 
         \begin{enumerate}
@@ -73,7 +73,9 @@
 %Tearing factor of events---------------------------------------------------------------------------------------------------------------------------
 
     \subsection{Tear Free ($tf$) or Tearing $!tf$)}
-        Additionally, each shared-memory event is also associated with whether they are tear-free or not. OEvents that tear are non-aligned accesses requiring more than one memory access. Events that are tear-free are aligned and should appear to be serviced in one memory fetch\footnotemark.
+        Additionally, each shared-memory event is also associated with whether they are tear-free or not. 
+        Events that tear are non-aligned accesses requiring more than one memory access. 
+        Events that are tear-free are aligned and should appear to be serviced in one memory fetch\footnotemark.
 
         We represent the tearing of events in the memory consistency rules in the format ``$\textit{event} : \textit{tf/!tf}$''. 
         When representing events in examples, the type would be represented as a subscript: $\textit{event}_\textit{tf/!tf}$. 

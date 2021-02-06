@@ -25,7 +25,7 @@
         \begin{figure}[H]
             \centering 
             \includegraphics[scale=0.7]{5.InstructionReordering/5.ValidReorderingProgram/Conditionals2Form.pdf}
-            \caption{Two forms of conditonals.}
+            \caption{Two forms of conditionals.}
             \label{reord:conditionals}
         \end{figure}
 
@@ -39,7 +39,7 @@
 
         \begin{proof}
             
-            Let $B1$ represent the set of events in a conditonal branch in program $P$ such that $e \in B1$. 
+            Let $B1$ represent the set of events in a conditional branch in program $P$ such that $e \in B1$. 
             
             Let us consider the first property. 
             By Property \ref{CondB1}, we have 
@@ -96,10 +96,10 @@
             
             By Property \ref{CondB1}, $e$ or $d$ must belong to a conditional branch. 
             
-            If $e$ and $d$ are in different branches of same conditonal, then by Prop \ref{CondB2} there wouldn't exist any candidate $C$ in $P$ where we could reorder $e$ and $d$. 
-            If $e$ and $d$ are of the same conditonal branch, and neither one of them belong in any conditional branch nested within, then our above assumption does not hold. (simple sequential property of conditional branches)
+            If $e$ and $d$ are in different branches of same conditional, then by Prop \ref{CondB2} there wouldn't exist any candidate $C$ in $P$ where we could reorder $e$ and $d$. 
+            If $e$ and $d$ are of the same conditional branch, and neither one of them belong in any conditional branch nested within, then our above assumption does not hold. (simple sequential property of conditional branches)
             
-            For the other cases, wihtout loss of generality, let us suppose the first condition holds, i.e. 
+            For the other cases, without loss of generality, let us suppose the first condition holds, i.e. 
             \begin{align*}
                 \exists C \in P \ s.t. \ 
                 (e \in C \ \wedge \ d \notin C).
@@ -120,7 +120,7 @@
 
             Hence, by contradiction, the second condition must hold.
             
-            \footnotetext{Note that this argument is purely in terms of the execution graphs. The new event can possibly have a new reads-from relation established with some event in the graph itself. Since this new node did not exist in the graph before, and since every node in the graph is considered unique, we can infer that a new observable behavior is introduced. Analyzing which such execution graphs are equivalent, would imply drawing equivalence between two differnt reads-from relations. This could be done as a whole by addressing redundancy introduction optimization. This is not within the scope of the thesis.}
+            \footnotetext{Note that this argument is purely in terms of the execution graphs. The new event can possibly have a new reads-from relation established with some event in the graph itself. Since this new node did not exist in the graph before, and since every node in the graph is considered unique, we can infer that a new observable behavior is introduced. Analyzing which such execution graphs are equivalent, would imply drawing equivalence between two different reads-from relations. This could be done as a whole by addressing redundancy introduction optimization. This is not within the scope of the thesis.}
 
             Now that we have that the second condition must hold, we prove the first condition too must hold. Let $C_i$ and $C_i'$ be the candidates before and after reordering $e$ and $d$. From the first condition we have then for $C_i$
             \begin{align*}

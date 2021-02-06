@@ -3,7 +3,7 @@
     An example-based analysis exposes to us the problems that might exist when we perform such reordering of events. 
     However, such an analysis, though would work for small programs, become infeasible as the programs scale in length and complexity. 
     This is because of the exponential increase in possible outcomes as the number of threads and program size increases. 
-    Hence, generalizations by using a small examples is not something we can afford especially when we want to ensure these program trasnformations are done by the compiler in contrast to being done manually.
+    Hence, generalizations by using a small examples is not something we can afford especially when we want to ensure these program transformations are done by the compiler in contrast to being done manually.
     
     Our solution to this is to construct a proof on Candidate Executions of the original program and the transformed one which exposes the possible observable behaviors it can have.   
     The crux of the proof is to guarantee that reordering does not bring any new $\stck{_{rf}}$ (reads-from) relations that did not exist in any Observable Behavior of the original Candidate Execution. 

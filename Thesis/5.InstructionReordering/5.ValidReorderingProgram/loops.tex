@@ -22,13 +22,13 @@
 
         \begin{proof}
         
-            The proof for this is fairly striaghtforward. 
+            The proof for this is fairly straightforward. 
             Condition 1 corresponds to Theorem \ref{ThmReord}. 
             Condition 2 and 3 correspond to Corollary \ref{CorollReord} with a slight difference. Because we reorder $e$ and $d$ within a loop, the resultant program's Candidates $C'^i$ will have for each iteration of the loop the events $e$ and $d$ reordered within them. 
             Hence, we need to ensure that reordering is possible in every possible iteration. 
             Condition 2 and 3 is precisely the set of conditions where we can assure that such a reordering is possible in any iteration of the loop\footnotemark. 
             
-            \footnotetext{Since the compiler cannot practically check for all iterations the set of conditions we have, one might assume that this does not hold in practice. On the contrary, its practical application would just involve checking Reord(e,k) and $Reord(k,d)$ for all such events $k$ that can exist between $e$ and $d$. The reason we did not define it this fashion is because this would need a formal definition of "between". But this set can be obtained using a striaghtforward flow analysis. Additionally, Condition 3 can always be checked beforehand as it corresponds to checking whether events $e$ and $d$ belong in different conditional branches.}
+            \footnotetext{Since the compiler cannot practically check for all iterations the set of conditions we have, one might assume that this does not hold in practice. On the contrary, its practical application would just involve checking $Reord(e,k)$ and $Reord(k,d)$ for all such events $k$ that can exist between $e$ and $d$. The reason we did not define it this fashion is because this would need a formal definition of "between". But this set can be obtained using a straightforward flow analysis. Additionally, Condition 3 can always be checked beforehand as it corresponds to checking whether events $e$ and $d$ belong in different conditional branches.}
 
         \end{proof}
 
@@ -36,8 +36,8 @@
         \paragraph{Reordering Accross Loops}
             What is not so obvious is the case when events are reordered out of the loop. We will not construct a proof for this, rather use a direct counterexample to show our point. 
 
-            The problem is that we cannot use parent Candidate to generate resultatnt Candidate of the transformed program. Reordering at the Candidate level does not map directly to Reordering that is done to perform something like Loop invariant code motion. 
+            The problem is that we cannot use parent Candidate to generate resultant Candidate of the transformed program. Reordering at the Candidate level does not map directly to Reordering that is done to perform something like Loop invariant code motion. 
 
-            We will show in the next chapter that we can infact define one of its forms, viz. loop invariant code motion using both Reordering and Elimination at the Candidate level.
+            We will show in the next chapter that we can in fact define one of its forms, viz. loop invariant code motion using both Reordering and Elimination at the Candidate level.
              
     

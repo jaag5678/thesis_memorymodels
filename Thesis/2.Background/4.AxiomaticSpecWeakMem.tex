@@ -1,11 +1,11 @@
 \section{Axiomatic Style Specifications of Weak Memory}
 
-While most programming language semantics are defined and analyzed operationally, memory consistency models have been shown to be more effective for analysis using an axiomatic specifcation.
+While most programming language semantics are defined and analyzed operationally, memory consistency models have been shown to be more effective for analysis using an axiomatic specification.
 This axiomatic specification typically is in terms of defining partial orders between relaxed memory events (read/write) and then specifying restrictions on the composition of these partial orders. 
 A very elaborate literature on axiomatic semantics of weak memory is given by Alglave et al.~\cite{Alglave}. 
 This work introduces a new tool called \textit{herd}, which can be used for testing program examples against memory models. The memory models themselves have to be specified in axiomatic format. 
 
-Typically, such an axiomatic approach to something related to concurrency avoids dealing with the state space explosion of operational models, which is often quite difficult to reason with given so many relaxed memory based outcomes. 
+Typically, such an axiomatic approach to something related to concurrency avoids dealing with the state space explosion of operational models, which is often quite difficult to reason with given so many relaxed memory-based outcomes. 
 We can completely avoid the problems of reasoning with seemingly infinite states of programs by reasoning with partial orders between events in a concurrent program.
 We in our approach also rely on this axiomatic perspective, using which we prove the validity of two powerful program transformations used in most compiler optimizations. 
 

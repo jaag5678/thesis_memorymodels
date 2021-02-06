@@ -1,14 +1,14 @@
 \section{Critique of the Model itself}
 
     Through the process of formalizing the memory model, we also critiqued the model in a few aspects. 
-    We here elicit mainly three of them which we consider to be due to underspecified semantics.
+    We here elicit mainly three of them which we consider to be due to under-specified semantics.
 
     \subsection{Tearing Factor and the Tear-free reads Axiom}
 
         The model states that all integer aligned accesses are tear-free.  
         In terms of hardware, whether a memory access is tear free depends also on the bus-size.
-        But if we still want to declare an access at the ECMAScript langauge level tear-free, the hardware must adopt some way to ensure that the access is indeed tear-free, meaning they respect the tear-free axiom.
-        Alternatively, if at the ECMAscipt langauge level, we declare an access to tear despite the hardware having it to be tear-free, this wuold mean the compiler can perform certain aggressive optimizations to leverage this relaxation. 
+        But if we still want to declare an access at the ECMAScript language level tear-free, the hardware must adopt some way to ensure that the access is indeed tear-free, meaning they respect the tear-free axiom.
+        Alternatively, if at the ECMAScript language level, we declare an access to tear despite the hardware having it to be tear-free, this would mean the compiler can perform certain aggressive optimizations to leverage this relaxation. 
 
         If we are using teared memory accesses, the set of observable behaviors becomes slightly non-trivial to justify.
         For instance, consider the program below, where we assume that $x$ represents an 12-byte memory which is initialized to zero. 
@@ -21,14 +21,14 @@
             \caption{Mixed-size Tearing reads example}
         \end{figure}
 
-        The green box represents the outcomes that we can quite intuitively justfiy.
+        The green box represents the outcomes that we can quite intuitively justify.
         But the model also allows the outcomes in the orange box. 
         This is because of the read that tears, which implies that Axiom \ref{TfRe} does not constrain $stck{_{rf}}$ to be functional with respect to the read and the writes to the same 8-byte memory. 
         Whether this is left to the hardware or program transformations is uncertain.
         If so, how could one justify any of the outcomes in the orange box is yet to be understood by us. 
 
         The main concern is that if both the writes are tear-free as well as sequentially consistent, how is it that the read can read them as if they are teared?
-        Does this mean that the tearing factor of SC events depends on the existance of reads that tear or do not tear? 
+        Does this mean that the tearing factor of SC events depends on the existence of reads that tear or do not tear? 
         If this is so, it would be non-trivial to reason about programs locally.
        
         Consider the same last program above but with the read also of type $sc$. 
@@ -55,7 +55,7 @@
 
         For the first candidate, the outcome in question is possible.
         But for the second program, the outcome is not possible due to Axiom \ref{TfRe}.
-        Which one must correspond to the original program is unclear and is not specificed by the semantics of the model specified in the standard.
+        Which one must correspond to the original program is unclear and is not specified by the semantics of the model specified in the standard.
 
     \subsection{Mixed-size events do not respect Coherence irrespective of access mode}
 
@@ -64,7 +64,7 @@
 
         For instance  consider the program below.
 
-        %Show program with a candidate exeution justifying an observable behavior in question.
+        %Show program with a candidate execution justifying an observable behavior in question.
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{7.ConclusionFutureWork/CoherenceNormal.pdf}

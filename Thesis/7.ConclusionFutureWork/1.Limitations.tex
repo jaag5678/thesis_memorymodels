@@ -9,7 +9,7 @@
 
     Our approach to program transformations avoids the complexity of the algorithmic complexity of program transformations. 
     We also do not assume why the compiler would perform such a transformation.
-    While this benefits our analysis to be independant of any particular optimization, it may pose as a bottleneck while trying to incorporate our results in practice. 
+    While this benefits our analysis to be independent of any particular optimization, it may pose as a bottleneck while trying to incorporate our results in practice. 
     As a simple example, it might turn out to be that sequentially, a conditional will always return $true$. This would mean that no candidate execution can have events from the $false$ branch. Hence the compiler might choose to reorder the events within the $true$ branch outside. 
     But as per Corollary (REORDERING CONDITIONALS), we do not allow any reordering outside the conditional, simply because we have no such information about the fact that a conditional always returns the same value. 
     Having such information can give us more fine grained analysis of when reordering is valid. 

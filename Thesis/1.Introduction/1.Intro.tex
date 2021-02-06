@@ -1,35 +1,37 @@
      
 With the increasing demand for performance in computing, the use of concurrency has become quite ubiquitous. 
-Within this, the use of shared memory concurrency in contrast to messgae passing has shown to give tremendous performance benefits. 
+Within this, the use of shared memory concurrency in contrast to message passing has shown to give tremendous performance benefits. 
 A big part of this is due to using relaxed memory accesses, which sacrifice the "atomicity" of actions to gain high speedups. 
 
-The use of such accesses, unmonitored can actually cause programs to mis-behave or can cause quite a bit of slowdown. 
-This is due to the lack of well defined semantics that can guide the user to utilize these accesses more responsibly.
-The lack of specification also may invalidate several aggressive opimtizations that the compiler does which contributes to a major chunk of our so called "performance".
+The use of such accesses, unmonitored can cause programs to misbehavior or can cause quite a bit of slowdown. 
+This is due to the lack of well-defined semantics that can guide the user to utilize these accesses more responsibly.
+The lack of specification also may invalidate several aggressive optimizations that the compiler does which contributes to a major chunk of our so-called "performance".
 
-In current times, there is an increasing trend / necessity to off load computations to the web. 
-One major benefit of this is that portability issues are reduced greatly, which means I can run a complex software and use it on my browser even though my system is not compatible to run it. 
-To ensure that computations done on the web be competible with those done offline, performance plays a major factor, and this factor has always pushed people to not rely on web-based compuatations. 
+In current times, there is an increasing trend/need to offload computations on the web. 
+One major benefit of this is that portability issues are reduced greatly, which means I can run complex softwares and use it on my browser even though my system is not compatible to run it. 
+To ensure that computations done on the web be comparable with those done offline, performance plays a major factor, and this factor has always pushed people to not rely on web-based computations. 
 
-In this scenario, the use of shared memory access (more specifically, relaxed accesses) naturally fits in to provide hte lack of performance we so desperately need.
-Recently, ECMAScript, the standard for all such web-scriptuing languages defined their own memory consistency model.
-This model, however, is written in prose format with no formal proof about the validity of common program transformations.
-In addition, this model also described semantics for mixed-size accesses, something which is quite recent and does not exist for standard memory models. 
+In this scenario, the use of shared memory access (more specifically, relaxed accesses) naturally fits in to provide the lack of performance we so desperately need.
+Recently, ECMAScript, the standard for all such web-scripting languages defined their own memory consistency model.
+Its semantics, however, is written in prose format. 
+besides, no formal proof about the validity of common program transformations under such a semantics is even thought about.
+There are just suggestions for programmers in this respect, which are example driven.
+To add, this model also described semantics for mixed-size accesses, something which is quite recent and not precisely defined for standard memory models. 
 
-Our focus, therefore, in this thesis is to first offer a clarified, more concise rendition of the core ECMAScript memory model that allows for better abstract reasoning over allowed and disallowed behaviours (outcomes). 
-We use our model to provide an intuitive, conservative proof of when reordering and elimination of instructions is permitted, addressing optimization in terms of its impact on observable program behaviours. 
+Our focus, therefore, in this thesis is to first offer a clarified, more concise rendition of the core ECMAScript memory model that allows for better abstract reasoning over allowed and disallowed behaviors (outcomes). 
+We use our model to provide an intuitive, conservative proof of when reordering and elimination of instructions is permitted, addressing optimization in terms of its impact on observable program behaviors. 
 
-We do the above by first giving a Declarative (commonly known as Axiomatic) specification of the ECMAScript memory model. 
-This model is described using partial orders between events that constitute our program.
-We use these partial orders to define a program execution and its outcomes(we refer to as Observable Behaviors).
-The axioms of the model help us define which of these outcomes are valid.
+We do the above by first giving a \textit{Declarative} (commonly known as Axiomatic) specification of the ECMAScript memory model. 
+This model is described using \textit{partial-orders} among events that constitute a program.
+We use these orders to define a program \textit{execution} and its \textit{outcomes}(referred as Observable Behaviors).
+The \textit{axioms} of the model help us define which of these outcomes are valid.
 
-We then use this axiomatic formulation to reason about reordering and elimination at the execution level of program.
+We then use this axiomatic formulation to reason about \textit{reordering} and \textit{elimination} using program executions.
 We then move towards program level by reasoning about these transformations in the presence of conditionals and loops. 
 Throughout this process, we use examples wherever required to give a better intuitive understanding of the proofs as well as the axioms of the model. 
     
 We conclude with the limitations/advantages of our approach.
 We also give further steps that can be taken to address such limitations as well as pending work that could be done.
-Later, we critique the model using some examples, hinting towards underspecification in certain parts.
+Later, we critique the model using some examples, hinting towards under-specification in certain parts.
 We end by exposing certain foundational problems/directions that we identified in the process of doing this thesis which in our eyes need to be addressed in the immediate future.
 
