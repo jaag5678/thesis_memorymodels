@@ -1,19 +1,25 @@
 %Ordering Relation among Events----------------------------------------------------------------------------------------------------------------------       
 \section{Ordering Relations among Events}
         
+    We define agent-order, synchronize-with order, happens-before order and memory order using the binary relations defined on events in the previous section.
+
     %Agent Order
     \subsection{Agent Order ($\stck{_{ao}}$)}
-        It is a union of total order among events belonging to the same agent event list. It is analogous to intra-thread ordering. For example, iftwo events $e$ and $d$ belong to the same agent event list , then either $\reln{e}{ao}{d}$ or $\reln{d}{ao}{e}$. 
-        
+        It is a union of total order among events belonging to the same agent event list. 
+        It is analogous to \textit{intra-thread} ordering. 
+        For example, if two events $e$ and $d$ belong to the same agent event list, then either $\reln{e}{ao}{d}$ or $\reln{d}{ao}{e}$. 
+        Figure~\ref{model:agent-order} shows an example of agent order between events composing a program.
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/AgentOrder.pdf}
             \caption{An example with \textit{agent-order} among events.}
+            \label{model:agent-order}
         \end{figure}
     
-        %Synchronize With Order
+    %Synchronize With Order
     \subsection{Synchronize-With Order ($\stck{_{sw}} $)}
-       Binary relation between two events that establish synchronization between multiple agents. It is a composition of two sets: 
+        It is a binary relation between two events that establish synchronization between multiple agents. 
+        It is a composition of two sets: 
         \begin{enumerate}
             \item All pairs belonging to $ASW$ of every agent belongs to this ordering relation. 
                 \begin{align*}
@@ -24,22 +30,21 @@
                 \begin{align*}
                     (\reln{r}{rf}{w}) \ \wedge \ \et{r}{sc} \ \wedge \ \et{w}{sc} \ \wedge \ (\Re(r)\!=\!\Re(w)) \ \Rightarrow{} \
                     (\reln{w}{sw}{r})
-                \end{align*}
-                    
+                \end{align*}            
         \end{enumerate}
-        
+        Figure~\ref{model:sync-with} shows examples of such orders between events in a program. 
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/SynchronizeWith.pdf}
             \caption{An example with \textit{synchronize-with} relations among events.}
+            \label{model:sync-with}
         \end{figure}
 
         \footnotetext{Note that for the second condition, both ranges of events have to be equal. This however, does not mean thatthe read cannot read from multiple write events. (the read-from relation here is not functional.)}
         
     %Happens Before order 
     \subsection{Happens Before Order ($\stck{_{hb}}$)}
-        A transitive order on events, composed of the following:
-        
+        It is a transitive order on events, composed of the following:
         \begin{enumerate}
             \item Every agent-ordered relation is also a happens-before relation 
                 \begin{align*}
@@ -60,24 +65,27 @@
                     \reln{e}{hb}{d}
                 \end{align*}          
         \end{enumerate}
-    
+        Figure~\ref{model:happens-before} summarizes all possible patters of happens-before order between events in a program.
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/Happens-before.pdf}
             \caption{An example with all the variants of \textit{happens-before} relations between events.}
+            \label{model:happens-before}
         \end{figure}
     
     %Memory Order
     \subsection{Memory Order ($\stck{_{mo}}$)}
-        A \textit{total order} on all events that respects happens-before order. 
+        it is a \textit{total order} on all events that respects happens-before order\footnotemark. 
         \begin{align*}
             \reln{e}{hb}{d} \Rightarrow{} \reln{e}{mo}{d}    
         \end{align*}
+
+        \footnotetext{An interesting part is that memory order, though total, is a bit undefined as to how it weaves together this total order given different events.}
         
+        Figure~\ref{model:memory-order} is an example of a memory order between events in a program.
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/MemoryOrder.pdf}
             \caption{An example with \textit{memory-order} (total) among all events.}
+            \label{model:memory-order}
         \end{figure}
-
-    \critic{blue}{An interesting part is that memory order, though total, is a bit undefined as to how it weaves together this total order given different init events. One can certainly make init events weaved among events that occur in each agent, thus making it sort of subjective as to when certain memory fragments are initialized. Discuss with Clark.}

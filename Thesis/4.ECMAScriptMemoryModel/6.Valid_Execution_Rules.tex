@@ -1,7 +1,8 @@
 %Valid Execution Rules---------------------------------------------------------------------------------------------------------------------------------
         
     \section{Valid Execution Rules (the Axioms)}
-        We now state the memory consistency rules. The rules are on \textit{Candidate Executions} which will place constraints on the possible \textit{Observable behaviors} that may result from it. 
+        We now state the memory consistency rules. 
+        The rules are on \textit{Candidate Executions} which will place constraints on the possible \textit{Observable behaviors} that may result from it. 
          
 %--------------------------------------------------------------------------------------------------------------------------------------  
         %Coherent Reads   
@@ -9,7 +10,6 @@
             \label{CoRe}
         
             There are certain restrictions of what a read event cannot see at different points of execution based on $\stck{_{hb}}$ relation with write events. 
-
             Consider a read event $e$ and a write event $d$ having at least overlapping ranges:
             \begin{align*}
                 \event{e}{R} \ \wedge \ 
@@ -78,16 +78,16 @@
                 \label{model:tear_free_reads}
             \end{figure}
 
-            \footnotetext{To recap a tear-free event cannot be separated into multiple small events that do the same operation. However, considering different hardware architectures, the notion of tear-free need not necessarily mean this. (eg: A 64bit tear-free write to be done in a 32bit system). In a more abstract sense, we need an event to appear 'tear-free'.}    
+            \footnotetext{To recap a tear-free event cannot be separated into multiple small events that do the same operation. However, considering different hardware architectures, the notion of tear-free need not necessarily mean this. (eg: A 64bit tear-free write to be done in a 32-bit system). In a more abstract sense, we need an event to appear 'tear-free'.}    
         \end{axiom}
 
         \begin{axiom}{Sequentially Consistent Atomics}
             \label{SeqCsAt}   
             
             To specifically define how events that are sequentially consistent affects what values a read cannot see, we assume the following memory order among writes $d$ and $g$ and a read $e$ to be the premise for all the rules:  
-                \begin{align*}
-                    d \stck{_{mo}} g \stck{_{mo}} e.
-                \end{align*}
+            \begin{align*}
+                d \stck{_{mo}} g \stck{_{mo}} e.
+            \end{align*}
                
             \begin{itemize}
                 \item If all three events are of type $sc$ with equal ranges, then $e$ cannot read from $d$.

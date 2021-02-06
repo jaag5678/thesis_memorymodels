@@ -1,11 +1,10 @@
      
 With the increasing demand for performance in computing, the use of concurrency has become quite ubiquitous. 
-Within this, the use of shared memory concurrency in contrast to message passing has shown to give tremendous performance benefits. 
-A big part of this is due to using relaxed memory accesses, which sacrifice the "atomicity" of actions to gain high speedups. 
-
-The use of such accesses, unmonitored can cause programs to misbehavior or can cause quite a bit of slowdown. 
-This is due to the lack of well-defined semantics that can guide the user to utilize these accesses more responsibly.
-The lack of specification also may invalidate several aggressive optimizations that the compiler does which contributes to a major chunk of our so-called "performance".
+Particularly, the use of \textit{shared memory} concurrency has shown to give tremendous performance benefits. 
+A big part of this is due to using \textit{relaxed memory} accesses, which sacrifice the ``atomicity'' of actions to gain high performance. 
+The use of such accesses, unmonitored can cause programs to mis-behave, or can cause quite a bit of slowdown. 
+The lack of well-defined semantics which is generally observed for them make it difficult for the user to utilize these accesses more responsibly.
+In addition, usage of such accesses may invalidate several aggressive optimizations that the compiler does which contributes to a major chunk of our desired performance.
 
 In current times, there is an increasing trend/need to offload computations on the web. 
 One major benefit of this is that portability issues are reduced greatly, which means I can run complex softwares and use it on my browser even though my system is not compatible to run it. 
@@ -20,18 +19,17 @@ To add, this model also described semantics for mixed-size accesses, something w
 
 Our focus, therefore, in this thesis is to first offer a clarified, more concise rendition of the core ECMAScript memory model that allows for better abstract reasoning over allowed and disallowed behaviors (outcomes). 
 We use our model to provide an intuitive, conservative proof of when reordering and elimination of instructions is permitted, addressing optimization in terms of its impact on observable program behaviors. 
+We use this insight to prove validity of a subset of \textit{loop-invariant code-motion}. 
 
 We do the above by first giving a \textit{Declarative} (commonly known as Axiomatic) specification of the ECMAScript memory model. 
 This model is described using \textit{partial-orders} among events that constitute a program.
 We use these orders to define a program \textit{execution} and its \textit{outcomes}(referred as Observable Behaviors).
 The \textit{axioms} of the model help us define which of these outcomes are valid.
-
 We then use this axiomatic formulation to reason about \textit{reordering} and \textit{elimination} using program executions.
 We then move towards program level by reasoning about these transformations in the presence of conditionals and loops. 
 Throughout this process, we use examples wherever required to give a better intuitive understanding of the proofs as well as the axioms of the model. 
-    
 We conclude with the limitations/advantages of our approach.
 We also give further steps that can be taken to address such limitations as well as pending work that could be done.
 Later, we critique the model using some examples, hinting towards under-specification in certain parts.
-We end by exposing certain foundational problems/directions that we identified in the process of doing this thesis which in our eyes need to be addressed in the immediate future.
+We end by exposing certain foundational problems/directions that we identified in the process of doing this thesis which in our eyes should be addressed/investigated in the immediate future.
 

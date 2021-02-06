@@ -1,9 +1,9 @@
 This chapter starts with exposing some problems with the existing specifications of the model. 
-The latter part introduces the key components of the model that we find essential to address program transformations. 
-We start by introducing Agents and Event sets, followed by various Binary Relations defined between events. 
+The latter part is our declarative specification of the model. 
+We start by introducing \textit{agents} and \textit{event sets}, followed by various \textit{binary relations} defined between events. 
 We then introduce certain helper definitions that prove useful in understanding the Axioms of the model. 
-We then use the binary relations and definitions to specify the Axioms of the model.
-Lastly, we define Races followed by defining what a Consistent Execution is as per the specification of the model.  
+We then use the above elements to specify the \textit{axioms} of the model.
+Lastly, we define \textit{races} followed by defining what a \textit{Consistent Execution} is as per the specification of the model.  
 \ \newline
 \ \newline  
 \hrule 
@@ -34,5 +34,5 @@ Lastly, we define Races followed by defining what a Consistent Execution is as p
 \ \newline 
 \ \newline 
 As a summary, this chapter axiomatically defined the ECMAScript memory model. 
-The model is defined using binary relations on events and specifying the constraints of the model in terms of restricting reads-from relations given other binary relations that can exist between events in a Candidate Execution.
-In the next chapter, we use this formal model to reason about the validity of instruction reordering under the constraints of the model.
+We defined binary relations on events and specified the constraints of the model in terms of restricting reads-from relations that can exist between events in a Candidate Execution.
+In the next chapter, we use this formal model to reason about the validity of instruction reordering.

@@ -1,8 +1,7 @@
 %AGENTS----------------------------------------------------------------------------------------------------------------------------------------  
-\section{Agents, Events and their Types}
+\section{Agents}
 
-    \paragraph{Agents}
-       Agents represent threads in a concurrent program. As per the standard, they have more meaning than what we refer to here. However, with respect to the memory consistency model, we can safely abstract them to just represent threads/processes.
+    Agents represent threads in a concurrent program. As per the standard, they have more meaning than what we refer to here. However, with respect to the memory consistency model, we can safely abstract them to just represent threads/processes.
 
     \paragraph{Agent Cluster}
         Collection of agents concurrently communicating with each other through means of shared memory form an agent cluster.  There can be multiple agent clusters. However, an agent can only belong to one agent cluster. Agents communicating through message passing do not belong in the same agent cluster. 

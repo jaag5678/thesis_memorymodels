@@ -12,8 +12,9 @@
 %-----------------------------------------------------------------------------------------------------------------------------------------    
     %What is one run of a program to us?
     \begin{definition}{Candidate}
-        A a collection of abstracted set of shared memory events of a program involved in one possible execution, with the $\stck{_\textit{ao}}$ relations. We can think of this as each thread having a set of shared memory events to run in a given intra-thread ordering. An example of a candidate is shown in Figure~\ref{model:candidate}.
-        
+        A a collection of abstracted set of shared memory events of a program involved in one possible execution, with the $\stck{_\textit{ao}}$ relations. 
+        We can think of this as each thread having a set of shared memory events to run in a given intra-thread ordering. 
+        Figure~\ref{model:candidate} is an example of a Candidate.
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/candidate.pdf}
@@ -25,8 +26,10 @@
 
 %-----------------------------------------------------------------------------------------------------------------------------------------  
     \begin{definition}{Candidate Execution}
-        A Candidate with the addition of $\stck{_\textit{sw}}$, $\stck{_\textit{hb}}$ and $\stck{_\textit{mo}}$ relations. This can be viewed as the witness/justification of an actual execution of a Program. Note that there can be many Candidate Executions for a given Candidate. Figure~\ref{model:candexec} shows an example of a candidate execution. 
-        
+        A Candidate with the addition of $\stck{_\textit{sw}}$, $\stck{_\textit{hb}}$ and $\stck{_\textit{mo}}$ relations. 
+        This can be viewed as the witness/justification of an actual execution of a Program. 
+        Note that there can be many Candidate Executions for a given Candidate. 
+        Figure~\ref{model:candexec} shows an example of a Candidate Execution.  
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/CandidateExecution.pdf}
@@ -39,10 +42,9 @@
  %-----------------------------------------------------------------------------------------------------------------------------------------   
     %What values are read when the program is run
     \begin{definition}{Observable Behavior}
-    
-        The set of pairwise $\stck{_\textit{rf}}$/$\stck{_\textit{rbf}}$ relations that result in one execution of the program. Think of this as our outcome of a program execution.
+        The set of pairwise $\stck{_\textit{rf}}$/$\stck{_\textit{rbf}}$ relations that result in one execution of the program. 
+        Think of this as our outcome of a program execution.
         Figure~\ref{model:observable} shows an example of an observable behavior.
-    
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{4.ECMAScriptMemoryModel/Observables.pdf}
