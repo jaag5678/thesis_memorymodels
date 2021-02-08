@@ -1,16 +1,16 @@
 
     For cases where reordering is not safe to do, we also show counter examples of programs where new observable behaviors are introduced.
-    This additionally will help gain intuition about the proof given. 
+    This additionally helps gain intuition about the proof given. 
     Note that we do not show examples for cases where $\reln{d}{hb}{e}$ itself is sufficient to show a new observable behavior, as this is a trivial exercise that can be done just using sequential programs.
     We show counterexamples where $\stck{_{hb}}$ relations lost (those across agents specifically), could introduce new observable behaviors. 
 
     For all the examples we show here, we only show the ordering relations that are important to observe. 
-    Putting all the relations among different events in the example will result in confusion, hence we avoid doing so. 
+    Putting all the relations among different events in the example will result in confusion, hence we avoid them. 
 
     \paragraph{Reads to same memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}
 
         The following example illustrates when reordering two reads to $x$ as per the specification of their access orders and range results in an observable behavior disallowed.
-        Figure~\ref{reord_counter:example1(a)} shows an example of a candidate along with with its candidate execution where the case of outcome in the red box is not possible. 
+        Figure~\ref{reord_counter:example1(a)} shows an example of a candidate(left) along with with its candidate execution(right) where the case of outcome in the red box is not possible. 
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/Example0(Rsc-Ruo,sc).pdf}
@@ -23,11 +23,11 @@
             \item We can infer from the Candidate Execution that $\reln{x=1;_{sc}}{hb}{b=x;_{sc}}$.
             \item Because $\reln{\{x=2;_{sc}\}}{sw}{\{b=x;_{sc}\}}$, this means the read value of $b$ is $2$.
             \item From the above two, we can infer $\reln{\{x=2;_{sc}\}}{mo}{\{x=2;_{sc}\}}$.
-            \item We can then also infer that $\reln{\{x=1;_{sc}\}}{hb}{\{c=x;_{uo/sc}\}}$ and $\reln{\{x=2;_{sc}\}}{hb}{\{b=x;_{uo/sc}\}}$
+            \item We can then also infer that $\reln{\{x=1;_{sc}\}}{hb}{\{c=x;_{uo/sc}\}}$ and $\reln{\{x=2;_{sc}\}}{hb}{\{b=x;_{uo/sc}\}}$.
             \item By Axiom \ref{SeqCsAt} pattern 1 and 3, the read value for $c$ cannot be $1$.
         \end{itemize}
 
-        Figure~\ref{reord_counter:example1(b)} shows the program after reordering the two reads in $T2$ along with its candidate execution where the case of reads in the orange box is possible. 
+        Figure~\ref{reord_counter:example1(b)} shows the Candidate(right) after reordering the two reads in $T2$ along with its candidate execution(left) where the same case of reads(orange box) is possible. 
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/Example0R(Rsc-Ruo,sc).pdf}
@@ -50,7 +50,7 @@
     
     \paragraph{A Read $e$ of type $sc$ followed by a Write of either $uo/sc$}
         
-        Figure~\ref{reord_counter:example2(a)} shows an example of a candidate along with with its candidate execution where the case of outcome in the red box is not possible. 
+        Figure~\ref{reord_counter:example2(a)} shows an example of a candidate(left) along with with its candidate execution(right) where the case of outcome in the red box is not possible. 
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/Example3(Rsc-Wuo,sc).pdf}
@@ -65,7 +65,7 @@
             \item This inference was due to $\reln{\{x=1_{sc}\}}{hb}{\{a=x{sc}\}}$
         \end{itemize}
 
-        Figure~\ref{reord_counter:example2(b)} shows the program after reordering a read and write in $T1$ along with its candidate execution where the case of reads in the orange box is possible. 
+        Figure~\ref{reord_counter:example2(b)} shows the Candidate after reordering(right) a read and write in $T1$ along with its candidate execution(left) where the same case of reads(orange box) is possible. 
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/Example3R(Rsc-Wuo,sc).pdf}
@@ -89,7 +89,9 @@
         
     \paragraph{A Write $e$ followed by a Read $d$ both of type $sc$}
         
-        A counter example for this is different. It is not the Observable Behavior we are concerned with that is introduced, but that which is allowed but creates a $\stck{_{hb}}$ cycle. The following example is as such:
+        A counter example for this is different. 
+        It is not the Observable Behavior we are concerned with that is introduced, but that which is allowed but creates a $\stck{_{hb}}$ cycle. 
+        Figure~\ref{reord_counter:example3(a)} is one such example with its Candidate and Corresponding Candidate Execution in question:
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/Example5(Wsc-Rsc).pdf}
@@ -97,8 +99,7 @@
             \label{reord_counter:example3(a)}
         \end{figure}
 
-        After reordering the two events of $T1$ in the above example, the same observable behavior holds, but has a cycle introduced. One might think that simply discarding that execution would do. But this would mean discarding $\stck{_{hb}}$ relations also, which would require more information to infer which relations are going to create such cycles and which are not. Since we place no assumptions on these relations, but that any happens-before relation other than the one we remove explicitly be reordering are all possible. Hence, the following reordered program outcome is something we do not risk to allow.
-
+        Figure~\ref{reord_counter:example3(b)} shows the Candidate after reordering(right) the two events in $T1$, which makes the same candidate execution(right) as above contain a happens-before cycle:
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/Example5R(Wsc-Rsc).pdf}
@@ -113,11 +114,17 @@
             \item This execution is invalid. 
         \end{itemize}
 
+        One might think that simply discarding the above Candidate execution would do. 
+        But this would mean discarding such $\stck{_{hb}}$ relations, which would require more information to infer which relations are going to create such cycles and which are not. 
+        In practice a cycle may span several events from different threads.
+        Since we place no assumptions on these relations, but that any happens-before relation other than the one we remove explicitly be reordering are all preserved. 
+        Hence, the following reordered program outcome is something we do not risk to allow.
+
 %---------------------------------------------------------------------------------------------------------------------------------------
 
     \paragraph{A Write $e$ of type $uo/sc$ followed by a Write $d$ of type $sc$}
         
-        Figure~\ref{reord_counter:example4(a)} shows an example of a candidate along with with its candidate execution where the case of outcome in the red box is not possible. 
+        Figure~\ref{reord_counter:example4(a)} shows an example of a candidate(left) along with with its candidate execution(right) where the case of outcome in the red box is not possible. 
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/Example7(Wuo,sc-Wsc).pdf}
@@ -132,7 +139,7 @@
             \item This inference was due to $\reln{\{y=1_{sc}\}}{hb}{\{b=y_{sc}\}}$.
         \end{itemize}
 
-        Figure~\ref{reord_counter:example4(b)} shows the program after reordering the two writes in $T1$ along with its candidate execution where the case of reads in the orange box is possible. 
+        Figure~\ref{reord_counter:example4(b)} shows the Candidate after reordering(right) the two writes in $T1$ along with its candidate execution(left) where the same case of reads(orange box) is possible. 
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/Example7R(Wuo,sc-Wsc).pdf}

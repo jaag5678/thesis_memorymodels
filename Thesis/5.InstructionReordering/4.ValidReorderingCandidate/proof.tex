@@ -1,8 +1,12 @@
 \begin{proof}
 
-    We look at this in terms of performing an instruction reordering on a candidate execution of $C$. We would want the resulting candidate execution to preserve all the other $\stck{_{hb}}$ relations (except $\reln{e}{hb}{d}$) and that any new $\stck{_{hb}}$ relations strictly reduce possible observable behaviors.
+    We look at this in terms of performing an instruction reordering on a candidate execution of $C$. 
+    We would want the resulting candidate execution to preserve all the other $\stck{_{hb}}$ relations (except $\reln{e}{hb}{d}$) and that any new $\stck{_{hb}}$ relations strictly reduce possible observable behaviors.
     
-    The proof is structured as follows. We first show that existing \textit{happens-before} relations in any candidate execution of $C$ except $\reln{e}{hb}{d}$ remain intact after reordering. We then identify the cases where new \textit{happens-before} relations could be established. We identify from these cases whether \textit{happens-before} cycles could be introduced.
+    The proof is structured as follows. 
+    We first show that existing \textit{happens-before} relations in any candidate execution of $C$ except $\reln{e}{hb}{d}$ remain intact after reordering. 
+    We then identify the cases where new \textit{happens-before} relations could be established.
+    We identify from these cases whether \textit{happens-before} cycles could be introduced.
     We then show for the remaining cases that new relations do not introduce any new observable behaviors.
 
     The above steps can be summarized as addressing four main questions for any \textit{Candidate Execution} of $C'$
@@ -18,7 +22,8 @@
     \input{5.InstructionReordering/4.ValidReorderingCandidate/ProofParts/Part3/part3.tex}
     \input{5.InstructionReordering/4.ValidReorderingCandidate/ProofParts/Part4/part4.tex}
 
-    The table above, precisely is the definition of a reorderable pair (after including the constraints on ranges). If we write the above table in the form of an expression we have an expanded format of our reorderable pair function. 
+    The table above, precisely is the definition of a reorderable pair (after including the constraints on ranges). 
+    If we write the above table in the form of an expression we have an expanded format of our reorderable pair function. 
 
     \begin{align*}
         Reord(e,d) = \\

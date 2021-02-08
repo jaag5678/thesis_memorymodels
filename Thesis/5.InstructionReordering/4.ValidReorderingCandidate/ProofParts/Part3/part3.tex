@@ -1,11 +1,12 @@
 
 \paragraph{3. Presence of cycles?}
-    Before we go into analyzing whether new relations introduce observable behaviors, we first ensure there are no $\stck{_\textit{hb}}$ cycles introduced in the process. This is because the model requires that $\stck{_{hb}}$ is a strict partial order. 
+    Before we go into analyzing whether new relations introduce observable behaviors, we first ensure there are no $\stck{_\textit{hb}}$ cycles introduced in the process. 
+    This is because the model requires that $\stck{_{hb}}$ is a strict partial order. 
     
     Note that if a cycle exists after reordering, then 
     \begin{enumerate}
-        \item The relations preserved do not themselves create a cycle (ref to the theorem)
-        \item Additional new relations may introduce cycles
+        \item The relations preserved do not themselves create a cycle (ref to the theorem).
+        \item Additional new relations may introduce cycles.
     \end{enumerate}
 
     The first part is straightforward as we assume we can only do reordering on Candidate Executions of $C$ not having happens-before cycles. 
@@ -24,12 +25,12 @@
 
     For cases where $\reln{k}{hb}{e}$ is the set of new relations, note that by lemma 1
     \[
-        \reln{k}{hb}{e} \Rightarrow \reln{k}{hb}{d}
+        \reln{k}{hb}{e} \Rightarrow \reln{k}{hb}{d}.
     \]
 
     For cases where $\reln{d}{hb}{k}$ is the set of new relations, by lemma 2
     \[
-        \reln{d}{hb}{k} \Rightarrow \reln{e}{hb}{k}
+        \reln{d}{hb}{k} \Rightarrow \reln{e}{hb}{k}.
     \]
 
     So for both these cases also, a cycle with $\reln{d}{hb}{e}$ cannot exist. 
@@ -41,7 +42,10 @@
         \label{reord:cycle(b)}
     \end{figure}
 
-    For the one case where we have two new sets of relations formed, i.e $\reln{d}{hb}{k}$ and $\reln{k}{hb}{e}$, we could have a case where $k$ is a common event for both sets. But, by Lemma \ref{Lemma1}, we also have $\reln{k}{hb}{d}$ and by Lemma \ref{Lemma2}, $\reln{e}{hb}{k}$\footnotemark. Thus, we have a cycle. Figure~\ref{reord:cycle(c)} below shows this pictorially.
+    For the one case where we have two new sets of relations formed, i.e $\reln{d}{hb}{k}$ and $\reln{k}{hb}{e}$, we could have a case where $k$ is a common event for both sets. 
+    But, by Lemma \ref{Lemma1}, we also have $\reln{k}{hb}{d}$ and by Lemma \ref{Lemma2}, $\reln{e}{hb}{k}$\footnotemark. 
+    Thus, we have a cycle. 
+    Figure~\ref{reord:cycle(c)} below shows this pictorially.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/ProofParts/Part3/part3(d).pdf}
@@ -53,24 +57,25 @@
 
     Now for the case when $\reln{d}{hb}{e}$ may not be part of the cycle, we have only two other new relations, $\reln{k}{hb}{e}$ or $\reln{d}{hb}{k}$.
 
-    Considering the first scenario where the new set of relations are of the form $\reln{k}{hb}{e}$. Suppose a cycle exists with another event $k'$. Then 
+    Considering the first scenario where the new set of relations are of the form $\reln{k}{hb}{e}$. 
+    Suppose a cycle exists with another event $k'$. Then 
     \[
         \reln{k}{hb}{e} \ \wedge \
         \reln{e}{hb}{k'} \ \wedge \
-        \reln{k'}{hb}{k}
+        \reln{k'}{hb}{k}.
     \]
 
     Note that the latter two relations are not new, since the only new set of relations are of the first form. Now, by Lemma \ref{Lemma1} and by transitivity respectively
     \begin{gather*}
-        \reln{k}{hb}{e} \Rightarrow \reln{k}{hb}{d} \\
-        \reln{e}{hb}{k'} \Rightarrow \reln{d}{hb}{k'}    
+        \reln{k}{hb}{e} \Rightarrow \reln{k}{hb}{d}. \\
+        \reln{e}{hb}{k'} \Rightarrow \reln{d}{hb}{k'}.    
     \end{gather*}
 
     So, the following is also a cycle
     \[
         \reln{k}{hb}{d} \ \wedge \
         \reln{d}{hb}{k'} \ \wedge \
-        \reln{k'}{hb}{k}
+        \reln{k'}{hb}{k}.
     \]
 
     But these relations already exist in the original Candidate Execution, which implies a cycle existed before reordering. 
@@ -81,23 +86,26 @@
     \begin{align*}
         \reln{d}{hb}{k} \ \wedge \
         \reln{k}{hb}{k'} \ \wedge \ 
-        \reln{k'}{hb}{d} 
+        \reln{k'}{hb}{d}. 
     \end{align*}
 
-    Note that the latter two relations are not new, since the only new set of relations are of the first form. Now, by Lemma \ref{Lemma2} and by transitivity respectively, we have 
+    Note that the latter two relations are not new, since the only new set of relations are of the first form. 
+    Now, by Lemma \ref{Lemma2} and by transitivity respectively, we have 
     \begin{align*}
-        \reln{d}{hb}{k} \Rightarrow \reln{e}{hb}{k}
-        \reln{k'}{hb}{d} \Rightarrow \reln{k'}{hb}{d}
+        \reln{d}{hb}{k} \Rightarrow \reln{e}{hb}{k}. \\
+        \reln{k'}{hb}{d} \Rightarrow \reln{k'}{hb}{d}.
     \end{align*}
 
     Thus, we also have the cycle 
     \begin{align*}
         \reln{e}{hb}{k} \ \wedge \
         \reln{k}{hb}{k'} \ \wedge \ 
-        \reln{k'}{hb}{e} 
+        \reln{k'}{hb}{e}. 
     \end{align*}
 
-    But these relations already exist in the original Candidate Execution, which implies a cycle existed before reordering. This contradicts our assumption that we only reorder when the Candidate Executions of $C$ have no cycles. Thus, by contradiction such a cycle cannot exist.
+    But these relations already exist in the original Candidate Execution, which implies a cycle existed before reordering. 
+    This contradicts our assumption that we only reorder when the Candidate Executions of $C$ have no cycles. 
+    Thus, by contradiction such a cycle cannot exist.
 
     Figure~\ref{reord:cycle_table} shows the cases where new relations have no happens-before cycles. 
     \begin{figure}[H]

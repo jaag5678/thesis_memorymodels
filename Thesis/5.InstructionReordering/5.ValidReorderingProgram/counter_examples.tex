@@ -4,7 +4,7 @@
     This facilitates better understanding of the proof and its arguments. 
     These counter examples are with respect to reordering of writes. 
     
-    Figure~\ref{reord:cond_counter_example1(a)} shows an example of a program with conditionals along with with its candidate execution where the case of outcome in the red box is not possible. 
+    Figure~\ref{reord:cond_counter_example1(a)} shows an example of a program with conditionals(left) along with with its candidate execution(right) where the case of outcome in the red box is not possible. 
     \begin{figure}[H]
         \centering 
         \includegraphics[scale=0.7]{5.InstructionReordering/5.ValidReorderingProgram/CounterExamples1a(Conditionals).pdf}
@@ -19,7 +19,7 @@
         \item This inference was due to $\reln{\{a=x;_{uo}\}}{hb}{\{x=1;_{uo}\}}$.
     \end{itemize}
     
-    Figure~\ref{reord:cond_counter_example1(b)} shows the program after reordering two writes in $T1$ along with its candidate execution where the case of reads in the orange box is possible\footnotemark. 
+    Figure~\ref{reord:cond_counter_example1(b)} shows the program after reordering(right) two writes in $T1$ along with its candidate execution(left) where the case of reads in the orange box is possible\footnotemark. 
     \begin{figure}[H]
         \centering 
         \includegraphics[scale=0.7]{5.InstructionReordering/5.ValidReorderingProgram/CounterExamples1b(Conditionals).pdf}
@@ -27,7 +27,7 @@
         \label{reord:cond_counter_example1(b)}
     \end{figure}
     
-    \footnotetext{Notice that the above counterexample can also be attributed to introducing a new write $x=1$ in a candidate.}
+    \footnotetext{Notice that the above counterexample can also be justified by introducing a new write $x=1$ in a candidate.}
     Observations:
     \begin{itemize}
         \item From the Candidate Execution, we can infer $\reln{\{a=x;_{uo}\}}{hb}{\{x=1;_{uo}\}}$. 
@@ -35,7 +35,7 @@
         \item No Axiom restricts the read $a$ to have value of $x$ as $1$.
     \end{itemize}
     
-    Figure~\ref{reord:cond_counter_example2(a)} shows an example of a program with 1-branch conditional along with with its candidate execution where the case of outcome in the red box is not possible. 
+    Figure~\ref{reord:cond_counter_example2(a)} shows an example of a program(left) with 1-branch conditional along with with its candidate execution(right) where the case of outcome in the red box is not possible. 
     \begin{figure}[H]
         \centering 
         \includegraphics[scale=0.7]{5.InstructionReordering/5.ValidReorderingProgram/CounterExamples2a(Conditionals).pdf}
@@ -50,7 +50,7 @@
         \item This inference was due to the relation $\reln{\{x=2;_{uo}\}}{hb}{\reln{\{x=1;_{uo}\}}{hb}{\{a=x;_{uo}\}}}$.
     \end{itemize}
     
-    Figure~\ref{reord:cond_counter_example2(b)} shows the program after reordering two writes in $T1$ along with its candidate execution where the case of reads in the orange box is possible\footnotemark. 
+    Figure~\ref{reord:cond_counter_example2(b)} shows the program after reordering(right) two writes in $T1$ along with its candidate execution(left) where the case of reads in the orange box is possible\footnotemark. 
     \begin{figure}[H]
         \centering 
         \includegraphics[scale=0.7]{5.InstructionReordering/5.ValidReorderingProgram/CounterExamples2b(Conditionals).pdf}
@@ -68,5 +68,5 @@
 %-----------------------------------------------------------------------------------------------------------------------------------
     We leave the rest of the cases as an exercise to the avid reader\footnotemark.
 
-    \footnotetext{While showing reordering of reads, one must note that the introduction of new observable behaviors is dependant on the fact that a candidate execution has a local variable which must have not been there because the conditional branch was not taken. Note that this fact does not rely on the consistency rules of the memory model. It could be the case that the compiler instantiates the local variables to some default value (say 0), and then decides to reorder a read outside a conditional on the assertion that the read of local variable will return the same constant value. Having such an assertion in general might not be always certain.}
+    \footnotetext{While showing reordering of reads, one must note that the introduction of new observable behaviors is dependant on the fact that a candidate execution has a local variable which must have not been there because the conditional branch was not taken. Note that this fact does not rely on the consistency rules of the memory model. It could be the case that the compiler instantiates the local variables to some default value (say 0), and then decides to reorder a read outside a conditional on the assertion that the read of local variable will return the same constant value. Having such an assertion in general might not be always certain. This is one of the main drawbacks of not using information as to why the compiler would do such a transformation.}
 %------------------------------------------------------------------------------------------------------------------------------------------

@@ -5,15 +5,17 @@
     %Show an example here and explain
     As an example, for the case when $d$ is a sequentially consistent read, by Lemma \ref{Lemma1}, in any execution of $C$
     \[
-        \reln{k}{hb}{d} \centernot\Rightarrow \reln{k}{hb}{e} 
+        \reln{k}{hb}{d} \centernot\Rightarrow \reln{k}{hb}{e}. 
     \]
 
     But in $Executions$ of candidate $C'$, by transitivity, we have 
     \[
-        \reln{k}{hb}{d} \Rightarrow \reln{k}{hb}{e} 
+        \reln{k}{hb}{d} \Rightarrow \reln{k}{hb}{e}. 
     \]
 
-    This is because, there are \textit{happens-before} relations that come through \textit{synchronize-with} relations with $d$. Thus, although we are able to preserve relations that existed in any $Candidate Execution$ of $C$, we also in the process, introduce new ones in $Candidate Executions$ of $C'$. Figures~\ref{reord:add_reln(a)} and \ref{reord:add_reln(b)} shows pictorially an example of a Candidate Execution of $C$ for the case above 
+    This is because, there are \textit{happens-before} relations that come through \textit{synchronize-with} relations with $d$. 
+    Thus, although we are able to preserve relations that existed in any $Candidate Execution$ of $C$, we also in the process, introduce new ones in $Candidate Executions$ of $C'$. 
+    Figures~\ref{reord:add_reln(a)} and \ref{reord:add_reln(b)} shows pictorially an example of a Candidate Execution of $C$ for the case above 
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/ProofParts/Part2/part2(c).pdf}
@@ -37,4 +39,4 @@
         \label{reord:add_reln_table}
     \end{figure}
 
-    For these cases, we must know whether the new relations introduce new observable behaviors. 
+    For these cases, we investigate whether the new relations introduce new observable behaviors. 

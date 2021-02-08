@@ -1,21 +1,24 @@
 \subsection{Addressing Programs with Loops}
         
         Addressing reordering of events in programs with loops is relatively straightforward, leaving one special case. 
-        For simplicity (and also Without loss of generality), let us consider our program has only one loop.
+        For simplicity (and also without loss of generality), let us consider our program has only one loop.
 
-        There will be one Candidate for each iteration of loop. For convenience, let us define $C^i$ to be a candidate of program with $i$ iterations of the same loop. Let us also define $e_l^i$ to be an event within the loop of the program which in a candidate signifies the $i^{th}$ iteration of the event. 
+        There will be one Candidate for each iteration of loop. 
+        For convenience, let us define $C^i$ to be a candidate of program with $i$ iterations of the same loop. 
+        Let us also define $e_l^i$ to be an event within the loop of the program which in a candidate signifies the $i^{th}$ iteration of the event. 
 
         Using the above notation, we define the following corollary for reordering events $e$ and $d$ within a loop.
         The intuition is that if we can reorder $e$ and $d$ in every iteration of the loop, then the observable behaviors of the resultant program is a subset of the original. 
-        
         \begin{corollary}
-            Consider a program $P$ with a loop and its candidates $C^1, C^2, ... , C^n$ in which events $e$ and $d$ are parts of the loop and present in all of them with $\reln{e}{ao}{d}$. Consider the set of corresponding candidates $C'^1, C'^2, ... , C'^n$ after reordering $e$ and $d$ in $P$ and its corresponding program $P'$. If the following three conditions hold:
+            Consider a program $P$ with a loop and its candidates $C^1, C^2, ... , C^n$ in which events $e$ and $d$ are parts of the loop and present in all of them with $\reln{e}{ao}{d}$. 
+            Consider the set of corresponding candidates $C'^1, C'^2, ... , C'^n$ after reordering $e$ and $d$ in $P$ and its corresponding program $P'$. 
+            If the following three conditions hold:
             \begin{gather*}
-                Reord(e, d) \\ 
-                \forall C^i \in P , \ \forall j \in [1,i], \forall k \ \text{s.t.} \ \reln{e^j}{ao}{k} \wedge \reln{k}{ao}{d^j} \ . \ Reord(e^j, k) \wedge Reord(k, d^j)  \\ 
+                Reord(e, d) \label{reord:loops1}\\ 
+                \forall C^i \in P , \ \forall j \in [1,i], \forall k \ \text{s.t.} \ \reln{e^j}{ao}{k} \wedge \reln{k}{ao}{d^j} \ . \ Reord(e^j, k) \wedge Reord(k, d^j) \label{reord:loops2} \\ 
                 \nexists C^i \in P \ s.t. \ 
                     \forall j\!\leq\!i , \ (e^j \in C \ \wedge \ d^j \notin C) \ \vee \ 
-                    (e^j \notin C \ \wedge \ d^j \in C) 
+                    (e^j \notin C \ \wedge \ d^j \in C) \label{reord:loops3}
             \end{gather*}
             then the set of observable behaviors of Program $P'$ is a subset of program $P$.     
         \end{corollary}
@@ -23,21 +26,21 @@
         \begin{proof}
         
             The proof for this is fairly straightforward. 
-            Condition 1 corresponds to Theorem \ref{ThmReord}. 
-            Condition 2 and 3 correspond to Corollary \ref{CorollReord} with a slight difference. Because we reorder $e$ and $d$ within a loop, the resultant program's Candidates $C'^i$ will have for each iteration of the loop the events $e$ and $d$ reordered within them. 
+            Condition \ref{reord:loops1} corresponds to Theorem \ref{ThmReord}. 
+            Condition \ref{reord:loops2} and \ref{reord:loops3} correspond to Corollary \ref{CorollReord} and \ref{ReordCond} with a slight difference. 
+            Because we reorder $e$ and $d$ within a loop, the resultant program's Candidates $C'^i$ will have for each iteration of the loop the events $e$ and $d$ reordered within them. 
             Hence, we need to ensure that reordering is possible in every possible iteration. 
-            Condition 2 and 3 is precisely the set of conditions where we can assure that such a reordering is possible in any iteration of the loop\footnotemark. 
+            These conditions precisely define this requirement\footnotemark. 
             
-            \footnotetext{Since the compiler cannot practically check for all iterations the set of conditions we have, one might assume that this does not hold in practice. On the contrary, its practical application would just involve checking $Reord(e,k)$ and $Reord(k,d)$ for all such events $k$ that can exist between $e$ and $d$. The reason we did not define it this fashion is because this would need a formal definition of "between". But this set can be obtained using a straightforward flow analysis. Additionally, Condition 3 can always be checked beforehand as it corresponds to checking whether events $e$ and $d$ belong in different conditional branches.}
+            \footnotetext{Since the compiler cannot practically check for all iterations the set of conditions we have, one might assume that this does not hold in practice. On the contrary, its practical application would just involve checking $Reord(e,k)$ and $Reord(k,d)$ for all such events $k$ that can exist between $e$ and $d$. The reason we did not define it this fashion is because this would need a formal definition of "between". But this set can be obtained using a straightforward flow analysis by the compiler. Additionally, Condition \ref{reord:loops3} can always be checked beforehand as it corresponds to checking whether events $e$ and $d$ belong in different conditional branches.}
 
         \end{proof}
 
-
         \paragraph{Reordering Accross Loops}
-            What is not so obvious is the case when events are reordered out of the loop. We will not construct a proof for this, rather use a direct counterexample to show our point. 
-
-            The problem is that we cannot use parent Candidate to generate resultant Candidate of the transformed program. Reordering at the Candidate level does not map directly to Reordering that is done to perform something like Loop invariant code motion. 
-
+            What is not so obvious is the case when events are reordered out of the loop. 
+            The problem is that we cannot use parent Candidate to generate resultant Candidate of the transformed program. 
+            Reordering at the Candidate level does not map directly to Reordering that is done to perform something like Loop invariant code motion. 
+            This is because, such a transformation implies introduction/elimination of events in a Candidate.
             We will show in the next chapter that we can in fact define one of its forms, viz. loop invariant code motion using both Reordering and Elimination at the Candidate level.
              
     

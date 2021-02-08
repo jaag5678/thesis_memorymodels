@@ -1,10 +1,7 @@
 
 \paragraph{1. Preserving \textit{happens-before} relations}
         
-        
-
-    If $\stck{_{hb}}$ relations among events are lost after reordering, they may introduce new observable behaviors. The relations that are subject to change can be divided into four parts using events $e$ and $d$
-    
+    If $\stck{_{hb}}$ relations among events are lost after reordering, they may introduce new observable behaviors. The relations that are subject to change can be divided into four parts using events $e$ and $d$.
     \begin{tasks}(2)
         \task $\reln{k}{hb}{e}$.
         \task $\reln{e}{hb}{k}$.
@@ -12,7 +9,9 @@
         \task $\reln{k}{hb}{d}$.
     \end{tasks}
 
-    Firstly, note that the relations of the form $\reln{e}{hb}{k}$ come through either a $\stck{_{sw}}$ relation with $e$ or relations through event $d$, i.e. of the form $\reln{d}{hb}{k}$. The ones that come due to the latter, may not be preserved after reordering. Note also that, a similar argument exists for relations of the form $\reln{k}{hb}{d}$ wherein relations derived through $e$  ($\reln{k}{hb}{e}$) may be lost after reordering. 
+    Firstly, note that the relations of the form $\reln{e}{hb}{k}$ come through either a $\stck{_{sw}}$ relation with $e$ or relations through event $d$, i.e. of the form $\reln{d}{hb}{k}$. 
+    The ones that come due to the latter, may not be preserved after reordering. 
+    Note also that, a similar argument exists for relations of the form $\reln{k}{hb}{d}$ wherein relations derived through $e$($\reln{k}{hb}{e}$) may be lost after reordering. 
 
     Hence, the relations that could be subject to change can be addressed by considering two disjoint sets of events in any \textit{Candidate Execution} of $C$ as below.
     \begin{align*}
@@ -37,7 +36,7 @@
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/ProofParts/Part1/part1(b).pdf}
-        \caption{The \textit{direct happens-before} relation that change while reordering events $e$ and $d$}
+        \caption{The \textit{direct happens-before} relation that change while reordering events $e$ and $d$.}
         \label{reord:preserve_hb(b)}
     \end{figure}
     
@@ -52,10 +51,10 @@
     
     We need the following key relations to be preserved in Candidate executions of $C'$ 
     \begin{tasks}(2)
-        \task $\reln{p1}{hb}{e}$
-        \task $\reln{e}{hb}{k}$
-        \task $\reln{d}{hb}{p2}$
-        \task $\reln{k}{hb}{d}$ 
+        \task $\reln{p1}{hb}{e}.$
+        \task $\reln{e}{hb}{k}.$
+        \task $\reln{d}{hb}{p2}.$
+        \task $\reln{k}{hb}{d}.$ 
     \end{tasks}
 
     After reordering, we have (a) and (c) preserved due to transitivity  
@@ -71,33 +70,26 @@
         \forall \ k \in K_d - \{p2\}, \ \reln{p2}{hb}{k}.
     \end{gather*}
     
-    %Show a figure here
-    %\begin{figure}[H]
-    %    \centering
-    %    \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/ProofParts/Part1/part1(d).pdf}
-    %    \caption{For any Candidate execution, the intuition behind valid pivots $<p1,p2>$}
-    %    \label{fig:my_label}
-    %\end{figure}
-    
-    By Lemma \ref{Lemma1} and \ref{Lemma2} respectively, we have for $C$, the following condition where $<p1, p2>$ is a valid pivot pair
+    By Lemma \ref{Lemma1} and \ref{Lemma2} respectively, we have for $C$, the following condition where $<p1, p2>$ is a valid pivot pair.
     \begin{gather*}
         \et{e}{uo} \vee (\et{e}{sc} \wedge \event{e}{W}). \\
         \et{d}{uo} \vee (\et{d}{sc} \wedge \event{d}{R}).
     \end{gather*}
         
-    Figure~\ref{reord:preserve_hb_table} summarizes the cases where we have a valid pair of pivots\footnotemark $<p1,p2>$
+    Figure~\ref{reord:preserve_hb_table} summarizes the cases where we have a valid pair of pivots\footnotemark $<p1,p2>$.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.7]{5.InstructionReordering/4.ValidReorderingCandidate/ProofParts/Part1/part1_table.pdf}
-        \caption{Table summarizing whether we have valid pair of pivots based on  $e$ and $d$}
+        \caption{Table summarizing whether we have valid pair of pivots based on  $e$ and $d$.}
         \label{reord:preserve_hb_table}
     \end{figure}
             
-    We show a simple example (Figure~\ref{reord:preserve_hb(c)} and \ref{reord:preserve_hb(d)}) where we do not have a valid pair of pivots, particularly because $p1$ is not a valid pivot. Note that in this example, $K_e = K_{e1} + K_{e2} + p1 + p_x$
+    We show a simple example (Figure~\ref{reord:preserve_hb(c)} and \ref{reord:preserve_hb(d)}) where we do not have a valid pair of pivots, particularly because $p1$ is not a valid pivot. 
+    Note that in this example, $K_e = K_{e1} + K_{e2} + p1 + p_x$
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.6]{5.InstructionReordering/4.ValidReorderingCandidate/ProofParts/Part1/part1(e).pdf}
-        \caption{A Candidate Execution where p1 is not a valid pivot}
+        \caption{A Candidate Execution where p1 is not a valid pivot.}
         \label{reord:preserve_hb(c)}
     \end{figure}
     
