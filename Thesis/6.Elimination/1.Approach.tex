@@ -1,10 +1,16 @@
 \section{Approach}
 
-    For addressing the validity of eliminations under our memory model, we separately address first Read elimination, followed by Write elimination, both at the candidate level. 
-    We finally address them at the program level with conditionals and loops involved. 
-
     We consider the same set of assumptions for reordering here. 
     Similar to reordering, our main objective is to ensure that the set of possible observable behaviors of a program, remain unchanged after elimination. 
     In the case of read elimination, we would want the observable behaviors apart from the specific read eliminated to be a subset.
     In the case of write elimination, there is no such constraint as that for reads.
     For both cases, if preserving all behaviors is not possible, then we would want the set of observable behaviors after elimination at the very least to be a subset.
+
+    The main difference here is that elimination would remove certain happens-before relations, in contrast to having additional ones.
+    From our point of view, we would want only the relations with the eliminated read/write to be removed after the transformation.
+    The loss of these relations would certainly not have any new happens-before cycle to be introduced. 
+    However, we still have to check whether the removed relations result in some new behavior. 
+    We prove when it does not, by doing case-wise analysis on the type of relations eliminated.  
+
+    For addressing the validity of eliminations under our memory model, we separately address first Read elimination, followed by Write elimination, both at the candidate level. 
+    We finally address them at the program level with conditionals and loops involved. 

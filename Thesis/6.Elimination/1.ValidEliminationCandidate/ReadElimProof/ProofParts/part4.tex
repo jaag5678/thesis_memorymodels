@@ -1,10 +1,10 @@
 \paragraph{4. Do the lost relations result in New Observable Behaviors?}
 
-        To answer this, we need to see whether the relations removed had an impact on $\stck{_{rf}}$ relations other than those with $e$. To prove that it does not have any impact, we divide our argument into two parts, viz. into the two types of relations removed:
-
+        To answer this, we need to see whether the relations removed had an impact on possible $\stck{_{rf}}$ relations other than those with $e$. 
+        We divide our argument into two parts, viz. the two types of relations removed:
         \begin{tasks}(2)
-            \task $\reln{k}{hb}{R_{uo}}$ 
-            \task $\reln{R_{uo}}{hb}{k}$ 
+            \task $\reln{k}{hb}{R_{uo}}$. 
+            \task $\reln{R_{uo}}{hb}{k}$.
         \end{tasks}
 
         Figure~\ref{elim_read:case1} shows a breakdown of sub-cases for case (a), varying based
@@ -38,4 +38,5 @@
             \item (ii) is a pattern of Axiom \ref{CoRe}, however, only restricting $\stck{_{rf}}$ relation with $R$ and $W$
         \end{itemize}
 
-        From the above observations, we can infer that the relations removed only have restriction on reads-from relations on the event $e$ we eliminate. Thus, we can conclude that no new observable behaviors are introduced due to the removed $\stck{_{hb}}$ relations. 
+        From the above observations, we can infer that the relations removed only have restriction on reads-from relations on the event $e$ we eliminate. 
+        Thus, we can conclude that no new observable behaviors are introduced due to the removed $\stck{_{hb}}$ relations. 

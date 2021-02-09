@@ -4,15 +4,15 @@
         
         %Corollary proof for read elimination within a loop
         We first consider the simpler case of read elimination within a loop. 
-        Eliminating such a read at a program level would imply in every candidate $C^i$ where $i$ denotes the number of iterations, the read $R$ within the loop can be eliminated.
+        Eliminating such a read at a program level would imply in every candidate $C^i$ where $i$ denotes the number of iterations, the read within the loop can be eliminated.
         
-        By Theorem \ref{ReadElim}, we only need the read $R$ to have the type $uo$ to perform such an elimination.
+        By Theorem \ref{ReadElim}, we only need the read to have the type $uo$ and not be a conditional check to perform such an elimination.
         Thus we can eliminate for each iteration of the loop our intended read. 
         By transitive property of subsets, the resultant candidate will have observable behaviors as a subset of the original. 
         Doing this for all valid candidates extends to program level.
 
         Next we consider the case of eliminating writes within a loop. 
-        Eliminating such a write at a program level would imply in every candidate $C^i$ where $i$ denotes the number of iterations, the read $W$ within the loop can be eliminated.
+        Eliminating such a write at a program level would imply in every candidate $C^i$ where $i$ denotes the number of iterations, the write within the loop can be eliminated.
         For this we state the following corollary.
         \begin{corollary}
             Consider a program $P$ having one loop with $K$ representing the set of events within the loop. Consider appropriately candidates $C^1, C^2, ... , C^n$ each of which contain events $e$ and $d$ such that:
