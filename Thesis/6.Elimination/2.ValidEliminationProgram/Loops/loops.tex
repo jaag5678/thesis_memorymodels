@@ -46,10 +46,9 @@
 
             In the previous chapter, we showed that loop invariant code motion cannot be validated by just reordering at the Candidate level. 
             This was because reordering was insufficient to generate the resultant candidate from the original. 
-            Because a loop can have any number of iterations, we may have equal number of reads/writes as the iterations. 
-            The crux is that now we have proven when elimination is valid under the relaxed memory model. 
-            This in conjunction with reordering helps us determine the conditions under which loop invariant code motion can be valid.
-            For each case, we use the same property that the resultant candidate execution, and hence candidate to program, the observable behaviors are a subset. 
+            Because a loop can have any number of iterations, reordering an event outside a loop would in principle involve eliminating the extra events from multiple iterations, when looked at from the Candidate level. 
+            Now that we have proven when elimination is valid under the relaxed memory model, we notice that this in conjunction with reordering helps us determine the conditions under which loop-invariant code motion can be valid.
+            For each case, we use the same argument; the resultant program after transformation has observable behaviors as a subset of the original. 
 
             We first consider the case of reordering a Read outside a loop. There are two sub-cases for this, viz. one reordering the read before and one after the loop. 
             \input{6.Elimination/2.ValidEliminationProgram/Loops/licm_read.tex}            
@@ -59,10 +58,9 @@
 
             \paragraph{Reordering two events accross loops} 
             
-            The above corollaries are defined for programs with one loop. 
-            However, they are valid for whenever loop invariant code motion is just involving removing an event outside one loop. 
+            The above corollaries for loop-invariant code motion are valid for whenever it is just involving removing an event outside one loop. 
             In practice programs can have multiple loops, even those nested within each other and the compiler is free to reorder events across nesting as well as from one loop to another.
             We cannot prove when we can reorder events across two different loops or reordering events to be within a loop.
             At the Candidate level, this would imply reordering, elimination as well as \textbf{introduction} of events. 
-            Hence, this would require a proof of redundancy introduction right from the candidate execution level and then be extended to candidates and then to programs. 
+            This would require a proof of redundancy introduction right from the candidate execution level and then be extended to candidates and then to programs. 
             This is beyond the scope of this thesis. We consider this as a part of future work. 
