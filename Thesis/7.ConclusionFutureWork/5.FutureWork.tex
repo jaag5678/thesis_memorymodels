@@ -1,6 +1,6 @@
 \section{Future Directions in Weak Memory Consistency}
 
-    We elicit certain problems that we consider to be foundational with respect to relaxed memory models.
+    We now elicit certain problems that we consider to be foundational with respect to relaxed memory models.
     Having a concrete progress in any of these directions would in our eyes help solve problems concerning the specification of such models, compiler correctness and verification of programs with relaxed memory accesses.
 
     \paragraph{Specification of Mixed-Size memory models}
@@ -14,7 +14,8 @@
         But this model was quite simple in that the aspect of mixed-size and their behavior for atomic accesses were semantically not defined. This may not be the case for hardware models such as ARMv8. 
         Flur et.al~\cite{Flur} give their insights on having tested and observed mixed-size behaviors in hardwares.
 
-        One direction to go is to have a concise analysis of the validity of program transformation under mixed-size models such as ARMv8 and the new possible transformations that come along with them (like merging two accesses or splitting an access into multiple accesses.) To do this would also require formally describing the mixed size model (\cite{Flur} is for an older version of ARM model).  
+        One direction to go is to have a concise analysis of the validity of program transformation under mixed-size models such as ARMv8 and the new possible transformations that come along with them (like merging two accesses or splitting an access into multiple accesses). 
+        To do this would also require formally describing the mixed size model (\cite{Flur} is for an older version of ARM model).  
 
     \paragraph{Transformational Specification of Memory Models}
 
@@ -25,8 +26,9 @@
         However, over reading literature on work done in this way, it has come to our knowledge that the validity of program transformations still remains a problem. 
         As new concurrent languages come, new memory models are introduced and the validity of program transformations have to be addressed for each such model separately. 
         Instead, one way to consider going about is by describing them using program transformations. 
-        Lahav et.al~\cite{Lahav2} try to do this for Total-Store-Order (TSO) and a fraction of Power memory model. They do this by describing transformationally over SC. 
-        However, it is still quite limited. 
+        Lahav et.al~\cite{Lahav2} try to do this for Total-Store-Order (TSO) and a fraction of Power memory model. 
+        They do this by describing a transformational model over SC. 
+        
         Given the different memory models that exist today for many concurrent languages and hardware, having a formal model for the well known memory models would in our perspective be a good start. 
         It would prove useful for designing new memory models, compilers as well as understanding them from a programmer's standpoint. 
         Given the increasing use of Heterogenous hardware, it would also be useful to have an automated process of constructing a memory model parametric to the choice of program transformations we would want to do.
@@ -42,4 +44,3 @@
         While a lot of work has been done in identifying key examples as litmus, the work in direction of mixed-size models has just begun. 
         Lustig et.al~\cite{Lustig} do the reverse; they construct litmus tests parametric to memory consistency models. 
         One could gain some insights from this work to do the reverse. 
-        
