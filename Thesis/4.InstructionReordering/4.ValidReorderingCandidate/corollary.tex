@@ -1,0 +1,123 @@
+Now that we know when two consecutive events can be reordered, we shift our focus to the general reordering of events in an agent. The following corollaries cover all those cases. 
+
+\begin{corollary}
+    \label{CorollReord}
+    Consider a Candidate C of a program and its Candidate Executions which are valid. 
+    Consider two events $e$ and $d$ such that $\neg \cons{e}{d}$ is true in C and $\reln{e}{ao}{d}$. 
+    Consider another Candidate C' resulting after reordering $e$ and $d$ in C. 
+    If
+    \begin{align*}
+        Reord(e,d) \wedge \ 
+        \forall \ k \ \textit{s.t.} \ 
+        \reln{e}{ao}{k} \ \wedge \ \reln{k}{ao}{d} \ . \ 
+        Reord(e,k) \ \wedge \ Reord(k,d)    
+    \end{align*}
+    then, the set of Observable behaviors of C' is a subset of C. 
+    \label{corol1}
+\end{corollary}
+    
+\begin{proof}
+    We prove this by induction of number of events $k$ between $e$ and $d$. Let $n$ denote the number of events.
+
+    \paragraph{Base Case: $n = 1.$}
+        This means we have one event $k$ such that our candidate $C$ is
+        \begin{align*}
+            \reln{e}{ao}{\reln{k}{ao}{d}} \wedge \ cons(e,k) \ \wedge \ cons(k,d).
+        \end{align*}
+                
+        What we want after reordering is C', with
+        \[
+            \reln{d}{ao}{\reln{k}{ao}{e}}. 
+        \]
+        whose observable behaviors is subset of $C$.
+
+        Without loss of generality, we can choose to first reorder $k$ and $d$. With $Reord(k,d)$, we can, from Theorem \ref{ThmReord}, reorder them, giving us candidate $C''$ with
+        \[
+            \reln{e}{ao}{\reln{d}{ao}{k}}. 
+        \]
+        whose observable behaviors is subset of $C$.
+
+        Similarly, now with $Reord(e,d)$, by Theorem \ref{ThmReord}, we get candidate $C'''$ with 
+        \[
+            \reln{d}{ao}{\reln{e}{ao}{k}}. 
+        \]
+        whose observable behaviors is subset of $C''$.
+
+        Now lastly, we need to reorder $e$ and $k$ for which we need $Reord(e,k)$ to hold, thus by Theorem \ref{ThmReord}, giving us our final candidate $C'$ with
+        \[
+            \reln{d}{ao}{\reln{k}{ao}{e}}.
+        \]
+        whose observable behaviors is subset of $C'''$.
+
+        By transitive property of subsets, we can conclude that the Observable Behavior of the final candidate $C'$ after reordering is a subset of $C$.  
+
+    \paragraph{2. Inductive Case $n > 1$}
+        Assume the above corollary holds for $n = t$, meaning the observable behaviors of candidate $C'_t$ is a subset of $C_t$. 
+        We need to show that for $n = t + 1$, the corollary still holds, for this note firstly that, we have the following ordering relations:    
+        \[
+            \reln{e}{ao}{\reln{k_1}{ao}{\reln{k_2}{ao}{\reln{k_3}{ao}{\reln{...}{ao}{\reln{k_t}{ao}{\reln{k_{t+1}}{ao}{d}}}}}}}  
+        \]
+
+        Without loss of generality, we can first reorder $k_{t+1}$ and $d$. 
+        To do this, we need $Reord(k_{t+1}, d)$ to hold, thus by Theorem \ref{ThmReord}, giving us the resultant candidate $C_t$ with  
+        \[
+            \reln{e}{ao}{\reln{k_1}{ao}{\reln{k_2}{ao}{\reln{k_3}{ao}{\reln{...}{ao}{\reln{k_t}{ao}{\reln{d}{ao}{k_{t+1}}}}}}}}  
+        \]
+        whose observable behaviors is a subset of $C_{t+1}$. 
+
+        Now we have $t$ such events between $e$ and $d$. With our assumption, we can reorder $e$ and $d$, thus giving us candidate $C'_t$ with 
+        \[
+            \reln{d}{ao}{\reln{k_1}{ao}{\reln{k_2}{ao}{\reln{k_3}{ao}{\reln{...}{ao}{\reln{k_t}{ao}{\reln{e}{ao}{k_{t+1}}}}}}}}  
+        \]
+        whose observable behaviors is a subset of $C_{t}$. 
+
+        Finally, we need to reorder $e$ and $k_{t+1}$ to get our final result, for which we need $Reord(e, k_{t+1})$ to hold, thus by Theorem \ref{ThmReord},  giving us finally candidate $C'_{t+1}$ with
+        \[
+            \reln{d}{ao}{\reln{k_1}{ao}{\reln{k_2}{ao}{\reln{k_3}{ao}{\reln{...}{ao}{\reln{k_t}{ao}{\reln{k_{t+1}}{ao}{e}}}}}}}  
+        \]
+        whose observable behaviors are a subset of $C'_t$. 
+
+        By transitive property of subsets, we can conclude that the Observable Behavior of the final candidate $C'_{t+1}$ after reordering is a subset of $C_{t+1}$.
+
+        Hence, by induction the proof is complete. 
+\end{proof}
+    
+\begin{corollary}
+    \label{CorollCodeMotion1}
+    Consider a Candidate C of a program and its Candidate Executions which are valid. 
+    Consider a set of events $k_{i \in[1,n]}$ such that $\reln{k_i}{ao}{k_{i+1}} \wedge \cons{k_i}{k_{i+1}}$.
+    Consider an event $e$ such that 
+    \begin{align*}
+        \cons{e}{k_1} \ \wedge \ \reln{e}{ao}{k_1}.  
+    \end{align*}
+    Consider another candidate $C'$ with the only difference from $C$ being $\cons{e}{k_n} \ \wedge \ \reln{k_n}{ao}{e}$.
+    If 
+    \begin{align*}
+        \forall i \in [1,n] \ . \ Reord(e,k_i).
+    \end{align*}
+    then the set of observable behaviors of $C'$ is a subset of that of $C$.  
+\end{corollary}
+
+\begin{proof}
+    Apply theorem of reordering successively, and by transitivity of subset relations, the corollary holds.
+\end{proof}
+
+\begin{corollary}
+    \label{CorollCodeMotion2}
+    Consider a Candidate C of a program and its Candidate Executions which are valid.
+    Consider a set of events $k_{i \in[1,n]}$ such that $\reln{k_i}{ao}{k_{i+1}} \wedge \cons{k_i}{k_{i+1}}$.
+    Consider an event $d$ such that 
+    \begin{align*}
+        \cons{d}{k_n} \ \wedge \ \reln{k_n}{ao}{d}.  
+    \end{align*}
+    Consider another candidate $C'$ with the only difference from $C$ being $\cons{d}{k_1} \ \wedge \ \reln{d}{ao}{k_1}$.
+    If 
+    \begin{align*}
+        \forall i \in [1,n] \ . \ Reord(k_i,d).
+    \end{align*} 
+    then the set of observable behaviors of $C'$ is a subset of that of $C$. 
+\end{corollary}
+
+\begin{proof}
+    Apply theorem of reordering successively, and by transitivity of subset relations, the corollary holds.
+\end{proof}

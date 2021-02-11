@@ -1,0 +1,38 @@
+This chapter starts with exposing some problems with the existing specifications of the model. 
+The latter part is our declarative specification of the model. 
+We start by introducing \textit{agents} and \textit{event sets}, followed by various \textit{binary relations} defined between events. 
+We then introduce certain helper definitions that prove useful in understanding the Axioms of the model. 
+We then use the above elements to specify the \textit{axioms} of the model.
+Lastly, we define \textit{races} followed by defining what a \textit{Consistent Execution} is as per the specification of the model.  
+\ \newline
+\ \newline  
+\hrule 
+\ \newline 
+\ \newline 
+
+\input{3.ECMAScriptMemoryModel/0.Intro.tex}
+
+\input{3.ECMAScriptMemoryModel/1.Agents.tex}
+
+\input{3.ECMAScriptMemoryModel/2.Event_Sets.tex}
+
+\input{3.ECMAScriptMemoryModel/3.Event_Relations.tex}
+
+\input{3.ECMAScriptMemoryModel/4.Ordering_Relations_On_Events.tex}
+
+\input{3.ECMAScriptMemoryModel/5.PreliminaryDefinitions.tex}
+
+\input{3.ECMAScriptMemoryModel/6.Valid_Execution_Rules.tex}
+
+\input{3.ECMAScriptMemoryModel/7.Race.tex}
+
+\input{3.ECMAScriptMemoryModel/8.Valid_Execution.tex}
+
+\ \newline
+\ \newline  
+\hrule 
+\ \newline 
+\ \newline 
+As a summary, this chapter axiomatically defined the ECMAScript memory model. 
+We defined binary relations on events and specified the constraints of the model in terms of restricting reads-from relations that can exist between events in a Candidate Execution.
+In the next chapter, we use this formal model to reason about the validity of instruction reordering.

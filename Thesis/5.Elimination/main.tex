@@ -1,0 +1,33 @@
+This chapter investigates the validity of elimination under the ECMAScript memory model.
+We first start by explaining using examples why elimination is not safe in the relaxed memory context.   
+We then prove the validity of read elimination followed by that for write at the Candidate level. 
+Similar to reordering, we further move to prove elimination at the program level (still abstracted to a set of shared memory events) involving conditionals and loops.
+We lastly prove a subset of loop-invariant code-motion using our results from proving elimination and reordering at the program level. 
+\ \newline
+\ \newline  
+\hrule 
+\ \newline 
+\ \newline 
+
+%Change later 
+\input{5.Elimination/0.Intro.tex}
+
+%Approach
+\input{5.Elimination/1.Approach.tex}
+
+%Elimination at the Candidate Level
+\input{5.Elimination/1.ValidEliminationCandidate/main.tex}
+ 
+%Going towards program level
+\input{5.Elimination/2.ValidEliminationProgram/main.tex}
+  
+\ \newline
+\ \newline  
+\hrule 
+\ \newline 
+\ \newline 
+To summarize, this chapter addressed the validity of elimination under the ECMAScript Memory Model. 
+We first built a conservative proof for elimination of read, followed by write based on candidate executions.
+We later extended it to programs abstracted to the set of shared memory events. 
+We then proved when loop invariant code motion is valid using both elimination and reordering at a candidate execution level. 
+In the next chapter, we conclude this thesis, by discussing limitations, next steps, critique of the semantics of the model and ending with general foundational problems that need to be addressed in this domain of research. 

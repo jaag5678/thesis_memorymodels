@@ -1,0 +1,35 @@
+\section{Summary of Our Approach}
+
+    An example-based analysis exposes to us the problems that might exist when we perform such reordering of events. 
+    However, such an analysis, though would work for small programs, become infeasible as the programs scale in length and complexity. 
+    This is because of the exponential increase in possible outcomes as the number of threads and program size increases. 
+    Hence, generalizations by using a small examples is not something we can afford especially when we want to ensure these program transformations are automated in contrast to being done manually.
+    
+    Our solution to this is to construct a proof at the candidate level, which can expose for Candidate Executions of the original program and the transformed one the possible observable behaviors it can have.   
+    The crux of the proof is to guarantee that reordering does not bring any new $\stck{_{rf}}$ (reads-from) relations that did not exist in any Observable Behavior of the original Candidate's set of Candidate Executions. 
+    
+    \paragraph{Assumption}
+    We make the following assumptions for every program we consider:
+    \begin{enumerate}
+        \item All events are tear-free.
+        \item No synchronize events exist.
+        \item No Read-Modify-Write events exist.
+        \item All executions of the candidate before reordering have happens-before as a strict partial order.
+    \end{enumerate}
+    
+    We first consider when consecutive events in the same agent can be reordered, followed by non-consecutive cases. 
+    We view reordering as manipulating the agent-order relation. 
+    In that sense, reordering two consecutive events $e$ and $d$ such that $e \stck{_{ao}} d$ becomes:
+    \[
+        e \stck{_{ao}} d 
+        \longmapsto
+        d \stck{_{ao}} e 
+    \]
+
+    What implications this change has on the Observable Behaviors depends on the type of events $e$ and $d$ are.
+    The intuition is that the axioms of the memory model rely on certain ordering relations to restrict observable behaviors in a program.
+    Hence, preserving these ordering relations would help us in turn not introduce new Observable Behaviors.
+    In particular we note that preserving $\stck{_{hb}}$ relations (other than the one we eliminate intentionally i.e $\reln{e}{hb}{d}$) would suffice for our purpose. 
+    Since $\stck{_{mo}}$ respects $\stck{_{hb}}$, we in turn even preserve memory orders which are essential.  
+    
+

@@ -1,0 +1,30 @@
+\section{Steps Further}
+
+    We elicit in this section the remaining road-map we had in mind during the inception of this thesis. 
+    We believe these are the following steps that anyone can take using our results to move towards practical relevance.
+
+    \paragraph{Addressing Read-Modify-Write}
+        So far we have assumed that no read-modify-write(RMW) events exist in programs.
+        However, this assumption, in general, is too strong(eg: Compare-and-Swap, Atomic Increment/Decrement are often used in programs).
+        The validity of reordering/elimination when RMW events are involved should be done to have a complete analysis of these two transformations in terms of shared memory accesses.
+
+    \paragraph{Incorporating Tearing Factor}
+        The role of tearing is still not clear to us.
+        Axiom \ref{TfRe} does not rely on any partial order relations other than reads-from. 
+        Since our approach is mainly reliant on preserving happens-before, our intuition is that our results should ideally be independent of the tearing factor.
+        However, a proof including tearing events is still needed.   
+  
+    \paragraph{Role of synchronize/host-specific events}
+        We have not yet considered the role of synchronize events. 
+        Though for a programmer this is equivalent to wait and notify, reordering and elimination under their presence is something we have not considered. 
+        This we suspect would require understanding the operational aspect of wait / notify procedures.
+
+        We do not yet know how Host-Specific synchronize events work with relaxed memory accesses.
+        However, their semantics from a consistency model perspective is given to be same as that of synchronize events. 
+        A detailed analysis must be done before incorporating its role. 
+    
+    \paragraph{Addressing other basic program transformations}
+        Addressing redundancy introduction as an immediate next step would prove useful.
+        Using it, we can analyze reordering of events across loops. 
+        This will also give an interesting equivalence to instruction reordering. 
+        Other program transformations we find important to consider are strengthening/ weakening access modes (fence optimizations), gathering optimization(merging small size accesses), changing tearing factor of accesses. 

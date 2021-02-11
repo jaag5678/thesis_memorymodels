@@ -1,0 +1,31 @@
+The previous chapter addressed the validity of elimination of relaxed memory accesses. 
+We also showed how validity of loop invariant code motion can be done using reordering coupled with elimination of events. 
+In this concluding chapter, we discuss the limitations of our approach from a practical standpoint.
+We later chart out further steps that can be taken from our work that we find important to address.
+We then give our critique of the model in terms of mixed size and tear-free factor of accesses. 
+We finally conclude with possible future work in the domain of relaxed memory models.
+\ \newline
+\ \newline  
+\hrule 
+\ \newline 
+\ \newline 
+
+\input{6.ConclusionFutureWork/1.Limitations.tex}
+
+\input{6.ConclusionFutureWork/2.NextSteps.tex}
+
+\input{6.ConclusionFutureWork/3.OtherProblemsModel.tex}
+
+\input{6.ConclusionFutureWork/5.FutureWork.tex}
+
+\ \newline
+\ \newline  
+\hrule 
+\ \newline 
+\ \newline 
+The advent of concurrent computation called upon a major change in how we view the executions of our programs, forcing us to move away from sequential reasoning.
+With the introduction of relaxed memory consistency, this sequential reasoning became more of a hurdle.
+The need for non-sequential weak memory reasoning is still not something that is viewed by many necessary, which is why we still have problems that come up with the specification of weak memory models.
+This thesis is a minor contribution towards having an intuitive non-sequential reasoning about concurrent programs, in a way that also in our eyes facilitates one to quickly identify potential problems with respect to program transformations. 
+A major change at the educational as well as industrial level has to come, in order to propel the transformation towards user's view of their programs not as a sequential computation machines, but as a collection of partial orders with dependencies established between program components.
+We sincerely hope that this thesis helps in paving way towards that direction.
