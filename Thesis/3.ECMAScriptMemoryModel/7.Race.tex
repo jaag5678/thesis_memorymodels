@@ -1,12 +1,31 @@
 %Races----------------------------------------------------------------------------------------------------------------------------------     
     \section{Race}
+
+        We would want our concurrent programs to be written in such a way that the order in which shared memory is read from or written to is deterministic.
+        This, however, may not always be the case. 
+        For applications such as client-server interactions, we would rather be more comfortable keeping the client requests being serviced in a non-deterministic fashion. 
+        This is because clients can be in millions, and always having a fixed order in which they should be serviced may not be ideal.
+        The accesses to shared memory that are involved, which need to be deterministically ordered, but are left to program execution, are said to \textit{race} and are in a \textit{race condition}.
+        Pairs of accesses that need to be ordered are those whose order affects the final outcome (observable behavior) of the program.
+        In our view, they are simply those pairs, of which at least one of them is a write. 
+        
+        In the context of relaxed memory accesses, another type of race exists.
+        In the normal \textit{race condition}, though accesses are not ordered deterministically by us, every execution will give us an outcome that can be justified using one particular order in which the concurrent accesses were issued. 
+        However, there could be cases, i.e. outcomes of program execution, where no ordering among these accesses can justify\footnotemark.
+        In such a situation, concurrent accesses are said to have a \textit{data race} among them.    
+        
+        \footnotetext{This is attributed to the notion of \textit{atomicity}. Atomic accesses, ensure that only the outcomes that result due to their different orderings are possible. Other accesses that do not respect this rule are called \textit{non-atomic}. In the context of our model, they are considered to be of type $uo$.}
+
+        We define the two forms of races formally with respect to the ECMAScript memory model.
         
         \subsection{Race Condition $RC$} 
-            We define \set{RC} as the set of all pairs of events that are in a race. Two events $e$ and $d$ are in a race condition when they are shared memory events:
+            We define \set{RC} as the set of all pairs of events that are in a race. 
+            Two events $e$ and $d$ are in a race when they are shared memory events:
             \begin{align*}
                 (e \in SM)\ \wedge\ (d \in SM).
             \end{align*}
-            having overlapping ranges, not having a $\stck{_\textit{hb}}$ relation with each other, and which are either two writes or the two events are involved in a $\stck{_\textit{rf}}$ relation with each other. This can be stated concisely as,
+            having overlapping or equal ranges, not ordered by the $\stck{_\textit{hb}}$ relation with each other, and which are either two writes or the two events are involved in a $\stck{_\textit{rf}}$ relation with each other. 
+            This can be stated concisely as,
             \begin{align*}
                 \neg \ (\reln{e}{hb}{d})\ \wedge\ \neg \ (\reln{d}{hb}{e}) 
                 \ \wedge \ 
@@ -17,16 +36,16 @@
             \end{align*}
                     
         \subsection{Data Race $DR$} 
-            We define \set{DR} as the set of all pairs of events that are in a data-race. Two events are in a data race when they are already in a race condition and when the two events are not both of type \textit{sc}, or they have overlapping ranges. This is concisely stated as:  
+            We define \set{DR} as the set of all pairs of events that are in a data-race. 
+            Two events are in a data race when they are already in a race condition and when the two events are not both of type \textit{sc}, or they have overlapping ranges. 
+            This is concisely stated as:  
             \begin{align*}
                 \event{e,d}{RC}  \ \wedge \ 
                 ((\neg\et{e}{sc} \ \vee \ \neg\et{d}{sc}) \ \vee \ 
                 (\Re(e) \cap_{\Re} \Re(d) \neq \Re(e) \cup_{\Re} \Re(d))). 
             \end{align*}
             
-            \critic{red}{The definition for data race also implies that sequentially consistent events with overlapping ranges are also in a data race. This may be counter-intuitive in the sense that all agents observe the same order in which these events happen.}
-        
         \paragraph{Data-Race-Free (DRF) Programs}
-            An execution is considered data-race free if none of the above conditions for data-races occur among events. A program is data-race free if all its executions are data race free.          
-            \textit{The memory model guarantees Sequential Consistency for all data-race free programs (SC-DRF).}
-        
+            An execution is considered data-race-free if none of the above conditions for \textit{data-race} occur among events in a candidate execution and its observable behaviors. 
+            A program is data-race-free if all its executions are data-race-free.          
+            \textit{The memory model guarantees Sequential Consistency for all data-race free programs (SC-DRF).}      
