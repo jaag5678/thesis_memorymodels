@@ -5,10 +5,12 @@
      
     \paragraph{Simple reordering is not straightforward under shared memory semantics}
     The main reason is that memory accesses here, do not just perform the desired operation (i.e Read / Write) but also imply certain visibility guarantees across all the other threads.  
-    In our observation, we find that, the relaxed memory model of ECMAScript prescribe semantics for visibility using the $\stck{_{hb}}$ relations. 
+    The relaxed memory model of ECMAScript prescribes semantics for visibility using the $\stck{_{hb}}$ relations. 
     
     \paragraph{Some Examples}
         We show a couple of examples to showcase why reordering may not be that straightforward. 
+        In all the examples, we only show those ordering relations that are relevant to our purpose. 
+
         Consider the first example in Figure~\ref{reord:example1(a)} below of a Candidate before and after reordering two events.
         The original candidate is to the left and that on the right is after reordering the two reads of $T2$.
         The observable behavior in question is written in the middle(orange box). 
@@ -20,11 +22,12 @@
         \end{figure}
         
         Figure~\ref{reord:example1(b)} has two sets of relations. 
-        The first justifies the outcome for the reordered Candidate. 
-        While the second justifies for the original Candidate. 
-        Notice that in the first set of relations, we can infer that one may have a read memory ordered before a write that it reads from. 
-        This is quite counter intuitive to understand at first. 
-        But strictly from the semantics of the model, this justification to the observable behavior is completely valid\footnotemark. 
+        The first justifies the observable behavior for the reordered Candidate. 
+        While the second provides justification for the original Candidate. 
+        Notice that in the second set of relations, one may have a Candidate Execution with the mentioned memory order, where the read memory ordered before a write can read from it. 
+        Neither Axiom \ref{CoRe} nor Axiom \ref{SeqCsAt} restrict the pattern prescribed by this.
+        This is quite counter-intuitive to understand at first. 
+        From the semantics of the model, this justification to the observable behavior however, is completely valid\footnotemark. 
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{4.InstructionReordering/0.Intro/ReorderingExample1(b).pdf}
@@ -32,7 +35,7 @@
             \label{reord:example1(b)}
         \end{figure}
 
-        \footnotetext{In practice, this can be due to read speculation at the hardware level.}
+        \footnotetext{In practice, this can be due to read speculation at the hardware level or due to reordering the two reads as an optimization that we show here.}
         
         Consider another example in Figure~\ref{reord:example2(a)}.
         The figure on the left is the original candidate and that on the right is after reordering the two events of $T1$.
@@ -45,7 +48,7 @@
         \end{figure}
    
         Figure~\ref{reord:example2(b)} has two sets of relations. 
-        The first justifies that such an outcome is not possible for the original program candidate due to Axiom \ref{CoRe}. 
+        The first justifies that such an outcome is not possible for the original program candidate due to Axiom \ref{CoRe} applied to the read $a=x;_{uo}$ and the write $x=1;_{uo}$ that it reads from. 
         While the second justifies that this outcome is possible for the reordered program.
         Note that we cannot infer in the reordered candidate the set of relations for any candidate execution to have $\reln{a=x;_{uo}}{hb}{x=1;_{uo}}$. 
         \begin{figure}[H]
@@ -56,8 +59,7 @@
         \end{figure}
 
         The above two examples show that we have to be careful while reordering two events in the same thread. 
-        By example analysis, for each observable behavior, one must check all possible candidate executions and assert whether such an observable is possible or not. 
-        This method of checking validity of reordering will scale exponentially as the program size increases. 
+        Naively, for each observable behavior, one must check all possible candidate executions and assert whether it is possible or not. 
         It may also be the case that the compiler may not have information on which exact events would be executed in other threads to assert such reordering is valid. 
 
     
