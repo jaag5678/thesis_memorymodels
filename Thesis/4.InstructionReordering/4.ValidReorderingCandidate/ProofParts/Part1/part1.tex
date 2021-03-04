@@ -2,17 +2,16 @@
 \paragraph{1. Preserving \textit{happens-before} relations}
         
     If $\stck{_{hb}}$ relations among events are lost after reordering, they may introduce new observable behaviors. The relations that are subject to change can be divided into four parts using events $e$ and $d$.
-    \begin{tasks}(2)
+    \begin{tasks}[style=enumerate](2)
         \task $\reln{k}{hb}{e}$.
         \task $\reln{e}{hb}{k}$.
         \task $\reln{d}{hb}{k}$.
         \task $\reln{k}{hb}{d}$.
     \end{tasks}
 
-    Firstly, note that the relations of the form $\reln{e}{hb}{k}$ come through either a $\stck{_{sw}}$ relation with $e$ or relations through event $d$, i.e. of the form $\reln{d}{hb}{k}$. 
+    Firstly, note that the relations of the form (2) come through either a $\stck{_{sw}}$ relation with $e$ or relations through event $d$, i.e. of the form (3)). 
     The ones that come due to the latter, may not be preserved after reordering. 
-    Note also that, a similar argument exists for relations of the form $\reln{k}{hb}{d}$ wherein relations derived through $e$($\reln{k}{hb}{e}$) may be lost after reordering. 
-
+    Note also that, a similar argument exists for relations of the form (4) wherein relations derived through (1) may be lost after reordering. 
     Hence, the relations that could be subject to change can be addressed by considering two disjoint sets of events in any \textit{Candidate Execution} of $C$ as below.
     \begin{align*}
        K_e = \{k \ | \ \reln{k}{hb}{e} \}. \\
@@ -27,7 +26,9 @@
         \label{reord:preserve_hb(a)}
     \end{figure}
     
-    Consider two events $\event{p1}{K_e}$ and $\event{p2}{K_d}$ (When $e$ is the first event or $d$ is the last event, assume dummy events that can act as $p1$ or $p2$.) belonging to the same agent as that of $e$ and $d$ such that in $C$:
+    \critic{red}{change the above figure to represent sets as clouds.}
+
+    Consider two events $\event{p1}{K_e}$ and $\event{p2}{K_d}$ (When $e$ is the first event or $d$ is the last event in an agent event list, assume dummy events that can act as $p1$ or $p2$.) belonging to the same agent as that of $e$ and $d$ such that in $C$:
     \begin{align*}
         dir(p1,e)\ \wedge\ dir(d,p2).
     \end{align*}
@@ -40,7 +41,7 @@
         \label{reord:preserve_hb(b)}
     \end{figure}
     
-    The figure above is to show that, for any $Candidate Execution$ of $C$, the following is true
+    Figure~\ref{reord:preserve_hb(b)} is to show that, for any $Candidate Execution$ of $C$, the following is true
     \[
         cons(p1,e) \ \wedge dir(p1,e) \ \wedge dir(e,d) \ \wedge cons(d,p2) \ \wedge \ dir(d,p2).
     \]
@@ -50,33 +51,37 @@
     \]
     
     We need the following key relations to be preserved in Candidate executions of $C'$ 
-    \begin{tasks}(2)
+    \begin{tasks}[style=enumerate](2)
         \task $\reln{p1}{hb}{e}.$
         \task $\reln{e}{hb}{k}.$
         \task $\reln{d}{hb}{p2}.$
         \task $\reln{k}{hb}{d}.$ 
     \end{tasks}
 
-    After reordering, we have (a) and (c) preserved due to transitivity  
+    After reordering, we have (1) and (3) preserved due to transitivity  
     \begin{gather*}
         \reln{p1}{hb}{d} \ \wedge \ \reln{d}{hb}{e} \ \Rightarrow \ \reln{p1}{hb}{e}. \\
         \reln{e}{hb}{p2} \ \wedge \ \reln{d}{hb}{e} \ \Rightarrow \ \reln{d}{hb}{p2}. \\
         \reln{p1}{hb}{d} \ \wedge \ \reln{d}{hb}{e} \ \wedge \ \reln{e}{hb}{p2} \ \Rightarrow \ \reln{p1}{hb}{p2}. 
     \end{gather*}
 
-    (b) and (d) may not be preserved due to $\reln{d}{sw}{k}$ or $\reln{k}{sw}{d}$. If we can "pivot" the  set $K_e$ to $p1$ and $K_d$ to $p2$, it would ensure that our other two intended relations also remain preserved after reordering by transitivity. To state formally, we have a valid pair of pivots $<p1,p2>$ when the following two conditions hold
+    (2) and (4) may not be preserved due to $\reln{d}{sw}{k}$ or $\reln{k}{sw}{d}$. If we can ``pivot" the  set $K_e$ to $p1$ and $K_d$ to $p2$, it would ensure that our other two intended relations also remain preserved after reordering by transitivity. To state formally, we have a valid pair of pivots $<p1,p2>$ when the following two conditions hold
     \begin{gather*}
         \forall \ k \in K_e - \{p1\}, \ \reln{k}{hb}{p1}. \\
         \forall \ k \in K_d - \{p2\}, \ \reln{p2}{hb}{k}.
     \end{gather*}
     
-    By Lemma \ref{Lemma1} and \ref{Lemma2} respectively, we have for $C$, the following condition where $<p1, p2>$ is a valid pivot pair.
+    Applying Lemma \ref{Lemma1} for events $p1,e$ and Lemma \ref{Lemma2} for events $p2,d$ respectively, we have for $C$, the following condition where $<p1, p2>$ is a valid pivot pair.
     \begin{gather*}
         \et{e}{uo} \vee (\et{e}{sc} \wedge \event{e}{W}). \\
         \et{d}{uo} \vee (\et{d}{sc} \wedge \event{d}{R}).
     \end{gather*}
         
     Figure~\ref{reord:preserve_hb_table} summarizes the cases where we have a valid pair of pivots\footnotemark $<p1,p2>$.
+    THe first cell describes the purpose of the table (here it is valid pair of pivots).
+    The column represents the cases for the types of events $e,d$ in that order. 
+    The row represents the cases of $e,d$ being a read/write in that order. 
+    Note that all further tables summarizing our results will follow this format. 
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.7]{4.InstructionReordering/4.ValidReorderingCandidate/ProofParts/Part1/part1_table.pdf}
@@ -84,8 +89,8 @@
         \label{reord:preserve_hb_table}
     \end{figure}
             
-    We show a simple example (Figure~\ref{reord:preserve_hb(c)} and \ref{reord:preserve_hb(d)}) where we do not have a valid pair of pivots, particularly because $p1$ is not a valid pivot. 
-    Note that in this example, $K_e = K_{e1} + K_{e2} + p1 + p_x$
+    We show for case where $e \in R \wedge \et{e}{sc} \wedge d \in W \wedge \et{d}{uo}$ (Figure~\ref{reord:preserve_hb(c)} and \ref{reord:preserve_hb(d)}) where we do not have a valid pair of pivots; particularly because $p1$ is not a valid pivot. 
+    Note that in this example, $K_e = K_{e1} \cup K_{e2} \cup \{p1\} \cup \{p_x\}$
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.6]{4.InstructionReordering/4.ValidReorderingCandidate/ProofParts/Part1/part1(e).pdf}

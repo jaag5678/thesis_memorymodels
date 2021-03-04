@@ -1,8 +1,9 @@
-Now that we know when two consecutive events can be reordered, we shift our focus to the general reordering of events in an agent. The following corollaries cover all those cases. 
+Now that we know when two consecutive events can be reordered, we shift our focus to the general reordering of events in an agent. 
+The following corollaries cover all those cases. 
 
 \begin{corollary}
     \label{CorollReord}
-    Consider a Candidate C of a program and its Candidate Executions which are valid. 
+    Consider a Candidate C of a program and its valid Candidate Executions.
     Consider two events $e$ and $d$ such that $\neg \cons{e}{d}$ is true in C and $\reln{e}{ao}{d}$. 
     Consider another Candidate C' resulting after reordering $e$ and $d$ in C. 
     If
@@ -82,9 +83,11 @@ Now that we know when two consecutive events can be reordered, we shift our focu
         Hence, by induction the proof is complete. 
 \end{proof}
     
+The next two corollaries will help us prove the validity of reordering when loops and conditionals are involved. 
+
 \begin{corollary}
     \label{CorollCodeMotion1}
-    Consider a Candidate C of a program and its Candidate Executions which are valid. 
+    Consider a Candidate C of a program and its valid Candidate Executions. 
     Consider a set of events $k_{i \in[1,n]}$ such that $\reln{k_i}{ao}{k_{i+1}} \wedge \cons{k_i}{k_{i+1}}$.
     Consider an event $e$ such that 
     \begin{align*}
@@ -104,7 +107,7 @@ Now that we know when two consecutive events can be reordered, we shift our focu
 
 \begin{corollary}
     \label{CorollCodeMotion2}
-    Consider a Candidate C of a program and its Candidate Executions which are valid.
+    Consider a Candidate C of a program and its valid Candidate Executions.
     Consider a set of events $k_{i \in[1,n]}$ such that $\reln{k_i}{ao}{k_{i+1}} \wedge \cons{k_i}{k_{i+1}}$.
     Consider an event $d$ such that 
     \begin{align*}

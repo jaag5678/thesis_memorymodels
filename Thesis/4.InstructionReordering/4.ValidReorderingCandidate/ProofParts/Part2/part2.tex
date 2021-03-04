@@ -13,9 +13,9 @@
         \reln{k}{hb}{d} \Rightarrow \reln{k}{hb}{e}. 
     \]
 
-    This is because, there are \textit{happens-before} relations that come through \textit{synchronize-with} relations with $d$. 
-    Thus, although we are able to preserve relations that existed in any $Candidate Execution$ of $C$, we also in the process, introduce new ones in $Candidate Executions$ of $C'$. 
-    Figures~\ref{reord:add_reln(a)} and \ref{reord:add_reln(b)} shows pictorially an example of a Candidate Execution of $C$ for the case above 
+    This is because there are \textit{happens-before} relations that come through \textit{synchronize-with} relations with $d$. 
+    Thus, although we are able to preserve relations that existed in any $Candidate Execution$ of $C$, we also in the process, may introduce new ones in $Candidate Executions$ of $C'$. 
+    Figures~\ref{reord:add_reln(a)} and \ref{reord:add_reln(b)} shows pictorially an example of a set of relations that may exist in a  Candidate Execution of $C$ for the case above: 
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.7]{4.InstructionReordering/4.ValidReorderingCandidate/ProofParts/Part2/part2(c).pdf}

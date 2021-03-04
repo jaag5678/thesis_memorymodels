@@ -1,7 +1,7 @@
 
 \section{Valid reordering at the Candidate Level}
     
-    Our main objective is to ensure that the set of possible observable behaviors of a program, remain unchanged after reordering. '
+    Our main objective is to ensure that the set of possible observable behaviors of a program, remain unchanged after reordering.
     If that is not feasible, then we would want the set of observable behaviors after reordering at the very least to be a subset.
 
     \subsection{Reordering of Consecutive Events}
@@ -11,6 +11,8 @@
     \subsection{Reordering Non-Consecutive Events}
         \input{4.InstructionReordering/4.ValidReorderingCandidate/corollary.tex}
 
-    \subsection{Counter Examples for all the Invalid Cases}
-        \input{4.InstructionReordering/4.ValidReorderingCandidate/counter_examples.tex}
-
+    For cases where reordering is not safe to do, we also show counter examples of programs where new observable behaviors are introduced.
+    This additionally helps gain intuition about the proof given. 
+    Note that we do not show examples for cases where $\reln{d}{hb}{e}$ itself is sufficient to show a new observable behavior, as this is a trivial exercise that can be done just using sequential programs.
+    We show counterexamples where $\stck{_{hb}}$ relations lost (those across agents specifically), could introduce new observable behaviors. 
+    These examples are in Appendix A.1.

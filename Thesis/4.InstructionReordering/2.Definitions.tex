@@ -20,23 +20,26 @@ Before we go about proving when reordering is valid, we define certain helper de
             \nexists k \ \textit{s.t.} \ 
             d \stck{_\textit{ao}} k  \ \wedge \
             k \stck{_\textit{ao}} e  
-        )
+        ).
     \end{align*}
 \end{definition}
 
 \begin{definition}{Direct happens-before relation (dir)}
     \label{Dir}
-    We define \emph{dir} to take an ordered pair of events $(e,d)$ such that $\reln{e}{hb}{d}$ and gives a boolean value to indicate whether this relation is \textit{direct}, i.e those relations that are not derived through transitive property of $\stck{_\textit{hb}}$.
+    We define \emph{dir} to take an ordered pair of events $(e,d)$ such that $\reln{e}{hb}{d}$ and gives a boolean value to indicate whether this relation is \textit{direct}, which can be formally stated as follows:
+    \begin{align*}
+        \nexists k \ \text{s.t.} \ \reln{e}{hb}{k} \wedge \reln{k}{hb}{d}.
+    \end{align*}
     
-    We can infer some useful things using this function based on some information on events $e$ and $d$\footnotemark. 
-    \begin{itemize}
-        \item If $\et{e}{uo}$, then $dir(e,d) \ \Rightarrow \ cons(e,d)$ 
-        \item If $\et{d}{uo}$, then $dir(e,d) \ \Rightarrow \ cons(e,d)$
-        \item If $\et{e}{sc}\ \wedge\ e\!\in\!R$, then $dir(e,d) \ \Rightarrow \ cons(e,d)$
-        \item If $\et{e}{sc}\ \wedge\ e\!\in\!W$, then $dir(e,d) \ \Rightarrow \ cons(e,d)\ \vee\ \reln{e}{sw}{d}$
-        \item If $\et{d}{sc}\ \wedge\ d\!\in\!W$, then $dir(e,d) \ \Rightarrow \ cons(e,d)$
-        \item If $\et{d}{sc}\ \wedge\ e\!\in\!R$, then $dir(e,d) \ \Rightarrow \ cons(e,d)\ \vee\ \reln{e}{sw}{d}$
-    \end{itemize}
+    We can infer some useful things using \emph{dir} based on some information on events $e$ and $d$\footnotemark. 
+    \begin{enumerate}
+        \item If $\et{e}{uo}$, then $dir(e,d) \ \Rightarrow \ cons(e,d).$ 
+        \item If $\et{d}{uo}$, then $dir(e,d) \ \Rightarrow \ cons(e,d).$
+        \item If $\et{e}{sc}\ \wedge\ e\!\in\!R$, then $dir(e,d) \ \Rightarrow \ cons(e,d).$
+        \item If $\et{e}{sc}\ \wedge\ e\!\in\!W$, then $dir(e,d) \ \Rightarrow \ cons(e,d)\ \vee\ \reln{e}{sw}{d}.$
+        \item If $\et{d}{sc}\ \wedge\ d\!\in\!W$, then $dir(e,d) \ \Rightarrow \ cons(e,d).$
+        \item If $\et{d}{sc}\ \wedge\ e\!\in\!R$, then $dir(e,d) \ \Rightarrow \ cons(e,d)\ \vee\ \reln{e}{sw}{d}.$
+    \end{enumerate}
 
     \footnotetext{They can be proved trivially using definitions of $\stck{_{hb}}, \stck{_{sw}} \text{and} \stck{_{ao}}$}.
 \end{definition}
@@ -65,7 +68,7 @@ Before we go about proving when reordering is valid, we define certain helper de
                     (\event{d}{R} \ \wedge \ (\Re(e) \cap_\Re \Re(d) = \phi)) 
                 )
         )
-        )
+        ).
     \end{align*}
 
     \footnotetext{We later prove that this exact definition defines when a pair of two consecutive events are reorderable.}

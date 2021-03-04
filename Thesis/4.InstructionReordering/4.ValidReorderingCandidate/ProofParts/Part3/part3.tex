@@ -7,28 +7,27 @@
     \begin{enumerate}
         \item The relations preserved do not themselves create a cycle (ref to the theorem).
         \item Additional new relations may introduce cycles.
+        \item At least 3 events will be involved in the cycle.
     \end{enumerate}
 
-    The first part is straightforward as we assume we can only do reordering on Candidate Executions of $C$ not having happens-before cycles. 
+    The first part is straightforward as we only do reordering on Candidate Executions of $C$ not having happens-before cycles. 
     For the second part, we first address the cases where $\reln{d}{hb}{e}$ may be part of the cycle. 
-    The other event $k$, may be either from the set $K_e$, $K_d$ or a new relation that is formed\footnotemark.
-
-    \footnotetext{$K_e$ and $K_d$ only apart from the new relation because these are the only valid cases where happens-before relations are preserved after reordering. So we need not consider cases such that $\reln{e}{hb}{k}$ or $\reln{k}{hb}{d}$ as the old relations they are covered by $K_e$ and $K_d$.}
+    The third event $k$, may be either from the set $K_e$, $K_d$ or a new relation that is formed.
     
     Figure~\ref{reord:cycle(a)} shows that $k$ cannot belong to either of the sets, as their relations with $e$ and $d$ will not result in a cycle. 
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.7]{4.InstructionReordering/4.ValidReorderingCandidate/ProofParts/Part3/part3(b).pdf}
-        \caption{If event $k$ is from $K_e$ or $K_d$, there are not happens-before cycles.}
+        \caption{If event $k$ is from $K_e$ or $K_d$, there cannot be happens-before cycles.}
         \label{reord:cycle(a)}
     \end{figure}
 
-    For cases where $\reln{k}{hb}{e}$ is the set of new relations, note that by lemma 1
+    For cases where $\reln{k}{hb}{e}$ is in the set of new relations, note that by Lemma \ref{lemma:first}
     \[
         \reln{k}{hb}{e} \Rightarrow \reln{k}{hb}{d}.
     \]
 
-    For cases where $\reln{d}{hb}{k}$ is the set of new relations, by lemma 2
+    For cases where $\reln{d}{hb}{k}$ is the set of new relations, by Lemma \ref{lemma:second}
     \[
         \reln{d}{hb}{k} \Rightarrow \reln{e}{hb}{k}.
     \]
@@ -43,17 +42,15 @@
     \end{figure}
 
     For the one case where we have two new sets of relations formed, i.e $\reln{d}{hb}{k}$ and $\reln{k}{hb}{e}$, we could have a case where $k$ is a common event for both sets. 
-    But, by Lemma \ref{Lemma1}, we also have $\reln{k}{hb}{d}$ and by Lemma \ref{Lemma2}, $\reln{e}{hb}{k}$\footnotemark. 
+    But, by Lemma \ref{Lemma1}, we also have $\reln{k}{hb}{d}$ and by Lemma \ref{Lemma2}, $\reln{e}{hb}{k}$. 
     Thus, we have a cycle. 
     Figure~\ref{reord:cycle(c)} below shows this pictorially.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.7]{4.InstructionReordering/4.ValidReorderingCandidate/ProofParts/Part3/part3(d).pdf}
-        \caption{Sets of relations $\reln{k}{hb}{e}$ and $\reln{d}{hb}{k}$ creates a cycle.}
+        \caption{Relations $\reln{k}{hb}{e}$ and $\reln{d}{hb}{k}$ creates a cycle.}
         \label{reord:cycle(c)}
     \end{figure}
-
-    \footnotetext{It is not actually due to lemmas, but just that the new relations were derived through $e$ or $d$, as these relations existed before reordering.}
 
     Now for the case when $\reln{d}{hb}{e}$ may not be part of the cycle, we have only two other new relations, $\reln{k}{hb}{e}$ or $\reln{d}{hb}{k}$.
 
