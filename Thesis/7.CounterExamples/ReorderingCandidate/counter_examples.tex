@@ -1,12 +1,13 @@
 
 
     For all the examples we show here, we only show the ordering relations that are important to observe. 
-    Putting all the relations among different events in the example will result in confusion, hence we avoid them. 
+    We exhaustively show for all the cases from Table \ref{reord:final_table} where reordering is not safe to do. 
+    Some of these cases are addressed together as the same counter example suffices to show they are unsafe to do.
 
-    \paragraph{Reads to same memory where $e$ is of type $sc$ while $d$ is of either $uo/sc$}
+    \paragraph{Reads to same memory where $e$ is of type $sc$ and $d$ is either $uo/sc$}
 
         The following example illustrates when reordering two reads to $x$ as per the specification of their access orders and range results in an observable behavior disallowed.
-        Figure~\ref{reord_counter:example1(a)} shows an example of a candidate(left) along with with its candidate execution(right) where the case of outcome in the red box is not possible. 
+        Figure~\ref{reord_counter:example1(a)} shows an example of a candidate (left) along with with its candidate execution (right) where the case of outcome in the red box is not possible. 
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{7.CounterExamples/ReorderingCandidate/Example0(Rsc-Ruo,sc).pdf}
@@ -14,16 +15,17 @@
             \label{reord_counter:example1(a)}
         \end{figure}
         
-        Observations:
         \begin{itemize}
-            \item We can infer from the Candidate Execution that $\reln{x=1;_{sc}}{hb}{b=x;_{sc}}$.
-            \item Because $\reln{\{x=2;_{sc}\}}{sw}{\{b=x;_{sc}\}}$, this means the read value of $b$ is $2$.
-            \item From the above two, we can infer $\reln{\{x=2;_{sc}\}}{mo}{\{x=2;_{sc}\}}$.
-            \item We can then also infer that $\reln{\{x=1;_{sc}\}}{hb}{\{c=x;_{uo/sc}\}}$ and $\reln{\{x=2;_{sc}\}}{hb}{\{b=x;_{uo/sc}\}}$.
-            \item By Axiom \ref{SeqCsAt} pattern 1 and 3, the read value for $c$ cannot be $1$.
+            \item For $a=2$, it must come from the write $y=2;_{sc}$. 
+            Thus, we would have $\reln{\{y=2;_{sc}\}}{sw}{\{a=y;_{sc}\}}$ and hence $\reln{\{y=2;_{sc}\}}{hb}{\{a=y;_{sc}\}}$.
+            \item For $b=2$, it must come from the write $x=2$. 
+            Thus, we would have $\reln{\{x=2;_{sc}\}}{sw}{\{b=x;_{sc}\}}$ and hence $\reln{\{x=2;_{sc}\}}{hb}{\{b=x;_{sc}\}}$.
+            \item Using $\stck{_{ao}}$ and the above result, we can infer that $\reln{\{x=2;_{sc}\}}{mo}{\{x=2;_{sc}\}}$, $\reln{\{x=1;_{sc}\}}{hb}{\{c=x;_{uo/sc}\}}$ and $\reln{\{x=2;_{sc}\}}{hb}{\{c=x;_{uo/sc}\}}$.
+            \item These relations correspond to patterns of Axiom \ref{SeqCsAt}, from which we can conclude that we cannot have $\reln{\{c=x;_{uo/sc}\}}{rf}{\{x=1;_{sc}\}}$.         
         \end{itemize}
+        Hence, the observable behavior $a=2 \ \wedge \ b=2 \ \wedge \ c=1$ is disallowed.
 
-        Figure~\ref{reord_counter:example1(b)} shows the Candidate(right) after reordering the two reads in $T2$ along with its candidate execution(left) where the same case of reads(orange box) is possible. 
+        Figure~\ref{reord_counter:example1(b)} shows the Candidate (right) after reordering the two reads in $T2$ along with its candidate execution (left) where the same case of reads(orange box) is possible. 
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{7.CounterExamples/ReorderingCandidate/Example0R(Rsc-Ruo,sc).pdf}
@@ -31,22 +33,22 @@
             \label{reord_counter:example1(b)}
         \end{figure}
 
-        Observations
         \begin{itemize}
-            \item We can infer from the Candidate Execution that $\reln{\{x=1;_{sc}\}}{hb}{\{c=x;_{uo/sc}\}}$.
-            \item No Axiom has restrictions on $\stck{_{rf}}$ between the above two events.
-            \item Hence, the read value of $c$ can be $1$.
-            \item Further, the memory order is not inferred yet\footnotemark, hence, the read value for $b$ can be $2$.
-            \item Hence the reordering of the two reads is invalid. 
+            \item For $a=2$, it must come from the write $y=2_{sc}$. 
+            Thus, we would have $\reln{\{y=2;_{sc}\}}{sw}{\{a=y;_{sc}\}}$ and hence $\reln{\{y=2;_{sc}\}}{hb}{\{a=y;_{sc}\}}$.
+            \item From this, we also get $\reln{\{x=1;_{sc}\}}{hb}{\{c=x;_{uo/sc}\}}$ and $\reln{\{x=1;_{sc}\}}{hb}{\{b=x;_{sc}\}}$.
+            \item Now, for $c=1$, it must come from the write $\{x=1;_{sc}\}$. 
+            This is possible as the above relations do not represent any pattern that restricts $\reln{\{c=x;_{uo/sc}\}}{rf}{\{x=1;_{sc}\}}$. .  
+            \item Now for $b=2$, it must come from the write $\{x=2;_{sc}\}$.
+            Since there is no happens-before or memory-order relations with this write, none of the axioms would restrict $\reln{\{b=x;_{sc}\}}{rf}{\{x=2;_{sc}\}}$.        
         \end{itemize}
-
-        \footnotetext{Note that if the memory order was reversed in the original candidate execution, Axiom \ref{SeqCsAt} would restrict the value of $b$ to be $1$. Since this is not possible due to the synchronized relation established, it must be the case that $x=1$ is memory ordered before $x=2$.}
+        Thus, the observable behavior $a=1 \ \wedge \ b=2 \ \wedge \ c=2$ is allowed by the program after reordering. 
         
 %---------------------------------------------------------------------------------------------------------------------------------------
     
     \paragraph{A Read $e$ of type $sc$ followed by a Write of either $uo/sc$}
         
-        Figure~\ref{reord_counter:example2(a)} shows an example of a candidate(left) along with with its candidate execution(right) where the case of outcome in the red box is not possible. 
+        Figure~\ref{reord_counter:example2(a)} shows an example of a candidate (left) along with with its candidate execution (right) where the case of outcome in the red box is not possible. 
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{7.CounterExamples/ReorderingCandidate/Example3(Rsc-Wuo,sc).pdf}
@@ -56,10 +58,12 @@
 
         Observations:
         \begin{itemize}
-            \item From the Candidate Execution, we can infer $\reln{\{b=y_{uo/sc}\}}{hb}{\{y=1_{uo/sc}\}}$
-            \item By Axiom \ref{CoRe}, $b$ cannot read the value of $1$ as $y$. 
-            \item This inference was due to $\reln{\{x=1_{sc}\}}{hb}{\{a=x{sc}\}}$
+            \item For $a=1$, it must come from the write $x=1_{sc}$. 
+            Thus, we would have $\reln{\{x=1;_{sc}\}}{sw}{\{a=x;_{sc}\}}$ and hence $\reln{\{x=1;_{sc}\}}{hb}{\{a=x;_{sc}\}}$.
+            \item From the above relation and using $\stck{_{ao}}$, we can infer $\reln{\{b=y_{uo/sc}\}}{hb}{\{y=1_{uo/sc}\}}$
+            \item The above relation corresponds to a pattern of Axiom \ref{CoRe}, from which we can infer that we cannot have the relation  $\reln{\{b=y;_{uo/sc}\}}{rf}{\{y=1;_{uo/sc}\}}$.        
         \end{itemize}
+        Hence, the observable behavior $a=1 \ \wedge \ b=1$ is disallowed.
 
         Figure~\ref{reord_counter:example2(b)} shows the Candidate after reordering(right) a read and write in $T1$ along with its candidate execution(left) where the same case of reads(orange box) is possible. 
         \begin{figure}[H]
@@ -71,10 +75,12 @@
         
         Observations:
         \begin{itemize}
-            \item From the Candidate Execution, we can infer $\neg\reln{\{b=y_{uo/sc}\}}{hb}{\{y=1_{uo/sc}\}}$
-            \item Since there is no $\stck{_{hb}}$ relation among the above two events, $b$ can read the value of $y$ as $1$.
+            \item For $a=1$, it must come from the write $x=1_{sc}$. 
+            Thus, we would have $\reln{\{x=1;_{sc}\}}{sw}{\{a=x;_{sc}\}}$ and hence $\reln{\{x=1;_{sc}\}}{hb}{\{a=x;_{sc}\}}$.
+            \item From the above, we cannot infer $\reln{\{b=y_{uo/sc}\}}{hb}{\{y=1_{uo/sc}\}}$. In fact no happens-before relation can exist between the two events.
+            \item We can have the relation $\reln{\{b=y;_{uo/sc}\}}{rf}{\{y=1;_{uo/sc}\}}$.
         \end{itemize}
-
+        Hence, the observable behavior $a=1 \ \wedge \ b=1$ is allowed.
 %--------------------------------------------------------------------------------------------------------------------------------------        
     \paragraph{A Read $e$ of type $uo$ followed by a write $d$ of type $sc$}
 
@@ -86,7 +92,7 @@
     \paragraph{A Write $e$ followed by a Read $d$ both of type $sc$}
         
         A counter example for this is different. 
-        It is not the Observable Behavior we are concerned with that is introduced, but that which is allowed but creates a $\stck{_{hb}}$ cycle. 
+        It is not the Observable Behavior we are concerned with that is introduced, but that which is allowed after reordering creates a $\stck{_{hb}}$ cycle. 
         Figure~\ref{reord_counter:example3(a)} is one such example with its Candidate and Corresponding Candidate Execution in question:
         \begin{figure}[H]
             \centering
@@ -99,7 +105,7 @@
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{7.CounterExamples/ReorderingCandidate/Example5R(Wsc-Rsc).pdf}
-            \caption{Case where $a = 1, b = 1$ is creates a happens-before cycle}
+            \caption{Case where $a = 1, b = 1$ implies a happens-before cycle}
             \label{reord_counter:example3(b)}
         \end{figure}
 
@@ -111,9 +117,9 @@
         \end{itemize}
 
         One might think that simply discarding the above Candidate execution would do. 
-        But this would mean discarding such $\stck{_{hb}}$ relations, which would require more information to infer which relations are going to create such cycles and which are not. 
+        But this would mean discarding certain $\stck{_{hb}}$ relations by considering them to be irrelevant; this would require more information to infer which relations are going to create such cycles and which are not. 
         In practice a cycle may span several events from different threads.
-        Since we place no assumptions on these relations, but that any happens-before relation other than the one we remove explicitly be reordering are all preserved. 
+        Since we place no assumptions on these relations.
         Hence, the following reordered program outcome is something we do not risk to allow.
 
 %---------------------------------------------------------------------------------------------------------------------------------------
@@ -130,10 +136,12 @@
         
         Observations:
         \begin{itemize}
-            \item From the Candidate Execution, we can infer $\reln{\{x=0_{init}\}}{hb}{\reln{\{x=1_{uo/sc}\}}{hb}{\{a=x_{uo/sc}\}}}$
-            \item By Axiom \ref{CoRe}, the read of $a$ cannot have the value of $x$ read as $0$. 
-            \item This inference was due to $\reln{\{y=1_{sc}\}}{hb}{\{b=y_{sc}\}}$.
+            \item For $b=1$, it must come from the write $y=1_{sc}$. 
+            Thus, we would have $\reln{\{y=1;_{sc}\}}{sw}{\{b=y;_{sc}\}}$ and hence $\reln{\{y=1;_{sc}\}}{hb}{\{b=y;_{sc}\}}$.
+            \item From the above relation, we can infer $\reln{\{x=0_{init}\}}{hb}{\reln{\{x=1_{uo/sc}\}}{hb}{\{a=x_{uo/sc}\}}}$.
+            \item The above relation corresponds to a pattern of Axiom \ref{CoRe}, from which we can conclude that we cannot have $\reln{\{a=x;_{uo/sc}\}}{rf}{\{x=0;_{init}\}}$.
         \end{itemize}
+        Hence, the observable behavior $a=0 \ \wedge \ b=1$ is disallowed.
 
         Figure~\ref{reord_counter:example4(b)} shows the Candidate after reordering(right) the two writes in $T1$ along with its candidate execution(left) where the same case of reads(orange box) is possible. 
         \begin{figure}[H]
@@ -145,6 +153,9 @@
         
         Observations:
         \begin{itemize}
-            \item From the Candidate Execution, we can infer $\neg\reln{\{x=1_{uo/sc}\}}{hb}{\{a=x_{uo/sc}\}}$
-            \item There is no pattern that the Axioms restrict, thus validating $x$ to be read as $0$ by $a$. 
+            \item For $b=1$, it must come from the write $y=1_{sc}$. 
+            Thus, we would have $\reln{\{y=1;_{sc}\}}{sw}{\{b=y;_{sc}\}}$ and hence $\reln{\{y=1;_{sc}\}}{hb}{\{b=y;_{sc}\}}$.
+            \item From the above relation and $\stck{_{ao}}$, we cannot infer $\reln{\{x=1_{uo/sc}\}}{hb}{\{a=x_{uo/sc}\}}$.
+            \item Thus, we can have  $\reln{\{a=x;_{uo/sc}\}}{rf}{\{x=0;_{init}\}}$.
         \end{itemize}
+        Hence, the observable behavior $a=0 \ \wedge \ b=1$ is allowed.
