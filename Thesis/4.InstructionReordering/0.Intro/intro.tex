@@ -24,7 +24,9 @@
         Figure~\ref{reord:example1(b)} has two sets of relations. 
         The first justifies the observable behavior for the reordered Candidate. 
         While the second provides justification for the original Candidate. 
-        Notice that in the second set of relations, one may have a Candidate Execution with the mentioned memory order, where the read memory ordered before a write can read from it. 
+        
+        %EXPLAIN BETTER THE WHY THE RELATIONS ARE IMPLIED BASED ON THE OUTCOME IN QUESTION
+        Notice that in the second set of relations, one may have a Candidate Execution with the mentioned memory order, where the read ($a=x$) can read from a write ($x=2$) memory ordered after it. 
         Neither Axiom \ref{CoRe} nor Axiom \ref{SeqCsAt} restrict the pattern prescribed by this.
         This is quite counter-intuitive to understand at first. 
         From the semantics of the model, this justification to the observable behavior however, is completely valid\footnotemark. 
@@ -47,6 +49,7 @@
             \label{reord:example2(a)}
         \end{figure}
    
+        %EXPLAIN BETTER WHY RELATIONS ARE IMPLIED BY THE OUTCOME IN QUESTION.
         Figure~\ref{reord:example2(b)} has two sets of relations. 
         The first justifies that such an outcome is not possible for the original program candidate due to Axiom \ref{CoRe} applied to the read $a=x;_{uo}$ and the write $x=1;_{uo}$ that it reads from. 
         While the second justifies that this outcome is possible for the reordered program.

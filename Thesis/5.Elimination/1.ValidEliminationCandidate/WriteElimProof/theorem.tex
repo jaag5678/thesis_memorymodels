@@ -1,6 +1,3 @@
-
-\critic{blue}{Explain here why we consider two consecutive write events only. The argument being the Coherent Reads pattern can be triggered anyhow.}
-
 \begin{theorem}
     \label{WriteElim}
     Consider a candidate $C$ of a program and its possible \textit{Candidate Executions} where $\stck{_\textit{hb}}$ is strictly partial order. 
@@ -8,7 +5,7 @@
     \begin{align*}
         \cons{e}{d} \ \wedge \ \reln{e}{ao}{d}. 
     \end{align*}
-    Consider a Candidate $C'$ without event $e$.  
+    Consider a Candidate $C'$ after eliminating the event $e$ from $C$.  
     If
     \begin{align*}
         \et{e}{uo} \ \wedge \ \Re(e) = \Re(d). 

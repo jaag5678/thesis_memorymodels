@@ -2,12 +2,12 @@
 
         To answer this, we need to see whether the relations removed had an impact on possible $\stck{_{rf}}$ relations other than those with $e$. 
         We divide our argument into two parts, viz. the two types of relations removed:
-        \begin{tasks}(2)
+        \begin{tasks}[style=enumerate](2)
             \task $\reln{k}{hb}{R_{uo}}$. 
             \task $\reln{R_{uo}}{hb}{k}$.
         \end{tasks}
 
-        Figure~\ref{elim_read:case1} shows a breakdown of sub-cases for case (a), varying based
+        Figure~\ref{elim_read:case1} shows an exhaustive breakdown of sub-cases for case (1), varying based
         on the nature of event $k$.
         \begin{figure}[H]
             \centering
@@ -18,12 +18,13 @@
 
         Observations:
         \begin{itemize}
-            \item (i) is not a pattern forbidden by the consistency rules.
-            \item (ii)(a) is a pattern of Axiom \ref{CoRe}, however, only restricting $\stck{_{rf}}$ relation with $R$ and $W'$(which here is our Unordered Read)
-            \item (ii)(b) is a pattern of Axiom \ref{SeqCsAt}, however, once again, only restricting $\stck{_{rf}}$ relation with $R$ and $W'$. 
+            \item For (i), when $k$ is a read, the pattern matches none of the Axioms.
+            \item For (ii), when $k$ is a write, Axiom \ref{CoRe} (ii(a)) or Axiom \ref{SeqCsAt} (ii(b)) could restrict the read ($e$) from reading overlapping ranges of $W'$ with $W$.
         \end{itemize}
 
-        Figure~\ref{elim_read:case2} shows a breakdown of sub-cases for case (b), varying based
+        Thus, for the case (1), we can conclude that the removed relations do not introduce any new observable behaviors.
+
+        Figure~\ref{elim_read:case2} shows an exhaustive breakdown of sub-cases for case (2), varying based
         on the nature of event $k$.
         \begin{figure}[H]
             \centering
@@ -34,9 +35,11 @@
 
         Observations:
         \begin{itemize}
-            \item (i) is not a pattern in any Consistency rules
-            \item (ii) is a pattern of Axiom \ref{CoRe}, however, only restricting $\stck{_{rf}}$ relation with $R$ and $W$
+            \item Case (i) does not correspond to any pattern restricted by the Axioms of the model, thus having no impact on the observable behaviors. 
+            \item For (ii), when $k$ is a write, Axiom \ref{CoRe} restricts the read $e$ from reading values of write $k$. 
         \end{itemize}
+
+        Thus, for the case (2), we can conclude that the removed relations do not introduce any new observable behaviors.
 
         From the above observations, we can infer that the relations removed only have restriction on reads-from relations on the event $e$ we eliminate. 
         Thus, we can conclude that no new observable behaviors are introduced due to the removed $\stck{_{hb}}$ relations. 

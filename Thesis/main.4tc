@@ -1,0 +1,32 @@
+\expandafter\ifx\csname doTocEntry\endcsname\relax \expandafter\endinput\fi
+\doTocEntry\toclikechapter{}{\csname a:TocLink\endcsname{1}{x1-1000}{QQ2-1-1}{Abstract}}{2}\relax 
+\doTocEntry\toclikechapter{}{\csname a:TocLink\endcsname{1}{x1-2000}{QQ2-1-2}{Abr\IeC {\'e}g\IeC {\'e}}}{3}\relax 
+\doTocEntry\toclikechapter{}{\csname a:TocLink\endcsname{1}{x1-3000}{QQ2-1-3}{Acknowledgements}}{4}\relax 
+\doTocEntry\toclikechapter{}{\csname a:TocLink\endcsname{1}{x1-4000}{QQ2-1-4}{Contents}}{5}\relax 
+\doTocEntry\toclikechapter{}{\csname a:TocLink\endcsname{1}{x1-5000}{QQ2-1-5}{List of Figures}}{6}\relax 
+\doTocEntry\tocchapter{1}{\csname a:TocLink\endcsname{1}{x1-60001}{QQ2-1-6}{Introduction}}{2}\relax 
+\doTocEntry\tocchapter{2}{\csname a:TocLink\endcsname{1}{x1-70002}{QQ2-1-7}{Background}}{5}\relax 
+\doTocEntry\tocsection{2.1}{\csname a:TocLink\endcsname{1}{x1-80002.1}{QQ2-1-8}{Memory Consistency Models}}{5}\relax 
+\doTocEntry\toclof{2.1}{\csname a:TocLink\endcsname{1}{x1-8001r1}{}{\ignorespaces Example program with its allowed and disallowed outcomes under SC.}}{figure}\relax 
+\doTocEntry\tocparagraph{}{\csname a:TocLink\endcsname{1}{x1-90002.1}{QQ2-1-10}{x86}}{9}\relax 
+\doTocEntry\tocparagraph{}{\csname a:TocLink\endcsname{1}{x1-100002.1}{QQ2-1-11}{Java}}{10}\relax 
+\doTocEntry\tocparagraph{}{\csname a:TocLink\endcsname{1}{x1-110002.1}{QQ2-1-12}{C++/C11}}{10}\relax 
+\doTocEntry\tocparagraph{}{\csname a:TocLink\endcsname{1}{x1-120002.1}{QQ2-1-13}{Mixed-size models}}{11}\relax 
+\doTocEntry\tocsection{2.2}{\csname a:TocLink\endcsname{1}{x1-130002.2}{QQ2-1-14}{Program Transformations under Weak Memory}}{11}\relax 
+\doTocEntry\toclof{2.2}{\csname a:TocLink\endcsname{1}{x1-13001r2}{}{\ignorespaces Program where reordering of independent reads seems possible with its allowed(green box) and disallowed(red box) outcomes in SC.}}{figure}\relax 
+\doTocEntry\toclof{2.3}{\csname a:TocLink\endcsname{1}{x1-13002r3}{}{\ignorespaces The transformed program reordering two reads in T1, with a trace justifying the disallowed outcome under SC.}}{figure}\relax 
+\doTocEntry\toclof{2.4}{\csname a:TocLink\endcsname{1}{x1-13003r4}{}{\ignorespaces Program with a redundant write to $y$ with its allowed(green box) and disallowed(red box) outcomes under SC.}}{figure}\relax 
+\doTocEntry\toclof{2.5}{\csname a:TocLink\endcsname{1}{x1-13004r5}{}{\ignorespaces The transformed program eliminating the first $y=2$, with a trace justifying the disallowed outcome under SC.}}{figure}\relax 
+\doTocEntry\tocsection{2.3}{\csname a:TocLink\endcsname{1}{x1-140002.3}{QQ2-1-19}{Axiomatic Style Specifications of Weak Memory}}{25}\relax 
+\doTocEntry\tocsection{2.4}{\csname a:TocLink\endcsname{1}{x1-150002.4}{QQ2-1-20}{Other Concerns}}{25}\relax 
+\doTocEntry\tocparagraph{}{\csname a:TocLink\endcsname{1}{x1-160002.4}{QQ2-1-21}{Compilation}}{25}\relax 
+\doTocEntry\tocparagraph{}{\csname a:TocLink\endcsname{1}{x1-170002.4}{QQ2-1-22}{Verification/Model-Checking}}{26}\relax 
+\doTocEntry\tocparagraph{}{\csname a:TocLink\endcsname{1}{x1-180002.4}{QQ2-1-23}{Out-of-Thin-Air }}{26}\relax 
+\doTocEntry\tocparagraph{}{\csname a:TocLink\endcsname{1}{x1-190002.4}{QQ2-1-24}{Custom Memory Models}}{26}\relax 
+\doTocEntry\tocchapter{3}{\csname a:TocLink\endcsname{1}{x1-200003}{QQ2-1-25}{The Memory Model}}{28}\relax 
+\doTocEntry\tocparagraph{}{\csname a:TocLink\endcsname{1}{x1-210003}{QQ2-1-26}{The Model is Quite Algorithmic}}{28}\relax 
+\doTocEntry\toclof{3.1}{\csname a:TocLink\endcsname{1}{x1-21001r1}{}{\ignorespaces The ECMAScript specification for Coherent Reads.}}{figure}\relax 
+\doTocEntry\tocparagraph{}{\csname a:TocLink\endcsname{1}{x1-220003}{QQ2-1-28}{Certain Unnecessary Definitions}}{31}\relax 
+\doTocEntry\toclof{3.2}{\csname a:TocLink\endcsname{1}{x1-22001r2}{}{\ignorespaces The ECMAScript specification for Compose Write Event Bytes \cite {ECMA}.}}{figure}\relax 
+\doTocEntry\tocparagraph{}{\csname a:TocLink\endcsname{1}{x1-230003}{QQ2-1-30}{Still a bit verbose}}{34}\relax 
+\doTocEntry\toclof{3.3}{\csname a:TocLink\endcsname{1}{x1-23001r3}{}{\ignorespaces The ECMAScript specification f

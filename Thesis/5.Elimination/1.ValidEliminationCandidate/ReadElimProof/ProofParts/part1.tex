@@ -1,5 +1,5 @@
 \paragraph{1. Preserving \emph{happens-before} relations}
-        The relations we want to preserve are those that are derived through relation with $e$, viz. using the following two relations:
+        The relations we want to preserve are those that are derived through transitivity using relation with $e$, viz. using the following two relations:
         \begin{tasks}(2)
             \task $\reln{k}{hb}{e}$
             \task $\reln{e}{hb}{k}$
@@ -24,5 +24,6 @@
 
         By Lemma \ref{Lemma1}, $\et{e}{uo}$ is the only case where $p_b$ can be a valid pivot. 
         By Lemma \ref{Lemma2}, $\et{e}{uo} \ \vee \ \et{e}{sc}$ are the cases where $p_a$ can be a valid pivot. 
-        We need both the above conditions to be satisfied to have a valid pivot pair. 
-        Hence, $\et{e}{uo}$ is the only possibility in which a valid pivot pair can exist. 
+        
+        We need both the above conditions to be satisfied to have a valid pivot pair $<p_b, p_a>$. 
+        Taking the conjunction of the above two constraints, we get $\et{e}{uo}$ as the only possibility in which a valid pivot pair can exist. 

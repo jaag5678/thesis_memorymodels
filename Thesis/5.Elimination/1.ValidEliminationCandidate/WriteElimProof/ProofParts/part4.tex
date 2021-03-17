@@ -1,12 +1,12 @@
 \paragraph{4. Do the lost relations result in New Observable Behaviors?}
 
     To address this, we divide our cases into two parts; one for each type of relation lost:
-    \begin{tasks}(2)
+    \begin{tasks}[style=enumerate](2)
         \task $\reln{k}{hb}{W_{uo}}.$
         \task $\reln{W_{uo}}{hb}{k}.$
     \end{tasks}
 
-    Figure~\ref{elim_write:case1} shows a breakdown of sub-cases for case (a), varying based
+    Figure~\ref{elim_write:case1} shows an exhaustive breakdown of sub-cases for case (1), varying based
     on the nature of event $k$.
     \begin{figure}[H]
         \centering
@@ -28,21 +28,25 @@
         Since $R$ or $W'$ can be arbitrary, we would need the ranges of $e$ and $d$ to be same (i.e $\Re(e) = \Re(d)$).
     \end{itemize}
 
-    Figure~\ref{elim_write:case2} shows a breakdown of sub-cases for case (b), varying based
+    Thus, for the case (1), we can conclude that the removed relations do not introduce any new observable behaviors, while also requiring the constraint on the range of events $e$ and $d$.
+
+    Figure~\ref{elim_write:case2} shows an exhaustive breakdown of sub-cases for case (2), varying based
     on the nature of event $k$.
     \begin{figure}[H]
         \centering
-        \includegraphics[scale=0.3]{5.Elimination/1.ValidEliminationCandidate/WriteElimProof/ProofParts/Part4Case2.pdf}
+        \includegraphics[scale=0.6]{5.Elimination/1.ValidEliminationCandidate/WriteElimProof/ProofParts/Part4Case2.pdf}
         \caption{The impact of lost relation $\reln{W_{uo}}{hb}{k}$ on observable behaviors.}
         \label{elim_write:case2}
     \end{figure}
 
     We make the following observations:
     \begin{itemize}
-        \item (i)(a) has the similar argument to the previous case's (ii)(a), requiring $e$ and $d$ to have equal ranges.
+        \item (i)(a) has the similar argument to the case (1)'s (ii)(a), requiring $e$ and $d$ to have equal ranges.
         \item (i)(b) is a pattern from Axiom \ref{SeqCsAt}, which restricts $R$ from reading anything of $W$. This reads-from restriction will remain the same after $e$ is eliminated. 
         \item (ii)(a) is a pattern from Axiom \ref{CoRe}, restricting $R$ from reading $W$. This reads-from restriction will remain the same after after eliminating $e$.
         \item (ii)(b) is the same as (i)(b).
     \end{itemize}
+
+    Thus, for the case (2), we can conclude that the removed relations do not introduce any new observable behaviors.
 
     In all the above cases, we observe that on keeping range of $e$ and $d$ equal, none of the patterns introduce any new observable behavior. Hence, if we have two consecutive writes of equal ranges, of which the first one has access mode unordered, the set of Observable Behaviors without the write is a subset of that with it present. 

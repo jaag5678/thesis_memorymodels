@@ -41,26 +41,14 @@
 \author{\textcopyright Author, August, 2020}
 \date{}
 
-
 \usepackage{xpatch}
 \xpretocmd\headrule{\color{red}}{}{\PatchFailed}
-
-
-
-
 
 %Short form to use stack_relative
 \newcommand{\stck}{\stackrel{\longrightarrow}}
 
-%A different version of the above 
-\newcommand{\stckdet}[1]{\stackrel{{#1}}}
-
 %We write a lot of relations between two events using the orderings, so a short form to use that
 \newcommand{\reln}[3]{#1\stck{_{#2}}#3}
-
-%We use a more detailed version of the above relation to indicate direct / indirect relations 
-
-\newcommand{\reldet}[4]{#1\stckdet{_{#2}}{{\stck{_{#3}}}}#4}
 
 %We also will introduce a short form to write an event belongs to some set
 \newcommand{\event}[2]{#1\!\in\!#2}
