@@ -1,12 +1,28 @@
 \section{Valid Elimination at the Candidate level}
 
     For addressing the validity of eliminations under our memory model, we separately address first Read elimination, followed by Write elimination, both at the candidate level. 
-    We finally address them at the program level with conditionals and loops involved. 
+    At the Candidate level, eliminating an event would imply removal of certain ordering relations at the Candidate Execution level. 
+    Given an event $e$ belonging to a Candidate $C$, the candidate $C'$ after eliminating event $e$ from it would imply no relations of the form 
+    \begin{align*}
+        \reln{k}{ao}{e} \\  
+        \reln{e}{ao}{k}.
+    \end{align*}
+    and no relations of the form
+    \begin{align*}
+        \reln{k}{hb}{e} \\
+        \reln{e}{hb}{k}.
+    \end{align*}
+    exist in any Candidate Execution of $C'$.
+    
     %Read Elimination 
     \subsection{Elimination of Reads}
+
+        The following theorem establishes the condition when we can eliminate a read from a Candidate, while still ensuring that the result Candidate has observable behaviors as a subset. 
         \input{5.Elimination/1.ValidEliminationCandidate/ReadElimProof/approach.tex}
 
     %Write elimination
     \subsection{Elimination of Writes}
+
+        The following theorem establishes the condition when we can eliminate a write from a Candidate, given that we have another write consecutive to it.  
         \input{5.Elimination/1.ValidEliminationCandidate/WriteElimProof/approach.tex}
     

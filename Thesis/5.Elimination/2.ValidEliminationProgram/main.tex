@@ -1,5 +1,15 @@
 \section{From Candidates to Program}
 
+    At the program level, similar to that of reordering, we first address programs with just conditional branches.
+    We establish a conservative condition under which elimination of write in the presence of conditionals is safe, followed by justifying for that of reads.
+
+    We then move on to addressing programs with loops.
+    Within this section, we first address elimination of a read in the presence of loops.
+    We then state a corollary that establishes the condition under which write elimination is safe in the presence of loops.
+    In both the above cases, we assume the eliminated event belongs within the loop.
+
+    Lastly, we establish the conditions under which loop invariant code motion is sound (4 corollaries with proof) using both our results from that of reordering and elimination of events.
+
     \input{5.Elimination/2.ValidEliminationProgram/Conditionals/conditionals.tex}
 
     \input{5.Elimination/2.ValidEliminationProgram/Loops/loops.tex}
