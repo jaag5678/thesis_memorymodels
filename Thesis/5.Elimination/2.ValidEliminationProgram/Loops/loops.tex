@@ -41,25 +41,36 @@
                 
         \end{proof}
          
-        \subsubsection{Loop Invariant Code motion}  
+        \subsection{Reordering outside of loops (revisited)}  
 
-            In the previous chapter, we showed that loop invariant code motion cannot be validated by just reordering at the Candidate level. 
+            In the previous chapter, we showed that reordering program statements outside a loop body cannot be validated by just reordering events at the Candidate level. 
             This was because reordering was insufficient to generate the resultant candidate from the original. 
             Because a loop can have any number of iterations, reordering an event outside a loop would in principle involve eliminating the extra events from multiple iterations, when looked at from the Candidate level. 
             Now that we have proven when elimination is valid under the relaxed memory model, we notice that this in conjunction with reordering helps us determine the conditions under which loop-invariant code motion can be valid.
             For each case, we use the same argument; the resultant program after transformation has observable behaviors as a subset of the original. 
 
-            We first consider the case of reordering a Read outside a loop. There are two sub-cases for this, viz. one reordering the read before and one after the loop. 
-            \input{5.Elimination/2.ValidEliminationProgram/Loops/licm_read.tex}            
+            \subsubsection{Moving a read outside the loop}
+                We first consider the case of reordering a Read outside a loop. 
+                There are two sub-cases for this, viz. one reordering the read before/after the loop.
+                Reordering a read event outside a loop(\textbf{before} it) is safe if that read is not part of an if-condition, is of type unordered,  present in every iteration of the loop as well as reorderable \textit{before} every event possible(except the read itself) within the loop. 
+                Reordering a read event outside a loop(\textit{after} it) is safe if that read not be part of an if-condition, is of type unordered, present in every iteration of the loop as well as reorderable \textbf{after} every event possible(except the read itself) within the loop. 
+                The following two corollaries state the above conditions formally.
 
-            Now we consider the case of reordering a write outside a loop, similar two sub-cases as for reads.           
-            \input{5.Elimination/2.ValidEliminationProgram/Loops/licm_write.tex}   
+                \input{5.Elimination/2.ValidEliminationProgram/Loops/licm_read.tex}            
+
+            \subsubsection{Moving a write outside the loop}
+                Now we consider the case of reordering a write outside a loop, similar two sub-cases as for reads.     
+                Reordering a write event outside a loop(\textbf{before} it) is safe if that write is of type unordered, present in every iteration of the loop as well as reorderable \textbf{before} every event possible(except the write itself) within the loop. 
+                Reordering a write event outside a loop(\textbf{after} it) is safe if that write is of type unordered, present in every iteration of the loop as well as reorderable \textbf{after} every event possible(except the read itself) within the loop.      
+                The following two corollaries state the above conditions formally.
+
+                \input{5.Elimination/2.ValidEliminationProgram/Loops/licm_write.tex}   
 
             \paragraph{Reordering two events accross loops} 
             
-            The above corollaries for loop-invariant code motion are valid for whenever it is just involving removing an event outside one loop. 
-            In practice programs can have multiple loops, even those nested within each other and the compiler is free to reorder events across nesting as well as from one loop to another.
-            We cannot prove when we can reorder events across two different loops or reordering events to be within a loop.
-            At the Candidate level, this would imply reordering, elimination as well as \textbf{introduction} of events. 
-            This would require a proof of redundancy introduction right from the candidate execution level and then be extended to candidates and then to programs. 
-            This is beyond the scope of this thesis. We consider this as a part of future work. 
+                The above corollaries for loop-invariant code motion are valid for whenever it is just involving removing an event outside one loop. 
+                In practice programs can have multiple loops, even those nested within each other and the compiler is free to reorder events across nesting as well as from one loop to another.
+                We cannot prove when we can reorder events across two different loops or reordering events to be within a loop.
+                At the Candidate level, this would imply reordering, elimination as well as \textbf{introduction} of events. 
+                This would require a proof of redundancy introduction right from the candidate execution level and then be extended to candidates and then to programs. 
+                This is beyond the scope of this thesis. We consider this as a part of future work. 

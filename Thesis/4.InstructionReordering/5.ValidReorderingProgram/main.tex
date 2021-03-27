@@ -16,6 +16,15 @@
     We do not compare and contrast in details the perks of both approaches. 
     This is beyond the scope of this thesis.
 
+    We assume that conditionals do not have break/continue-like semantics. 
+    We assume that loops have the following properties:
+    \begin{itemize}
+        \item Iterate at least once in an execution of the program.
+        \item Are finite (loops terminate).
+        \item Entry is only from the start of the loop body or from the end of the loop body (no goto/continue/break-like semantics).
+        \item Exit is only from the end of loop body. 
+    \end{itemize}
+
     We first define two properties that relate conditionals to Candidates of a program.
     We then use these properties to state a lemma which will be useful to prove the corollary that follows which establishes the condition under which reordering in programs with conditionals is safe. 
     

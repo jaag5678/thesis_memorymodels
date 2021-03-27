@@ -2,6 +2,7 @@
         
         Addressing reordering of events in programs with loops is relatively straightforward, leaving one special case. 
         For simplicity (and also without loss of generality), let us consider our program to have only one loop.
+     
 
         There will be one Candidate for each possible count of loop iteration. 
         For convenience, let us define $C^i$ to be a candidate of program with $i$ iterations of the same loop. 
@@ -36,11 +37,17 @@
 
         \end{proof}
 
-        \paragraph{Reordering Accross Loops}
+        \paragraph{Reordering outside of Loops}
+
             What is not so obvious is the case when events are reordered out of the loop. 
-            The problem is that we cannot use parent Candidate to generate resultant Candidate of the transformed program. 
+            One might wonder why reordering statements outside a loop is important. 
+            One example of its use is in that of loop-invariant-code-motion\cite{Muchnick}, wherein the compiler removes computations/accesses that do not change in different iterations of the loop. 
+            While the notion of `change' is subjective in a concurrent context, as we can have several outcomes for a single program, the safety of such a transformation once again reduces to proving whether the set of observable behaviors remain a subset. 
+             
+            The problem is that we cannot use parent program's Candidate to generate resultant Candidate of the transformed program. 
             Reordering at the Candidate level does not map directly to Reordering that is done to perform something like Loop invariant code motion. 
             This is because, such a transformation implies introduction/elimination of events in a Candidate.
-            We will show in the next chapter that we can in fact define one of its forms, viz. loop invariant code motion using both Reordering and Elimination at the Candidate level.
-             
+            We will show in the next chapter that we can in fact define one of its forms, using both Reordering and Elimination at the Candidate level.
+
+           
     

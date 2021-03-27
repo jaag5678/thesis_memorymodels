@@ -15,6 +15,8 @@
 
 \begin{proof}
 
+    To prove this we first try to see if we can reorder every $e^{j\leq i}$ outside the loop body.
+    We then follow this by validating  elimination of writes using our previous results. 
 
     We first consider the program with just one iteration. Hence for Candidate $C^1$, we have just $e^1$. 
     We need to ensure that the resultant candidate $C^{1}'$ such that 
@@ -74,7 +76,7 @@
     \label{LoopInvCodeMotWrite2}
     Consider $K$ to be the set of events within a loop in program $P$. 
     Consider $e$ to be a write within the loop. 
-    Consider program $P'$ with event $e$ agent ordered before the loop. 
+    Consider program $P'$ with event $e$ agent ordered after the loop. 
     If
     \begin{gather*}
         \et{e}{uo}. \tag{1} \label{licmw2:eq1}\\
@@ -87,54 +89,57 @@
 
 \begin{proof}
 
-    We first consider the program with just one iteration. 
-    Hence for Candidate $C^1$, we have just $e^1$. 
-    We need to ensure that the resultant candidate $C^{1}'$ such that 
-    \begin{align*}
-        \forall k \in K, \ \reln{k}{ao}{e}.
-    \end{align*}  
-    has observable behaviors as a subset of $C^1$
-
-    For every $k \in K$ such that $\reln{e}{ao}{k}$ we need them to be reorderable with respect to $e$ to bring it outside the loop.
-    Using Condition \ref{licmw2:eq2}, we have from Corollary \ref{CorollCodeMotion1} that $C^{1}'$ has observable behaviors as a subset of $C^1$.
-    To extend this to the program level with one iteration, we also need that $e$ should not be in any conditional branch.
-    Using Condition \ref{licmw2:eq3}, we have from Prop \ref{CondB1} that $e$ is not part of any conditional branch.
-    Thus, from Corollary \ref{ReordCond}, we can infer that the transformed program has observable behaviors a subset of the original.   
-    
-    Next, we consider the program with more than one iteration of the loop. 
-    We prove this case using induction on the number of reads $e$ that exist due to multiple iterations of the loop. 
-
-    \begin{itemize}
-
-        \item Base case : number of $e$ = 2
-        This case corresponds to candidates of the form $C^2$, thus giving us two writes $e^1$ and $e^2$.
-        We need candidate $C^{2}'$ with just one such event $e$, such that:
-        \begin{align*}
-            \forall k \in K, \ \reln{k}{ao}{e}.
-        \end{align*}  
-        We also have from property of loops that $\reln{e^1}{ao}{e^2}$.
-        Having Condition \ref{licmw2:eq1}, \ref{licmw2:eq2}, by Corollary \ref{CorolWriteElim}, we can eliminate $e^1$, giving us $C^{2}''$ whose observable behaviors as a subset of $C^2$.  
-        From Corollary \ref{CorollCodeMotion2}, we can reorder $e^2$ outside the loop thus giving us $C^{2}'$ whose observable behaviors as a subset of $C^{2}''$.
-        
-        By transitive property of subsets we can infer that $C^{2}'$ has observable behaviors as a subset of $C^2$.
-        
-        \item Inductive case : number of $e$ = n
-
-        Assume that for all such candidates with $n$ iterations of the loop, the observable behaviors of $C^{n}'$ is a subset of $C^n$.
-
-        We now prove using this that it can also hold for number $e$ as $n + 1$. 
-        This case corresponds to candidates of the form $C^{n+1}$, thus giving us $n+1$ reads $e^1, e^2,...,e^{n+1}$.
-        From Condition \ref{licmw2:eq2}, we can infer 
-        \begin{align*}
-            \forall k \ \text{s.t.} \ \reln{e^n}{ao}{k} \wedge \reln{k}{ao}{e^{n+1}}, \ Reord(e^{n}, k).
-        \end{align*}
-        Having Condition \ref{licmw2:eq1}, by Corollary \ref{CorolWriteElim}, we can eliminate $e^{n}$, thus giving us candidate $C^{n}$ whose observable behaviors are a subset of $C^{n+1}$
-
-        From our inductive assumption, we can then conclude that $C^{n+1}'$ has observable behaviors as a subset of $C^n$. 
-        By transitive property of subsets, we can infer that $C^{n+1}'$ has observable behaviors as a subset of $C^{n+1}$.
-
-    \end{itemize}
-    
-    From Condition \ref{licmw2:eq3}, by Corollary \ref{ReordCond} and \ref{WriteElimCond}, we can infer that the observable behaviors of $P'$ is a subset of $P$.
+    The proof is symmetric to that of Corollary \ref{LoopInvCodeMotWrite1}. 
+    Except that here, we can use our result on non-consecutive write elimination to see when we can eliminate all writes $e^{j<i}$, thus leaving the write of the last iteration.
+    We can then check when we can reorder this last $e^i$ outside the loop.  
+    %We first consider the program with just one iteration. 
+    %Hence for Candidate $C^1$, we have just $e^1$. 
+    %We need to ensure that the resultant candidate $C^{1}'$ such that 
+    %\begin{align*}
+    %    \forall k \in K, \ \reln{k}{ao}{e}.
+    %\end{align*}  
+    %has observable behaviors as a subset of $C^1$
+%
+    %For every $k \in K$ such that $\reln{e}{ao}{k}$ we need them to be reorderable with respect to $e$ to bring it outside the loop.
+    %Using Condition \ref{licmw2:eq2}, we have from Corollary \ref{CorollCodeMotion1} that $C^{1}'$ has observable behaviors as a subset of $C^1$.
+    %To extend this to the program level with one iteration, we also need that $e$ should not be in any conditional branch.
+    %Using Condition \ref{licmw2:eq3}, we have from Prop \ref{CondB1} that $e$ is not part of any conditional branch.
+    %Thus, from Corollary \ref{ReordCond}, we can infer that the transformed program has observable behaviors a subset of the original.   
+    %
+    %Next, we consider the program with more than one iteration of the loop. 
+    %We prove this case using induction on the number of reads $e$ that exist due to multiple iterations of the loop. 
+%
+    %\begin{itemize}
+%
+    %    \item Base case : number of $e$ = 2
+    %    This case corresponds to candidates of the form $C^2$, thus giving us two writes $e^1$ and $e^2$.
+    %    We need candidate $C^{2}'$ with just one such event $e$, such that:
+    %    \begin{align*}
+    %        \forall k \in K, \ \reln{k}{ao}{e}.
+    %    \end{align*}  
+    %    We also have from property of loops that $\reln{e^1}{ao}{e^2}$.
+    %    Having Condition \ref{licmw2:eq1}, \ref{licmw2:eq2}, by Corollary \ref{CorolWriteElim}, we can eliminate $e^1$, giving us $C^{2}''$ whose observable behaviors as a subset of $C^2$.  
+    %    From Corollary \ref{CorollCodeMotion2}, we can reorder $e^2$ outside the loop thus giving us $C^{2}'$ whose observable behaviors as a subset of $C^{2}''$.
+    %    
+    %    By transitive property of subsets we can infer that $C^{2}'$ has observable behaviors as a subset of $C^2$.
+    %    
+    %    \item Inductive case : number of $e$ = n
+%
+    %    Assume that for all such candidates with $n$ iterations of the loop, the observable behaviors of $C^{n}'$ is a subset of $C^n$.
+%
+    %    We now prove using this that it can also hold for number $e$ as $n + 1$. 
+    %    This case corresponds to candidates of the form $C^{n+1}$, thus giving us $n+1$ reads $e^1, e^2,...,e^{n+1}$.
+    %    From Condition \ref{licmw2:eq2}, we can infer 
+    %    \begin{align*}
+    %        \forall k \ \text{s.t.} \ \reln{e^n}{ao}{k} \wedge \reln{k}{ao}{e^{n+1}}, \ Reord(e^{n}, k).
+    %    \end{align*}
+    %    Having Condition \ref{licmw2:eq1}, by Corollary \ref{CorolWriteElim}, we can eliminate $e^{n}$, thus giving us candidate $C^{n}$ whose observable behaviors are a subset of $C^{n+1}$
+%
+    %    From our inductive assumption, we can then conclude that $C^{n+1}'$ has observable behaviors as a subset of $C^n$. 
+    %    By transitive property of subsets, we can infer that $C^{n+1}'$ has observable behaviors as a subset of $C^{n+1}$.
+%
+    %\end{itemize}
+    %
+    %From Condition \ref{licmw2:eq3}, by Corollary \ref{ReordCond} and \ref{WriteElimCond}, we can infer that the observable behaviors of $P'$ is a subset of $P$.
 
 \end{proof}
