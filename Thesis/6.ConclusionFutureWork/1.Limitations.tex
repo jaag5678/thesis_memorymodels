@@ -16,9 +16,8 @@
     Having such information can give us more fine grained analysis of when reordering is valid for different optimizations. 
     On the other hand, having such a separation can help compiler writers see the impact of the model on the basic program transformations clearly, thus allowing them to write relatively correct program transformation algorithms and even design new ones incorporating the impact of the model. 
 
-    \paragraph{Validity of Transformations is a conservative}
-    \critic{red}{Discuss with Clark what does it mean for our approach to be sound but not complete. Or is it that conservative analysis is not about soundness of completeness at all?}
-
+    \paragraph{Validity of Transformations is Sound but not Complete}
+   
     It is important to note that our approach to validity of elimination and reordering is conservative.
     We do not assume anything about events that belong to other agents/threads. 
     We only use information on the events involved in the program transformation and those that are \textit{agent-ordered} between them.

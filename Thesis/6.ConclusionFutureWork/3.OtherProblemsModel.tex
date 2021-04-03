@@ -22,7 +22,7 @@
 
         The green box represents the outcomes that we can intuitively justify.
         But the model also allows the outcomes in the orange box. 
-        This is because of the read that tears, which implies that Axiom \ref{TfRe} does not constrain $stck{_{rf}}$ to be functional with respect to the read and the writes to the same 8-byte memory. 
+        This is because of the read that tears, which implies that Axiom \ref{TfRe} does not constrain $\stck{_{rf}}$ to be functional with respect to the read and the writes to the same 8-byte memory. 
         Whether this is left to the hardware or program transformations is uncertain.
         If so, how could one justify any of the outcomes in the orange box is yet to be understood by us. 
 
@@ -42,7 +42,8 @@
         Whether the range of $init$ events is the entire shared memory buffer or is it byte-size is uncertain.
         This affects the way we can reason with our programs and their corresponding observable behaviors.
 
-        Consider the two candidates in Figure \ref{crit:range}, each of which could represent the same program, one where the initialize event is to the whole 8-byte(right) and one where its split into two events of type $init$ writing 4 bytes each(left).
+        Consider the two candidates in Figure \ref{crit:range}, each of which could represent the same program, one where the initialize event is to the whole 8-byte (right) and one where its split into two events of type $init$ writing 4 bytes each (left).
+        All accesses involved here are tear-free.
         The orange box is an observable behaviors in question.
         \begin{figure}[H]
             \centering
@@ -53,6 +54,7 @@
 
         For the first candidate, the outcomes in question are possible.
         But for the second program, the outcomes are not possible due to Axiom \ref{TfRe}.
+        Specifically, it is disallowed due to Ranges being unequal among different accesses. 
         Which one must correspond to the original program is unclear and is not specified by the semantics of the model.
 
     \subsection{Mixed-size events do not respect Coherence irrespective of access mode}
@@ -70,12 +72,13 @@
 
         The above program can have the observable behavior under question.
         But this would imply that the value of write to $x$ as $2$, though local to the subsequent read, vanishes. 
-        The keen reader will note that such a behavior cannot even be explained by reordering or elimination of events.
+        The keen reader will note that such a behavior cannot even be explained by reordering or elimination of events as this would trivially violate the data dependency relations.
         Note also that this outcome is possible even if the write $x=2$ has an access mode of $sc$. 
 
         Suppose we do have standard coherence respected. 
         In this case too, sequentially consistent accesses which are mixed size give non-trivial behaviors.
         Consider another example in Figure \ref{crit:coherence_mixed} with a few mixed size accesses, where the writes are of type $sc$.
+        All accesses are once again tear-free.
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.7]{6.ConclusionFutureWork/CoherenceMixed.pdf}
@@ -84,4 +87,4 @@
         \end{figure}
 
         Here the value of read $a=x[0...4]$, despite being $1$ does not restrict the outcome of the read $b=x[5...8]$ to be $0$. 
-        Again, we do not know how to justify this outcome using either reordering or elimination. 
+        Again, we do not know how to justify this outcome using either safe reordering or elimination. 

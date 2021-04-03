@@ -4,8 +4,8 @@
     We believe these are the following steps that anyone can take using our results to move towards practical relevance.
 
     \paragraph{Addressing Read-Modify-Write}
-        So far we have assumed that no read-modify-write(RMW) events exist in programs.
-        However, this assumption, in general, is too strong(eg: Compare-and-Swap, Atomic Increment/Decrement are often used in programs).
+        So far we have assumed that no read-modify-write (RMW) events exist in programs.
+        However, this assumption, in general, is too strong (eg: Compare-and-Swap, Atomic Increment/Decrement are often used in programs).
         The validity of reordering/elimination when RMW events are involved should be done to have a complete analysis of these two transformations in terms of shared memory accesses.
 
     \paragraph{Incorporating Tearing Factor}
@@ -27,4 +27,4 @@
         Addressing redundancy introduction as an immediate next step would prove useful.
         Using it, we can analyze reordering of events across loops. 
         This will also give an interesting equivalence to instruction reordering. 
-        Other program transformations we find important to consider are strengthening/ weakening access modes (fence optimizations), gathering optimization(merging small size accesses), changing tearing factor of accesses. 
+        Other program transformations we find important to consider are strengthening/ weakening access modes (fence optimizations), gathering optimization (merging small size accesses), changing tearing factor of accesses. 
