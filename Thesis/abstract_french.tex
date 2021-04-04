@@ -1,0 +1,10 @@
+Il a été démontré que les programmes simultanés nous procurent d'énormes avantages en termes de performances par rapport à leurs homologues séquentiels.
+Avec l'ajout de plusieurs fonctionnalités matérielles telles que les tampons de lecture / écriture, la spéculation, etc., des formes plus efficaces d'accès mémoire simultané sont introduites.
+Connus sous le nom de \textit{accès à la mémoire détendus}, ils sont utilisés pour améliorer considérablement les performances des programmes concurrents.
+Un modèle de cohérence de mémoire détendue décrit spécifiquement la sémantique de ces accès pour un langage de programmation particulier.
+Historiquement, une telle sémantique est souvent mal définie ou mal comprise, et il a été démontré qu’elle est en conflit avec les transformations de programmes communes essentielles à l’exécution des programmes.
+Dans cette thèse, nous donnons une description de style déclarative formelle (axiomatique) du modèle de cohérence de la mémoire relâchée ECMAScript.
+Nous analysons l'impact de ce modèle sur deux transformations de programme courantes, à savoir. réorganisation et élimination des instructions.
+Nous donnons une preuve conservatrice sous laquelle une telle optimisation est autorisée pour les accès mémoire relâchés.
+Nous utilisons ce résultat pour raisonner sur la validité de la réorganisation des accès à l'extérieur des boucles sous le même modèle.
+Nous concluons cette thèse en évoquant les limites de notre approche, la critique de la sémantique du modèle, les travaux futurs possibles utilisant nos résultats et les questions fondamentales en suspens que nous avons découvertes en travaillant sur cette thèse.
