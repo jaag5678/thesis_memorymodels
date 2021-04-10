@@ -3,7 +3,7 @@ Specific contributions of our work include the following:
     \item We provide a concise \textit{declarative(axiomatic) style} model of the core ECMAScript memory consistency semantics. This clarifies the existing draft presentation~\cite{ECMA} in a manner useful for validating optimizations.
     \item We show when basic reordering of independent instructions is allowed. We extend this to reordering in the presence of conditionals and loops in programs.
     \item Similar proof designs are used to validate other basic optimization behaviors such as removing redundant reads or writes. Further extending it to elimination in the presence of conditionals and loops. 
-    \item We show how our above two results help us check the validity of loop invariant code motion. 
+    \item We show how our above two results help us argue about the validity of certain transformations relevant to optimizations such as loop invariant code motion. 
 \end{itemize}
 
 This thesis includes 5 more chapters, which organize the above contributions as follows:

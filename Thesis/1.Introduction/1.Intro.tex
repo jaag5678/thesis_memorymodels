@@ -1,25 +1,26 @@
      
 With the increasing demand for performance in computing, the use of concurrency has become quite ubiquitous. 
-Particularly, the use of \textit{shared memory} concurrency has shown to give tremendous performance benefits. 
-A big part of this is due to using \textit{relaxed memory} accesses, which sacrifice the ``atomicity'' of actions to gain high performance. 
-The use of such accesses, unmonitored can cause programs to mis-behave, or can cause quite a bit of slowdown. 
-The lack of well-defined semantics which is generally observed for them make it difficult for the user to utilize these accesses more responsibly.
+In particular, the use of \textit{shared memory} concurrency has shown to give tremendous performance benefits. 
+A big part of this is due to using \textit{relaxed memory} accesses, which sacrifice the string ordering properties of sequentially specified actions to gain high performance. 
+Lack of understanding of the impact of such accesses, can cause programs to mis-behave.
+The semantics describing the impact of such accesses on program outcomes is specified by a memory consistency model. 
+In many contexts, there is an absence of clear, well-defined semantics of the memory model, making it difficult for the user to utilize these accesses correctly.
 In addition, usage of such accesses may invalidate several aggressive optimizations that the compiler does which contributes to a major chunk of our desired performance.
 
 In current times, there is an increasing trend/need to offload computations on the web. 
-One major benefit of this is that portability issues are reduced greatly, which means I can run complex softwares and use it on my browser even though my system is not compatible to run it. 
+One major benefit of this is that portability issues are reduced greatly, which means one can run complex software and use it on one's browser even though a system may not be compatible to run it. 
 To ensure that computations done on the web be comparable with those done offline, performance plays a major factor, and this factor has always pushed people to not rely on web-based computations. 
 
 In this scenario, the use of shared memory access (more specifically, relaxed accesses) naturally fits in to provide the lack of performance we so desperately need.
-Recently, ECMAScript, the standard for all such web-scripting languages defined their own memory consistency model.
-Its semantics, however, is written in prose format. 
-besides, no formal proof about the validity of common program transformations under such a semantics is even thought about.
-There are just suggestions for programmers in this respect, which are example driven.
-To add, this model also described semantics for mixed-size accesses, something which is quite recent and not precisely defined for standard memory models. 
+Recently, ECMAScript, the standard for all such web-scripting languages defined their own memory consistency model\cite{ECMA}.
+Its semantics, however, is written in prose format, thus making it difficult to correctly utilize such accesses in programs such as that of JavaScript. 
+Besides, no formal proof about the validity of common program transformations under such a semantics is given.
+There are just suggestions/guidelines for programmers in this respect, but they are example driven.
+In addition, this model also attempts to describe semantics for mixed-size accesses, something which is quite recent and not precisely defined for even standard memory models. 
 
 Our focus, therefore, in this thesis is to first offer a clarified, more concise rendition of the core ECMAScript memory model that allows for better abstract reasoning over allowed and disallowed behaviors (outcomes). 
-We use our model to provide an intuitive, conservative proof of when reordering and elimination of instructions is permitted, addressing optimization in terms of its impact on observable program behaviors. 
-We use this insight to prove validity of a subset of \textit{loop-invariant code-motion}. 
+We use our model to provide an intuitive, conservative proof of basic operations core to program optimizations such as reordering and elimination of instructions is permitted, addressing optimization in terms of its impact on observable program behaviors. 
+We use this insight to prove validity of a subset of \textit{loop-invariant code-motion}\cite{Muchnick}. 
 
 We do the above by first giving a \textit{Declarative} (commonly known as Axiomatic) specification of the ECMAScript memory model. 
 This model is described using \textit{partial-orders} among events that constitute a program.
