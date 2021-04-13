@@ -61,6 +61,7 @@
     
     Figure~\ref{lemma:first} summarizes the intuition behind the proof.
     It showcases the direct happens-before relations that can come to $d$. 
+    Note that in the second case (left), a direct relation can also go to some sequentially consistent read $t$ not belonging to the same agent as $d$.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.7]{4.InstructionReordering/3.Lemmas/Lemma1.pdf}
@@ -135,6 +136,7 @@
      
     Figure~\ref{lemma:second} summarizes the intuition behind both cases: 
     It showcases the direct happens-before relations that can come to $e$.  
+    Note that in the second case (left), a direct relation can also come from some sequentially consistent write $t$ not belonging to the same agent as $e$.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.7]{4.InstructionReordering/3.Lemmas/Lemma2.pdf}

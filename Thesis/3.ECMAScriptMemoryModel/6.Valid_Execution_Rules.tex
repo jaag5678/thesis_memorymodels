@@ -71,7 +71,7 @@
                       (\neg \ \reln{e}{rf}{d})).
             \end{align*}
                     
-            Figure~\ref{model:tear_free_reads(1)} shows the pattern that is disallowed among all tear-free events. 
+            Figure~\ref{model:tear_free_reads} shows the pattern that is disallowed among all tear-free events. 
             \begin{figure}[H]
                 \centering
                 \includegraphics[scale=0.7]{3.ECMAScriptMemoryModel/TearFreeReads.pdf}
@@ -79,7 +79,7 @@
                 \label{model:tear_free_reads}
             \end{figure}
 
-            \footnotetext{A tear-free event cannot be separated into multiple small events that do the same operation. However, considering different hardware architectures, the notion of tear-free need not necessarily mean this. (eg: A 64bit tear-free write to be done in a 32-bit system). We need a shared memory access to appear ``tear-free'', whenever it is declared to be so, irrespective of what hardware the program is run on.}    
+            \footnotetext{A tear-free event cannot be separated into multiple small events that do the same operation. However, considering different hardware architectures, the notion of tear-free need not necessarily mean this (eg: A 64bit tear-free write to be done in a 32-bit system). We need a shared memory access to appear ``tear-free'', whenever it is declared to be so, irrespective of what hardware the program is run on.}    
         \end{axiom}
 
         \begin{axiom}{Sequentially Consistent Atomics}

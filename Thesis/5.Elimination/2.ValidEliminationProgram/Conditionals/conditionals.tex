@@ -1,7 +1,7 @@
 \subsection{Addressing Programs with Conditionals}
     
     Elimination under conditionals can be tricky. 
-    For instance, while performing write elimination at the candidate level, we require a write to be agent ordered ahead of it with no intervening read in between (aas stated by the Theorem \ref{WriteElim} and Corollary \ref{CorolWriteElim}).
+    For instance, while performing write elimination at the candidate level, we require a write to be agent ordered ahead of it with no intervening read in between (as stated by the Theorem \ref{WriteElim} and Corollary \ref{CorolWriteElim}).
     In the case of conditionals, the resultant candidates may or may not have such a write depending on whether the conditional is satisfied. 
     While performing read elimination, the read itself can be the conditional check, which then brings the question of why this read would be eliminated by the compiler.
     Note again that we do not assume anything about the optimization being done by the compiler. 

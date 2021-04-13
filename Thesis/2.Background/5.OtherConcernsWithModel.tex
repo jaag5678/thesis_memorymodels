@@ -1,26 +1,28 @@
 \section{Other Concerns}
 
-    Up to date, memory consistency models are still lacking a very user-friendly specification for use by many programmers. 
+    To date, memory consistency models are still lacking a very user-friendly specification for use by many programmers. 
     In addition to this, we also showed that related work existed exposing limitations in many models with respect to basic program transformations.
     
     \paragraph{Compilation}
-    There is also the big concern of compilation; whether the compilation(code-gen phase mainly) from source and target with different memory models is correct? This question is quite open-ended given a varying class of memory models that exist. 
-    While we did not do literature review in this direction particularly, works done by Lahav et al.~\cite{Lahav} and Watt et al.~\cite{WattC} on the C11 and JavaScript memory model respectively exposed incorrect compilation done due to which the program exhibited unintended behaviors on execution in particular hardwares (POWER and ARM respectively). 
+    There is also the big concern of compilation; whether the compilation (code-gen phase mainly) from source and target with different memory models is correct? 
+    This question is quite open-ended given a varying class of memory models that exist. 
+    While this direction goes beyond the scope of the thesis, works done by Lahav et al.~\cite{Lahav} and Watt et al.~\cite{WattC} on the C11 and JavaScript memory model respectively exposed incorrect compilation done due to which the program exhibited unintended behaviors on execution in particular hardwares (POWER and ARM respectively). 
     The interested reader can refer to Podkopaev et al.~\cite{Anton} to explore further in this direction.
     
     \paragraph{Verification/Model-Checking}
-    While the focus of this thesis is not on Formal Verification, there certainly does exist several research works in verifying weak memory programs. The main concern is that because of weak memory accesses, a program has even more several outcomes (which increase more exponentially compared to concurrent programs performing operations on shared memory only in \textit{critical sections}.) 
+    While the focus of this thesis is not on Formal Verification, there certainly does exist several research works in verifying weak memory programs. 
+    The main concern is that because of weak memory accesses, a program has even more outcomes (which increase more exponentially compared to concurrent programs performing operations on shared memory only in \textit{critical sections}.) 
     One of the well known methods in this decade for verifying concurrent programs is using \textit{Stateless Model Checking}. 
     There are two works in this explored during literature review that are exemplary of the use of Stateless Model Checking in weak memory programs.
     Michalis et al.~\cite{Michalis1} provided a model checker named RCMC for performing effective model checking of relaxed memory programs in C11. 
     Michalis et al.~\cite{Michalis2} provided a model checker named GenMC for performing effective model checking parametric to relaxed memory models. 
     
     \paragraph{Out-of-Thin-Air }
-    A few well known memory models face the concern which is notoriously known as \textit{out-of-thin-air}; a program can give an outcome that is not supposed to have existed in any observable behaviors as per the semantics. %PErhaps give an example here 
+    A few well known memory models face the concern which is notoriously known as \textit{out-of-thin-air}; a program can give an outcome that should not have existed in any observable behaviors as per the semantics. %PErhaps give an example here 
     Such behaviors have been shown to be in programs that exhibit \textit{data-races} in their executions.
     The C11 memory model \cite{C11MM} escapes from addressing it by stating that any program with \textit{data-races} has undefined behavior.
     Java on the other hand, relies on a complicated semantics to guarantee that no \textit{out-of-thin-air} values can exist in programs with \textit{data-races}. This to date is still very complicated and subtle to understand in order to use it properly in programs. 
-    While one may conclude that \textit{out-of-thin-air} is a bad property that must be avoided at all costs, Verbrugge et al.~\cite{Verbrugge} shows that disallowing them also disallows quite a few compiler optimizations.
+    While one may conclude that \textit{out-of-thin-air} is a bad property that must be avoided at all costs, Verbrugge et al.~\cite{Verbrugge} shows that disallowing them also disallows quite a few potential compiler optimizations.
 
     \paragraph{Custom Memory Models}
     We also explored certain research works that came up with their own memory model in order to simplify/solve the problems above. 

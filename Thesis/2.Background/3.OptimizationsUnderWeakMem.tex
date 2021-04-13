@@ -4,17 +4,17 @@
     Several compiler optimizations, coupled with run-time optimizations by hardware play a big role in the end performance of programs.
     For sequential programs, a lot of well-established ideas exist to enhance the performance of programs, but they do not map well to that of concurrent programs. 
     A large class of optimizations are unsound under concurrent programs employing a memory model such as SC.
-    With the introduction of constraints on relaxed memory accesses, quite a few critical program transformations responsible for huge performance gains became possible, but were hard to prove it valid in general. 
+    With the introduction of constraints on relaxed memory accesses, quite a few critical program transformations responsible for huge performance gains became possible, but were hard to prove valid in general. 
 
-    %New IR. 
-    This situation necessitates for a fundamental change in how we employ data-flow analysis to optimize programs in a concurrent context. Naumovich et al.~\cite{NaumovichA} proposed one such analysis which is today commonly known as May-Happen-In-Parallel analysis. 
+    \paragraph{A change in data-flow} 
+    This situation necessitates a fundamental change in how we employ data-flow analysis to optimize programs in a concurrent context. Naumovich et al.~\cite{NaumovichA} proposed one such analysis which is today commonly known as May-Happen-In-Parallel analysis. 
     Midkiff et al.~\cite{Midkiff} proposed a unified compiler for several memory models, wherein they proposed a new Concurrent Control Flow graph with new edges to perform powerful transformations such as Common Sub-Expression Elimination. 
-    These models however, required more of a whole-program-analysis to even do basic local program transformations. 
-    The data flow graph as the number of threads increase will be infeasible to be implemented and used in common practice. 
-   
+    These models however, required more of a whole-program-analysis to even do basic local program transformations, which is quite expensive to implement and suffers from imprecision due to the large number of control flow paths implied in a large program. 
+
     For data-flow analysis, a recent work by Alglave et al.~\cite{Alglave2} show that non-relational data-flow analysis are sound under a category of relaxed memory models. 
-    But code transformations are themselves not yet investigated with each one in its own respect, which entail a number of data-flow information and code motions.
+    But code transformations are themselves not yet investigated with each one in its own respect, which entail a number of data-flow analyses and particular for code motion.
     
+    \paragraph{An Alternative: Go to base!}
     Another way to go about this is to go one step below and observe the transformations in terms of more basic code transformations such as instruction reordering, elimination and introduction.   
     We start by showing how using counterexamples one can show basic transformations are invalidated under SC.
 
@@ -25,7 +25,7 @@
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.7]{2.Background/SC_Reordering(a).pdf}
-        \caption{Program where reordering of independent reads seems possible with its allowed(green box) and disallowed(red box) outcomes in SC.}
+        \caption{Program where reordering of independent reads seems possible with its allowed (green box) and disallowed (red box) outcomes in SC.}
         \label{intro:Example2(a)}
     \end{figure}
 
@@ -43,7 +43,7 @@
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.7]{2.Background/SC_Example2(a).pdf}
-        \caption{Program with a redundant write to $y$ with its allowed(green box) and disallowed(red box) outcomes under SC.}
+        \caption{Program with a redundant write to $y$ with its allowed (green box) and disallowed (red box) outcomes under SC.}
         \label{intro:Example3(a)}
     \end{figure}
 
@@ -60,12 +60,13 @@
 
     The above examples show that even simple transformations can be unsound under SC. Complex program transformations such as register allocation, common-sub-expression-elimination, loop-invariant code-motion are some examples which use the above two basic transformations heavily. 
     Having them unsound under SC also implies the compiler is not allowed to do a variety of optimizations without breaking the consistency rules under which the concurrent program is supposed to behave/execute. 
-    In addition, hardware at that time had come up with several features as mentioned above, which in principle could be used effectively for performance, but were not so useful for programs respecting SC semantics. 
+    In addition, hardware had come up with several features as mentioned above, which in principle could be used effectively for performance, but were not so useful for programs respecting SC semantics. 
     In order to effectively critique a model in terms of program transformations, it is quite impractical to come up with exhaustive examples of program to justify their validity.
     A proof in this sense would be required.  
 
     %Java
-    \u{S}ev\u{c}\'{i}k et al.~\cite{SevcikJ} showed that standard compiler optimizations were rendered invalid under the respective memory model of Java. Simple transformations such read-after-write elimination or redundant read introduction which play a role in major performance based transformations such as common-sub-expression eliminations were unsound. 
+    \u{S}ev\u{c}\'{i}k et al.~\cite{SevcikJ} showed that standard compiler optimizations were rendered invalid under the memory model of Java. 
+    Simple transformations such read-after-write elimination or redundant read introduction which play a major role in performance based transformations such as common-sub-expression eliminations were unsound. 
     %C11
     Morisset et al.~\cite{Morisset} showed the soundness of optimizations with non-atomic memory accesses in the C11 memory model. 
     Vafeiadis et al.~\cite{VafeiadisV} showed that common compiler optimizations (including those with atomic memory accesses) under C11 memory model were invalid, followed by proposing some changes to allow them. 

@@ -3,7 +3,6 @@
         Addressing reordering of events in programs with loops is relatively straightforward, leaving one special case. 
         For simplicity (and also without loss of generality), let us consider our program to have only one loop.
      
-
         There will be one Candidate for each possible count of loop iteration. 
         For convenience, let us define $C^i$ to be a candidate of program with $i$ iterations of the same loop. 
         Let us also define $e^i$ to be an event within the loop of the program which in a candidate signifies the $i^{th}$ iteration of the corresponding statement. 
@@ -41,7 +40,7 @@
 
             What is not so obvious is the case when events are reordered out of the loop. 
             One might wonder why reordering statements outside a loop is important. 
-            One example of its use is in that of loop-invariant-code-motion\cite{Muchnick}, wherein the compiler removes computations/accesses that do not change in different iterations of the loop. 
+            One example of its use is in that of loop-invariant-code-motion \cite{Muchnick}, wherein the compiler removes computations/accesses that do not change in different iterations of the loop. 
             While the notion of `change' is subjective in a concurrent context, as we can have several outcomes for a single program, the safety of such a transformation once again reduces to proving whether the set of observable behaviors remain a subset. 
              
             The problem is that we cannot use parent program's Candidate to generate resultant Candidate of the transformed program. 

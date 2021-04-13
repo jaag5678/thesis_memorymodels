@@ -16,7 +16,7 @@
 
     We analyze each of the above case one by one by first considering the original relation ($\reln{e}{hb}{d}$) and the reordered one ($\reln{d}{hb}{e}$). 
     \begin{itemize}
-        \item (1) and (2) do not fit any pattern of our Axioms, hence even after reordering the agent order between them does not match any other axiom. Hence this relation does not introduce any new observable behavior. This is irrespective of the range($\Re$) between the two read events.
+        \item (1) and (2) do not fit any pattern of our Axioms, hence even after reordering the agent order between them does not match any other axiom. Hence this relation does not introduce any new observable behavior. This is irrespective of the range ($\Re$) between the two read events.
         \item (3) fits in the pattern of Axiom \ref{CoRe}, when they have at least overlapping ranges. Before reordering, $d$ is not allowed to read from $e$, but after reordering, it can. Hence this relation can introduce observable behavior if the range between events $e$ and $d$ is overlapping or equal. 
         \item (4), (5) and (6) can fit in the pattern of Axioms \ref{CoRe} and \ref{SeqCsAt}, if $e$ and $d$ have overlapping/equal ranges, preventing $d$ from reading parts of $e$ or some parts of another write $k$ due to $e$ being the intervening write. But after reordering, $d$ is allowed to read parts of $k$, which introduces new observable behaviors.
         \item (7) and (8) can fit in the pattern of Axioms \ref{CoRe} and \ref{SeqCsAt}, if they have overlapping/equal ranges. Before reordering, the agent order between $e$ and $d$ could prevent some read $k$ from reading parts of $e$. This is not the case after reordering, thus possibly introducing a new observable behavior. 

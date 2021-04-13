@@ -20,7 +20,7 @@ However, there are some concerns with it:
         \item A read's value cannot come from a write that has happened after it. 
         \item A read's value cannot come from a write that has been overwritten by some other write.  
     \end{itemize}
-    Axiomatically, we define the above two constraints using binary relations that we derive(also in some sense, take directly) from the specification in Section 2 of this chapter. 
+    Axiomatically, we define the above two constraints using binary relations that we derive (also in some sense, take directly) from the specification in Section 2 of this chapter. 
     
 \paragraph{Certain Unnecessary Definitions}
     Certain abstract operations are not required to capture the semantics of the model. 
@@ -34,7 +34,7 @@ However, there are some concerns with it:
     Figure~\ref{model:Std2} is the definition of an abstract operation. 
     Understanding this operation would require the meaning of the terms \textit{ModifyOp, Payload, Ws} and \textit{ByteIndex}. 
     In its essence, this operation determines the read-values read by a single event by collecting the values from their corresponding writes. 
-    We noticed that one need not know this operation nor understand its function as it does not play a role in the semantics of the model. 
+    We noticed that one need not know this operation nor understand its function as it is not necessary in the axiomatic semantics of the model. 
     Other such abstract operations which may not be essential are \textit{ValueOfReadEvent} and \textit{ValidChosenReads}\cite{ECMA}. 
 
 \paragraph{Still a bit verbose}
@@ -50,7 +50,7 @@ However, there are some concerns with it:
     The definition in Figure~\ref{model:Std3}, is not concise enough to reason about it mathematically. 
     In addition, the part after Note1 in Figure~\ref{model:Std3} is not a semantic specification, rather a programming guideline while using 
     atomic memory accesses. 
-    We reduce the above entire axiom into three main patterns using binary relations.
+    We will reduce the above entire axiom into three main patterns using binary relations.
 
 Given the above concerns about the specification in the standard, we found the need to have a concise formal description of the model. 
 In the following sections, we define what agents and events are, followed by several binary relations among different events.

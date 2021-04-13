@@ -13,7 +13,9 @@
             There exists a candidate of the program such that events from the branch cannot be part of it\footnotemark. 
         \end{property}
 
-        The above property is general for conditionals, whether its an ``if-then"(1-branch) clause or ``if-then-else"(2-branch) clause. 
+        \footnotetext{While the property for 1 branch may not always hold (it can be the case that the branch is always taken in any execution) we are defining it for any program. So we assume that every conditional can either be true or false in a program, not just one of them.}
+
+        The above property is general for conditionals, whether it is an ``if-then" (1-branch) clause or ``if-then-else" (2-branch) clause. 
         The latter however, has another property which we define below:
         \begin{property}{Candidates of Programs with Conditionals (2-branch)}
             \label{CondB2}
@@ -36,7 +38,6 @@
             \label{reord:conditionals}
         \end{figure}
 
-        \footnotetext{While the property for 1 branch may not always hold (it can be the case that the branch is always taken in any execution) we are defining it for any program.}
 
         We use the above two properties to state the following lemma 
         \begin{lemma}
@@ -61,8 +62,10 @@
                 ( \forall C_{i \in [1,n]}, \forall k \in C_i \ \text{s.t.} \ \reln{e}{ao}{k} \wedge \reln{k}{ao}{d}, \    
                 Reord(e,k) \wedge Reord(k,d) ). \\
                 \nexists C \ s.t. \ 
-                    (e \in C \ \wedge \ d \notin C) \ \vee \ 
-                    (e \notin C \ \wedge \ d \in C). 
+                    (
+                        (e \in C \ \wedge \ d \notin C) \ \vee \ 
+                        (e \notin C \ \wedge \ d \in C)
+                    ). 
             \end{gather*}
             then the set of observable behaviors of $P'$ is a subset of that of $P$. 
         \end{corollary}
@@ -74,13 +77,15 @@
             Then we would have
             \begin{align*}
                 \exists C \in P \ s.t. \ 
-                (e \in C \ \wedge \ d \notin C) \ \vee \ 
-                (e \notin C \ \wedge \ d \in C).
+                (
+                    (e \in C \ \wedge \ d \notin C) \ \vee \ 
+                    (e \notin C \ \wedge \ d \in C)
+                ).
             \end{align*}
             
             By Property \ref{CondB1}, $e$ or $d$ must belong to a conditional branch. 
             If $e$ and $d$ are in different branches of same conditional, then by Property \ref{CondB2} there wouldn't exist any candidate $C$ in $P$ where we could reorder $e$ and $d$. 
-            If $e$ and $d$ are of the same conditional branch, and neither one of them belong in any conditional branch nested within, then our above assumption does not hold. (simple sequential property of conditional branches)
+            If $e$ and $d$ are of the same conditional branch, and neither one of them belong in any conditional branch nested within, then our above assumption does not hold (simple sequential property of conditional branches).
             
             For the other cases, without loss of generality, let us suppose the first condition holds, i.e. 
             \begin{align*}

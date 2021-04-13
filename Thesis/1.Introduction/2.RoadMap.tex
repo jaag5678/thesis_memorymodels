@@ -1,6 +1,6 @@
 Specific contributions of our work include the following:
 \begin{itemize}
-    \item We provide a concise \textit{declarative(axiomatic) style} model of the core ECMAScript memory consistency semantics. This clarifies the existing draft presentation~\cite{ECMA} in a manner useful for validating optimizations.
+    \item We provide a concise \textit{declarative (axiomatic) style} model of the core ECMAScript memory consistency semantics. This clarifies the existing draft presentation~\cite{ECMA} in a manner useful for validating optimizations.
     \item We show when basic reordering of independent instructions is allowed. We extend this to reordering in the presence of conditionals and loops in programs.
     \item Similar proof designs are used to validate other basic optimization behaviors such as removing redundant reads or writes. Further extending it to elimination in the presence of conditionals and loops. 
     \item We show how our above two results help us argue about the validity of certain transformations relevant to optimizations such as loop invariant code motion. 
@@ -12,5 +12,5 @@ This thesis includes 5 more chapters, which organize the above contributions as 
     \item Chapter 3 give the formal \textit{declarative style} semantics of the ECMAScript memory model.
     \item Chapter 4 dives into \textit{instruction reordering}, with a formulation of relevant \textit{lemmas, theorems and corollaries} (with appropriate proofs) that show when reordering is valid.
     \item Chapter 5 does the same as the previous chapter for \textit{instruction elimination}. This chapter also gives proof for validity of reordering accesses outside loop bodies. 
-    \item Chapter 6 concludes by eliciting the \textit{limitations} of our approach, our \textit{critique of the model} and further steps that can be taken to address important pending problems in this domain(future work).
+    \item Chapter 6 concludes by eliciting the \textit{limitations} of our approach, our \textit{critique of the model} and further steps that can be taken to address important pending problems in this domain (future work).
 \end{itemize}

@@ -1,11 +1,11 @@
 %Start by an intuitive explanation of memory models. What it means for us and why was it introduced.
 \section{Memory Consistency Models}
 
-    In its essence, Concurrent programs take advantage of \textit{out-of-order} execution. 
+    In its essence, concurrent programs take advantage of \textit{out-of-order} execution. 
     Intuitively, this means that more than one unrelated computation can be done ``simultaneously'' without having any fixed order in which they should happen.
-    This results in concurrent programs having multiple different outcomes, the possible of which are described by a \textit{memory consistency model}. 
+    This results in concurrent programs having multiple different outcomes, the possibility of which are described by a \textit{memory consistency model}. 
     
-    \textit{Sequential Consistency}(SC), which was first formulated by Lamport et al.~\cite{Lamport79}, gives programmers a very intuitive way to reason about their programs running in a multiprocessor environment, with or without the use of critical sections.
+    \textit{Sequential Consistency} (SC), which was first formulated by Lamport et al.~\cite{Lamport79}, gives programmers a very intuitive way to reason about their programs running in a multiprocessor environment, with or without the use of critical sections.
     SC guarantees that every outcome of a program must be equivalent to a \textit{sequential interleaving} of each thread's individual actions. 
     For example, consider the program in Figure~\ref{intro:Example} with two threads, which share memory denoted by $x$, $y$ initialized to 0, where $a$, $b$ are local variables. 
     The green box represents the possible values that $a$ and $b$ can read under sequential consistency rules.
@@ -23,35 +23,36 @@
     Hence, if now the read to $y$ occurs, it cannot be $0$. The case is similar for when $b=0$. 
     
     Such sequential reasoning though easy to understand and follow while writing concurrent programs, may not be that advantageous from a performance perspective.
-    From a program transformation perspective, \textit{Sequential Consistency} was also too ``strict'', in the sense that it may impede possible performance benefits of using low level optimization features, such as instruction reordering, redundancy elimination, introduction(a consequence due to optimizations such as \textit{register allocation, partial expression elimination, etc.}) done by the hardware or the compiler.
+    From a program transformation perspective, \textit{Sequential Consistency} was also too ``strict'', in the sense that it may impede possible performance benefits of using low level optimization features, such as instruction reordering, redundancy elimination, redundant introduction (a consequence due to optimizations such as \textit{register allocation, partial expression elimination, etc.}) done by the hardware or the compiler.
     A tutorial by Adve et al.~\cite{AdveG}, summarizes the most common hardware features for relaxed memory that are now available in most hardware. 
     What this tutorial also exposed is the difficulty in formalizing such features in a way that we can reason about our programs sanely without getting caught up in several executions of our programs. 
     Hardware features relax the sequential reasoning in programs, and hence models describing their semantics come to be known as relaxed memory models.
-    Surprisingly, quite a few relaxed memory model specifications of different hardware/high level programming languages are written in informal prose format, which lead to a number of problems in implementation as mentioned in Sewell et al.~\cite{Sewell}. 
+    Surprisingly, quite a few relaxed memory model specifications of different hardware/high-level programming languages are written in informal prose format, which lead to a number of problems in implementation, as mentioned in Sewell et al.~\cite{Sewell}. 
     A position paper by Nardelli et al.~\cite{Nardelli} summarizes these problems well.
     A lot of academic research revolves around addressing such problems, the bulk of which are centered around the memory models of Intel's x86, C11 and Java.  
     
     \paragraph{x86}
-    Intel's white paper on their earlier versions of the memory model for x86 was described in their white paper\cite{IntelW}.   
-    Sarkar et al.~\cite{SarkarS} showed that the then x86 model was fairly informal, which they formalize in their x86-CC memory model. 
+    Intel's white paper on their earlier versions of the memory model for x86 was described in their white paper \cite{IntelW}.   
+    Sarkar et al.~\cite{SarkarS} showed that the then x86 model was fairly informal, which they then formalize in their x86-CC memory model. 
     Owens et al.~\cite{OwensS} later showed that the x86-CC model did not reflect precisely what x86 hardware intended, followed by exposing more problems in the latest specification of the x86 model given in the white paper of Intel \cite{IntelW}. 
-    They then propose a new model, x86-TSO as a remedy to this. The series of work on this exposed repeated inconsistencies between the specification and the implementation in hardware. 
+    They then propose a new model, x86-TSO as a remedy to this. 
+    The series of work on this exposed repeated inconsistencies between the specification and the implementation in hardware. 
     
     While memory consistency models were initially only concerning hardware languages, as the years went by, as the user level threading libraries started to come up, the need to have threads and its concurrent semantics as part of the high level language became apparent.
-    From the relaxed memory consistency perspective, this was not an easy process; several changes and edits are still made to memory models of Java and C11 to date, bulk of which addressed concerns about informal/ill-defined specifications that made the model too vague for programmers to rely on. 
+    From the relaxed memory consistency perspective, this was not an easy process; several changes and edits are still made to memory models of Java and C11 to date, the bulk of which addressed concerns about informal/ill-defined specifications that made the model too vague for programmers to rely on. 
     
     \paragraph{Java}
     Pugh et al.~\cite{Pugh} showed the complexity of the initial versions of Java memory model, showing with seemingly simplistic examples that even those involved in its inception were not sure about its specification. 
     Later, Manson et al.~\cite{JeremyM} also exposed many limitations and under-specified semantics within the model, for which they proposed a new model with concise semantics. 
-    Manson et al.~\cite{Manson2} also concisely described the later version of the model, which had complex semantics to have \textit{out-of-thin-air} guarantees for programs with \textit{data-races}(these concepts will later be discussed in the last section of this chapter). 
+    Manson et al.~\cite{Manson2} also concisely described the later version of the model, which had complex semantics to have \textit{out-of-thin-air} guarantees for programs with \textit{data-races} (these concepts will later be discussed in the last section of this chapter). 
     Recent works such as that done by Bender et al.~\cite{BenderJ}, also showed us that the recent updates to the Java Memory model are still relatively unclear, which they again formalize. 
     
     \paragraph{C++/C11}
     Boehm et al.~\cite{Boehm} exposed that the earlier version of C++ concurrency semantics was unsound, followed by proposing a new semantics for the same.
     Vafeiadis et al.~\cite{Vafeiadis2} summarized the open problems and verification results in the C11 memory model. Some of these problems have been addressed, while some still remain open to date. 
-    Batty et al.~\cite{BattyM} exposed the lack of clear specifications of the C11 memory model, giving a clarified, mathematical specification of the model. This work really helped change the standard specification format of C11 memory model which is found today\cite{C11MM}. 
+    Batty et al.~\cite{BattyM} exposed the lack of clear specifications of the C11 memory model, giving a clarified, mathematical specification of the model. This work really helped change the standard specification format of C11 memory model which is found today \cite{C11MM}. 
     Nienhuis et al.~\cite{Nienhuis} gave an operational semantics of the then C11 memory model, exposing certain limitations in terms of execution of such concurrent programs. They discovered that one cannot build an equivalent operational model to respect sequentially consistent and synchronization order (defined by the C11 memory model).
-    Lahav et al.~\cite{Lahav} demonstrated that the current compilation scheme of C11 concurrent programs to POWER unsound, and proposed fixes to the model, which they call $RC11$.
+    Lahav et al.~\cite{Lahav} demonstrated that the current compilation scheme of C11 concurrent programs to the POWER architecture unsound, and proposed fixes to the model, which they call $RC11$.
     
     \paragraph{Mixed-size models}
     The above memory models were all based on the assumption that memory accesses are of equal sizes. 
@@ -61,8 +62,8 @@
     Flur et al.~\cite{Flur} investigated mixed-size behaviors in Arm and POWER architectures, also exposing new problems to address in the semantics such as ordering between mixed size events in an execution. 
     They also extend the current C11 memory model with some mixed-size semantics.
     ECMAScript, being a relatively simpler mixed-size model has also had some attention in this respect. 
-    Watt et al~\cite{WattC} uncovered and fixed a deficiency in the previous version of the model, repairing the model to guarantee SC-DRF(again, defined in the last section of this chapter).
+    Watt et al~\cite{WattC} uncovered and fixed a deficiency in the previous version of the model, repairing the model to guarantee SC-DRF  (again, defined in the last section of this chapter).
     Our analysis is based on this corrected model which is incorporated in the ECMAScript draft specification. 
-    As far as our knowledge goes, no analysis has been done on this model to identify its implications on standard compiler optimizations. 
+    As far as our knowledge goes, no analysis has been done on this model to identify its implications for standard compiler optimizations. 
 
 
