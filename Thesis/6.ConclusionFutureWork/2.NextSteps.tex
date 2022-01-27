@@ -28,3 +28,8 @@
         Using it, we can analyze reordering of events across loops. 
         This will also give an interesting equivalence to instruction reordering. 
         Other program transformations we find important to consider are strengthening/ weakening access modes (fence optimizations), gathering optimization (merging small size accesses), changing tearing factor of accesses. 
+
+    \paragraph{Proof Mechanization}
+        The proofs that we have constructed in this thesis are by hand, thus making it susceptible to errors.
+        Another important step to increase confidence in our proofs is to mechanize them using a proof assistant.
+        This would help identify possible errors (if any) in our reasoning, as well as enable us to handle more complex transformations while being guided by the proof assistant. 
